@@ -38,7 +38,7 @@ Github:
   url: https://github.com/tumytime
 
 # 网站logo
-logo: /medias/logo.jpg # 为空则不显示
+logo: /images/logo.jpg # 为空则不显示
 
 # 网站 favicon
 favicon: /favicon.ico # or .png .jpg .svg .gif .jpeg .ico
@@ -255,7 +255,7 @@ sharejs:
 # 鼠标点击特效
 cursor_effect:
   on: true
-  type: fireworks  # fireworks: 礼花 | explosion: 爆炸 | love: 浮出爱心 | text: 浮出文字
+  type: explosion  # fireworks: 礼花 | explosion: 爆炸 | love: 浮出爱心 | text: 浮出文字
 
 # 头部导航是否显示天气
 weather:
@@ -286,7 +286,7 @@ ribbon:
 # live-2d(左下角动画人物)
 live2d:
   on: true # 控制显示或者隐藏
-  modelId:  # 0 or 1 or 2 or 3 or 4 or 5 or 6
+  modelId: 0 # 0 or 1 or 2 or 3 or 4 or 5 or 6
   open: true # 默认展开，false则收缩，通过点左下角的方块点击，控制展开或者收缩
 
 # 首页雪花飘落效果--冬天
@@ -568,7 +568,7 @@ color_scheme:
   # 通用颜色
   common:
     # 主题色
-    theme: 'rgba(0, 0, 255, 0.8)'
+    theme: 'rgba(268, 264, 269, 0.8)'
     # 主题色块内部的文字颜色
     inner: '#fff'
     # 链接色 a标签
@@ -576,7 +576,7 @@ color_scheme:
     # 首页文章列表的背景颜色, url("http://xxx.png") or red or #000 or rgba() ..
     postListBackground: 'rgba(255,255,255,1)'
     # 首页页面的底部背景颜色，空字符串透明('transparent')，可以是白色('#fff')等颜色, 也可以是图片，例如  'url("https://img11.360buyimg.com/ddimg/jfs/t1/169624/29/16/4603017/5fec2c79Eecbd536a/308b28b82a013cd2.png")'
-    bgFloor: 'url("https://pic2.zhimg.com/80/v2-a90e3e9f544549e244355039b96bd606_1440w.jpg")' # 如果是图片地址，url里面请用双引号
+    bgFloor: "/img/water2.jpg" # 如果是图片地址，url里面请用双引号
     headerMenuBackgroundColor: '' 
     # headerMenuBackgroundColor:头部导航背景颜色, 为空则使用theme主题色, 
     # headerMenuBackgroundColor写法: rgba(268, 264, 269, 0.8) or #42b983 or red or 也可以是渐变颜色 linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)  or 也可以是url("图片地址")
@@ -601,7 +601,7 @@ color_scheme:
     ## 单独的文章里配置，则这bgImg，bgImgDelay，bgImgTransition三个属性优先使用单独的文章里配置的
   footer:
     # 为空则使用 theme主题色，写法: rgba(268, 264, 269, 0.8) or #42b983 or red or 也可以是渐变颜色 linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%) or 也可以是url("图片地址")
-    background: 'linear-gradient(180deg, #6495ED 0%, #FF00FF 100%)' 
+    background: 'rgba(66, 185, 133, 0.8)' 
     # 页脚里面的a标签鼠标移入时候的颜色 red or #000 or other color
     aHover: 'orangered' 
     # fish --> 表示页脚游动的鱼儿特效, 鱼儿颜色值使用的是footer.background, 只支持rgba(66, 185, 133, 0.8) 或者 #42b983 或者 red 这三种颜色格式的写法，是格式。
