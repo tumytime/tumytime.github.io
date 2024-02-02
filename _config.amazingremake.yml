@@ -63,7 +63,7 @@ head:
   structured_data:
     # Page title (optional)
     # You should leave this blank for most of the time
-    title: Hello！Welcome to Tumy-Time！
+    title: Hello！Welcome to Tumy-Time
     # Page description (optional)
     # You should leave this blank for most of the time
     description: 
