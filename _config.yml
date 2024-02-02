@@ -96,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: hexo-theme-bamboo
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -105,3 +105,6 @@ deploy:
   repository: git@github.com:tumytime/tumytime.github.io.git
   branch: main
 
+search:
+  path: search.json
+  field: post
