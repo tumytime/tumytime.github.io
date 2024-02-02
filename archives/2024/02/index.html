@@ -20,7 +20,7 @@
   
   
     <script>
-        var themeModelId = '6';
+        var themeModelId = '0';
         if (themeModelId) {
             localStorage.setItem('modelId', themeModelId);
         }
@@ -1390,7 +1390,9 @@
 <!-- 爱心点击 -->
 
   
-    <script src="/js/cursor/fireworks.js"></script>
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 999; pointer-events: none;" ></canvas>
+    <script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script src="/js/cursor/explosion.min.js"></script>
   
 
 
