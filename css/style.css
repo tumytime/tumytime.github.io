@@ -134,7 +134,7 @@ textarea,
   color: rgba(0,204,255,0.8) !important;
 }
 a {
-  color: rgba(135,206,250,0.8);
+  color: #42b983;
   text-decoration: none;
 }
 [v-cloak] {
@@ -178,7 +178,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   color: #fff;
 }
 .bg-floor {
-  background: url("https://pic1.zhimg.com/v2-7b581d343899a5257fa1b9a55aabb0a0_b.jpg");
+  background: url("https://img11.360buyimg.com/ddimg/jfs/t1/169624/29/16/4603017/5fec2c79Eecbd536a/308b28b82a013cd2.png");
   background-size: cover;
   transition: all 0.3s;
 }
@@ -830,7 +830,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
 .header-bg-color,
 .no-img-top,
 .no-swiper {
-  background: rgba(135,206,250,0.8);
+  background: ;
   transition: all 0.3s;
 }
 .header {
@@ -938,7 +938,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   padding: 15px 10px;
 }
 .header .header-content .navbar .menu .menu-item .sub-menu li {
-  background: rgba(135,206,250,0.8);
+  background: ;
   width: 140px;
   text-align: center;
   line-height: 1.2;
@@ -1076,7 +1076,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   height: 300px;
   display: flex;
   margin-bottom: 16px;
-  background: rgba(135,206,250,0.8);
+  background: #fff;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -1262,7 +1262,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
 }
 .post-detail-header .post-detail-header_info-box .post-detail-header_categories a:hover {
   text-decoration: underline;
-  color: rgba(135,206,250,0.8);
+  color: #42b983;
 }
 .post-detail-header .post-detail-header_wordcount {
   z-index: 2;
@@ -4377,7 +4377,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   color: rgba(0,204,255,0.8);
 }
 .post-detail a {
-  color: rgba(135,206,250,0.8) !important;
+  color: #42b983 !important;
 }
 .post-detail blockquote {
   border-left: 4px solid rgba(0,204,255,0.8);
