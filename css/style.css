@@ -4842,7 +4842,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
 .darkModel .widget.side_blogger .content .social-wrapper a:hover {
   background-color: rgba(201,209,217,0.2) !important;
 }
-.preloader_2 {
+.preloader_5 {
   position: fixed;
   z-index: 1000;
   width: 100vw;
@@ -4853,123 +4853,178 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   align-items: center;
   overflow: hidden;
 }
-.preloader_2#loader.loading {
+.preloader_5#loader.loading {
   display: none;
 }
-.preloader_2 .loader {
+.preloader_5 .cube {
   position: relative;
-  width: 120px;
-  height: 90px;
-  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg);
+  animation: animateD 8s linear infinite;
 }
-.preloader_2 .loader:before {
-  content: '';
+.preloader_5 .cube div {
   position: absolute;
-  bottom: 30px;
-  left: 50px;
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  background: rgba(0,204,255,0.8);
-  animation: loading-bounce 0.5s ease-in-out infinite alternate;
-}
-.preloader_2 .loader:after {
-  content: '';
-  position: absolute;
-  right: 0;
   top: 0;
-  height: 7px;
-  width: 45px;
-  border-radius: 4px;
-  box-shadow: 0 5px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 95px 0 #f2f2f2;
-  animation: loading-step 1s ease-in-out infinite;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
 }
-@-moz-keyframes loading-bounce {
+.preloader_5 .cube2 {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform-style: preserve-3d;
+  animation: animateD2 5s ease-out infinite alternate;
+}
+.preloader_5 .cube2 div {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 65%;
+  height: 65%;
+  transform-style: preserve-3d;
+}
+.preloader_5 .cube2 div span {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 65%;
+  height: 65%;
+  background: transparent;
+  border: 2px solid rgba(0,204,255,0.8);
+  transform: rotateY(calc(90deg * var(--i))) translateZ(62px);
+}
+.preloader_5 .cube3 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg);
+  animation: animateD3 1s ease-in-out infinite alternate;
+}
+.preloader_5 .cube3 div {
+  position: absolute;
+  top: 70px;
+  left: 70px;
+  width: 15%;
+  height: 15%;
+  transform-style: preserve-3d;
+}
+.preloader_5 .cube3 div span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,204,255,0.8);
+  transform: rotateY(calc(90deg * var(--i))) translateZ(14px);
+  box-shadow: 0px 0px 7px rgba(0,204,255,0.8);
+}
+.preloader_5 .top3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,204,255,0.8);
+  transform: rotateX(90deg) translateZ(14px);
+  box-shadow: 0px 0px 10px rgba(0,204,255,0.8);
+}
+@-moz-keyframes animateD {
   0% {
-    transform: scale(1, 0.7);
-  }
-  40% {
-    transform: scale(0.8, 1.2);
-  }
-  60% {
-    transform: scale(1, 1);
+    transform: rotateX(-15deg) rotateY(0deg);
   }
   100% {
-    bottom: 140px;
+    transform: rotateX(-15deg) rotateY(-360deg);
   }
 }
-@-webkit-keyframes loading-bounce {
+@-webkit-keyframes animateD {
   0% {
-    transform: scale(1, 0.7);
-  }
-  40% {
-    transform: scale(0.8, 1.2);
-  }
-  60% {
-    transform: scale(1, 1);
+    transform: rotateX(-15deg) rotateY(0deg);
   }
   100% {
-    bottom: 140px;
+    transform: rotateX(-15deg) rotateY(-360deg);
   }
 }
-@-o-keyframes loading-bounce {
+@-o-keyframes animateD {
   0% {
-    transform: scale(1, 0.7);
-  }
-  40% {
-    transform: scale(0.8, 1.2);
-  }
-  60% {
-    transform: scale(1, 1);
+    transform: rotateX(-15deg) rotateY(0deg);
   }
   100% {
-    bottom: 140px;
+    transform: rotateX(-15deg) rotateY(-360deg);
   }
 }
-@keyframes loading-bounce {
+@keyframes animateD {
   0% {
-    transform: scale(1, 0.7);
-  }
-  40% {
-    transform: scale(0.8, 1.2);
-  }
-  60% {
-    transform: scale(1, 1);
+    transform: rotateX(-15deg) rotateY(0deg);
   }
   100% {
-    bottom: 140px;
+    transform: rotateX(-15deg) rotateY(-360deg);
   }
 }
-@-moz-keyframes loading-step {
+@-moz-keyframes animateD2 {
   0% {
-    box-shadow: 0 10px 0 rgba(0,0,0,0), 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2;
+    transform: rotateX(0deg) rotateY(0deg);
   }
   100% {
-    box-shadow: 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2, -70px 90px 0 rgba(0,0,0,0);
+    transform: rotateX(180deg) rotateY(-360deg);
   }
 }
-@-webkit-keyframes loading-step {
+@-webkit-keyframes animateD2 {
   0% {
-    box-shadow: 0 10px 0 rgba(0,0,0,0), 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2;
+    transform: rotateX(0deg) rotateY(0deg);
   }
   100% {
-    box-shadow: 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2, -70px 90px 0 rgba(0,0,0,0);
+    transform: rotateX(180deg) rotateY(-360deg);
   }
 }
-@-o-keyframes loading-step {
+@-o-keyframes animateD2 {
   0% {
-    box-shadow: 0 10px 0 rgba(0,0,0,0), 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2;
+    transform: rotateX(0deg) rotateY(0deg);
   }
   100% {
-    box-shadow: 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2, -70px 90px 0 rgba(0,0,0,0);
+    transform: rotateX(180deg) rotateY(-360deg);
   }
 }
-@keyframes loading-step {
+@keyframes animateD2 {
   0% {
-    box-shadow: 0 10px 0 rgba(0,0,0,0), 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2;
+    transform: rotateX(0deg) rotateY(0deg);
   }
   100% {
-    box-shadow: 0 10px 0 #f2f2f2, -35px 50px 0 #f2f2f2, -70px 90px 0 #f2f2f2, -70px 90px 0 rgba(0,0,0,0);
+    transform: rotateX(180deg) rotateY(-360deg);
+  }
+}
+@-moz-keyframes animateD3 {
+  0% {
+    transform: rotateX(-90deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(90deg) rotateY(45deg);
+  }
+}
+@-webkit-keyframes animateD3 {
+  0% {
+    transform: rotateX(-90deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(90deg) rotateY(45deg);
+  }
+}
+@-o-keyframes animateD3 {
+  0% {
+    transform: rotateX(-90deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(90deg) rotateY(45deg);
+  }
+}
+@keyframes animateD3 {
+  0% {
+    transform: rotateX(-90deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(90deg) rotateY(45deg);
   }
 }
 .note {
