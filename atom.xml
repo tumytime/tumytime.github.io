@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2024-02-02T12:22:13.774Z</updated>
+  <updated>2024-02-04T10:19:06.617Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://tumytime.github.io/2024/02/04/test/"/>
+    <id>http://tumytime.github.io/2024/02/04/test/</id>
+    <published>2024-02-04T10:12:29.000Z</published>
+    <updated>2024-02-04T10:19:06.617Z</updated>
+    
+    <content type="html"><![CDATA[<details cyan open><summary pointer> 查看默认打开的折叠框 </summary>              <div class='content'>              <p>这是一个默认打开的折叠框。</p>              </div>            </details><span class='btn center large round solid'><a class="button" href='https://baidu.com' title='开始使用'><i class='fa fa-download'></i>开始使用</a></span><p>testestest</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sayHello</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">sayHello</span>();</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">测试</summary>
+    
+    
+    
+    <category term="前端" scheme="http://tumytime.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>我的第一篇文章</title>
