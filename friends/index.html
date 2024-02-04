@@ -671,53 +671,7 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="My-Website-Cards"><a href="#My-Website-Cards" class="headerlink" title="My Website Cards"></a>My Website Cards</h1>
-<div id="site-cards"></div>
-
-<script>
-    var jsonData = [
-        {
-            "name": "Site Card 1",
-            "url": "https://www.example1.com",
-            "description": "This is site card 1."
-        },
-        {
-            "name": "Site Card 2",
-            "url": "https://www.example2.com",
-            "description": "This is site card 2."
-        },
-        {
-            "name": "Site Card 3",
-            "url": "https://www.example3.com",
-            "description": "This is site card 3."
-        }
-    ];
-
-    var siteCardsContainer = document.getElementById("site-cards");
-
-    jsonData.forEach(function(site) {
-        var siteCard = document.createElement("div");
-        siteCard.className = "site-card";
-
-        var siteLink = document.createElement("a");
-        siteLink.href = site.url;
-        siteLink.target = "_blank";
-
-        var siteName = document.createElement("h2");
-        siteName.innerText = site.name;
-
-        var siteDescription = document.createElement("p");
-        siteDescription.innerText = site.description;
-
-        siteLink.appendChild(siteName);
-        siteLink.appendChild(siteDescription);
-
-        siteCard.appendChild(siteLink);
-
-        siteCardsContainer.appendChild(siteCard);
-    });
-</script>
-
+        <div class="getJsonSite-api" api="/myjson/site.json" isRegular="4"></div>
       </div>
       <div class="post-tags-categories">
         
@@ -1105,7 +1059,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sun Feb 04 2024 17:05:54 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Sun Feb 04 2024 17:09:50 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2024-02-04 日</div>
           
         </div>
