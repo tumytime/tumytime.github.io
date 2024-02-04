@@ -106,5 +106,5 @@ deploy:
   branch: main
 
 search:
-  path: search.json
+  path: search.xml
   field: post
