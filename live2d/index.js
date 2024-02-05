@@ -8,8 +8,8 @@ L2Dwidget.init({
     position: "right", //模型的表现位置
     width: 150, //模型的宽度
     height: 300, //模型的高度
-    hOffset: -50, // 向左向右偏移
-    vOffset: -200, // 向上向下偏移, 根据情况可以自己调整数值
+    hOffset: 50, // 向左向右偏移
+    vOffset: 50, // 向上向下偏移, 根据情况可以自己调整数值
   },
   mobile: {
     show: true, // 手机端显示
