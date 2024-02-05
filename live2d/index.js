@@ -1,7 +1,7 @@
 L2Dwidget.init({
   model: {
     jsonPath:
-      "https://unpkg.com/live2d-widget-model-histoire@1.0.5/assets/histoire.model.json",
+      "https://unpkg.com/live2d-widget-model-miku@1.0.5/assets/miku.model.json",
     scale: 5,
   },
   display: {
