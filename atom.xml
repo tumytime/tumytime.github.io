@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2024-02-05T07:39:35.691Z</updated>
+  <updated>2024-02-05T13:32:32.331Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://tumytime.github.io/2024/02/04/test/"/>
     <id>http://tumytime.github.io/2024/02/04/test/</id>
     <published>2024-02-04T10:12:29.000Z</published>
-    <updated>2024-02-05T07:39:35.691Z</updated>
+    <updated>2024-02-05T13:32:32.331Z</updated>
     
     <content type="html"><![CDATA[<details ><summary pointer> 查看默认打开的折叠框 </summary>              <div class='content'>              <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sayHello</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">sayHello</span>();</span><br></pre></td></tr></table></figure>              </div>            </details><span class='btn center large round solid'><a class="button" href='https://baidu.com' title='开始使用'><i class='fa fa-download'></i>开始使用</a></span><p>testestest</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sayHello</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">sayHello</span>();</span><br></pre></td></tr></table></figure><pre><code class="language-javascript">function sayHello() &#123;console.log("Hello, World!");&#125;sayHello();</code></pre><details ><summary pointer> 查看默认打开的折叠框 </summary>              <div class='content'>              <pre><code class="language-javascript">function sayHello() &#123;console.log("Hello, World!");&#125;sayHello();</code></pre>              </div>            </details>]]></content>
     
@@ -40,7 +40,7 @@
     <link href="http://tumytime.github.io/2024/02/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
     <id>http://tumytime.github.io/2024/02/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</id>
     <published>2024-02-01T13:28:34.000Z</published>
-    <updated>2024-02-02T12:22:13.774Z</updated>
+    <updated>2024-02-05T13:32:29.144Z</updated>
     
     <content type="html"><![CDATA[<p>我的第一篇文章！终于把网站弄好了！开心开心</p>]]></content>
     
