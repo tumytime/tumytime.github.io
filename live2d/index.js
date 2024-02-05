@@ -2,7 +2,7 @@ L2Dwidget.init({
   model: {
     jsonPath:
       "https://unpkg.com/live2d-widget-model-miku@1.0.5/assets/miku.model.json",
-    scale: 5,
+    scale: 1,
   },
   display: {
     position: "right", //模型的表现位置
