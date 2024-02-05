@@ -178,7 +178,7 @@ pre:hover::-webkit-scrollbar-thumb:hover,
   color: #fff;
 }
 .bg-floor {
-  background: url("https://s2.loli.net/2024/02/05/3HKs9ZTSQIpelDt.jpg");
+  background: https;
   background-size: cover;
   transition: all 0.3s;
 }
