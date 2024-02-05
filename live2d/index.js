@@ -1,7 +1,7 @@
 L2Dwidget.init({
   model: {
     jsonPath:
-      "https://unpkg.com/live2d-widget-model-histoire@1.0.5/assets/histoire.model.json",
+      "https://unpkg.com/live2d-widget-model-chitose@1.0.5/assets/chitose.model.json",
     scale: 1,
   },
   display: {
