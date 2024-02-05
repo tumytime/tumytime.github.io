@@ -2,7 +2,7 @@ L2Dwidget.init({
   model: {
     jsonPath:
       "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",
-    scale: 2,
+    scale: 5,
   },
   display: {
     position: "left", //模型的表现位置
