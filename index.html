@@ -1377,46 +1377,42 @@
       return currentTime;
     }
 
-    function animateValue(id, start, end, duration) {
+    function updateCountdown(id, remainingTime) {
       var obj = document.getElementById(id);
-      var range = end - start;
-      var current = start;
-      var increment = end > start ? 1 : -1;
-      var stepTime = Math.abs(Math.floor(duration / range));
-      var timer = setInterval(function () {
-        current += increment;
-        obj.textContent = current;  
-        if (current == end) {
-          clearInterval(timer);
-        }
-      }, stepTime);
-}
+      var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+      obj.textContent = `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+
+      if (remainingTime <= 0) {
+        clearInterval(timer);
+        obj.textContent = '倒计时结束';
+      }
+    }
 
     function countdown(targetDate, id) {
       var targetTime = new Date(targetDate).getTime();
       var currentTime = getCurrentTime();
-      const remainingTime = targetTime - currentTime;
-
+      var remainingTime = targetTime - currentTime;
+  
       if (remainingTime <= 0) {
-        return '倒计时结束';
+        document.getElementById(id).textContent = '倒计时结束';
+        return;
       }
 
-      const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-
-      var totalSeconds = days * 24 * 60 * 60 + hours * 60 * 60 + minutes * 60 + seconds;
-      animateValue(id, 0, totalSeconds, remainingTime); // 从0递增到总秒数，持续时间为剩余时间
-
-      return `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+      var timer = setInterval(function() {
+        remainingTime -= 1000;
+        updateCountdown(id, remainingTime);
+      }, 1000);
     }
 
     window.addEventListener('DOMContentLoaded', (event) => {
       
-        countdown('2024-03-23', 'countdown-计算机二级');
+        countdown("2024-03-23", 'countdown-计算机二级');
       
-        countdown('2024-04-13', 'countdown-蓝桥杯省赛');
+        countdown("2024-04-13", 'countdown-蓝桥杯省赛');
       
     });
   </script>
@@ -2120,7 +2116,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Thu Feb 08 2024 02:18:18 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Thu Feb 08 2024 02:38:31 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2024-02-08 日</div>
           
         </div>
