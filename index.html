@@ -1385,12 +1385,12 @@
       var stepTime = Math.abs(Math.floor(duration / range));
       var timer = setInterval(function () {
         current += increment;
-        obj.innerHTML = current;
+        obj.textContent = current;  
         if (current == end) {
           clearInterval(timer);
         }
       }, stepTime);
-    }
+}
 
     function countdown(targetDate, id) {
       var targetTime = new Date(targetDate).getTime();
@@ -2120,7 +2120,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Thu Feb 08 2024 02:11:52 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Thu Feb 08 2024 02:18:18 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2024-02-08 日</div>
           
         </div>
