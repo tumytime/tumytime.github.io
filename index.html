@@ -1327,37 +1327,83 @@
     <!-- 自定义的内容 -->
     
     <!-- 首页倒数日 -->
+    <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>实时倒计时</title>
+  <style>
+    .countdown-card {
+      text-align: center;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
     
-    <div class="index-notice" id="appIndexNotice">
-      <h3>
-        <i class="fas fa-bullhorn index-notice-icon"></i>计算机二级
-      </h3>
-      <div class="index-notice-content">
-        <div class="countdown-card">
-          <h4>计算机二级</h4>
-          <p>目标日期: 2024-03-23</p>
-          <p>剩余时间:&nbsp;<span class="countdown-time">43天 22小时 16分钟 36秒</span></p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="index-notice" id="appIndexNotice">
-      <h3>
-        <i class="fas fa-bullhorn index-notice-icon"></i>蓝桥杯省赛
-      </h3>
-      <div class="index-notice-content">
-        <div class="countdown-card">
-          <h4>蓝桥杯省赛</h4>
-          <p>目标日期: 2024-04-13</p>
-          <p>剩余时间:&nbsp;<span class="countdown-time">64天 22小时 16分钟 36秒</span></p>
-        </div>
-      </div>
-    </div>
-  
+      
+      <script>
+        function getCurrentTime() {
+          var date = new Date();
+          var offset = date.getTimezoneOffset() * 60 * 1000;
+          var currentTime = date.getTime() - offset;
+          return currentTime;
+        }
 
-  <script>
-  setInterval(updateCountdown, 1000);
-  </script>
+        function countdown(targetDate) {
+          var targetTime = new Date(targetDate).getTime();
+          var currentTime = getCurrentTime();
+          const remainingTime = targetTime - currentTime;
+          if (remainingTime <= 0) {
+            return '倒计时结束';
+          }
+          const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (remainingTime % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+          return `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+        }
+
+        window.onload = function() {
+          var listData = JSON.parse('[{"title":"计算机二级","targetDate":"2024-03-23"},{"title":"蓝桥杯省赛","targetDate":"2024-04-13"}]');
+          listData.forEach(function (item) {
+            var countdownElement = document.createElement('div');
+            countdownElement.innerHTML = `
+              <div class="index-notice" id="appIndexNotice">
+                <h3>
+                  <i class="fas fa-bullhorn index-notice-icon"></i>${item.title}
+                </h3>
+                <div class="index-notice-content">
+                  <div class="countdown-card">
+                    <h4>${item.title}</h4>
+                    <p>目标日期: ${item.targetDate}</p>
+                    <p id="${item.title.replace(/\s/g, '-')}"></p>
+                  </div>
+                </div>
+              </div>
+            `;
+            document.getElementById('app').appendChild(countdownElement);
+
+            var countdownId = setInterval(function() {
+              var countdownElement = document.getElementById('${item.title.replace(/\s/g, '-')}');
+              if (!countdownElement) {
+                clearInterval(countdownId);
+                return;
+              }
+              countdownElement.innerHTML = '剩余时间: ' + countdown(item.targetDate);
+            }, 1000);
+          });
+        };
+      </script>
+    
+  </div>
+</body>
+</html>
     <!-- 首页座右铭 -->
     
   <div class="motto">
@@ -2030,7 +2076,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>3.7k 字</div>
+          <div>3.8k 字</div>
         </div>
       
 
@@ -2056,7 +2102,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Thu Feb 08 2024 01:43:23 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Thu Feb 08 2024 01:51:58 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2024-02-08 日</div>
           
         </div>
