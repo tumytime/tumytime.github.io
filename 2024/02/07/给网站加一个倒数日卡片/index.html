@@ -705,11 +705,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 2.9k |
+            <i class="fas fa-file-text-o"></i> Words: 3.2k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 14min |
+            <i class="fas fa-clock"></i> Reading time: 15min |
           </span>
   
           
@@ -854,7 +854,12 @@
 
 
 <p>等会。。。。&#x2F;(ㄒoㄒ)&#x2F;~~<br>两个bug：<br>1.看起来用的不是我现在的时间呀，像是我上传的时间，因为怎么样他都不变<br>2.我公告栏怎么不滚动了？？？？Orz</p>
-
+<p>第一个bug，突然想起来这个网站是静态，请教了GPT老师：</p>
+<details ><summary pointer> GPT老师 </summary>
+              <div class='content'>
+              <p>是的，这段代码获取的是客户端的当前日期和时间，而不是服务器的日期和时间。如果你的网站是静态的，即没有与服务器进行交互更新页面内容的能力，那么 <code>new Date().getTime()</code> 获取的时间将始终是用户打开网页时的时间，不会实时更新。</p><p>如果你想要在静态网站中实现实时倒计时功能，你可以考虑使用 JavaScript 配合客户端的时区偏移来获取当前时间。以下是一个示例实现：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getCurrentTime</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">  <span class="keyword">var</span> offset = date.<span class="title function_">getTimezoneOffset</span>() * <span class="number">60</span> * <span class="number">1000</span>; <span class="comment">// 获取客户端时区偏移（以毫秒为单位）</span></span><br><span class="line">  <span class="keyword">var</span> currentTime = date.<span class="title function_">getTime</span>() - offset; <span class="comment">// 当前时间减去时区偏移得到客户端时间</span></span><br><span class="line">  <span class="keyword">return</span> currentTime;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> targetTime = <span class="keyword">new</span> <span class="title class_">Date</span>(targetDate).<span class="title function_">getTime</span>();</span><br><span class="line"><span class="keyword">var</span> currentTime = <span class="title function_">getCurrentTime</span>();</span><br></pre></td></tr></table></figure><p>在这个示例中，<code>getCurrentTime</code> 函数通过获取客户端的时区偏移，将客户端时间与服务器时间进行同步。这样就能在静态网站中实现实时的倒计时功能。请注意，这种方法仍然依赖于客户端的时间，因此可能会受到用户设备时间不准确或篡改的影响。</p>
+              </div>
+            </details>
       </div>
       <div class="post-tags-categories">
         
