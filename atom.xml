@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2024-02-11T11:15:51.598Z</updated>
+  <updated>2024-02-27T12:46:42.460Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>蓝桥杯stm32学习笔记</title>
+    <link href="http://tumytime.github.io/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://tumytime.github.io/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2024-02-27T12:31:15.000Z</published>
+    <updated>2024-02-27T12:46:42.460Z</updated>
+    
+    <content type="html"><![CDATA[<details ><summary pointer> 碎碎念 </summary>              <div class='content'>              <p>离蓝桥杯还有45天，我的32总共才学了四五天&#x2F;(ㄒoㄒ)&#x2F;~~<br>虽然考核作业做完了但是都是现学现弄得，不能做到独立系统地完成<br>最近事情好多，这几天赶紧先学一遍</p>              </div>            </details><details open><summary pointer> 晶振 </summary>              <div class='content'>              <div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.lt4che7r.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.lt4che7r.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>这个单片机内部晶振是24MHz<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">晶振（Crystal Oscillator）在单片机（Microcontroller）中起着非常重要的作用，主要包括以下几个方面：</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> <span class="strong">**提供时钟信号**</span>：晶振在单片机中作为一个时钟源，为微处理器提供稳定的时钟信号，控制着单片机内部各个模块的运行节奏。时钟信号的频率决定了单片机的运行速度和性能。</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> <span class="strong">**保持精确的时钟速率**</span>：晶振的振荡频率十分稳定，并具有较高的准确性，可提供微处理器所需的精确时钟速率，确保程序运行的稳定性和准确性。</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> <span class="strong">**同步外部设备**</span>：通过晶振提供的时钟信号，单片机可以与外部设备进行数据交换和通信，保证数据传输的准确性和稳定性。</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> <span class="strong">**实现定时与计数**</span>：晶振可以用于实现定时器和计数器功能，例如在单片机中实现延时控制、PWM输出等功能。</span><br><span class="line"></span><br><span class="line"><span class="bullet">5.</span> <span class="strong">**协助实现串行通信**</span>：晶振通常与串行通信模块（如UART、SPI、I2C）结合使用，提供准确的时钟信号来同步数据传输。</span><br><span class="line"></span><br><span class="line">总的来说，晶振在单片机中扮演着提供稳定时钟信号、确保程序稳定性和准确性、实现计时计数等关键作用。在单片机设计和应用中，选择适合的晶振频率和类型是非常重要</span><br></pre></td></tr></table></figure><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">晶振在单片机中通常被用作外部时钟（<span class="keyword">External </span><span class="keyword">Clock）。外部时钟是由外部晶振提供的时钟信号，通过单片机引脚连接到晶振的输入端。单片机根据外部晶振提供的信号来同步其内部的操作，确保各个部件按照规定的频率和时序进行工作。</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line">相比之下，内部时钟（Internal <span class="keyword">Clock）是由单片机内部的时钟发生器产生的时钟信号。在一些单片机中，内部时钟可以被选择为系统时钟，但通常外部晶振更常用，因为它提供了更高的时钟稳定性和精度。</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line">因此，晶振在单片机中通常是作为外部时钟使用的，用来提供稳定的时钟信号以同步单片机的各个部件。</span><br></pre></td></tr></table></figure>              </div>            </details><details open><summary pointer> 信号发生器 </summary>              <div class='content'>                            </div>            </details>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;details &gt;&lt;summary pointer&gt; 碎碎念 &lt;/summary&gt;
+              &lt;div class=&#39;content&#39;&gt;
+              &lt;p&gt;离蓝桥杯还有45天，我的32总共才学了四五天&amp;#x2F;(ㄒoㄒ)&amp;#x2F;~~&lt;br</summary>
+      
+    
+    
+    
+    <category term="嵌入式" scheme="http://tumytime.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+    <category term="嵌入式" scheme="http://tumytime.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    <category term="stm32" scheme="http://tumytime.github.io/tags/stm32/"/>
+    
+    <category term="蓝桥杯" scheme="http://tumytime.github.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>电路游戏：Turing Complete</title>
