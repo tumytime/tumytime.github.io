@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>Python深度学习及智能车竞赛实践(一):Python小程序实例</title>
+      <title>Python深度学习及智能车竞赛实践(一)</title>
       <link href="/2024/02/28/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%8A%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B%E5%AE%9E%E8%B7%B5-%E4%B8%80-Python%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E4%BE%8B/"/>
       <url>/2024/02/28/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%8A%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B%E5%AE%9E%E8%B7%B5-%E4%B8%80-Python%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E4%BE%8B/</url>
       
@@ -13,18 +13,18 @@
       
       <categories>
           
-          <category> 嵌入式 </category>
+          <category> 智能车 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 嵌入式 </tag>
+            <tag> Python </tag>
             
-            <tag> stm32 </tag>
+            <tag> 深度学习 </tag>
             
-            <tag> 蓝桥杯 </tag>
+            <tag> 智能车 </tag>
             
         </tags>
       
