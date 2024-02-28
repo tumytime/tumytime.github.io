@@ -6862,7 +6862,7 @@ details {
   padding: 16px;
   margin: 1em 0;
   border-radius: 4px;
-  background: #fff;
+  background: #292d3e;
   font-size: 0.9375rem;
   transition: all 0.3s;
   border: 1px solid #f6f6f6;
@@ -6936,7 +6936,7 @@ details[open] {
   border-color: rgba(68,68,68,0.2);
 }
 details[open] >summary {
-  border-bottom: 1px solid rgba(68,68,68,0.2);
+  border-bottom: 0px solid rgba(68,68,68,0.2);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }

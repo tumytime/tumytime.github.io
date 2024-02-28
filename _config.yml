@@ -44,14 +44,16 @@ post_asset_folder: false
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
-highlight:
+highlight: 
+  enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ''
   wrap: true
   hljs: false
-prismjs:
+prismjs: 
   preprocess: true
+  enable: false
   line_number: true
   tab_replace: ''
 

@@ -38,7 +38,7 @@ Github:
   url: https://github.com/tumytime
 
 # 网站logo
-logo: /images/logo.jpg # 为空则不显示
+logo: /medias/logo.png # 为空则不显示
 
 # 网站 favicon
 favicon: /favicon.ico # or .png .jpg .svg .gif .jpeg .ico
@@ -49,8 +49,8 @@ sidebar:
   widget_library:
     side_blogger:
       on: true
-      avatar: https://pic2.zhimg.com/80/v2-42b72d5ebee4b8d8aa70d9687effe87b_1440w.webp
-      shape: rectangle # circle, rectangle
+      avatar: https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_224532.3kqwx2xzgsg0.webp
+      shape: circle # circle, rectangle
       url: /about/
       title: 时域的空间
       subtitle: Welcome to Tumy_Time!
@@ -62,11 +62,11 @@ sidebar:
         - icon: fas fa-rss
           url: /atom.xml
         - icon: fas fa-envelope
-          url: mailto:me@xxx.com
+          url: mailto:3168476051@qq.com
         - icon: fab fa-github
           url: https://github.com/tumytime
         - icon: fab fa-qq
-          url: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2259763426
+          url: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=3168476051
     # ---------------------------------------
     side_toc:
       on: true
@@ -131,7 +131,7 @@ sidebar:
       background: '#fff'
       header: 
         icon: fas fa-archive
-        icon_color: red
+        icon_color: blue
         title: 归档
     # ---------------------------------------
     # side_webinfo widget
@@ -174,15 +174,15 @@ sidebar:
 # 页面刷新时预加载动画
 preloader:
   on: true
-  type: 2 # 1/2/3/4/5/6/7/8/9
+  type: 5 # 1/2/3/4/5/6/7/8/9
 
 # 首页轮播图设置
 swiper:
   on: true # 设置为false, 则首页不显示轮播图
   # 当在.md文件中，设置swiper:true，会将该文章放到轮播中，
   showPrevNext: true # 是否显示左右切换按钮
-  showIndicators: false  # 是否显示指示器
-  autoplay: false # 是否自动轮播
+  showIndicators: true  # 是否显示指示器
+  autoplay: true # 是否自动轮播
   loop: true # 让轮播看起来是循环的, 例如false的话，到达最后一个轮播图的时候，右按钮不能点击
   delay: 5000 # 切换延迟时间
   effect: 'slide' # 'fade': 淡入淡出效果
@@ -194,14 +194,14 @@ swiper:
   bubble: true # 轮播图是否显示气泡,也可以打开底下的花瓣或者雪花特效 sakura（花瓣）: true snow(雪花): true
   wave: true # 轮播图底下的波浪特效
   # 当没有文章设置swiper: true时候，轮播图会显示以下default默认内容，可自行切换对应内容
-  defaultImg: "water.jpg" # 图片，没有则随机选取
+  defaultImg: "https://tumytime.github.io/picx-images-hosting/20240205/8c366f9f6b92325bac9fbf00d756df51.2vvaaft6bug0.webp" # 图片，没有则随机选取
   defaultVideo: '' # video，min-width:992px show
   defaultVideoLoadingImg: 'https://img14.360buyimg.com/ddimg/jfs/t1/175057/18/19582/882056/60ee7ac8Ef0045710/202d2ad878684a3b.gif' # video loading img -- use .gif img, 视频预加载动画，使用gif图片作为loading，为空则视频没有预加载动画
   defaultTile: '时域的空间' # 标题
-  defaultDesc: [还没想好] #描 述，例如 ['煮酒洗净尘嚣，论知交', '万般付之一笑，共偕老']
-  defaultLeftBtnText: '阅读文档' # 左边按钮文字, 空字符串则不显示
+  defaultDesc: ['Nice to meet you!'] #描 述，例如 ['煮酒洗净尘嚣，论知交', '万般付之一笑，共偕老']
+  defaultLeftBtnText: '' # 左边按钮文字, 空字符串则不显示
   defaultLeftBtnLink: 'https://yuang01.gitee.io/2021/02/08/hexo-theme-bamboo-new/' # 左边按钮链接 
-  defaultRightBtnText: '下载主题' # 右边按钮的文字，空字符串则不显示
+  defaultRightBtnText: '' # 右边按钮的文字，空字符串则不显示
   defaultRightBtnLink: 'https://gitee.com/yuang01/hexo-theme-bamboo/repository/archive/dev.zip' # 右边的按钮的链接
   defaultDescTyped: true # defaultDesc文字是否开启打字特效  is typed
   defaultDescTypedSpeed: 100 # defaultDesc 打字速度, typed typeSpeed
@@ -254,7 +254,7 @@ sharejs:
 # 鼠标点击特效
 cursor_effect:
   on: true
-  type: explosion  # fireworks: 礼花 | explosion: 爆炸 | love: 浮出爱心 | text: 浮出文字
+  type: text  # fireworks: 礼花 | explosion: 爆炸 | love: 浮出爱心 | text: 浮出文字
 
 # 头部导航是否显示天气
 weather:
@@ -285,7 +285,7 @@ ribbon:
 # live-2d(左下角动画人物)
 live2d:
   on: true # 控制显示或者隐藏
-  modelId:  # 0 or 1 or 2 or 3 or 4 or 5 or 6
+  modelId: 0 # 0 or 1 or 2 or 3 or 4 or 5 or 6
   open: true # 默认展开，false则收缩，通过点左下角的方块点击，控制展开或者收缩
 
 # 首页雪花飘落效果--冬天
@@ -336,13 +336,13 @@ baiduPush: true
 
 # 音乐
 music:
-  on: true
+  on: false
   autoHide: true    # hide automaticaly
   server: tencent   # require music platform: netease, tencent, kugou, xiami, baidu
   type: playlist    # require song, playlist, album, search, artist
-  id: 8062553743    # require song id / playlist id / album id / search keyword
+  id: 9104403384    # require song id / playlist id / album id / search keyword
   fixed: true       # 开启吸底模式，建议开启
-  autoplay: false   # 是否自动播放, 有些浏览器会禁用自动播放，目前edge可以自动播放
+  autoplay: true   # 是否自动播放, 有些浏览器会禁用自动播放，目前edge可以自动播放
   theme: '#42b983'
   loop: 'all'       # 音频循环播放, 可选值: 'all', 'one', 'none'
   order: 'random'   # 音频循环顺序, 可选值: 'list', 'random'
@@ -359,32 +359,41 @@ copyright:
 motto:
   on: true
   title: '座右铭'
-  content: '沉淀后我愿意做个温暖的人，有自己的喜好，有自己的原则，有自己的信仰，不急功近利，不浮夸轻薄。宠辱不惊，淡定安逸，心静如水，不忘初心，方得始终。——凌茜'
+  content: '我环顾四周，并没有看见什么上帝'
   background: 'url("https://img10.360buyimg.com/ddimg/jfs/t1/166587/8/21344/72069/6088c24fEda5fdeb6/f9730ab637b7ca47.png")' # url("xxx") or red or #000 or rgba() ..
+
+# 首页倒数日
+countdown:
+  on: true
+  background: blue
+
+#首页视频卡片
+videocard:
+  on: true
 
 # 首页公告
 notice:
   on: true
   seamless: false # 为true时，则无缝不停止滚动，false是会停一下的滚动
-  title: '公告'
+  title: '碎碎念'
   background: 'url("https://img10.360buyimg.com/ddimg/jfs/t1/166587/8/21344/72069/6088c24fEda5fdeb6/f9730ab637b7ca47.png")' # url("xxx") or red or #000 or rgba() ..
   list: # list相当于数组对象，[{title:'xx',date: 'xx', url: 'xxx', color: 'red'}]根据自己实际情况，增加或者删除
-     - title: '#这是一条公告'
-       date: '2024-02-04'
-       url: '/archives'   # 可以为空, 也可以是本地页面地址如 '/archives'
-       color: blue   # 字体颜色
-    # - title: '#新增 轮播图支持三种模式了，功能也增强了 ~'
-    #   date: '2021-04-28'
-    #   url: 'http://baidu.com'
-    #   color: red
-    # - title: '#新增 支持二级导航'
-    #   date: '2021-04-28'
-    #   url: 'http://baidu.com'
-    #   color: blue
-    # - title: '#新增 归档，分类等页面头部图片位置可以设置为视频 ~'
-    #   date: '2021-04-28'
-    #   url: 'http://baidu.com'
-    #   color: '#42b983'
+    - title: '#欢迎来到我的空间'
+      date: '2024-02-04'
+      url: '/archives'   # 可以为空, 也可以是本地页面地址如 '/archives'
+      color: blue   # 字体颜色
+    - title: '#emo emo emo emo emo emo emo'
+      date: '2024-02-12'
+      url: '/archives'
+      color: red
+    - title: '#感冒了好难受感冒了好难受'
+      date: '2024-02-16'
+      url: '/archives'
+      color: blue
+    - title: '#小轻工你再不开空调我真的会冻死在这里...'
+      date: '2024-02-24'
+      url: '/archives'
+      color: '#42b983'
     # - title: '#新增 头部导航可以设置为在顶部透明，并且可以任意设置背景颜色了 ~'
     #   date: '2021-04-28'
     #   url: 'http://baidu.com'
@@ -402,8 +411,8 @@ topArticle:
 # 归档，标签，分类页图片上的打字效果
 typed:
   on: true
-  loop: false # 是否循环
-  showCursor: false # 是否显示光标
+  loop: true # 是否循环
+  showCursor: true # 是否显示光标
   startDelay: 100 # 开始延迟
   typeSpeed: 100 # 打字速度
   backSpeed: 50 # 删除速度
@@ -575,7 +584,7 @@ color_scheme:
     # 首页文章列表的背景颜色, url("http://xxx.png") or red or #000 or rgba() ..
     postListBackground: 'rgba(255,255,255,1)'
     # 首页页面的底部背景颜色，空字符串透明('transparent')，可以是白色('#fff')等颜色, 也可以是图片，例如  'url("https://img11.360buyimg.com/ddimg/jfs/t1/169624/29/16/4603017/5fec2c79Eecbd536a/308b28b82a013cd2.png")'
-    bgFloor: 'url("https://img11.360buyimg.com/ddimg/jfs/t1/169624/29/16/4603017/5fec2c79Eecbd536a/308b28b82a013cd2.png")' # 如果是图片地址，url里面请用双引号
+    bgFloor: 'url("https://tumytime.github.io/picx-images-hosting/20240205/9f2685b1e4401ff98ae648edd1cb8866.39vtcqu2gu60.webp")' # 如果是图片地址，url里面请用双引号
     headerMenuBackgroundColor: ' ' 
     # headerMenuBackgroundColor:头部导航背景颜色, 为空则使用theme主题色, 
     # headerMenuBackgroundColor写法: rgba(268, 264, 269, 0.8) or #42b983 or red or 也可以是渐变颜色 linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)  or 也可以是url("图片地址")
@@ -600,9 +609,9 @@ color_scheme:
     ## 单独的文章里配置，则这bgImg，bgImgDelay，bgImgTransition三个属性优先使用单独的文章里配置的
   footer:
     # 为空则使用 theme主题色，写法: rgba(268, 264, 269, 0.8) or #42b983 or red or 也可以是渐变颜色 linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%) or 也可以是url("图片地址")
-    background: 'rgba(135, 206, 250, 0.8)' 
+    background: '' 
     # 页脚里面的a标签鼠标移入时候的颜色 red or #000 or other color
-    aHover: 'orangered' 
+    aHover: 'blue' 
     # fish --> 表示页脚游动的鱼儿特效, 鱼儿颜色值使用的是footer.background, 只支持rgba(66, 185, 133, 0.8) 或者 #42b983 或者 red 这三种颜色格式的写法，是格式。
     fish: true 
 
@@ -620,7 +629,7 @@ site_footer:
     #   url: https://github.com/yuang01/hexo-theme-bamboo
     # - icon: fas fa-qq
     #   url: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1730241541
-  copyright: 'Copyright © 2019 - 2020 <a href="https://github.com/tumytime">tumytime</a> | Powered by <a href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a href="https://github.com/yuang01/theme">Bamboo</a> '
+  copyright: 'Copyright © 2023 - 2024 <a href="https://github.com/tumytime">tumytime</a> | Powered by <a href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a href="https://github.com/yuang01/theme">Bamboo</a> '
   custom: # 根据需要自行取消注释，label: 'markdown格式'，会在下面继续增加内容
     # - label: '<br>'
     # - label: '[Hello World](http://baidu.com)'
@@ -684,7 +693,7 @@ lazyload:
 
 # prismjs代码高亮，在根目录下的_config.yml文件中将prismjs.enable设为true的时候, 在这里选择主题样式
 prismjs:
-  theme: 'default' # default, coy, dark, funky, okaidia, solarizedlight, tomorrow, twilight
+  theme: 'funky' # default, coy, dark, funky, okaidia, solarizedlight, tomorrow, twilight
 
 # highlight代码高亮，在根目录下的_config.yml文件中将highlight设为true的时候，在这里自定义颜色值
 # https://github.com/chriskempson/tomorrow-theme
@@ -709,13 +718,17 @@ wordcount:
 # 自己嵌入css或者script
 import:
   link:
-   # - <link href="/bubbly-bg/bubbly.css" rel="stylesheet">
     - 
     - 
   script: 
-    #- <script src="/bubbly-bg/bubbly.js"></script>
-    #- <script src="/bubbly-bg/index.js"></script>
-    - 
+
+  - <script type="text/javascript" charset="utf-8"  src="https://l2dwidget.js.org/lib/L2Dwidget.0.min.js"></script>
+  - <script type="text/javascript" charset="utf-8"  src="https://l2dwidget.js.org/lib/L2Dwidget.min.js"></script>
+  - <script src="/live2d/index.js"></script>
+  - <script type="text/javascript" id="myhk" src="https://myhkw.cn/api/player/1707064428178" key="1707064428178" m="1"></script>
+
+
+
 
 # 文章图片,不指定 img:xxx 的时候随机取下面的图片
 imgs:
