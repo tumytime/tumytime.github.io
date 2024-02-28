@@ -706,11 +706,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 2.4k |
+            <i class="fas fa-file-text-o"></i> Words: 3.7k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 8min |
+            <i class="fas fa-clock"></i> Reading time: 12min |
           </span>
   
           
@@ -776,8 +776,23 @@
               </div>
             </details>
 
+<h2 id="按键"><a href="#按键" class="headerlink" title="按键"></a>按键</h2><details open><summary pointer> 按键 </summary>
+              <div class='content'>
+              <div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.45f32xi2l.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.45f32xi2l.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><p><span class='pbg info'>按前高电平，按后接地-&gt;低电平</span></p>
+              </div>
+            </details>
+<h3 id="VCC和VDD"><a href="#VCC和VDD" class="headerlink" title="VCC和VDD"></a>VCC和VDD</h3><details open><summary pointer> VCC和VDD </summary>
+              <div class='content'>
+              <p>在单片机中，VDD和VCC都是指供电电压，但在不同的情况下，它们有着不同的含义和应用。</p><p>一、VCC<br>VCC（Voltage at the Common Collector）是指芯片的电源电压，通常是5V或3.3V，<br>用于为芯片提供工作电压。</p><p>这里有必要先强调下电源电压。</p><p>电源电压是指电源输出的电压，它是为电路中的各个元器件和子系统(比如单片机)提供<br>供电电压的电源电压。</p><p>电源电压通常由电源模块提供，它可以是交流电、直流电或者其他形式的电源信号。</p><p>比如说这个BUCK电源电路，输出的VCC 3.3V就属于电源电压。</p><p>VCC通常连接到芯片的正极电源，也就是芯片的电源输入端。</p><p>二、VDD<br>VDD（Voltage Drain-to-Drain）是指MOSFET场效应管的漏极电压，也成为供电电压。</p><p>供电电压通常是由电源电压提供，一般是指电路中某个元器件或子系统所需要的电压，它<br>是该元器件或子系统正常工作所必需的电压。</p><p>比如说单片机里面有很多模块，比如GPIO、定时器、USART、ADC等等，这些模块都是属<br>于单片机的子系统。</p><p>VDD通常连接到芯片的电源引脚，然后给内部各个模块供电，它是单片机电源电压的一种<br>定义方式。</p><p>比如我们单片机的供电电压引脚就是用VDD表示。</p><p>这个VDD是可以直接接到电源电压VCC 3.3V的。</p><p>总的来说，VCC和VDD都是单片机中的电源电压，一般来说不用太刻意去区分，一般设计硬<br>件的时候也没这么讲究。</p><p>最重要的是，在设计单片机电路时，需要仔细理解芯片手册中对供电电压的需求说明，以保<br>证正确的供电和工作。</p>
+              </div>
+            </details>
 
 
+<h2 id="I2C总线"><a href="#I2C总线" class="headerlink" title="I2C总线"></a>I2C总线</h2><details open><summary pointer> I2C总线 </summary>
+              <div class='content'>
+              <div class="tagLink"><a class="link-card" title="阅读原文" target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/282949543"><span class="link-card-backdrop" style="background-image: url(https://pic1.zhimg.com/70/v2-cebf666f5a59f3a5ce835dbf63ebe934_1440w.avis?source=172ae18b&biz_tag=Post)"></span><div class="left"><img src="https://pic1.zhimg.com/70/v2-cebf666f5a59f3a5ce835dbf63ebe934_1440w.avis?source=172ae18b&biz_tag=Post" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/70/v2-cebf666f5a59f3a5ce835dbf63ebe934_1440w.avis?source=172ae18b&biz_tag=Post" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">阅读原文</p><p class="url">https://zhuanlan.zhihu.com/p/282949543</p></div></a></div><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3nrcswwn45.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3nrcswwn45.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><details open><summary pointer> U2(EEPROM) </summary>              <div class='content'>              <p>EEPROM是可擦除可编程只读存储器（Electrically Erasable Programmable Read-Only Memory）的缩写，是一种用于存储数据的非易失性存储器。在单片机中，EEPROM通常被用来存储需要长期保留的数据，例如配置参数、校准数据、用户设置等。以下是关于EEPROM的一些详细解释：</p><ol><li><p><strong>可擦除性</strong>：EEPROM可以通过电气方式进行擦除，而无需额外的设备或光源。这意味着存储在EEPROM中的数据可以被擦除并重新写入，而不会损坏芯片。</p></li><li><p><strong>可编程性</strong>：EEPROM允许将数据写入其中，并且可以通过单片机或其他设备来编程。这使得用户可以随时更新或更改存储在EEPROM中的数据。</p></li><li><p><strong>只读特性</strong>：尽管EEPROM是可编程存储器，但在正常操作期间，存储在其中的数据是只读的，即在不经过明确的擦除和编程操作时，数据是持久的。</p></li><li><p><strong>非易失性</strong>：与随机存储器（RAM）不同，EEPROM是非易失性存储器，这意味着即使在断电情况下，数据也会被保留。因此，EEPROM常被用来保存需要长期存储的关键数据。</p></li><li><p><strong>寿命</strong>：EEPROM存储器可以被擦除和写入的次数通常受限，每个存储单元的擦除和写入次数有一定的寿命。因此，在使用EEPROM时需要注意避免频繁擦除和写入操作，以延长其使用寿命。</p></li></ol><p>总的来说，EEPROM在单片机和其他嵌入式系统中被广泛应用，用于保存需要长期保留的数据。它提供了一种高度可靠、耐用且非易失的数据存储解决方案。希望这些解释对您有帮助。如果您有任何其他问题，欢迎继续提问。</p>              </div>            </details><details open><summary pointer> U3(数字电位器) </summary>              <div class='content'>              <ol><li><p><strong>数字电位器</strong>：</p><ul><li>数字电位器是一种电阻器，它通过数字信号来控制电阻值，实现对电路中某些元件的调节和控制。</li><li>数字电位器通常由多个电阻单元组成，通过切换这些电阻单元，可以调节整体的电阻值。</li><li>单片机可以使用数字电位器来模拟可变电阻的功能，例如用于调节模拟信号的增益、亮度控制、音量控制等。</li></ul></li><li><p><strong>使用I2C总线控制数字电位器</strong>：</p><ul><li>在单片机系统中，可以通过I2C总线来与数字电位器通信，发送相应的命令以调节电位器的电阻值。</li><li>通过向数字电位器发送控制命令，单片机可以实现对电路中数字电位器的远程控制。</li><li>通过这种方式，单片机可以实现对电路中各种参数的动态调节，使系统更加灵活和智能化。</li></ul></li></ol>              </div>            </details>
+              </div>
+            </details>
 
 
 
@@ -1069,7 +1084,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%A7%E5%93%81%E6%89%8B%E5%86%8C"><span class="toc-text">产品手册</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%B6%E6%8C%AF"><span class="toc-text">晶振</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E5%8F%91%E7%94%9F%E5%99%A8"><span class="toc-text">信号发生器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E8%BE%93%E5%87%BA"><span class="toc-text">模拟输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LED%E6%8C%87%E7%A4%BA%E7%81%AF"><span class="toc-text">LED指示灯</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%A7%E5%93%81%E6%89%8B%E5%86%8C"><span class="toc-text">产品手册</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%B6%E6%8C%AF"><span class="toc-text">晶振</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E5%8F%91%E7%94%9F%E5%99%A8"><span class="toc-text">信号发生器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E8%BE%93%E5%87%BA"><span class="toc-text">模拟输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LED%E6%8C%87%E7%A4%BA%E7%81%AF"><span class="toc-text">LED指示灯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E9%94%AE"><span class="toc-text">按键</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VCC%E5%92%8CVDD"><span class="toc-text">VCC和VDD</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C%E6%80%BB%E7%BA%BF"><span class="toc-text">I2C总线</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
