@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>蓝桥杯stm32学习笔记(二):工程模板建立</title>
+      <link href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/"/>
+      <url>/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/</url>
+      
+        <content type="html"><![CDATA[<div class="timeline"><div class="timenode"><div class="meta"><p><p>第一步 [新建工程]</p></p></div><div class="body"><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.2yy38x3p31.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.2yy38x3p31.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div></div></div><div class="timenode"><div class="meta"><p><p>2020-08-15 <a href="https://github.com/yuang01/hexo-theme-bamboo">1.0.2 -&gt; 1.0.2</a></p></p></div><div class="body"><p>这是一段测试文字</p></div></div><div class="timenode"><div class="meta"><p><p>2020-08-08 <a href="https://github.com/yuang01/hexo-theme-bamboo">1.0.0 -&gt; 1.0.0</a></p></p></div><div class="body"><ol><li>我是一个测试文字<code>ghghgh</code>。</li><li>我是一个测试问题二’qweqw’，请问企鹅请问请问佛挡杀<code>fgfgf</code>佛第三节课。</li><li>我是一个测试问题三’fgfgfg’，请问企鹅请问请问佛挡杀<code>trtrtr</code>佛第三节课。</li></ol></div></div></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 嵌入式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+            <tag> stm32 </tag>
+            
+            <tag> 蓝桥杯 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>蓝桥杯stm32学习笔记(一)：相关元件/配置</title>
       <link href="/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>

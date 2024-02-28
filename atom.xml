@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2024-02-28T06:11:14.167Z</updated>
+  <updated>2024-02-28T06:25:14.985Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>蓝桥杯stm32学习笔记(二):工程模板建立</title>
+    <link href="http://tumytime.github.io/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/"/>
+    <id>http://tumytime.github.io/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/</id>
+    <published>2024-02-28T06:14:34.000Z</published>
+    <updated>2024-02-28T06:25:14.985Z</updated>
+    
+    <content type="html"><![CDATA[<div class="timeline"><div class="timenode"><div class="meta"><p><p>第一步 [新建工程]</p></p></div><div class="body"><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.2yy38x3p31.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.2yy38x3p31.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div></div></div><div class="timenode"><div class="meta"><p><p>2020-08-15 <a href="https://github.com/yuang01/hexo-theme-bamboo">1.0.2 -&gt; 1.0.2</a></p></p></div><div class="body"><p>这是一段测试文字</p></div></div><div class="timenode"><div class="meta"><p><p>2020-08-08 <a href="https://github.com/yuang01/hexo-theme-bamboo">1.0.0 -&gt; 1.0.0</a></p></p></div><div class="body"><ol><li>我是一个测试文字<code>ghghgh</code>。</li><li>我是一个测试问题二’qweqw’，请问企鹅请问请问佛挡杀<code>fgfgf</code>佛第三节课。</li><li>我是一个测试问题三’fgfgfg’，请问企鹅请问请问佛挡杀<code>trtrtr</code>佛第三节课。</li></ol></div></div></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;timeline&quot;&gt;
+&lt;div class=&quot;timenode&quot;&gt;&lt;div class=&quot;meta&quot;&gt;&lt;p&gt;&lt;p&gt;第一步 [新建工程]&lt;/p&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;body&quot;&gt;&lt;div class=&quot;img-wrap&quot;&gt;&lt;div c</summary>
+      
+    
+    
+    
+    <category term="嵌入式" scheme="http://tumytime.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+    <category term="嵌入式" scheme="http://tumytime.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    <category term="stm32" scheme="http://tumytime.github.io/tags/stm32/"/>
+    
+    <category term="蓝桥杯" scheme="http://tumytime.github.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>蓝桥杯stm32学习笔记(一)：相关元件/配置</title>
