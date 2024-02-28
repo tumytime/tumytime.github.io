@@ -6,6 +6,7 @@
 
 
 <head>
+        
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -31,7 +32,7 @@
   
   
     <script>
-        var themeModelId = '';
+        var themeModelId = '0';
         if (themeModelId) {
             localStorage.setItem('modelId', themeModelId);
         }
@@ -93,9 +94,13 @@
     <!-- import script -->
     
         
-            
+            <script type="text/javascript" charset="utf-8"  src="https://l2dwidget.js.org/lib/L2Dwidget.0.min.js"></script>
         
-            
+            <script type="text/javascript" charset="utf-8"  src="https://l2dwidget.js.org/lib/L2Dwidget.min.js"></script>
+        
+            <script src="/live2d/index.js"></script>
+        
+            <script type="text/javascript" id="myhk" src="https://myhkw.cn/api/player/1707064428178" key="1707064428178" m="1"></script>
         
     
 
@@ -107,10 +112,36 @@
   <!-- 页面预加载动画 -->
 
   
-    <div class="preloader_2" id="loader">
-  <div class="loader"></div>
-</div>
+    <div class="preloader_5" id="loader">
+  <div class="cube">
+    <div class="topD"></div>
+    <div>
+      <span style="--i:0"></span>
+      <span style="--i:1"></span>
+      <span style="--i:2"></span>
+      <span style="--i:3"></span>
+    </div>
 
+    <div class="cube2">
+      <div>
+        <span style="--i:0"></span>
+        <span style="--i:1"></span>
+        <span style="--i:2"></span>
+        <span style="--i:3"></span>
+      </div>
+
+      <div class="cube3">
+        <div class="top3"></div>
+        <div>
+          <span style="--i:0"></span>
+          <span style="--i:1"></span>
+          <span style="--i:2"></span>
+          <span style="--i:3"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   
 <script>
   var endLoading = function () {
@@ -224,7 +255,7 @@
   </transition>
   <div class="drawer-box" :class="{'active': visible}">
     <div class="drawer-box-head bg-color">
-      <img class="drawer-box-head_logo lazyload placeholder" src="/images/logo.jpg" class="lazyload placeholder" data-srcset="/images/logo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
       <h3 class="drawer-box-head_title">Hello！Welcom to Tumy-Time！</h3>
       <h5 class="drawer-box-head_desc"></h5>
     </div>
@@ -402,7 +433,7 @@
     <div class="blog-title" id="author-avatar">
       
         <div class="avatar">
-          <img src="/images/logo.jpg" class="lazyload placeholder" data-srcset="/images/logo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+          <img src="/medias/logo.png" class="lazyload placeholder" data-srcset="/medias/logo.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
         </div>
       
       <a href="/" class="logo">Hello！Welcom to Tumy-Time！</a>
@@ -640,7 +671,7 @@
 
 
 
-<div class="swiper-length" style="display: none;">0</div>
+<div class="swiper-length" style="display: none;">1</div>
 <div id="appSwiper"
   class="swiper-no-swiping"
   @mouseenter="stopAutoPlay()" 
@@ -648,39 +679,91 @@
 >
   <swiper v-cloak ref="mySwiper" :options="swiperOptions" @slideChangeTransitionEnd="slideChangeTransitionEnd">
     
-      <swiper-slide>
-        <div class="item swiper-lazy" data-background="/water.jpg" style="background-size: 300000px; 
-          background-position: left center;" style="position: relative;">
-          <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
-            <div class="flag">
-              
-              <div class="img-mask swiper-lazy swiper-default-bgImg" data-background="/water.jpg" style="height: 100%; background-size: cover; 
-                background-position: center center;">
-                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>   
-              </div>
-              <div class="flag-text">
-                <div class="flag-text-content">
-                  <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">时域的空间</div>
-                  
-                    <div class="ani animated default-excerpt" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">
-                      <vue-typed-js :strings="defaultDesc" :loop="defaultDescTypedLoop" :type-speed="100" :back-speed="50">
-                        <h1 class="typing"></h1>
-                      </vue-typed-js>
-                    </div>
-                    
+      
+        <swiper-slide>
+          <div class="item swiper-lazy" data-background="https://tumytime.github.io/picx-images-hosting/20240205/8c366f9f6b92325bac9fbf00d756df51.2vvaaft6bug0.webp" style="background-size: 300000px; 
+            background-position: left center;" style="position: relative;">
+            <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
+              <div class="flag">
+                
+                <div class="img-mask swiper-lazy swiper-default-bgImg" data-background="https://tumytime.github.io/picx-images-hosting/20240205/8c366f9f6b92325bac9fbf00d756df51.2vvaaft6bug0.webp" style="height: 100%; background-size: cover; 
+                  background-position: center center;">
+                  <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>   
                 </div>
-                <div style="display: flex;" class="flag-text-btns">
-                  
-                    <div class="ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a target="_blank" rel="noopener" href="https://yuang01.gitee.io/2021/02/08/hexo-theme-bamboo-new/" class="read-more swiper-btn-color" style="display: inline-block; z-index:1;">阅读文档</a></div>
-                  
-                  
-                    <div class="ani animated" style="margin-left: 10px;" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a target="_blank" rel="noopener" href="https://gitee.com/yuang01/hexo-theme-bamboo/repository/archive/dev.zip" class="read-more swiper-btn-color2" style="display: inline-block; z-index:1;border: 1px solid white;">下载主题</a></div>
-                  
+                <div class="flag-text">
+                  <div class="flag-text-content">
+                    <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">时域的空间</div>
+                    
+                      <div  class="ani animated default-excerpt" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">
+                        <vue-typed-js :strings="defaultDesc" :loop="defaultDescTypedLoop" :type-speed="100" :back-speed="50">
+                          <h1 class="typing"></h1>
+                        </vue-typed-js>
+                      </div>
+                      
+                  </div>
+                  <div style="display: flex;" class="flag-text-btns">
+                    
+                    
+                  </div>
+                </div>
+              </div>
+          </div>
+        </swiper-slide>
+      
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+          
+          <swiper-slide>
+            <div class="item swiper-lazy" data-background="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" style=" background-size: 300000px; 
+            background-position: left center;" style="position: relative;">
+              <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
+              <div class="flag" style="z-index: 2;">
+                <div class="img-mask swiper-lazy" data-background="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" style="height: 100%; background-size: cover; 
+                  background-position: center center;">
+                  <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>  
+                </div>
+                <div class="flag-text">
+                  <div class="flag-text-content">
+                    <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">
+                      <a href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/">
+                        给网站加一个倒数日卡片~（成功啦~）
+                      </a>
+                    </div>
+                    <div class="excerpt ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">想给网站加一个倒数日卡片但是主题里没有相关配置因为对网站之类的完全零基础，看了一圈感觉自己想要的效果跟网站上已有的”座右铭”卡片的实现很像准备学习借用一下~
+ motto.ejs（座右铭卡片） 
+              
+       </div>
+                  </div>
+                  <div class="bottom-one-btn ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"><a href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/" class="read-more swiper-btn-color" style="display: inline-block; z-index:1;">Read More</a></div>
                 </div>
               </div>
             </div>
-          </div>
-      </swiper-slide>
+
+          </swiper-slide>
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+    <div class="swiper-pagination" slot="pagination" pointer style="display: none;"></div>
+    <div class="swiper-button-prev swiper-button-white" pointer slot="button-prev" style="display: none;"></div>
+    <div class="swiper-button-next swiper-button-white" pointer slot="button-next" style="display: none;"></div>
     
   </swiper>
   
@@ -711,12 +794,12 @@
 
 
 <script>
-  var autoplay = JSON.parse('false');
+  var autoplay = JSON.parse('true');
   var delay = '5000';
   var loop = JSON.parse('true') ? false : JSON.parse('true');
   var effect = 'slide';
   var swiperLength = parseInt(document.querySelector(".swiper-length").innerText);
-  var defaultDesc = '还没想好';
+  var defaultDesc = 'Nice to meet you!';
   defaultDesc = defaultDesc.split(',');
   var defaultDescTypedLoop = JSON.parse('true');
   var vm = new Vue({
@@ -1256,13 +1339,114 @@
   <div class="l_content">
     <!-- 自定义的内容 -->
     
+    <!-- 首页视频卡片 -->
+    <!-- index.ejs -->
+
+<div class="videocard">
+  
+    <video src="/video/ai.mp4" controls autoplay loop></video>
+  
+</div>
+
+    <!-- 首页倒数日 -->
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>实时倒计时</title>
+  <style>
+    .countdown-card {
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="countdown-container">
+    
+        <div class="index-notice">
+          <h3>
+            <i class="fas fa-bullhorn index-notice-icon"></i> 计算机二级
+          </h3>
+          <div class="index-notice-content">
+            <div class="countdown-card">
+              <h4>计算机二级</h4>
+              <p>目标日期: 2024-03-23</p>
+              <p>剩余时间: <span id="countdown-计算机二级">0</span></p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="index-notice">
+          <h3>
+            <i class="fas fa-bullhorn index-notice-icon"></i> 蓝桥杯省赛
+          </h3>
+          <div class="index-notice-content">
+            <div class="countdown-card">
+              <h4>蓝桥杯省赛</h4>
+              <p>目标日期: 2024-04-13</p>
+              <p>剩余时间: <span id="countdown-蓝桥杯省赛">0</span></p>
+            </div>
+          </div>
+        </div>
+      
+  </div>
+
+  <script>
+    function getCurrentTime() {
+      var date = new Date();
+      var offset = date.getTimezoneOffset() * 60 * 1000;
+      var currentTime = date.getTime() - offset;
+      return currentTime;
+    }
+
+    function updateCountdown(id, remainingTime) {
+      var obj = document.getElementById(id);
+      var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+      obj.textContent = `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+
+      if (remainingTime <= 0) {
+        clearInterval(timer);
+        obj.textContent = '倒计时结束';
+      }
+    }
+
+    function countdown(targetDate, id) {
+      var targetTime = new Date(targetDate).getTime();
+      var currentTime = getCurrentTime();
+      var remainingTime = targetTime - currentTime;
+  
+      if (remainingTime <= 0) {
+        document.getElementById(id).textContent = '倒计时结束';
+        return;
+      }
+
+      var timer = setInterval(function() {
+        remainingTime -= 1000;
+        updateCountdown(id, remainingTime);
+      }, 1000);
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+      
+        countdown("2024-03-23", 'countdown-计算机二级');
+      
+        countdown("2024-04-13", 'countdown-蓝桥杯省赛');
+      
+    });
+  </script>
+</body>
+</html>
     <!-- 首页座右铭 -->
     
   <div class="motto">
       <h3 class="motto-title">座右铭</h3>
       <div class="motto-content">
         <p>
-          沉淀后我愿意做个温暖的人，有自己的喜好，有自己的原则，有自己的信仰，不急功近利，不浮夸轻薄。宠辱不惊，淡定安逸，心静如水，不忘初心，方得始终。——凌茜  
+          我环顾四周，并没有看见什么上帝  
         </p> 
       </div>
   </div>
@@ -1318,7 +1502,7 @@
 </style>
 <div class="index-notice" id="appIndexNotice">
     <h3>
-      <i class="fas fa-bullhorn index-notice-icon"></i>公告
+      <i class="fas fa-bullhorn index-notice-icon"></i>碎碎念
     </h3>
     <div class="index-notice-content">
       
@@ -1326,7 +1510,7 @@
         :data="listData"
         :class-option="classOption"
         class="warp"
-        style="height: 30px"
+        style="height: 120px"
       >
         <ul class="index-notice-content__ul">
           
@@ -1335,14 +1519,65 @@
               
                 <div class="index-notice-content__title">
                   
-                    <a href="/archives" title="#这是一条公告" style="color:blue">
-                      #这是一条公告
+                    <a href="/archives" title="#欢迎来到我的空间" style="color:blue">
+                      #欢迎来到我的空间
                     </a>
                   
                 </div>
                 
                   <div class="index-notice-content__date" style="color:blue">
                     2024-02-04
+                  </div>
+                
+              
+            </li>
+          
+            <li>
+              
+                <div class="index-notice-content__title">
+                  
+                    <a href="/archives" title="#emo emo emo emo emo emo emo" style="color:red">
+                      #emo emo emo emo emo emo emo
+                    </a>
+                  
+                </div>
+                
+                  <div class="index-notice-content__date" style="color:red">
+                    2024-02-12
+                  </div>
+                
+              
+            </li>
+          
+            <li>
+              
+                <div class="index-notice-content__title">
+                  
+                    <a href="/archives" title="#感冒了好难受感冒了好难受" style="color:blue">
+                      #感冒了好难受感冒了好难受
+                    </a>
+                  
+                </div>
+                
+                  <div class="index-notice-content__date" style="color:blue">
+                    2024-02-16
+                  </div>
+                
+              
+            </li>
+          
+            <li>
+              
+                <div class="index-notice-content__title">
+                  
+                    <a href="/archives" title="#小轻工你再不开空调我真的会冻死在这里..." style="color:#42b983">
+                      #小轻工你再不开空调我真的会冻死在这里...
+                    </a>
+                  
+                </div>
+                
+                  <div class="index-notice-content__date" style="color:#42b983">
+                    2024-02-24
                   </div>
                 
               
@@ -1361,7 +1596,7 @@
 <script>
   var seamless = JSON.parse('false');
   seamless = seamless ? 0 : 30;
-  var listData = '[object Object]' || '';
+  var listData = '[object Object],[object Object],[object Object],[object Object]' || '';
   listData = listData.split(',');
   var vm = new Vue({
     el: '#appIndexNotice',
@@ -1396,6 +1631,107 @@
 	<div class="articles">
 		
 			
+				<div class="article-link">
+					
+					<div class="article" style="background-size: cover; 
+						background-position: center center;">
+						<img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+					</div>
+					<div class="text">
+						<div class="text-main">
+							<div class="title"><a href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/">蓝桥杯stm32学习笔记(二):工程模板建立</a></div>
+							<div class="content">
+								
+第一步 新建工程
+
+
+第二步 选择芯片
+然后右上角"Start Project"
+
+第三步 打开高速外部时钟
+ 详细介
+							</div>
+						</div>
+						<a href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/" class="more">
+							<i class="fas fa-eye" aria-hidden="true"></i>Read More
+						</a>
+					</div>
+				</div>
+			
+		
+			
+				<div class="article-link">
+					
+					<div class="article" style="background-size: cover; 
+						background-position: center center;">
+						<img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+					</div>
+					<div class="text">
+						<div class="text-main">
+							<div class="title"><a href="/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">蓝桥杯stm32学习笔记(一)：相关元件/配置</a></div>
+							<div class="content">
+								 碎碎念 
+              
+              离蓝桥杯还有45天，我的32总共才学了四五天&#x
+							</div>
+						</div>
+						<a href="/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="more">
+							<i class="fas fa-eye" aria-hidden="true"></i>Read More
+						</a>
+					</div>
+				</div>
+			
+		
+			
+				<div class="article-link">
+					
+					<div class="article" style="background-size: cover; 
+						background-position: center center;">
+						<img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+					</div>
+					<div class="text">
+						<div class="text-main">
+							<div class="title"><a href="/2024/02/11/%E7%94%B5%E8%B7%AF%E6%B8%B8%E6%88%8F%EF%BC%9ATuring-Complete/">电路游戏：Turing Complete</a></div>
+							<div class="content">
+								非常好游戏，这使我的大脑运动
+ 德·摩根定律
+
+ 袜子配对 
+              
+              
+							</div>
+						</div>
+						<a href="/2024/02/11/%E7%94%B5%E8%B7%AF%E6%B8%B8%E6%88%8F%EF%BC%9ATuring-Complete/" class="more">
+							<i class="fas fa-eye" aria-hidden="true"></i>Read More
+						</a>
+					</div>
+				</div>
+			
+		
+			
+				<div class="article-link">
+					
+					<div class="article" style="background-size: cover; 
+						background-position: center center;">
+						<img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+					</div>
+					<div class="text">
+						<div class="text-main">
+							<div class="title"><a href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/">给网站加一个倒数日卡片~（成功啦~）</a></div>
+							<div class="content">
+								想给网站加一个倒数日卡片但是主题里没有相关配置因为对网站之类的完全零基础，看了一圈感觉自己想要的效果跟网站上已有的”座右
+							</div>
+						</div>
+						<a href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/" class="more">
+							<i class="fas fa-eye" aria-hidden="true"></i>Read More
+						</a>
+					</div>
+				</div>
+			
+		
+			
+		
+			
 		
 			
 		
@@ -1411,6 +1747,296 @@
   
     
     <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2024-02-28</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/">蓝桥杯stm32学习笔记(二):工程模板建立</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag">蓝桥杯</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+第一步 新建工程
+
+
+第二步 选择芯片
+然后右上角"Start Project"
+
+第三步 打开高速外部时钟
+ 详细介绍                              System Core                  
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2024-02-27</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">蓝桥杯stm32学习笔记(一)：相关元件/配置</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag">蓝桥杯</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+             碎碎念 
+              
+              离蓝桥杯还有45天，我的32总共才学了四五天&#x2F;(ㄒoㄒ)&#x2F;~~虽然考核作业做完了但是都是现学现弄的，不能做到独立系统地完成最近事情好多，这几天赶紧先学
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2024-02-11</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2024/02/11/%E7%94%B5%E8%B7%AF%E6%B8%B8%E6%88%8F%EF%BC%9ATuring-Complete/">电路游戏：Turing Complete</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Turing-Complete/" rel="tag">Turing Complete</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag">游戏</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E7%94%B5%E8%B7%AF/">电路</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2024/02/11/%E7%94%B5%E8%B7%AF%E6%B8%B8%E6%88%8F%EF%BC%9ATuring-Complete/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            非常好游戏，这使我的大脑运动
+ 德·摩根定律
+
+ 袜子配对 
+              
+               我的解答 官方解答，好漂亮的排线
+              
+            
+
+ 奇数个信号 
+     
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2024/02/11/%E7%94%B5%E8%B7%AF%E6%B8%B8%E6%88%8F%EF%BC%9ATuring-Complete/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2024/02/11/%E7%94%B5%E8%B7%AF%E6%B8%B8%E6%88%8F%EF%BC%9ATuring-Complete/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2024-02-07</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/">给网站加一个倒数日卡片~（成功啦~）</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" rel="tag">主题配置</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/" rel="tag">倒数日卡片</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            想给网站加一个倒数日卡片但是主题里没有相关配置因为对网站之类的完全零基础，看了一圈感觉自己想要的效果跟网站上已有的”座右铭”卡片的实现很像准备学习借用一下~
+ motto.ejs（座右铭卡片） 
+              
+       
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2024-02-04</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2024/02/04/test/">test</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2024/02/04/test/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/water2.cg10boe8pog.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/water2.cg10boe8pog.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            测试
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/2024/02/04/test/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/2024/02/04/test/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/water2.cg10boe8pog.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/water2.cg10boe8pog.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
       <div class="post-main">
         <div class="post-info">
           <div class="post-time">
@@ -1437,30 +2063,30 @@
           <div class="post-img-mobile">
             <a href="/2024/02/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" style="background-size: cover; 
               background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/a02288c4ba2a5d13a00f2eab7f16b324.qzuquzzsnp.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/a02288c4ba2a5d13a00f2eab7f16b324.qzuquzzsnp.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
             </a>
           </div>
           <div class="post-content">
-            我的第一篇文章！终于把网站弄好了！开心开心
+            我的第一篇文章！终于把网站建好了！开心开心
 
           </div>
         </div>
         <div class="post-more">
           <a href="/2024/02/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
         <a href="/2024/02/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" style="background-size: cover; 
           background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+          <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/a02288c4ba2a5d13a00f2eab7f16b324.qzuquzzsnp.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/a02288c4ba2a5d13a00f2eab7f16b324.qzuquzzsnp.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
       </div>
     </article>
   
     
-    <article class="post reveal" style="   ">
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
       <div class="post-main">
         <div class="post-info">
           <div class="post-time">
@@ -1496,7 +2122,7 @@
         </div>
         <div class="post-more">
           <a href="/2024/02/01/hello-world/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1520,8 +2146,8 @@
   <div class='content'>
     
       
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img src='https://pic2.zhimg.com/80/v2-42b72d5ebee4b8d8aa70d9687effe87b_1440w.webp'/>
+        <a class='avatar flat-box circle' href='/about/'>
+          <img src='https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_224532.3kqwx2xzgsg0.webp'/>
         </a>
       
     
@@ -1553,7 +2179,7 @@
           
         
           
-            <a href="mailto:me@xxx.com"
+            <a href="mailto:3168476051@qq.com"
               class="social fas fa-envelope flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
@@ -1571,7 +2197,7 @@
           
         
           
-            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=2259763426"
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3168476051"
               class="social fab fa-qq flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
@@ -1593,6 +2219,37 @@
     
       
         
+    <section class="widget side_category">
+      
+  <header>
+    
+      <a style="color: " href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+      <div class='content'>
+        <ul class="entry navigation">
+          
+            <li><a class="flat-box"
+              title="/categories/%E5%89%8D%E7%AB%AF/" href="/categories/%E5%89%8D%E7%AB%AF/"
+              id="categoriesE5898DE7ABAF"
+              ><div class='name'>前端</div><div class='badge'>(2)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"
+              id="categoriesE5B58CE585A5E5BC8F"
+              ><div class='name'>嵌入式</div><div class='badge'>(2)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/categories/%E7%94%B5%E8%B7%AF/" href="/categories/%E7%94%B5%E8%B7%AF/"
+              id="categoriesE794B5E8B7AF"
+              ><div class='name'>电路</div><div class='badge'>(1)</div></a></li>
+          
+        </ul>
+      </div>
+    </section>
+  
   
       
       
@@ -1607,7 +2264,7 @@
 
 
     <div class='content'>
-    <a href="/tags/hello/" style="font-size: 14px; color: #999">hello</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 14px; color: #999">碎碎念</a>
+    <a href="/tags/Turing-Complete/" style="font-size: 14px; color: #999">Turing Complete</a> <a href="/tags/hello/" style="font-size: 14px; color: #999">hello</a> <a href="/tags/stm32/" style="font-size: 24px; color: #555">stm32</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" style="font-size: 14px; color: #999">主题配置</a> <a href="/tags/%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/" style="font-size: 14px; color: #999">倒数日卡片</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="font-size: 24px; color: #555">嵌入式</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 14px; color: #999">碎碎念</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 24px; color: #555">蓝桥杯</a>
     </div>
 </section>
 
@@ -1635,18 +2292,18 @@
             
 
             <div class="post-img-box">
-              <a href="/2024/02/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="post-img " style="background-size: cover; 
+              <a href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
                 
-                  <span class="post-date">02-01</span>
+                  <span class="post-date">02-28</span>
                 
               </div>
-              <a class="post-title" href="/2024/02/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">我的第一篇文章</a>
+              <a class="post-title" href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/">蓝桥杯stm32学习笔记(二):工程模板建立</a>
             </div>
           </div>
         
@@ -1656,18 +2313,81 @@
             
 
             <div class="post-img-box">
-              <a href="/2024/02/01/hello-world/" class="post-img " style="background-size: cover; 
+              <a href="/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
                 
-                  <span class="post-date">02-01</span>
+                  <span class="post-date">02-27</span>
                 
               </div>
-              <a class="post-title" href="/2024/02/01/hello-world/">Hello World</a>
+              <a class="post-title" href="/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">蓝桥杯stm32学习笔记(一)：相关元件/配置</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/02/11/%E7%94%B5%E8%B7%AF%E6%B8%B8%E6%88%8F%EF%BC%9ATuring-Complete/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">02-11</span>
+                
+              </div>
+              <a class="post-title" href="/2024/02/11/%E7%94%B5%E8%B7%AF%E6%B8%B8%E6%88%8F%EF%BC%9ATuring-Complete/">电路游戏：Turing Complete</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">02-07</span>
+                
+              </div>
+              <a class="post-title" href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/">给网站加一个倒数日卡片~（成功啦~）</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/02/04/test/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/water2.cg10boe8pog.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/water2.cg10boe8pog.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">02-04</span>
+                
+              </div>
+              <a class="post-title" href="/2024/02/04/test/">test</a>
             </div>
           </div>
         
@@ -1678,7 +2398,7 @@
       
   <section class="widget side_archives">
     
-    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">February 2024</span><span class="card-archive-list-count">2</span></a></li></ul></div>
+    <header><a style="color: blue" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">February 2024</span><span class="card-archive-list-count">7</span></a></li></ul></div>
   </section>
 
       <section class="widget side_webinfo">
@@ -1695,7 +2415,7 @@
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>2 篇</div>
+          <div>7 篇</div>
         </div>
       
 
@@ -1717,7 +2437,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>94 字</div>
+          <div>11.3k 字</div>
         </div>
       
 
@@ -1743,8 +2463,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sun Feb 04 2024 16:42:41 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2024-02-04 日</div>
+            <div id="last-update" style="display: none;">Wed Feb 28 2024 17:24:38 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2024-02-28 日</div>
           
         </div>
         
@@ -1794,7 +2514,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2024-02-04 日';
+            document.getElementById('last-update-show').innerHTML = '2024-02-28 日';
           }
         </script>
         
@@ -1844,7 +2564,7 @@
       if (isDark) {
         this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
       } else {
-        this.FISH_COLOR = 'rgba(135, 206, 250, 0.8)' || 'rgba(0, 204, 255, 0.8)';
+        this.FISH_COLOR = '' || 'rgba(0, 204, 255, 0.8)';
       }
     },
     setParameters: function () {
@@ -1995,7 +2715,7 @@
       
         
           <div class="footer-copyright">
-            <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/tumytime">tumytime</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+            <p>Copyright © 2023 - 2024 <a target="_blank" rel="noopener" href="https://github.com/tumytime">tumytime</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
 
           </div>
         
@@ -2084,58 +2804,6 @@
     
     <!-- 渲染左下角音乐播放器 -->
     
-      <link rel="stylesheet" href="/js/aplayer/APlayer@1.10.1.min.css">
-<style>
-.aplayer .aplayer-lrc p {
-  
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16px !important;
-}
-
-.aplayer .aplayer-lrc p.aplayer-lrc-current {
-  
-  font-size: 15px;
-  color: #42b983;
-}
-
-
-.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-  left: -66px !important;
-}
-
-.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-  left: 0px !important;
-}
-
-
-</style>
-<meting-js  
-  class=""
-  server="tencent"
-  type="playlist"
-  id="8062553743"
-  fixed='true'
-  autoplay='false'
-  theme='#42b983'
-  loop='all'
-  order='random'
-  preload='auto'
-  volume='0.7'
-  list-folded='true'
->
-</meting-js>
-
-<!-- <style>
-  #aplayer {
-    position: fixed;
-    left: 0;
-    bottom: 300px;
-  }
-</style> -->
-<script src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
-<script src="https://unpkg.com/meting@2/dist/Meting.min.js"></script>
-    
 
     <!-- 图片放大 -->
     
@@ -2147,13 +2815,13 @@
 
 <script>
     var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5362117c773ef8cc5f81f4f08ba821ec";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
     })();
-</script>
+    </script>
 
     <!-- Baidu Push -->
 
@@ -2638,9 +3306,7 @@
 <!-- 爱心点击 -->
 
   
-    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 999; pointer-events: none;" ></canvas>
-    <script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-    <script src="/js/cursor/explosion.min.js"></script>
+    <script src="/js/cursor/text.js"></script>
   
 
 

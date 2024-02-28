@@ -1,0 +1,17 @@
+<?php
+
+$urls = array(
+    'https://tumytime.space/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/'
+);
+$api = 'http://data.zz.baidu.com/urls?site=https://tumytime.space&token=DUZcu4xlO2dm1tHb';
+$ch = curl_init();
+$options =  array(
+    CURLOPT_URL => $api,
+    CURLOPT_POST => true,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POSTFIELDS => implode("\n", $urls),
+    CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
+);
+curl_setopt_array($ch, $options);
+$result = curl_exec($ch);
+echo $result;
