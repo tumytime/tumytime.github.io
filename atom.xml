@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2024-02-28T13:17:34.473Z</updated>
+  <updated>2024-02-29T13:58:07.398Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>蓝桥杯stm32学习笔记(四)：LCD液晶屏显示</title>
+    <link href="http://tumytime.github.io/2024/02/29/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9B%9B-%EF%BC%9ALCD%E6%B6%B2%E6%99%B6%E5%B1%8F%E6%98%BE%E7%A4%BA/"/>
+    <id>http://tumytime.github.io/2024/02/29/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9B%9B-%EF%BC%9ALCD%E6%B6%B2%E6%99%B6%E5%B1%8F%E6%98%BE%E7%A4%BA/</id>
+    <published>2024-02-29T13:14:10.000Z</published>
+    <updated>2024-02-29T13:58:07.398Z</updated>
+    
+    <content type="html"><![CDATA[<p>我不行了我要笑死了那个课说lcd上电后让人眼前一亮哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;我不行了我要笑死了那个课说lcd上电后让人眼前一亮哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="嵌入式" scheme="http://tumytime.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    
+    <category term="嵌入式" scheme="http://tumytime.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    <category term="stm32" scheme="http://tumytime.github.io/tags/stm32/"/>
+    
+    <category term="蓝桥杯" scheme="http://tumytime.github.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>Python深度学习及智能车竞赛实践(一):Python 基础知识体系</title>
