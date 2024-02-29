@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2024-02-28T13:06:23.119Z</updated>
+  <updated>2024-02-28T13:17:34.473Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -17,12 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Python深度学习及智能车竞赛实践(一)</title>
+    <title>Python深度学习及智能车竞赛实践(一):Python 基础知识体系</title>
     <link href="http://tumytime.github.io/2024/02/28/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%8A%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B%E5%AE%9E%E8%B7%B5-%E4%B8%80-Python%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E4%BE%8B/"/>
     <id>http://tumytime.github.io/2024/02/28/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%8A%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B%E5%AE%9E%E8%B7%B5-%E4%B8%80-Python%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E4%BE%8B/</id>
     <published>2024-02-28T12:45:54.000Z</published>
-    <updated>2024-02-28T13:06:23.119Z</updated>
+    <updated>2024-02-28T13:17:34.473Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="第1章-绪论"><a href="#第1章-绪论" class="headerlink" title="第1章 绪论"></a>第1章 绪论</h1><h2 id="1-1-人工智能的发展及基本概念"><a href="#1-1-人工智能的发展及基本概念" class="headerlink" title="1.1 人工智能的发展及基本概念"></a>1.1 人工智能的发展及基本概念</h2><h3 id="1-1-1-人工智能的起源与发展"><a href="#1-1-1-人工智能的起源与发展" class="headerlink" title="1.1.1 人工智能的起源与发展"></a>1.1.1 人工智能的起源与发展</h3><h3 id="1-1-2-中国人工智能技术的发展"><a href="#1-1-2-中国人工智能技术的发展" class="headerlink" title="1.1.2 中国人工智能技术的发展"></a>1.1.2 中国人工智能技术的发展</h3><h3 id="1-1-3-人工智能的基本概念"><a href="#1-1-3-人工智能的基本概念" class="headerlink" title="1.1.3 人工智能的基本概念"></a>1.1.3 人工智能的基本概念</h3><h2 id="1-2-智能汽车及全国大学生智能汽车竞赛"><a href="#1-2-智能汽车及全国大学生智能汽车竞赛" class="headerlink" title="1.2 智能汽车及全国大学生智能汽车竞赛"></a>1.2 智能汽车及全国大学生智能汽车竞赛</h2><h3 id="1-2-1-智能汽车技术概述"><a href="#1-2-1-智能汽车技术概述" class="headerlink" title="1.2.1 智能汽车技术概述"></a>1.2.1 智能汽车技术概述</h3><h3 id="1-2-2-全国大学生智能汽车竞赛简介"><a href="#1-2-2-全国大学生智能汽车竞赛简介" class="headerlink" title="1.2.2 全国大学生智能汽车竞赛简介"></a>1.2.2 全国大学生智能汽车竞赛简介</h3><h2 id="1-3-程序设计语言及Python语言简介"><a href="#1-3-程序设计语言及Python语言简介" class="headerlink" title="1.3 程序设计语言及Python语言简介"></a>1.3 程序设计语言及Python语言简介</h2><h3 id="1-3-1-低级语言和高级语言"><a href="#1-3-1-低级语言和高级语言" class="headerlink" title="1.3.1 低级语言和高级语言"></a>1.3.1 低级语言和高级语言</h3><h3 id="1-3-2-结构化语言和面向对象语言"><a href="#1-3-2-结构化语言和面向对象语言" class="headerlink" title="1.3.2 结构化语言和面向对象语言"></a>1.3.2 结构化语言和面向对象语言</h3><h3 id="1-3-3-Python语言特点"><a href="#1-3-3-Python语言特点" class="headerlink" title="1.3.3 Python语言特点"></a>1.3.3 Python语言特点</h3><h3 id="1-3-4-Python开发环境及小实例"><a href="#1-3-4-Python开发环境及小实例" class="headerlink" title="1.3.4 Python开发环境及小实例"></a>1.3.4 Python开发环境及小实例</h3><h1 id="第2章-Python基本语法元素及数据类型"><a href="#第2章-Python基本语法元素及数据类型" class="headerlink" title="第2章 Python基本语法元素及数据类型"></a>第2章 Python基本语法元素及数据类型</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;第1章-绪论&quot;&gt;&lt;a href=&quot;#第1章-绪论&quot; class=&quot;headerlink&quot; title=&quot;第1章 绪论&quot;&gt;&lt;/a&gt;第1章 绪论&lt;/h1&gt;&lt;h2 id=&quot;1-1-人工智能的发展及基本概念&quot;&gt;&lt;a href=&quot;#1-1-人工智能的发展及基本概念&quot; cla</summary>
+      
     
     
     
@@ -72,9 +79,9 @@
     <link href="http://tumytime.github.io/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%89-%E7%82%B9%E4%BA%AELED/"/>
     <id>http://tumytime.github.io/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%89-%E7%82%B9%E4%BA%AELED/</id>
     <published>2024-02-28T09:29:38.000Z</published>
-    <updated>2024-02-28T12:49:11.760Z</updated>
+    <updated>2024-02-29T05:28:21.351Z</updated>
     
-    <content type="html"><![CDATA[<div class="note info"><p>开发板芯片：STM32G431RBT6;HAL库开发</p></div><p>接着用（二）中配置好的工程模板</p><h1 id="LED"><a href="#LED" class="headerlink" title="LED"></a>LED</h1><span class='pbg info'>LED电路</span><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.7zq60sv69o.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.7zq60sv69o.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><p>LED引脚:PC8-15<br>PD2:锁存器的控制端口</p><h2 id="使能需要的端口"><a href="#使能需要的端口" class="headerlink" title="使能需要的端口"></a>使能需要的端口</h2><p>依次使能PC8-15(GPIO_Output)</p><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.4ckmdaj16i.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.4ckmdaj16i.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><p>使能PD2(GPIO_Output)</p><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.1lbk57zxpl.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.1lbk57zxpl.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><h2 id="配置初始引脚电平"><a href="#配置初始引脚电平" class="headerlink" title="配置初始引脚电平"></a>配置初始引脚电平</h2><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.9dcp4v1p14.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.9dcp4v1p14.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><p>PC8-15配置为高电平<br>（我不行了我学不进去了我去学会儿python）</p>]]></content>
+    <content type="html"><![CDATA[<div class="note info"><p>开发板芯片：STM32G431RBT6;HAL库开发</p></div><p>接着用（二）中配置好的工程模板</p><h1 id="LED"><a href="#LED" class="headerlink" title="LED"></a>LED</h1><span class='pbg info'>LED电路</span><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.7zq60sv69o.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.7zq60sv69o.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><p>LED引脚:PC8-15<br>PD2:锁存器的控制端口</p><h2 id="使能需要的端口"><a href="#使能需要的端口" class="headerlink" title="使能需要的端口"></a>使能需要的端口</h2><p>依次使能PC8-15(GPIO_Output)</p><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.4ckmdaj16i.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.4ckmdaj16i.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><p>使能PD2(GPIO_Output)</p><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.1lbk57zxpl.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.1lbk57zxpl.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><h2 id="配置初始引脚电平"><a href="#配置初始引脚电平" class="headerlink" title="配置初始引脚电平"></a>配置初始引脚电平</h2><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.9dcp4v1p14.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.9dcp4v1p14.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><p>PC8-15配置为高电平</p><details open><summary pointer> WHY </summary>              <div class='content'>              <div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.lvgt2uwod.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.lvgt2uwod.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>左边是拉高的（高电平）（一中有VDD的介绍）所以当右边是低电平时，有电流通过，LED被点亮为了初始时是LED是熄灭状态，我们这里把引脚设置成高电平（High）              </div>            </details><p>PD2:高电平使能，低电平关闭</p><h2 id="生成代码"><a href="#生成代码" class="headerlink" title="生成代码"></a>生成代码</h2><p>点击右上角”GENERATE CODE”,生成工程</p>]]></content>
     
     
       
