@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2024-03-05T10:04:46.611Z</updated>
+  <updated>2024-03-07T11:08:10.520Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>paddle.nn.Layer</title>
+    <link href="http://tumytime.github.io/2024/03/07/paddle-nn-Layer/"/>
+    <id>http://tumytime.github.io/2024/03/07/paddle-nn-Layer/</id>
+    <published>2024-03-07T11:03:35.884Z</published>
+    <updated>2024-03-07T11:08:10.520Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>class paddle.nn.Layer(name_scope&#x3D;None, dtype&#x3D;’float32’)</strong></p><p><a href="https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html">https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html</a></p><div class="tagLink"><a class="link-card" title="API官方文档" href="https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html"><span class="link-card-backdrop" style="background-image: url(https://tumytime.github.io/picx-images-hosting/image.1754pq86xn.webp)"></span><div class="left"><img src="https://tumytime.github.io/picx-images-hosting/image.1754pq86xn.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.1754pq86xn.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">API官方文档</p><p class="url">https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html</p></div></a></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;class paddle.nn.Layer(name_scope&amp;#x3D;None, dtype&amp;#x3D;’float32’)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.paddlepaddle.org.cn/docume</summary>
+      
+    
+    
+    
+    <category term="深度学习" scheme="http://tumytime.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="深度学习" scheme="http://tumytime.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="paddlepaddle" scheme="http://tumytime.github.io/tags/paddlepaddle/"/>
+    
+  </entry>
   
   <entry>
     <title>图像处理笔记</title>

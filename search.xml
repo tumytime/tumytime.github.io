@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>paddle.nn.Layer</title>
+      <link href="/2024/03/07/paddle-nn-Layer/"/>
+      <url>/2024/03/07/paddle-nn-Layer/</url>
+      
+        <content type="html"><![CDATA[<p><strong>class paddle.nn.Layer(name_scope&#x3D;None, dtype&#x3D;’float32’)</strong></p><p><a href="https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html">https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html</a></p><div class="tagLink"><a class="link-card" title="API官方文档" href="https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html"><span class="link-card-backdrop" style="background-image: url(https://tumytime.github.io/picx-images-hosting/image.1754pq86xn.webp)"></span><div class="left"><img src="https://tumytime.github.io/picx-images-hosting/image.1754pq86xn.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.1754pq86xn.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">API官方文档</p><p class="url">https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html</p></div></a></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+            <tag> paddlepaddle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>图像处理笔记</title>
       <link href="/2024/03/05/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0/"/>
       <url>/2024/03/05/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0/</url>
