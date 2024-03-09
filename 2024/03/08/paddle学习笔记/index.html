@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>paddle.nn.Layer | Hello！Welcom to Tumy-Time！</title>
+  <title>paddle学习笔记 | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -681,14 +681,14 @@
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        paddle.nn.Layer
+        paddle学习笔记
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2024-03-07 |
+          <i class="fas fa-calendar"></i> Published in：2024-03-08 |
         </span>
       
 
@@ -706,11 +706,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 40 |
+            <i class="fas fa-file-text-o"></i> Words: 1.6k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 1min |
+            <i class="fas fa-clock"></i> Reading time: 5min |
           </span>
   
           
@@ -737,9 +737,40 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <p><strong>class paddle.nn.Layer(name_scope&#x3D;None, dtype&#x3D;’float32’)</strong></p>
-<p><a target="_blank" rel="noopener" href="https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html">https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html</a></p>
-<div class="tagLink"><a class="link-card" title="API官方文档" target="_blank" rel="noopener" href="https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html"><span class="link-card-backdrop" style="background-image: url(https://tumytime.github.io/picx-images-hosting/image.1754pq86xn.webp)"></span><div class="left"><img src="https://tumytime.github.io/picx-images-hosting/image.1754pq86xn.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.1754pq86xn.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">API官方文档</p><p class="url">https://www.paddlepaddle.org.cn/documentation/docs/zh/api/paddle/nn/Layer_cn.html</p></div></a></div>
+        <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>特征选取，避免被不相关的特征干扰：</p>
+<div class="tagLink"><a class="link-card" title="机器学习入门讲解：什么是特征（Feature）和特征选择(Feature Selection)?" target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30404850"><span class="link-card-backdrop" style="background-image: url(https://pic1.zhimg.com/70/v2-9f98ca58f649f01f9bf5739ac0ad8239_1440w.avis?source=172ae18b&biz_tag=Post)"></span><div class="left"><img src="https://pic1.zhimg.com/70/v2-9f98ca58f649f01f9bf5739ac0ad8239_1440w.avis?source=172ae18b&biz_tag=Post" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/70/v2-9f98ca58f649f01f9bf5739ac0ad8239_1440w.avis?source=172ae18b&biz_tag=Post" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">机器学习入门讲解：什么是特征（Feature）和特征选择(Feature Selection)?</p><p class="url">https://zhuanlan.zhihu.com/p/30404850</p></div></a></div>
+
+<p>可以明显的看到，不同的特征，结果还是差别很大的，如果我只用选取上图准确率最高的一类特征来训练模型，80.32%测试结果将比使用全部特征作为训练数据71%好不少，这个DWT-Approx(4-14Hz) db2,k&#x3D;1 特征就相当于我们第一个例子中找正方体的‘形状’特征，即主要特征。那么针对未来的训练，我们可以尝试提取表现最好的几个特征就好了；为什么选最好的几个特征，只选最好的那一个不是更高吗</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">在特征选择时，选择几个表现最好的特征通常比只选一个最好的特征更可靠和有效。以下是一些原因：</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> <span class="strong">**信息丰富性**</span>：使用多个好的特征可以提供更多关于数据集的信息，有助于更好地描述数据之间的关系。这可以提高模型的泛化能力。</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> <span class="strong">**冗余性**</span>：有时候一个单一最好的特征可能会包含某些冗余信息，而使用多个表现良好且互补的特征可以帮助消除冗余性，提高模型的鲁棒性。</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> <span class="strong">**模型稳定性**</span>：过于依赖一个最好的特征可能使得模型对于噪声和异常数据更为敏感。多个好的特征可以增加模型的稳定性，降低对噪声的敏感度。</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> <span class="strong">**综合考量**</span>：不同的特征可能会捕捉到数据不同方面的信息，综合利用多个表现良好的特征有利于更全面地学习数据的规律，提高模型的性能。</span><br><span class="line"></span><br><span class="line">因此，一般情况下，选择数个表现良好且互补的特征比单个最好的特征更为合适。当然，具体选择多少个特征取决于实际应用场景和数据集的特点。</span><br></pre></td></tr></table></figure>
+
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><div class="tagLink"><a class="link-card" title="机器学习入门：重要的概念---信息熵（Shannon’s Entropy Model）" target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30854084"><span class="link-card-backdrop" style="background-image: url(https://pic1.zhimg.com/70/v2-5e7917bb0bf5604630f732379e70c8e3_1440w.avis?source=172ae18b&biz_tag=Post)"></span><div class="left"><img src="https://pic1.zhimg.com/70/v2-5e7917bb0bf5604630f732379e70c8e3_1440w.avis?source=172ae18b&biz_tag=Post" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/70/v2-5e7917bb0bf5604630f732379e70c8e3_1440w.avis?source=172ae18b&biz_tag=Post" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">机器学习入门：重要的概念---信息熵（Shannon’s Entropy Model）</p><p class="url">https://zhuanlan.zhihu.com/p/30854084</p></div></a></div>
+
+
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><div class="tagLink"><a class="link-card" title="CNN 入门讲解：什么是卷积（Convolution）?" target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30994790"><span class="link-card-backdrop" style="background-image: url(https://pic1.zhimg.com/70/v2-5e7917bb0bf5604630f732379e70c8e3_1440w.avis?source=172ae18b&biz_tag=Post)"></span><div class="left"><img src="https://pic1.zhimg.com/70/v2-5e7917bb0bf5604630f732379e70c8e3_1440w.avis?source=172ae18b&biz_tag=Post" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/70/v2-5e7917bb0bf5604630f732379e70c8e3_1440w.avis?source=172ae18b&biz_tag=Post" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">CNN 入门讲解：什么是卷积（Convolution）?</p><p class="url">https://zhuanlan.zhihu.com/p/30994790</p></div></a></div>
+
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><div class="tagLink"><a class="link-card" title="CNN入门讲解：如何理解卷积神经网络的结构（Structure）？" target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31249821"><span class="link-card-backdrop" style="background-image: url(https://pica.zhimg.com/70/v2-7a147703c5181ff9737b41afa6ea6bce_1440w.avis?source=172ae18b&biz_tag=Post)"></span><div class="left"><img src="https://pica.zhimg.com/70/v2-7a147703c5181ff9737b41afa6ea6bce_1440w.avis?source=172ae18b&biz_tag=Post" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/70/v2-7a147703c5181ff9737b41afa6ea6bce_1440w.avis?source=172ae18b&biz_tag=Post" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">CNN入门讲解：如何理解卷积神经网络的结构（Structure）？</p><p class="url">https://zhuanlan.zhihu.com/p/31249821</p></div></a></div>
+
+<div class="tagLink"><a class="link-card" title="10分钟数据降维入门" target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/237718243"><span class="link-card-backdrop" style="background-image: url(https://picx.zhimg.com/70/v2-3679db615987147578a84986d7947580_1440w.avis?source=172ae18b&biz_tag=Post)"></span><div class="left"><img src="https://picx.zhimg.com/70/v2-3679db615987147578a84986d7947580_1440w.avis?source=172ae18b&biz_tag=Post" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/70/v2-3679db615987147578a84986d7947580_1440w.avis?source=172ae18b&biz_tag=Post" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">10分钟数据降维入门</p><p class="url">https://zhuanlan.zhihu.com/p/237718243</p></div></a></div>
+<iframe src="//player.bilibili.com/player.html?aid=549558824&bvid=BV1Di4y1o7vX&cid=453635246&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>现在知道乘客每次乘坐出租车的公里数，也知道乘客每次下车的时候支付给出租车司机的总费用。但是并不知道乘车的起步价，以及每公里行驶费用是多少。希望让机器从这些数据当中学习出来计算总费用的规则。</p>
+<p>更具体的，想要让机器学习程序通过数据学习出来下面的公式当中的参数 w 和参数 b（这是一个非常简单的示例，所以w和b都是浮点数，随着对深度学习了解的深入，你将会知道w和b通常情况下会是矩阵和向量）。这样，当下次乘车的时候，知道了行驶里程distance_travelled的时候，就可以估算出来用户的总费用total_fee了。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">total_fee</span> = w * distance_travelled + b</span><br></pre></td></tr></table></figure>
+<p>在这个机器学习任务中，已经知道了乘客的行驶里程distance_travelled，和对应的，这些乘客的总费用total_fee。</p>
+<p>通常情况下，在机器学习任务中，像distance_travelled这样的输入值，一般被称为x（或者特征feature），像total_fee这样的输出值，一般被称为y（或者标签label)。</p>
+<p>可以用paddle.to_tensor把示例数据转换为paddle的Tensor数据。</p>
+<details open><summary pointer> tensor </summary>
+              <div class='content'>
+              <p>飞桨使用张量（Tensor） 来表示神经网络中传递的数据，Tensor 可以理解为多维数组，类似于 Numpy 数组（ndarray） 的概念。与 Numpy 数组相比，Tensor 除了支持运行在 CPU 上，还支持运行在 GPU 及各种 AI 芯片上，以实现计算加速；此外，飞桨基于 Tensor，实现了深度学习所必须的反向传播功能和多种多样的组网算子，从而可更快捷地实现深度学习组网与训练等功能。两者具体异同点可参见下文 Tensor 与 Numpy 数组相互转换。</p><p>在飞桨框架中，神经网络的输入、输出数据，以及网络中的参数均采用 Tensor 数据结构，示例如下：</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">model</span>):</span><br><span class="line">    <span class="comment"># 首先定义了一个函数train(model)，该函数的作用是进行神经网络模型的训练。在函数内部，调用了模型的train()方法，将模型设置为训练模式。</span></span><br><span class="line">    model.train()</span><br><span class="line">    <span class="comment"># 设置了训练的轮数epochs为2</span></span><br><span class="line">    epochs = <span class="number">2</span></span><br><span class="line">    <span class="comment"># 初始化了优化器optim，使用了Adam优化器，学习率为0.001，并传入了模型的参数model.parameters()</span></span><br><span class="line">    <span class="comment"># model.parameters()返回一个包含模型所有参数的迭代器或列表，</span></span><br><span class="line">    <span class="comment"># 这些参数是需要根据训练数据进行调整的。</span></span><br><span class="line">    <span class="comment"># 在优化器中，可以将这些参数传递给优化器，使得优化器能够根据损失函数的梯度来更新这些参数，从而不断优化模型以实现更好的性能。</span></span><br><span class="line">    optim = paddle.optimizer.Adam(learning_rate=<span class="number">0.001</span>, parameters=model.parameters())</span><br><span class="line">    <span class="comment"># 模型训练的两层循环</span></span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">        <span class="keyword">for</span> batch_id, data <span class="keyword">in</span> <span class="built_in">enumerate</span>(train_loader()):</span><br><span class="line">            x_data = data[<span class="number">0</span>]</span><br><span class="line">            y_data = data[<span class="number">1</span>]</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;x_data: &quot;</span>, x_data[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>]) <span class="comment"># 打印神经网络的输入：批数据中的第一个数据的第一个元素</span></span><br><span class="line">            predicts = model(x_data)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;predicts: &quot;</span>, predicts[<span class="number">0</span>]) <span class="comment"># 打印神经网络的输出：批数据中的第一个数据的第一个元素</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;weight: &quot;</span>, model.linear1.weight[<span class="number">0</span>][<span class="number">0</span>]) <span class="comment"># 打印神经网络的权重：linear1 层的 weight 中的第一个元素</span></span><br><span class="line">            loss = F.cross_entropy(predicts, y_data)</span><br><span class="line">            acc = paddle.metric.accuracy(predicts, y_data)</span><br><span class="line">            loss.backward()</span><br><span class="line">            optim.step()</span><br><span class="line">            optim.clear_grad()</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">model = LeNet()</span><br><span class="line">train(model)</span><br></pre></td></tr></table></figure><details ><summary pointer> model.train() </summary>              <div class='content'>              <p>在训练开始之前写上 model.trian() ，在测试时写上 model.eval()。<br>在使用PyTorch构建神经网络进行训练时，我们通常会在训练过程中的代码中添加model.train()这一句，以确保启用Batch Normalization（BN）和Dropout层的功能。</p><details ><summary pointer> 批标准化 (Batch Normalization) </summary>              <div class='content'>              <pre><code>          &lt;/div&gt;        &lt;/details&gt;</code></pre>              </div>            </details>
+              </div>
+            </details>
+
+
+
+
+
       </div>
       <div class="post-tags-categories">
         
@@ -764,7 +795,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2024/03/07/paddle-nn-Layer/" target="_blank" title="paddle.nn.Layer">http://tumytime.github.io/2024/03/07/paddle-nn-Layer/</a>
+    <a href="/2024/03/08/paddle学习笔记/" target="_blank" title="paddle学习笔记">http://tumytime.github.io/2024/03/08/paddle学习笔记/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -781,6 +812,24 @@
 <div class="post-nav">
 
 
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/2024/03/09/paddlepaddle%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> Prev:
+        <div class="title-text">paddlepaddle报错解决合集</div>
+      </div>
+      
+      <!-- <div class="content">
+        “The device should not be ‘gpu’, ““The device should not be 
+      </div> -->
+    </a>
+  </div>
 
 
 
@@ -1017,7 +1066,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!--  -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1"><span class="toc-text">1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2"><span class="toc-text">2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3"><span class="toc-text">3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4"><span class="toc-text">4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1050,7 +1099,7 @@
             
 
             <div class="post-img-box">
-              <a href="/2024/03/07/paddle-nn-Layer/" class="post-img " style="background-size: cover; 
+              <a href="/2024/03/09/paddle-nn-Layer/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
@@ -1058,10 +1107,52 @@
             <div class="post-date-title">
               <div>
                 
-                  <span class="post-date">03-07</span>
+                  <span class="post-date">03-09</span>
                 
               </div>
-              <a class="post-title" href="/2024/03/07/paddle-nn-Layer/">paddle.nn.Layer</a>
+              <a class="post-title" href="/2024/03/09/paddle-nn-Layer/">paddle.nn.Layer</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/03/09/paddlepaddle%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">03-09</span>
+                
+              </div>
+              <a class="post-title" href="/2024/03/09/paddlepaddle%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/">paddlepaddle报错解决合集</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/03/08/paddle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">03-08</span>
+                
+              </div>
+              <a class="post-title" href="/2024/03/08/paddle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">paddle学习笔记</a>
             </div>
           </div>
         
@@ -1104,48 +1195,6 @@
                 
               </div>
               <a class="post-title" href="/2024/03/05/Python%E7%AC%94%E8%AE%B0/">Python笔记</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/03/02/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_224532.3kqwx2xzgsg0.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_224532.3kqwx2xzgsg0.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">03-02</span>
-                
-              </div>
-              <a class="post-title" href="/2024/03/02/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/03/02/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%AE%9E%E8%B7%B5%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E4%B8%80-%E6%B3%A2%E5%A3%AB%E9%A1%BF%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E9%97%AE%E9%A2%98/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">03-02</span>
-                
-              </div>
-              <a class="post-title" href="/2024/03/02/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%AE%9E%E8%B7%B5%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E4%B8%80-%E6%B3%A2%E5%A3%AB%E9%A1%BF%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%E9%97%AE%E9%A2%98/">零基础实践深度学习(一):波士顿房价预测问题</a>
             </div>
           </div>
         
