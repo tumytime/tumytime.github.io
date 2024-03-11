@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>archives | Hello！Welcom to Tumy-Time！</title>
+  <title>Python程序控制结构 | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -660,280 +660,725 @@
     
 </header>
         <!-- 内容区域 -->
-        <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-archive" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
-<div class="archive-header" style="background-image:url('https://pic1.zhimg.com/80/v2-1414b3a4b205e19060db18a20d08723a_1440w.jpg?source=1940ef5c')">
-  <div class="archive-header-title">
-    archive
-  </div>
-  <div class="archive-header-desc">
-  
-  <span class="title" id="archive-header-desc"></span>
-  <script>
-  function typedFn() {
-    const el = '#archive-header-desc';
-    const type = 'archive';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
-</script>
-  
-  </div>
-  <div class="mask-box"></div>
-</div>
+        
+ <!-- prismjs 代码高亮 -->
+ 
 
-<div class="archive-video">
-  <video class="full-video" autoplay loop muted>
-      <source style="width: 100%;height: 100vh;" src="/">
-  </video>
-  <div class="video-header-title">
-    archive
-  </div>
-  <div class="video-header-desc">
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
-      <span class="title" id="archive-video-header-desc"></span>
-      <script>
-  function typedFn() {
-    const el = '#archive-video-header-desc';
-    const type = 'archive';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
-</script>
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        Python程序控制结构
+      </span>
+    </div>
+    
+    
       
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> Published in：2024-03-10 |
+        </span>
+      
+
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> category：
+          
+            <a href="/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/" class="post-detail-header_category">
+              智能车
+            </a>
+          
+        </span>
+      
+
+      
+        <div class="post-detail-header_wordcount">
+          <span class="totalcount">
+            <i class="fas fa-file-text-o"></i> Words: 536 |
+          </span>
+  
+          <span class="min2read">
+            <i class="fas fa-clock"></i> Reading time: 2min |
+          </span>
+  
+          
+            <span class="reading">
+              <i class="fas fa-eye"></i> reading：<span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+        </div>
+      
+    
   </div>
-  <div class="mask-box"></div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
 </div>
 
-<!-- hash算法 -->
 
 
-<div class="archive-main">
-  <section class="archive">
-    <div class="archive-content">
-      <ul class="post-archive">
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <h2 id="分支语句"><a href="#分支语句" class="headerlink" title="分支语句"></a>分支语句</h2><h3 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h3><p><strong>逻辑非：</strong><br>not x</p>
+<h4 id="遍历循环"><a href="#遍历循环" class="headerlink" title="遍历循环"></a>遍历循环</h4><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.8z69tiu27o.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.8z69tiu27o.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.86tebsepob.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.86tebsepob.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+
+<h3 id="条件循环"><a href="#条件循环" class="headerlink" title="条件循环"></a>条件循环</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>x=<span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">while</span> x &lt; <span class="number">10</span>:</span><br><span class="line"><span class="meta">... </span>    <span class="built_in">print</span>(x)</span><br><span class="line"><span class="meta">... </span>    x+=<span class="number">3</span></span><br><span class="line">...</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.4xuaf4vpql.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.4xuaf4vpql.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+
+<h4 id="循环保留字-break和continue"><a href="#循环保留字-break和continue" class="headerlink" title="循环保留字: break和continue"></a>循环保留字: break和continue</h4><ul>
+<li><p>作用：辅助控制循环执行：</p>
+<ul>
+<li><p>Break：来跳出当前层循环，脱离该循环后程序从循环<br>  后代码继续执行(多层循环中break语句只能跳出最内层循环)</p>
+</li>
+<li><p>Continue：结束当前层当次循环，即跳过循环体中下<br>  面尚未执行的语句，进行下一次循环，但不跳出当前层<br>  循环。</p>
+</li>
+</ul>
+</li>
+<li><p>在for循环和while循环中的else扩展用法中：</p>
+<ul>
+<li><p>Break和return语句被执行对else有影响</p>
+</li>
+<li><p>continue保留字对else没有影响</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="程序的异常处理"><a href="#程序的异常处理" class="headerlink" title="程序的异常处理"></a>程序的异常处理</h2><h3 id="try-except-语句"><a href="#try-except-语句" class="headerlink" title="try-except()语句"></a>try-except()语句</h3><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.99t3mopr9a.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.99t3mopr9a.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.39kxhygpgc.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.39kxhygpgc.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    &lt;语句块<span class="number">1</span>&gt;</span><br><span class="line"><span class="keyword">except</span> &lt;异常类型&gt;:</span><br><span class="line">    &lt;语句块<span class="number">2</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>可以有多个except<br>except语句没有指定任何错误类型时，表示它对应的语句块可以处理所有其他异常<br><strong>示例</strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        Vol = <span class="built_in">eval</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入电池电压，单位V:&quot;</span>))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;电池电压值：&quot;</span>, <span class="built_in">float</span>(Vol))</span><br><span class="line">        <span class="keyword">if</span> Vol &lt; <span class="number">10</span> <span class="keyword">or</span> Vol &gt; <span class="number">13</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;电压值不正常，请即使检查！&quot;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> NameError:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;输入错误！请输入一个数值！&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="random库"><a href="#random库" class="headerlink" title="random库"></a>random库</h2><p>random库是使用随机数的Python标准库</p>
+<ul>
+<li>random库主要用于生成随机数</li>
+<li>伪随机数: 采用梅森旋转算法生成的(伪)随机序列中元素<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.2ob9votxz1.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.2ob9votxz1.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+生成随机数之前可以通过seed()函数指定随机数种子，随机种子一般是一个整数，只要种子相同，每次生成的随机数序列也相同，这种方法便于测试和同步数据。</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> random <span class="keyword">import</span> *</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>seed(<span class="number">125</span>) <span class="comment"># 随机种子赋值125</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&quot;&#123;&#125;.&#123;&#125;.&#123;&#125;&quot;</span>.<span class="built_in">format</span>(randint(<span class="number">1</span>,<span class="number">10</span>),randint(<span class="number">1</span>,<span class="number">10</span>),randint(<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line"><span class="string">&#x27;4.4.10&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&quot;&#123;&#125;.&#123;&#125;.&#123;&#125;&quot;</span>.<span class="built_in">format</span>(randint(<span class="number">1</span>,<span class="number">10</span>),randint(<span class="number">1</span>,<span class="number">10</span>),randint(<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line"><span class="string">&#x27;5.10.3&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>seed(<span class="number">125</span>) <span class="comment"># 再次给随机种子赋值125</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">&quot;&#123;&#125;.&#123;&#125;.&#123;&#125;&quot;</span>.<span class="built_in">format</span>(randint(<span class="number">1</span>,<span class="number">10</span>),randint(<span class="number">1</span>,<span class="number">10</span>),randint(<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line"><span class="string">&#x27;4.4.10&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/Python/" class="">
+              Python
+            </a>
+          
+            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="">
+              深度学习
+            </a>
+          
+            <a href="/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/" class="">
+              智能车
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>author:  </strong>tumytime</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>link:  </strong>
+    <a href="/2024/03/10/Python程序控制结构/" target="_blank" title="Python程序控制结构">http://tumytime.github.io/2024/03/10/Python程序控制结构/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>Copyright notice:   </strong>
+      All articles on this website, unless otherwise stated, adopt <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      reprint policy. If reproduced, please indicate source!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/2024/03/11/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%80%83%E6%A0%B8/" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> Prev:
+        <div class="title-text">人工智能考核</div>
+      </div>
+      
+      <!-- <div class="content">
+        
+对于你给出的解释，请给出相应的PaddlePaddle对应的函数，并尽可能的解释函数参数的意义
+
+解释神经网络中卷积层
+      </div> -->
+    </a>
+  </div>
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2024/03/09/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="post-nav-link">
+      <div class="title">
+        Next: <i class="fas fa-angle-right"></i>
+        <div class="title-text">Python基本语法元素及数据类型</div>
+      </div>
+      <!-- <div class="content">
+        程序基本设计方法RELU激活函数
+
+123456789x = input(&quot;请输入数值x:&quot;)if 
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
+</script>
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <div id="gitment-container"></div>
+
+    
+  </div>
+
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <aside id='l_side'>
+  
+    
+      <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box circle' href='/about/'>
+          <img src='https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_224532.3kqwx2xzgsg0.webp'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>时域的空间</h2>
         
         
+          <p>Welcome to Tumy_Time!</p>
+
+        
+        
+          <p><span id="jinrishici-sentence">Hello！Welcom to Tumy-Time！</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
           
-            
-            <div class="year" data-aos="zoom-in-up">
-                <div class="bullet"></div>
-                <a href="/archives/2024">2024</a>
-            </div>
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
           
-          <li class="post-item" data-aos="fade-left">
+        
+          
+            <a href="mailto:3168476051@qq.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/tumytime"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3168476051"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+    
+  
+  
+  
+
+  <div class="layout_sticky">    
+    
+      
+<section class="widget side_toc">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">分支语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#if%E8%AF%AD%E5%8F%A5"><span class="toc-text">if语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E5%BE%AA%E7%8E%AF"><span class="toc-text">遍历循环</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-text">条件循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E4%BF%9D%E7%95%99%E5%AD%97-break%E5%92%8Ccontinue"><span class="toc-text">循环保留字: break和continue</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-text">程序的异常处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#try-except-%E8%AF%AD%E5%8F%A5"><span class="toc-text">try-except()语句</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#random%E5%BA%93"><span class="toc-text">random库</span></a></li></ol> -->
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
+
+      
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
-              <a href="/2024/02/29/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9B%9B-%EF%BC%9ALCD%E6%B6%B2%E6%99%B6%E5%B1%8F%E6%98%BE%E7%A4%BA/" class="post-img " style="background-size: cover; 
+              <a href="/2024/03/11/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%80%83%E6%A0%B8/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">02-29</span>
+                
+                  <span class="post-date">03-11</span>
+                
               </div>
-              <a class="post-title" href="/2024/02/29/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9B%9B-%EF%BC%9ALCD%E6%B6%B2%E6%99%B6%E5%B1%8F%E6%98%BE%E7%A4%BA/">蓝桥杯stm32学习笔记(四)：LCD液晶屏显示</a>
+              <a class="post-title" href="/2024/03/11/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%80%83%E6%A0%B8/">人工智能考核</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
-              <a href="/2024/02/28/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%8A%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B%E5%AE%9E%E8%B7%B5-%E4%B8%80-Python%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E4%BE%8B/" class="post-img " style="background-size: cover; 
+              <a href="/2024/03/10/Python%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">02-28</span>
+                
+                  <span class="post-date">03-10</span>
+                
               </div>
-              <a class="post-title" href="/2024/02/28/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%8A%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B%E5%AE%9E%E8%B7%B5-%E4%B8%80-Python%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E4%BE%8B/">Python深度学习及智能车竞赛实践(一):Python 基础知识体系</a>
+              <a class="post-title" href="/2024/03/10/Python%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/">Python程序控制结构</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
-              <a href="/2024/02/28/STM32%E8%80%83%E6%A0%B8%E4%BD%9C%E4%B8%9A/" class="post-img " style="background-size: cover; 
+              <a href="/2024/03/09/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">02-28</span>
+                
+                  <span class="post-date">03-09</span>
+                
               </div>
-              <a class="post-title" href="/2024/02/28/STM32%E8%80%83%E6%A0%B8%E4%BD%9C%E4%B8%9A/">STM32考核作业</a>
+              <a class="post-title" href="/2024/03/09/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">Python基本语法元素及数据类型</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
-              <a href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%89-%E7%82%B9%E4%BA%AELED/" class="post-img " style="background-size: cover; 
+              <a href="/2024/03/09/paddle-nn-Layer/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">02-28</span>
+                
+                  <span class="post-date">03-09</span>
+                
               </div>
-              <a class="post-title" href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%89-%E7%82%B9%E4%BA%AELED/">蓝桥杯stm32学习笔记(三):点亮LED</a>
+              <a class="post-title" href="/2024/03/09/paddle-nn-Layer/">paddle.nn.Layer</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
-              <a href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/" class="post-img " style="background-size: cover; 
+              <a href="/2024/03/09/paddlepaddle%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">02-28</span>
+                
+                  <span class="post-date">03-09</span>
+                
               </div>
-              <a class="post-title" href="/2024/02/28/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8C-%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF%E5%BB%BA%E7%AB%8B/">蓝桥杯stm32学习笔记(二):工程模板建立</a>
+              <a class="post-title" href="/2024/03/09/paddlepaddle%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/">paddlepaddle报错解决合集</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
-            
-            <div class="post-img-box">
-              <a href="/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                <span class="post-date">02-27</span>
-              </div>
-              <a class="post-title" href="/2024/02/27/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">蓝桥杯stm32学习笔记(一)：相关元件/配置</a>
-            </div>
-          </li>
-        
-          
-          <li class="post-item" data-aos="fade-left">
-            
-            <div class="post-img-box">
-              <a href="/2024/02/11/%E7%94%B5%E8%B7%AF%E6%B8%B8%E6%88%8F%EF%BC%9ATuring-Complete/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                <span class="post-date">02-11</span>
-              </div>
-              <a class="post-title" href="/2024/02/11/%E7%94%B5%E8%B7%AF%E6%B8%B8%E6%88%8F%EF%BC%9ATuring-Complete/">电路游戏：Turing Complete</a>
-            </div>
-          </li>
-        
-          
-          <li class="post-item" data-aos="fade-left">
-            
-            <div class="post-img-box">
-              <a href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223317.f4md3h3p3i8.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                <span class="post-date">02-07</span>
-              </div>
-              <a class="post-title" href="/2024/02/07/%E7%BB%99%E7%BD%91%E7%AB%99%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%80%92%E6%95%B0%E6%97%A5%E5%8D%A1%E7%89%87/">给网站加一个倒数日卡片~（成功啦~）</a>
-            </div>
-          </li>
-        
-          
-          <li class="post-item" data-aos="fade-left">
-            
-            <div class="post-img-box">
-              <a href="/2024/02/04/test/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/water2.cg10boe8pog.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/water2.cg10boe8pog.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                <span class="post-date">02-04</span>
-              </div>
-              <a class="post-title" href="/2024/02/04/test/">test</a>
-            </div>
-          </li>
-        
-          
-          <li class="post-item" data-aos="fade-left">
-            
-            <div class="post-img-box">
-              <a href="/2024/02/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/a02288c4ba2a5d13a00f2eab7f16b324.qzuquzzsnp.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/a02288c4ba2a5d13a00f2eab7f16b324.qzuquzzsnp.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                <span class="post-date">02-01</span>
-              </div>
-              <a class="post-title" href="/2024/02/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">我的第一篇文章</a>
-            </div>
-          </li>
-        
-      </ul>
+      </div>
     </div>
   </section>
-  <div class="w-70">
-    
-  <!-- <nav class="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/">Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next</a>
-  </nav> -->
-  <div class="page-nav">
-    
-      <a href="/archives/"
-         class="page-nav-pre">
-         <i class="fas fa-angle-left"></i><span class="ml-5">Prev</span>
-      </a>
-    
-    <div class="page-info">
-        <div class="page-info-text">2 / 3</div>
-    </div>
-    
-      <a href="/archives/page/3/"
-         class="page-nav-next">
-          <span class="mr-5">Next</span><i class="fas fa-angle-right"></i>
-      </a>
-      
-  </div>
 
+    
   </div>
+</aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
 </div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = 'https://tumytime.github.io/picx-images-hosting/20240205/9f2685b1e4401ff98ae648edd1cb8866.39vtcqu2gu60.webp' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
 
       </main>
     </div>
