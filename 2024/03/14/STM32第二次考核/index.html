@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>Hello World | Hello！Welcom to Tumy-Time！</title>
+  <title>STM32第二次考核 | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -674,34 +674,43 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        Hello World
+        STM32第二次考核
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2024-02-01 |
+          <i class="fas fa-calendar"></i> Published in：2024-03-14 |
         </span>
       
 
+      
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> category：
+          
+            <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" class="post-detail-header_category">
+              嵌入式
+            </a>
+          
+        </span>
       
 
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 75 |
+            <i class="fas fa-file-text-o"></i> Words: 1.1k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 1min |
+            <i class="fas fa-clock"></i> Reading time: 3min |
           </span>
   
           
@@ -728,27 +737,86 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <p>要求：</p>
+<h2 id="功能引脚概述"><a href="#功能引脚概述" class="headerlink" title="功能引脚概述"></a>功能引脚概述</h2><h3 id="PA1"><a href="#PA1" class="headerlink" title="PA1"></a>PA1</h3><p>PA1:PWM（频率、占空比可调节）</p>
+<ol>
+<li>低频模式: 输出信号频率为4KHz。</li>
+<li>高频模式: 输出信号频率为8KHz。<br>PA1输出信号占空比可以通过电位器R37进行调节，关系如图2所示。<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="/img/图片1.jpg" class="lazyload placeholder" data-srcset="/img/图片1.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div></li>
+</ol>
+<p>当模式切换时，在保证占空比不变的前提下，频率在5秒内均匀的升高或降低到目标频率，要求频率步进值小于200Hz</p>
+<h3 id="PA7-频率测量"><a href="#PA7-频率测量" class="headerlink" title="PA7(频率测量)"></a>PA7(频率测量)</h3><p>PA7:脉冲捕获<br>测量输入到PA7 引脚的信号频率，并将其转换为速度值，速度值(v) 与频率值(f)的对应关系:</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="/img/图片2" class="lazyload placeholder" data-srcset="/img/图片2" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+<p>其中f单位为Hz，R和K作为参数，可以通过按键进行调整，π取小数点后2位有效数字。</p>
+<h3 id="ADC"><a href="#ADC" class="headerlink" title="ADC"></a>ADC</h3><p>ADC:检测电位器R37上输出的模拟电压信号</p>
+<h2 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h2><blockquote>
+<p>显示背景色 (BackColor):黑色<br>显示前景色(TextColor):白色.<br>数据项与对应的数据之间使用“&#x3D;”间隔开。</p>
+</blockquote>
+<h3 id="数据界面"><a href="#数据界面" class="headerlink" title="数据界面"></a>数据界面</h3><ol>
+<li>LD1:处于数据界面，指示灯LD1点亮，否则熄灭。</li>
+<li>LD2: 低频模式、高频模式切换期间，指示灯LD2以0.1秒为间隔切换亮、灭状态，模式切换完成后熄灭。</li>
+<li>LD3:占空比调整处于 “锁定”状态时，指示灯LD3点亮，否则熄灭。</li>
+</ol>
+<blockquote>
+<p>显示要素包括界面名称(DATA)、PWM 输出模式(M)、 实时占空比(P)、 实时速度(V)。</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="/img/图片3" class="lazyload placeholder" data-srcset="/img/图片3" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+<p>实时速度取小数点后1位有效数字。<br>输出模式以“H”表示高频模式、“L”表示低频模式，模式切换未完成前，屏幕显示的输出模式保持不变。</p>
+</blockquote>
+<h3 id="参数界面"><a href="#参数界面" class="headerlink" title="参数界面"></a>参数界面</h3><p>显示要素包括界面名称(PARA)、参数R和K的当前值，R值和K值有效范围1-10,整数。</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="/img/图片4" class="lazyload placeholder" data-srcset="/img/图片4" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="统计界面"><a href="#统计界面" class="headerlink" title="统计界面"></a>统计界面</h3><p>显示要素包括:界面名称( RECD)、PWM输出模式切换次数(N)、高频和低频模式下的速度最大值。</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="/img/图片5" class="lazyload placeholder" data-srcset="/img/图片5" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+<p>MH:高频模式最大速度，ML: 低频模式最大速度，显示保留小数点后1位有效数字。</p>
+<h2 id="按键功能"><a href="#按键功能" class="headerlink" title="按键功能"></a>按键功能</h2><h3 id="B1"><a href="#B1" class="headerlink" title="B1"></a>B1</h3><p>定义为“界面”按键，按下B1按键可以往复切换数据、参数和记录三个界面，切换模式如图6所示。</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="/img/图片6" class="lazyload placeholder" data-srcset="/img/图片6" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="B2"><a href="#B2" class="headerlink" title="B2"></a>B2</h3><p>定义为 “选择”按键。</p>
+<ol>
+<li>在数据界面下，用于切换选择低频或高频模式。按键按下后，5秒内不可再次触发切换功能。</li>
+<li>在参数界面下，按下B2按键，切换选择R或K参数。每次从数据界面进入参数界面，默认当前可调整的参数为R参数;从参数界面退出时，新的R参数和K参数生效。</li>
+</ol>
+<h3 id="B3"><a href="#B3" class="headerlink" title="B3"></a>B3</h3><p>定义为 “加”按键。<br>在参数界面下，按下B3按键，当前可调整的参数加1，参数调整模式:<br>… 1 2 3 4 … 10 1 2 3 …</p>
+<h3 id="B4"><a href="#B4" class="headerlink" title="B4"></a>B4</h3><ol>
+<li>在参数界面下，按下B4按键，当前可调整的参数减1,参数调整模式· · ·1  10  9 · · · 2  1  10  9  ··· · ·</li>
+<li>在数据界面下，长按B4按键超过2秒后松开(长按键)，可以“锁定“占空比调整功能，此时输出信号占空比保持不变，不受R37电位器输出电压控制;处于“锁定”状态后，再次按下B4按键(短按键),实现“解锁”功能，恢复R37电位器对输出信号占空比的控制。.</li>
+</ol>
+<p><strong>要求:</strong></p>
+<ul>
+<li>按键应进行有效的防抖处理，避免出现一次按键动作 触发多次功能等情形。</li>
+<li>按键动作不应影响数据采集过程和屏幕显示效果。</li>
+<li>有效区分长、短按键功能，互不影响。</li>
+<li>参数调整应考虑边界值，不出现无效参数。</li>
+<li>当前界面下无功能的按键按下，不触发其它界面的功能。</li>
+</ul>
+<h2 id="统计功能"><a href="#统计功能" class="headerlink" title="统计功能"></a>统计功能</h2><ol>
+<li>低频模式、高频模式切换次数(N)。</li>
+<li>高频、低频输出模式下的最大速度分开统计,保持时间不足2秒的速度值不纳入统计。</li>
+</ol>
+<h2 id="LED"><a href="#LED" class="headerlink" title="LED"></a>LED</h2><p>LD4-LD8 指示灯始终处于熄灭状态。</p>
+<h2 id="初始状态说明"><a href="#初始状态说明" class="headerlink" title="初始状态说明"></a>初始状态说明</h2><ol>
+<li>参数R为1。</li>
+<li>参数K为1。</li>
+<li>切换次数N 为0。</li>
+<li>PWM输出模式为低频模式。</li>
+<li>处于“解锁”状态，R37电位器可以控制信号占空比。</li>
+<li>处于数据显示界面。</li>
+</ol>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/hello/" class="">
-              hello
+            <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" class="">
+              嵌入式
+            </a>
+          
+            <a href="/tags/stm32/" class="">
+              stm32
+            </a>
+          
+            <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" class="">
+              蓝桥杯
             </a>
           
         </div>
@@ -762,7 +830,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2024/02/01/hello-world/" target="_blank" title="Hello World">http://tumytime.github.io/2024/02/01/hello-world/</a>
+    <a href="/2024/03/14/STM32第二次考核/" target="_blank" title="STM32第二次考核">http://tumytime.github.io/2024/03/14/STM32第二次考核/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -780,26 +848,27 @@
 
 
 
+
+
   
-  <div class="post-nav-prev post-nav-item">
+  <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/a02288c4ba2a5d13a00f2eab7f16b324.qzuquzzsnp.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/a02288c4ba2a5d13a00f2eab7f16b324.qzuquzzsnp.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2024/02/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="post-nav-link">
+    <a href="/2024/03/14/%E4%B8%80.%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8BPaddle%E7%89%88%E7%AC%94%E8%AE%B0-%E4%BD%BF%E7%94%A8Tensor%E6%9D%A5%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/" class="post-nav-link">
       <div class="title">
-        <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">我的第一篇文章</div>
+        Next: <i class="fas fa-angle-right"></i>
+        <div class="title-text">一.《动手学深度学习》Paddle版笔记-使用Tensor来处理数据</div>
       </div>
-      
       <!-- <div class="content">
-        我的第一篇文章！终于把网站建好了！开心开心
+        
+记录一下，如果文章在文件夹里改名字了，要再打开一次，要不然vscode里改的bug不影响这个文件。。。
 
+使用Tens
       </div> -->
     </a>
   </div>
-
-
 
 </div>
 
@@ -1017,7 +1086,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%BC%95%E8%84%9A%E6%A6%82%E8%BF%B0"><span class="toc-text">功能引脚概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PA1"><span class="toc-text">PA1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PA7-%E9%A2%91%E7%8E%87%E6%B5%8B%E9%87%8F"><span class="toc-text">PA7(频率测量)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADC"><span class="toc-text">ADC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA"><span class="toc-text">显示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%95%8C%E9%9D%A2"><span class="toc-text">数据界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E7%95%8C%E9%9D%A2"><span class="toc-text">参数界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E7%95%8C%E9%9D%A2"><span class="toc-text">统计界面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E9%94%AE%E5%8A%9F%E8%83%BD"><span class="toc-text">按键功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#B1"><span class="toc-text">B1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B2"><span class="toc-text">B2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B3"><span class="toc-text">B3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B4"><span class="toc-text">B4</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD"><span class="toc-text">统计功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LED"><span class="toc-text">LED</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E7%8A%B6%E6%80%81%E8%AF%B4%E6%98%8E"><span class="toc-text">初始状态说明</span></a></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1234,7 +1303,7 @@
 			clearInterval(this.time);
 		},
 		mounted() {
-			let prop = '' || '';
+			let prop = 'https://tumytime.github.io/picx-images-hosting/20240205/9f2685b1e4401ff98ae648edd1cb8866.39vtcqu2gu60.webp' || '';
 			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
 			if (isImg) {
 				let img = prop.split(',');

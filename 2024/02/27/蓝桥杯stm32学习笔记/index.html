@@ -742,7 +742,7 @@
               <p>离蓝桥杯还有45天，我的32总共才学了四五天&#x2F;(ㄒoㄒ)&#x2F;~~<br>虽然考核作业做完了但是都是现学现弄的，不能做到独立系统地完成<br>最近事情好多，这几天赶紧先学一遍<br>2.27-3.1</p><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.4n7g52t9ay.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.4n7g52t9ay.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
               </div>
             </details>
-<div class="note info"><p>开发板芯片：STM32G431RBT6;HAL库开发</p></div>
+<div class="note info"><p>开发板芯片：stm32g4rbt6;HAL库开发</p></div>
 
 <h1 id="产品手册"><a href="#产品手册" class="headerlink" title="产品手册"></a>产品手册</h1><details open><summary pointer> 产品手册 </summary>
               <div class='content'>
@@ -766,13 +766,13 @@
 
 <h2 id="模拟输出"><a href="#模拟输出" class="headerlink" title="模拟输出"></a>模拟输出</h2><details open><summary pointer> 模拟输出 </summary>
               <div class='content'>
-              <p>板子上的两个可调电阻（R37和R38）<br><span class='pbg info'>另外两个可调电阻呢？</span></p><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.6ik10eefg3.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.6ik10eefg3.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">单片机的模拟输出通常是通过数字到模拟转换器（DAC，Digital-to-Analog Converter）</span><br><span class="line">实现的。DAC将单片机内部的数字信号转换为模拟信号，从而可以控制外部模拟设备或传感器。</span><br><span class="line"></span><br><span class="line">一般来说，单片机的模拟输出具有以下特点：</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> <span class="strong">**精度和分辨率**</span>：DAC的精度和分辨率决定模拟输出信号的质量和精度。高精度的DAC</span><br><span class="line">能够输出更准确的模拟信号。</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> <span class="strong">**输出范围**</span>：DAC的输出范围决定了模拟信号可以达到的最大和最小电压值。一些DAC</span><br><span class="line">具有可编程的输出范围，使用户能够灵活控制输出信号的范围。</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> <span class="strong">**输出稳定性**</span>：DAC的输出应具有稳定性，以确保模拟信号的稳定性和准确性。因此，</span><br><span class="line">DAC应具有良好的温度稳定性和供电稳定性。</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> <span class="strong">**输出驱动能力**</span>：DAC的输出驱动能力决定了其能够驱动的负载的大小。较高的输出驱</span><br><span class="line">动能力意味着DAC可以连接到较大电阻或容性负载而不影响输出信号的质量。</span><br><span class="line"></span><br><span class="line">在单片机应用中，模拟输出通常用于控制电压或电流，以输出需要的模拟信号。通过DAC转换</span><br><span class="line">数字信号为模拟信号，单片机可以与模拟电路或传感器进行有效的通信和控制。</span><br></pre></td></tr></table></figure><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">单片机的模拟输出通常是通过数字到模拟转换器（DAC，Digital-<span class="keyword">to</span>-Analog Converter）</span><br><span class="line">实现的。DAC将单片机内部的数字信号转换为模拟信号，从而可以控制外部模拟设备或传感器。</span><br></pre></td></tr></table></figure><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在开发板上通常会配备可调电阻（也称为电位器），用于调节模拟输出信号的电压水平。结</span><br><span class="line">合可调电阻，单片机的模拟输出可以更加灵活地进行调节和控制，以适应不同的应用需求。</span><br><span class="line"></span><br><span class="line">通过调节可调电阻的阻值，可以改变模拟输出电路中的电阻值，从而影响模拟输出信号的电</span><br><span class="line">压水平。这种方式可以实现对模拟输出信号的精细调节，使得单片机可以输出各种不同范围</span><br><span class="line">和精度的模拟信号。</span><br></pre></td></tr></table></figure>
+              <p>板子上的两个可调电阻（R37和R38）<br><span class='pbg info'>另外两个可调电阻呢？</span></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">单片机的模拟输出通常是通过数字到模拟转换器（DAC，Digital-to-Analog Converter）</span><br><span class="line">实现的。DAC将单片机内部的数字信号转换为模拟信号，从而可以控制外部模拟设备或传感器。</span><br><span class="line"></span><br><span class="line">一般来说，单片机的模拟输出具有以下特点：</span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> <span class="strong">**精度和分辨率**</span>：DAC的精度和分辨率决定模拟输出信号的质量和精度。高精度的DAC</span><br><span class="line">能够输出更准确的模拟信号。</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> <span class="strong">**输出范围**</span>：DAC的输出范围决定了模拟信号可以达到的最大和最小电压值。一些DAC</span><br><span class="line">具有可编程的输出范围，使用户能够灵活控制输出信号的范围。</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> <span class="strong">**输出稳定性**</span>：DAC的输出应具有稳定性，以确保模拟信号的稳定性和准确性。因此，</span><br><span class="line">DAC应具有良好的温度稳定性和供电稳定性。</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> <span class="strong">**输出驱动能力**</span>：DAC的输出驱动能力决定了其能够驱动的负载的大小。较高的输出驱</span><br><span class="line">动能力意味着DAC可以连接到较大电阻或容性负载而不影响输出信号的质量。</span><br><span class="line"></span><br><span class="line">在单片机应用中，模拟输出通常用于控制电压或电流，以输出需要的模拟信号。通过DAC转换</span><br><span class="line">数字信号为模拟信号，单片机可以与模拟电路或传感器进行有效的通信和控制。</span><br></pre></td></tr></table></figure><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">单片机的模拟输出通常是通过数字到模拟转换器（DAC，Digital-<span class="keyword">to</span>-Analog Converter）</span><br><span class="line">实现的。DAC将单片机内部的数字信号转换为模拟信号，从而可以控制外部模拟设备或传感器。</span><br></pre></td></tr></table></figure><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在开发板上通常会配备可调电阻（也称为电位器），用于调节模拟输出信号的电压水平。结</span><br><span class="line">合可调电阻，单片机的模拟输出可以更加灵活地进行调节和控制，以适应不同的应用需求。</span><br><span class="line"></span><br><span class="line">通过调节可调电阻的阻值，可以改变模拟输出电路中的电阻值，从而影响模拟输出信号的电</span><br><span class="line">压水平。这种方式可以实现对模拟输出信号的精细调节，使得单片机可以输出各种不同范围</span><br><span class="line">和精度的模拟信号。</span><br></pre></td></tr></table></figure>
               </div>
             </details>
 
 <h2 id="LED指示灯"><a href="#LED指示灯" class="headerlink" title="LED指示灯"></a>LED指示灯</h2><details open><summary pointer> LED指示灯 </summary>
               <div class='content'>
-              <p><span class='pbg info'>led引脚和lcd屏一些引脚共用（PC8-15），所以加了锁存器</span><br>锁存器作用：PD2高电平使能锁存器，可以保留D1<del>D8八个引脚的状态（只有在锁存器使能情况下才保存）；并且在Q1</del>Q8一直输出此状态（无论使能锁存器还是不使能锁存器，都输出原先的状态）</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">当LED引脚和LCD屏引脚共用同一个引脚时，可能会出现信号冲突的问题。为了解决这个问题，</span><br><span class="line">可以使用锁存器（Latch）来进行信号切换和时序控制。锁存器是一种逻辑电路元件，可以存</span><br><span class="line">储输入信号的状态，并在时钟信号下将其输出。</span><br><span class="line"></span><br><span class="line">在这种情况下，LED引脚和LCD引脚可以通过锁存器分时共享同一个引脚。当需要控制LED时，</span><br><span class="line">将LED信号输入锁存器并锁定状态，此时锁存器会将LED信号保持在输出端口。当需要控制LCD</span><br><span class="line">屏时，将LCD信号输入锁存器并锁定状态，锁存器会将LCD信号保持在输出端口。这样就实现了</span><br><span class="line">LED引脚和LCD引脚在同一个引脚上的分时共享。</span><br><span class="line"></span><br><span class="line">通过引入锁存器，可以有效地控制LED和LCD信号的输出时序，避免信号冲突和干扰。这种设计</span><br><span class="line">能够提高系统的稳定性和灵活性，同时减少硬件设计的复杂度。在实际电路设计中，锁存器通</span><br><span class="line">常被用于控制信号的时序和切换，确保不同信号之间的正常传输和处理。</span><br></pre></td></tr></table></figure>
+              <p><span class='pbg info'>led引脚和lcd屏一些引脚共用（PC8-15），所以加了锁存器</span></p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">当LED引脚和LCD屏引脚共用同一个引脚时，可能会出现信号冲突的问题。为了解决这个问题，</span><br><span class="line">可以使用锁存器（Latch）来进行信号切换和时序控制。锁存器是一种逻辑电路元件，可以存</span><br><span class="line">储输入信号的状态，并在时钟信号下将其输出。</span><br><span class="line"></span><br><span class="line">在这种情况下，LED引脚和LCD引脚可以通过锁存器分时共享同一个引脚。当需要控制LED时，</span><br><span class="line">将LED信号输入锁存器并锁定状态，此时锁存器会将LED信号保持在输出端口。当需要控制LCD</span><br><span class="line">屏时，将LCD信号输入锁存器并锁定状态，锁存器会将LCD信号保持在输出端口。这样就实现了</span><br><span class="line">LED引脚和LCD引脚在同一个引脚上的分时共享。</span><br><span class="line"></span><br><span class="line">通过引入锁存器，可以有效地控制LED和LCD信号的输出时序，避免信号冲突和干扰。这种设计</span><br><span class="line">能够提高系统的稳定性和灵活性，同时减少硬件设计的复杂度。在实际电路设计中，锁存器通</span><br><span class="line">常被用于控制信号的时序和切换，确保不同信号之间的正常传输和处理。</span><br></pre></td></tr></table></figure>
               </div>
             </details>
 
@@ -857,13 +857,13 @@
       </div>
       
       <!-- <div class="content">
-        开发板芯片：STM32G431RBT6;HAL库开发
+        开发板芯片：stm32g4rbt6;HAL库开发
 
 第一步 新建工程
 
 
 第二步 选择芯片
-然后右上角"Start 
+然后右上角"Start Pr
       </div> -->
     </a>
   </div>
@@ -1141,6 +1141,48 @@
             
 
             <div class="post-img-box">
+              <a href="/2024/03/14/STM32%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%80%83%E6%A0%B8/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">03-14</span>
+                
+              </div>
+              <a class="post-title" href="/2024/03/14/STM32%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%80%83%E6%A0%B8/">STM32第二次考核</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/03/14/%E4%B8%80.%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8BPaddle%E7%89%88%E7%AC%94%E8%AE%B0-%E4%BD%BF%E7%94%A8Tensor%E6%9D%A5%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">03-14</span>
+                
+              </div>
+              <a class="post-title" href="/2024/03/14/%E4%B8%80.%E3%80%8A%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8BPaddle%E7%89%88%E7%AC%94%E8%AE%B0-%E4%BD%BF%E7%94%A8Tensor%E6%9D%A5%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/">一.《动手学深度学习》Paddle版笔记-使用Tensor来处理数据</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/2024/03/11/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%80%83%E6%A0%B8/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
@@ -1195,48 +1237,6 @@
                 
               </div>
               <a class="post-title" href="/2024/03/09/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%85%83%E7%B4%A0%E5%8F%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">Python基本语法元素及数据类型</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/03/09/paddle-nn-Layer/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">03-09</span>
-                
-              </div>
-              <a class="post-title" href="/2024/03/09/paddle-nn-Layer/">paddle.nn.Layer</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/03/09/paddlepaddle%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">03-09</span>
-                
-              </div>
-              <a class="post-title" href="/2024/03/09/paddlepaddle%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3%E5%90%88%E9%9B%86/">paddlepaddle报错解决合集</a>
             </div>
           </div>
         
