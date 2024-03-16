@@ -1842,14 +1842,17 @@
           <div class="post-content">
             开发板芯片：stm32g4rbt6;HAL库开发
 
+接着用(二)中配置好的工程模板
+LEDLED电路
 
 
-第一步 [配置端口]
-接着用（二）中配置好的工程模板`PD2`为锁存器控制端口配置引脚`PC8-PC15`和`PD2`为`GPIO_Output`模式
 
 
-第二步 [选择芯片]
-然后右
+LED引脚:PC8-PC15PD2:锁存器的控制端口
+基本配置使能需要的端口依次使能PC8-PC15为GPIO_Output
+
+
+
           </div>
         </div>
         <div class="post-more">
@@ -2455,7 +2458,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>39.7k 字</div>
+          <div>42.2k 字</div>
         </div>
       
 
@@ -2481,8 +2484,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Mar 15 2024 21:21:39 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2024-03-15 日</div>
+            <div id="last-update" style="display: none;">Sat Mar 16 2024 15:40:17 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2024-03-16 日</div>
           
         </div>
         
@@ -2532,7 +2535,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2024-03-15 日';
+            document.getElementById('last-update-show').innerHTML = '2024-03-16 日';
           }
         </script>
         
