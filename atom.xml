@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2024-03-17T11:02:04.272Z</updated>
+  <updated>2024-03-17T11:16:23.501Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -21,8 +21,16 @@
     <link href="http://tumytime.github.io/2024/03/17/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9APWM%E8%BE%93%E5%87%BA/"/>
     <id>http://tumytime.github.io/2024/03/17/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9APWM%E8%BE%93%E5%87%BA/</id>
     <published>2024-03-17T11:01:43.000Z</published>
-    <updated>2024-03-17T11:02:04.272Z</updated>
+    <updated>2024-03-17T11:16:23.501Z</updated>
     
+    <content type="html"><![CDATA[<h3 id="CubeMX配置"><a href="#CubeMX配置" class="headerlink" title="CubeMX配置"></a>CubeMX配置</h3><blockquote><p>PWM（脉冲宽度调制）的占空比和频率是两个重要的参数，它们分别代表了信号的高电平时间与周期的比例以及信号的周期频率。这两个参数在PWM控制中扮演着重要的角色。</p><ul><li><strong>占空比</strong>：PWM信号的占空比表示了高电平（脉冲宽度）所占整个周期的比例。通常情况下，占空比的取值范围在 0%（全部低电平）到 100%（全部高电平）之间。占空比的变化会导致输出信号的平均值发生变化，从而可以控制输出信号的功率或亮度等。</li><li><strong>频率</strong>：PWM信号的频率表示单位时间内PWM信号周期的重复次数，通常以赫兹（Hz）表示。提高PWM信号的频率可以使信号变得更平滑，响应更快，但频率过高也可能带来功耗增加和驱动器设计的复杂性。</li></ul></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;CubeMX配置&quot;&gt;&lt;a href=&quot;#CubeMX配置&quot; class=&quot;headerlink&quot; title=&quot;CubeMX配置&quot;&gt;&lt;/a&gt;CubeMX配置&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;PWM（脉冲宽度调制）的占空比和频率是两个重要的参数，它们分别代表</summary>
+      
     
     
     
