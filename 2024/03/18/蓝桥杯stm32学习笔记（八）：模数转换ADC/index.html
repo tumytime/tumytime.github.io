@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>蓝桥杯stm32学习笔记（六）：PWM输出 | Hello！Welcom to Tumy-Time！</title>
+  <title>蓝桥杯stm32学习笔记（八）：模数转换ADC | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -681,14 +681,14 @@
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        蓝桥杯stm32学习笔记（六）：PWM输出
+        蓝桥杯stm32学习笔记（八）：模数转换ADC
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2024-03-17 |
+          <i class="fas fa-calendar"></i> Published in：2024-03-18 |
         </span>
       
 
@@ -706,7 +706,7 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 287 |
+            <i class="fas fa-file-text-o"></i> Words: 476 |
           </span>
   
           <span class="min2read">
@@ -737,30 +737,15 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <blockquote>
-<p>PWM的占空比改变的是CCR寄存器的值（不同通道对应不同的CCR），频率的改变对应的是ARR寄存器的值</p>
-</blockquote>
-<h3 id="CubeMX配置"><a href="#CubeMX配置" class="headerlink" title="CubeMX配置"></a>CubeMX配置</h3><h4 id="配置引脚"><a href="#配置引脚" class="headerlink" title="配置引脚"></a>配置引脚</h4><blockquote>
-<p>频率是指PWM信号的周期性重复频率，即PWM信号在一段时间内完整周期重复的次数。频率与占空比和自动重载值之间存在以下关系：</p>
-<ol>
-<li>PWM信号的频率 &#x3D; 1 &#x2F; PWM信号的周期</li>
-<li>PWM信号的周期 &#x3D; 自动重载值 + 1</li>
-<li>PWM信号的占空比 &#x3D; 高电平时间 &#x2F; PWM信号的周期</li>
-</ol>
-</blockquote>
-<p><strong>我们这里配置PC9输出PWM波</strong><br>配置<code>PC9</code>引脚为<code>TIM3_CH4</code>,选择定时器<code>TIM3</code>的通道4(有哪个用哪个)<br>(后面带<code>N</code>的是互补PWM波)</p>
-<blockquote>
-<p>PWM频率 &#x3D; 1 &#x2F; (周期时间)<br>单个脉冲宽度 &#x3D; (占空比) * (周期时间)</p>
-</blockquote>
-<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.ibvk6580f.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.ibvk6580f.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+        <h3 id="CubeMX配置"><a href="#CubeMX配置" class="headerlink" title="CubeMX配置"></a>CubeMX配置</h3><h4 id="配置引脚"><a href="#配置引脚" class="headerlink" title="配置引脚"></a>配置引脚</h4><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.2h82d2oxha.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.2h82d2oxha.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
 
+<p>我们这里先只用R37</p>
+<p>配置<code>PB15</code>为<code>ADC2_IN15</code></p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.6t6vkmcqb6.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.6t6vkmcqb6.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+<p>选择<code>Single_ended</code></p>
 <h4 id="生成工程"><a href="#生成工程" class="headerlink" title="生成工程"></a>生成工程</h4><p><strong>点击右上角”GENERATE CODE”,生成工程</strong></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="打开定时器"><a href="#打开定时器" class="headerlink" title="打开定时器"></a>打开定时器</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HAL_TIM_PWM_Start(&amp;htim3,TIM_CHANNEL_4);</span><br></pre></td></tr></table></figure>
-<h4 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h4><details open><summary pointer> while(1) </summary>
-              <div class='content'>
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">		LED_Disp(<span class="number">0x00</span>);<span class="comment">//LED的初始化	</span></span><br><span class="line">		<span class="keyword">if</span>(key[<span class="number">2</span>].single_flag==<span class="number">1</span>) &#123;</span><br><span class="line">		</span><br><span class="line">			w+=<span class="number">1000</span>;</span><br><span class="line">			<span class="keyword">if</span>(w&gt;<span class="number">10000</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				w=<span class="number">0</span>;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		TIM3-&gt;CCR4 = w;</span><br><span class="line">		key[<span class="number">2</span>].single_flag=<span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">    <span class="comment">/* USER CODE END WHILE */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* USER CODE BEGIN 3 */</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-              </div>
-            </details>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="aadc-c"><a href="#aadc-c" class="headerlink" title="aadc.c"></a>aadc.c</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;aadc.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> <span class="title function_">getADC</span><span class="params">(ADC_HandleTypeDef *pin)</span></span><br><span class="line">&#123;</span><br><span class="line">	uint adc;</span><br><span class="line">	HAL_ADC_Start (pin);</span><br><span class="line">	adc = HAL_ADC_GetValue(pin);</span><br><span class="line">	<span class="keyword">return</span> adc*<span class="number">3.3</span>/<span class="number">4096</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="aadc-h"><a href="#aadc-h" class="headerlink" title="aadc.h"></a>aadc.h</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;main.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> <span class="title function_">getADC</span><span class="params">(ADC_HandleTypeDef *pin)</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -770,27 +755,31 @@
 
 
 
+<p>这个函数 <code>getADC</code> 是一个用于从ADC（模拟到数字转换器）读取模拟信号并将其转换为电压值的函数。让我们一步步地分析这个函数：</p>
+<ol>
+<li><strong>函数签名</strong>:</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">getADC</span><span class="params">(ADC_HandleTypeDef *pin)</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li><code>double</code>: 函数的返回类型是<code>double</code>，这意味着它将返回一个浮点数。</li>
+<li><code>ADC_HandleTypeDef *pin</code>: 函数接受一个指向<code>ADC_HandleTypeDef</code>类型的指针，这个指针指向一个ADC句柄，它包含了ADC的配置信息和状态信息。</li>
+</ul>
+<ol start="2">
+<li><strong>函数体</strong>:</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> uint adc;</span><br><span class="line"> HAL_ADC_Start (pin);</span><br><span class="line"> adc = HAL_ADC_GetValue(pin);</span><br><span class="line"> <span class="keyword">return</span> adc*<span class="number">3.3</span>/<span class="number">4096</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li><code>uint adc;</code>: 定义了一个无符号整数变量<code>adc</code>，用于存储从ADC读取的原始值。</li>
+<li><code>HAL_ADC_Start (pin);</code>: 调用HAL库（硬件抽象层库）中的<code>HAL_ADC_Start</code>函数来启动指定的ADC。这个函数接受一个ADC句柄（即<code>pin</code>）作为参数。</li>
+<li><code>adc = HAL_ADC_GetValue(pin);</code>: 在ADC转换完成后，调用<code>HAL_ADC_GetValue</code>函数来获取转换后的ADC值，并将其存储在<code>adc</code>变量中。</li>
+<li><code>return adc*3.3/4096;</code>: 返回转换后的电压值。这里假设ADC是一个12位的ADC（因此最大值是4095或4096，取决于具体的实现和计数方式），其参考电压是3.3V。因此，<code>adc*3.3/4096</code>这个公式将ADC的原始读数转换成了相应的电压值。</li>
+</ul>
+<p>总之，这个函数的主要目的是从指定的ADC读取模拟信号，并将其转换为一个表示电压的浮点数。这个电压值是基于ADC的参考电压（在这个例子中是3.3V）和ADC的位数（在这个例子中是12位）来计算的。</p>
 
       </div>
       <div class="post-tags-categories">
-        
-        <div class="tags">
-          
-            <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" class="">
-              嵌入式
-            </a>
-          
-            <a href="/tags/stm32/" class="">
-              stm32
-            </a>
-          
-            <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" class="">
-              蓝桥杯
-            </a>
-          
-        </div>
         
       </div>
       
@@ -801,7 +790,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2024/03/17/蓝桥杯stm32学习笔记（六）：PWM输出/" target="_blank" title="蓝桥杯stm32学习笔记（六）：PWM输出">http://tumytime.github.io/2024/03/17/蓝桥杯stm32学习笔记（六）：PWM输出/</a>
+    <a href="/2024/03/18/蓝桥杯stm32学习笔记（八）：模数转换ADC/" target="_blank" title="蓝桥杯stm32学习笔记（八）：模数转换ADC">http://tumytime.github.io/2024/03/18/蓝桥杯stm32学习笔记（八）：模数转换ADC/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -819,27 +808,6 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2024/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89%EF%BC%9A%E8%BE%93%E5%85%A5%E6%8D%95%E8%8E%B7%EF%BC%88%E9%A2%91%E7%8E%87%EF%BC%8C%E5%8D%A0%E7%A9%BA%E6%AF%94%E6%B5%8B%E9%87%8F%EF%BC%89/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">蓝桥杯stm32学习笔记（七）：输入捕获（频率，占空比测量）</div>
-      </div>
-      
-      <!-- <div class="content">
-        
-跳线帽拔了不能烧工程。。。。(好像可以。。。那天不知道怎么了板子抽风)
-
-CubeMX配置配置引脚我们这里使用PA7进
-      </div> -->
-    </a>
-  </div>
-
 
 
   
@@ -848,16 +816,16 @@ CubeMX配置配置引脚我们这里使用PA7进
       background-position: center center;">
       <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2024/03/16/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E6%8C%89%E9%94%AE/" class="post-nav-link">
+    <a href="/2024/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89%EF%BC%9A%E8%BE%93%E5%85%A5%E6%8D%95%E8%8E%B7%EF%BC%88%E9%A2%91%E7%8E%87%EF%BC%8C%E5%8D%A0%E7%A9%BA%E6%AF%94%E6%B5%8B%E9%87%8F%EF%BC%89/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">蓝桥杯stm32学习笔记（五）：按键</div>
+        <div class="title-text">蓝桥杯stm32学习笔记（七）：输入捕获（频率，占空比测量）</div>
       </div>
       <!-- <div class="content">
-        短按键电路图
+        
+跳线帽拔了不能烧工程。。。。(好像可以。。。那天不知道怎么了板子抽风)
 
-按键按下后接地变为低电平，未按下为高电平；
-不用定时器的简单按键：123456789if(HAL_GPI
+CubeMX配置配置引脚我们这里使用PA7进
       </div> -->
     </a>
   </div>
@@ -1078,7 +1046,7 @@ CubeMX配置配置引脚我们这里使用PA7进
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CubeMX%E9%85%8D%E7%BD%AE"><span class="toc-text">CubeMX配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%BC%95%E8%84%9A"><span class="toc-text">配置引脚</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%B7%A5%E7%A8%8B"><span class="toc-text">生成工程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-text">打开定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81"><span class="toc-text">编写代码</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CubeMX%E9%85%8D%E7%BD%AE"><span class="toc-text">CubeMX配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%BC%95%E8%84%9A"><span class="toc-text">配置引脚</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%B7%A5%E7%A8%8B"><span class="toc-text">生成工程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#aadc-c"><span class="toc-text">aadc.c</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#aadc-h"><span class="toc-text">aadc.h</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>

@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>蓝桥杯stm32学习笔记（六）：PWM输出 | Hello！Welcom to Tumy-Time！</title>
+  <title>蓝桥杯stm32学习笔记（七）：输入捕获（频率，占空比测量） | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -681,14 +681,14 @@
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        蓝桥杯stm32学习笔记（六）：PWM输出
+        蓝桥杯stm32学习笔记（七）：输入捕获（频率，占空比测量）
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2024-03-17 |
+          <i class="fas fa-calendar"></i> Published in：2024-03-18 |
         </span>
       
 
@@ -706,11 +706,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 287 |
+            <i class="fas fa-file-text-o"></i> Words: 673 |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 1min |
+            <i class="fas fa-clock"></i> Reading time: 2min |
           </span>
   
           
@@ -738,34 +738,39 @@
     <article class="post post-detail">
       <div class="post-content">
         <blockquote>
-<p>PWM的占空比改变的是CCR寄存器的值（不同通道对应不同的CCR），频率的改变对应的是ARR寄存器的值</p>
+<p>跳线帽拔了不能烧工程。。。。(好像可以。。。那天不知道怎么了板子抽风)</p>
 </blockquote>
-<h3 id="CubeMX配置"><a href="#CubeMX配置" class="headerlink" title="CubeMX配置"></a>CubeMX配置</h3><h4 id="配置引脚"><a href="#配置引脚" class="headerlink" title="配置引脚"></a>配置引脚</h4><blockquote>
-<p>频率是指PWM信号的周期性重复频率，即PWM信号在一段时间内完整周期重复的次数。频率与占空比和自动重载值之间存在以下关系：</p>
-<ol>
-<li>PWM信号的频率 &#x3D; 1 &#x2F; PWM信号的周期</li>
-<li>PWM信号的周期 &#x3D; 自动重载值 + 1</li>
-<li>PWM信号的占空比 &#x3D; 高电平时间 &#x2F; PWM信号的周期</li>
-</ol>
-</blockquote>
-<p><strong>我们这里配置PC9输出PWM波</strong><br>配置<code>PC9</code>引脚为<code>TIM3_CH4</code>,选择定时器<code>TIM3</code>的通道4(有哪个用哪个)<br>(后面带<code>N</code>的是互补PWM波)</p>
-<blockquote>
-<p>PWM频率 &#x3D; 1 &#x2F; (周期时间)<br>单个脉冲宽度 &#x3D; (占空比) * (周期时间)</p>
-</blockquote>
-<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.ibvk6580f.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.ibvk6580f.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
-
+<h3 id="CubeMX配置"><a href="#CubeMX配置" class="headerlink" title="CubeMX配置"></a>CubeMX配置</h3><h4 id="配置引脚"><a href="#配置引脚" class="headerlink" title="配置引脚"></a>配置引脚</h4><p><strong>我们这里使用<code>PA7</code>进行捕获</strong></p>
+<p><strong>配置<code>PA7</code>为<code>TIM17_CH1</code></strong><br>(只有一个通道没关系，我的题目里不用测占空比，但是我后面会写加上测占空比的引脚和程序的)</p>
+<ul>
+<li>配置一下引脚  <div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.5j3yd4e8d4.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.5j3yd4e8d4.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div></li>
+<li>使能定时器中断  <div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.7awx810hqy.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.7awx810hqy.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div></li>
+</ul>
 <h4 id="生成工程"><a href="#生成工程" class="headerlink" title="生成工程"></a>生成工程</h4><p><strong>点击右上角”GENERATE CODE”,生成工程</strong></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="打开定时器"><a href="#打开定时器" class="headerlink" title="打开定时器"></a>打开定时器</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HAL_TIM_PWM_Start(&amp;htim3,TIM_CHANNEL_4);</span><br></pre></td></tr></table></figure>
-<h4 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h4><details open><summary pointer> while(1) </summary>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="中断函数"><a href="#中断函数" class="headerlink" title="中断函数"></a>中断函数</h4><p><strong>interrupt.c中：</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">uint ccrl_val=<span class="number">0</span>;</span><br><span class="line">uint frq=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">HAL_TIM_IC_CaptureCallback</span><span class="params">(TIM_HandleTypeDef *htim)</span></span><br><span class="line">&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>中断回调函数名记不住的话和按键那一章一样，在tim.h文件里找</p>
+<details open><summary pointer> 中断回调函数 </summary>
               <div class='content'>
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">		LED_Disp(<span class="number">0x00</span>);<span class="comment">//LED的初始化	</span></span><br><span class="line">		<span class="keyword">if</span>(key[<span class="number">2</span>].single_flag==<span class="number">1</span>) &#123;</span><br><span class="line">		</span><br><span class="line">			w+=<span class="number">1000</span>;</span><br><span class="line">			<span class="keyword">if</span>(w&gt;<span class="number">10000</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				w=<span class="number">0</span>;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		TIM3-&gt;CCR4 = w;</span><br><span class="line">		key[<span class="number">2</span>].single_flag=<span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">    <span class="comment">/* USER CODE END WHILE */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* USER CODE BEGIN 3 */</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">HAL_TIM_IC_CaptureCallback</span><span class="params">(TIM_HandleTypeDef *htim)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(htim-&gt;Instance==TIM17)</span><br><span class="line">	&#123;</span><br><span class="line">		ccrl_val = HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_1);</span><br><span class="line">		frq=(<span class="number">80000000</span>/<span class="number">80</span>)/ccrl_val;</span><br><span class="line">		__HAL_TIM_SetCounter(htim,<span class="number">0</span>);</span><br><span class="line">		HAL_TIM_IC_Start(htim,TIM_CHANNEL_1);<span class="comment">//IC:Input Capture</span></span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
               </div>
             </details>
 
+<blockquote>
+<p>注意自己写的中断回调函数有什么用，如果不写自己的回调函数，已设置的中断照样正常运行，自己的函数是用来特殊化一些中断流程的，没有特殊化的仍旧按照默认正常运行</p>
+</blockquote>
+<blockquote>
+<p><strong>原理解释:</strong><br>当TIM17的中断触发(因为配置了上升沿触发，即当检测到上升沿时)<br>进入中断回调函数<br>因为最后一行才启动定时器的输入捕获通道1<br>所以第一次触发后，计数器归0(__HAL_TIM_SetCounter(htim,0);)<br>启动定时器的输入捕获通道1,开始计数<br>第二次触发中断(即第二次上升沿)<br>ccrl_val读取到两个上升沿间隔(因为第一个上升沿才开始计数)<br>所以频率等于时钟主频除以分频系数除以周期计数<br>重新启动定时器的输入捕获通道1</p>
+</blockquote>
+<h4 id="main-c中配置"><a href="#main-c中配置" class="headerlink" title="main.c中配置"></a>main.c中配置</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> uint frq;</span><br><span class="line">uchar pa1_duty=<span class="number">10</span>;<span class="comment">//初始化占空比</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>main函数里的初始化:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HAL_TIM_Base_Start_IT(&amp;htim4 );<span class="comment">//按键的定时器</span></span><br><span class="line">HAL_TIM_PWM_Start(&amp;htim2,TIM_CHANNEL_2);<span class="comment">//PA1的PWM输出开启</span></span><br><span class="line"></span><br><span class="line">HAL_TIM_IC_Start_IT(&amp;htim17,TIM_CHANNEL_1);<span class="comment">//频率测量捕获定时器开启</span></span><br><span class="line"></span><br><span class="line">__HAL_TIM_SetCompare(&amp;htim2,TIM_CHANNEL_2,pa1_duty);<span class="comment">//设置初始pwm频率</span></span><br></pre></td></tr></table></figure>
 
 
+<h3 id="同时测频率和占空比："><a href="#同时测频率和占空比：" class="headerlink" title="同时测频率和占空比："></a>同时测频率和占空比：</h3><h4 id="引脚配置"><a href="#引脚配置" class="headerlink" title="引脚配置"></a>引脚配置</h4><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.41xtci74hr.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.41xtci74hr.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
 
-
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/////////////////////////////测量频率+占空比///////////////////</span></span><br><span class="line"><span class="type">double</span> ccr1_val1a=<span class="number">0</span>,ccr1_val2a=<span class="number">0</span>;</span><br><span class="line">uint ccr1_val1b=<span class="number">0</span>,ccr1_val2b=<span class="number">0</span>;</span><br><span class="line">uint frq1=<span class="number">0</span>,frq2=<span class="number">0</span>;<span class="comment">//频率</span></span><br><span class="line"><span class="type">float</span> duty1=<span class="number">0</span>,duty2=<span class="number">0</span>;<span class="comment">//占空比</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">HAL_TIM_IC_CaptureCallback</span><span class="params">(TIM_HandleTypeDef *htim)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(htim-&gt;Instance==TIM17)<span class="comment">//PA7</span></span><br><span class="line">	&#123;</span><br><span class="line"><span class="comment">//		if(htim-&gt;Channel==HAL_TIM_ACTIVE_CHANNEL_1)//中断消息来源 选择直接输入的通道</span></span><br><span class="line"><span class="comment">//		&#123;</span></span><br><span class="line">			ccr1_val1a=HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_1);<span class="comment">//直接</span></span><br><span class="line"><span class="comment">//			ccr1_val1b=HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_2);//间接</span></span><br><span class="line">			__HAL_TIM_SetCounter(htim,<span class="number">0</span>);</span><br><span class="line">			frq1=(<span class="number">80000000</span>/<span class="number">80</span>)/ccr1_val1a;</span><br><span class="line"><span class="comment">//			duty1=(ccr1_val1b/ccr1_val1a)*100;</span></span><br><span class="line">			HAL_TIM_IC_Start(htim,TIM_CHANNEL_1);</span><br><span class="line"><span class="comment">//			HAL_TIM_IC_Start(htim,TIM_CHANNEL_2);</span></span><br><span class="line"><span class="comment">//		&#125;</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(htim-&gt;Instance==TIM3)<span class="comment">//PB4</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(htim-&gt;Channel==HAL_TIM_ACTIVE_CHANNEL_1)<span class="comment">//中断消息来源 选择直接输入的通道</span></span><br><span class="line">		&#123;</span><br><span class="line">			ccr1_val2a=HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_1);</span><br><span class="line">			ccr1_val2b=HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_2);</span><br><span class="line">			__HAL_TIM_SetCounter(htim,<span class="number">0</span>);</span><br><span class="line">			frq2=(<span class="number">80000000</span>/<span class="number">80</span>)/ccr1_val2a;</span><br><span class="line">			duty2=(ccr1_val2b/ccr1_val2a)*<span class="number">100</span>;</span><br><span class="line">			HAL_TIM_IC_Start(htim,TIM_CHANNEL_1);</span><br><span class="line">			HAL_TIM_IC_Start(htim,TIM_CHANNEL_2);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -801,7 +806,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2024/03/17/蓝桥杯stm32学习笔记（六）：PWM输出/" target="_blank" title="蓝桥杯stm32学习笔记（六）：PWM输出">http://tumytime.github.io/2024/03/17/蓝桥杯stm32学习笔记（六）：PWM输出/</a>
+    <a href="/2024/03/18/蓝桥杯stm32学习笔记（七）：输入捕获（频率，占空比测量）/" target="_blank" title="蓝桥杯stm32学习笔记（七）：输入捕获（频率，占空比测量）">http://tumytime.github.io/2024/03/18/蓝桥杯stm32学习笔记（七）：输入捕获（频率，占空比测量）/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -825,17 +830,20 @@
       background-position: center center;">
       <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
-    <a href="/2024/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89%EF%BC%9A%E8%BE%93%E5%85%A5%E6%8D%95%E8%8E%B7%EF%BC%88%E9%A2%91%E7%8E%87%EF%BC%8C%E5%8D%A0%E7%A9%BA%E6%AF%94%E6%B5%8B%E9%87%8F%EF%BC%89/" class="post-nav-link">
+    <a href="/2024/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89%EF%BC%9A%E6%A8%A1%E6%95%B0%E8%BD%AC%E6%8D%A2ADC/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">蓝桥杯stm32学习笔记（七）：输入捕获（频率，占空比测量）</div>
+        <div class="title-text">蓝桥杯stm32学习笔记（八）：模数转换ADC</div>
       </div>
       
       <!-- <div class="content">
-        
-跳线帽拔了不能烧工程。。。。(好像可以。。。那天不知道怎么了板子抽风)
+        CubeMX配置配置引脚
 
-CubeMX配置配置引脚我们这里使用PA7进
+我们这里先只用R37
+配置PB15为ADC2_IN15
+
+选择Single_ended
+生成
       </div> -->
     </a>
   </div>
@@ -848,16 +856,16 @@ CubeMX配置配置引脚我们这里使用PA7进
       background-position: center center;">
       <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2024/03/16/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E6%8C%89%E9%94%AE/" class="post-nav-link">
+    <a href="/2024/03/17/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9APWM%E8%BE%93%E5%87%BA/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">蓝桥杯stm32学习笔记（五）：按键</div>
+        <div class="title-text">蓝桥杯stm32学习笔记（六）：PWM输出</div>
       </div>
       <!-- <div class="content">
-        短按键电路图
+        
+PWM的占空比改变的是CCR寄存器的值（不同通道对应不同的CCR），频率的改变对应的是ARR寄存器的值
 
-按键按下后接地变为低电平，未按下为高电平；
-不用定时器的简单按键：123456789if(HAL_GPI
+CubeMX
       </div> -->
     </a>
   </div>
@@ -1078,7 +1086,7 @@ CubeMX配置配置引脚我们这里使用PA7进
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CubeMX%E9%85%8D%E7%BD%AE"><span class="toc-text">CubeMX配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%BC%95%E8%84%9A"><span class="toc-text">配置引脚</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%B7%A5%E7%A8%8B"><span class="toc-text">生成工程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-text">打开定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81"><span class="toc-text">编写代码</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CubeMX%E9%85%8D%E7%BD%AE"><span class="toc-text">CubeMX配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%BC%95%E8%84%9A"><span class="toc-text">配置引脚</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%B7%A5%E7%A8%8B"><span class="toc-text">生成工程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%87%BD%E6%95%B0"><span class="toc-text">中断函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#main-c%E4%B8%AD%E9%85%8D%E7%BD%AE"><span class="toc-text">main.c中配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%97%B6%E6%B5%8B%E9%A2%91%E7%8E%87%E5%92%8C%E5%8D%A0%E7%A9%BA%E6%AF%94%EF%BC%9A"><span class="toc-text">同时测频率和占空比：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%84%9A%E9%85%8D%E7%BD%AE"><span class="toc-text">引脚配置</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
