@@ -822,7 +822,7 @@
 <h3 id="略"><a href="#略" class="headerlink" title="略"></a>略</h3><h3 id="将激活函数移动到残差部分可以提高模型的精度"><a href="#将激活函数移动到残差部分可以提高模型的精度" class="headerlink" title="将激活函数移动到残差部分可以提高模型的精度"></a>将激活函数移动到残差部分可以提高模型的精度</h3><p>该网络一般就在resnet_v2，keras实现如下：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">res_block_v2</span>(<span class="params">x, input_filter, output_filter</span>):</span><br><span class="line">    res_x = BatchNormalization()(x)</span><br><span class="line">    res_x = Activation(<span class="string">&#x27;relu&#x27;</span>)(res_x)</span><br><span class="line">    res_x = Conv2D(kernel_size=(<span class="number">3</span>,<span class="number">3</span>), filters=output_filter, strides=<span class="number">1</span>, padding=<span class="string">&#x27;same&#x27;</span>)(res_x)</span><br><span class="line">    res_x = BatchNormalization()(res_x)</span><br><span class="line">    res_x = Activation(<span class="string">&#x27;relu&#x27;</span>)(res_x)</span><br><span class="line">    res_x = Conv2D(kernel_size=(<span class="number">3</span>,<span class="number">3</span>), filters=output_filter, strides=<span class="number">1</span>, padding=<span class="string">&#x27;same&#x27;</span>)(res_x)</span><br><span class="line">    <span class="keyword">if</span> input_filter == output_filter:</span><br><span class="line">        identity = x</span><br><span class="line">    <span class="keyword">else</span>: <span class="comment">#需要升维或者降维</span></span><br><span class="line">        identity = Conv2D(kernel_size=(<span class="number">1</span>,<span class="number">1</span>), filters=output_filter, strides=<span class="number">1</span>, padding=<span class="string">&#x27;same&#x27;</span>)(x)</span><br><span class="line">    output= keras.layers.add([identity, res_x])</span><br><span class="line">    <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">resnet_v2</span>(<span class="params">x</span>):</span><br><span class="line">    x = Conv2D(kernel_size=(<span class="number">3</span>,<span class="number">3</span>), filters=<span class="number">16</span> , strides=<span class="number">1</span>, padding=<span class="string">&#x27;same&#x27;</span>, activation=<span class="string">&#x27;relu&#x27;</span>)(x)</span><br><span class="line">    x = res_block_v2(x, <span class="number">16</span>, <span class="number">16</span>)</span><br><span class="line">    x = res_block_v2(x, <span class="number">16</span>, <span class="number">32</span>)</span><br><span class="line">    x = BatchNormalization()(x)</span><br><span class="line">    y = Flatten()(x)</span><br><span class="line">    outputs = Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>, kernel_initializer=<span class="string">&#x27;he_normal&#x27;</span>)(y)</span><br><span class="line">    <span class="keyword">return</span> outputs</span><br></pre></td></tr></table></figure>
 
-
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线*******************"></a>分割线*******************</h2>
       </div>
       <div class="post-tags-categories">
         
@@ -1131,7 +1131,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#WHY%E8%A6%81%E6%9C%89%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C"><span class="toc-text">WHY要有残差网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C"><span class="toc-text">残差网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AE%8B%E5%B7%AE%E5%9D%97"><span class="toc-text">残差块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C%E7%9A%84%E6%90%AD%E5%BB%BA"><span class="toc-text">残差网络的搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AB%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C"><span class="toc-text">为什么叫残差网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%95%A5"><span class="toc-text">略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E7%A7%BB%E5%8A%A8%E5%88%B0%E6%AE%8B%E5%B7%AE%E9%83%A8%E5%88%86%E5%8F%AF%E4%BB%A5%E6%8F%90%E9%AB%98%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%B2%BE%E5%BA%A6"><span class="toc-text">将激活函数移动到残差部分可以提高模型的精度</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#WHY%E8%A6%81%E6%9C%89%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C"><span class="toc-text">WHY要有残差网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C"><span class="toc-text">残差网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AE%8B%E5%B7%AE%E5%9D%97"><span class="toc-text">残差块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C%E7%9A%84%E6%90%AD%E5%BB%BA"><span class="toc-text">残差网络的搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AB%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C"><span class="toc-text">为什么叫残差网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%95%A5"><span class="toc-text">略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E7%A7%BB%E5%8A%A8%E5%88%B0%E6%AE%8B%E5%B7%AE%E9%83%A8%E5%88%86%E5%8F%AF%E4%BB%A5%E6%8F%90%E9%AB%98%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%B2%BE%E5%BA%A6"><span class="toc-text">将激活函数移动到残差部分可以提高模型的精度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%89%B2%E7%BA%BF"><span class="toc-text">分割线*******************</span></a></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1157,6 +1157,27 @@
       <!-- hash算法 -->
       
       <div class="aside-list">
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/03/22/%E6%94%B6%E8%97%8F%E5%A4%B9/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">03-22</span>
+                
+              </div>
+              <a class="post-title" href="/2024/03/22/%E6%94%B6%E8%97%8F%E5%A4%B9/">收藏夹</a>
+            </div>
+          </div>
         
           <div class="aside-list-item">
             
@@ -1239,27 +1260,6 @@
                 
               </div>
               <a class="post-title" href="/2024/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89%EF%BC%9A%E6%A8%A1%E6%95%B0%E8%BD%AC%E6%8D%A2ADC/">蓝桥杯stm32学习笔记（八）：模数转换ADC</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89%EF%BC%9A%E8%BE%93%E5%85%A5%E6%8D%95%E8%8E%B7%EF%BC%88%E9%A2%91%E7%8E%87%EF%BC%8C%E5%8D%A0%E7%A9%BA%E6%AF%94%E6%B5%8B%E9%87%8F%EF%BC%89/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">03-18</span>
-                
-              </div>
-              <a class="post-title" href="/2024/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89%EF%BC%9A%E8%BE%93%E5%85%A5%E6%8D%95%E8%8E%B7%EF%BC%88%E9%A2%91%E7%8E%87%EF%BC%8C%E5%8D%A0%E7%A9%BA%E6%AF%94%E6%B5%8B%E9%87%8F%EF%BC%89/">蓝桥杯stm32学习笔记（七）：输入捕获（频率，占空比测量）</a>
             </div>
           </div>
         

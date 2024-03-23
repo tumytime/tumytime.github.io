@@ -706,7 +706,7 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 2.4k |
+            <i class="fas fa-file-text-o"></i> Words: 2.5k |
           </span>
   
           <span class="min2read">
@@ -749,7 +749,7 @@
 <p>yolov3处理图片过程如下</p>
 <div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.pf3lakvam.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.pf3lakvam.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
 
-<p>首先一张图片传进yolo，yolo会将其转化为416×416大小的网格，增加灰度条用于防止失真，之后图片会分成三个网格图片（13×13，26×26，52×52）</p>
+<p>首先一张图片传进yolo，yolo会将其转化为416×416大小的网格，增加灰度条用于防止失真，之后图片会分成三个网格图片（13×13，26×26，52×52）<br>由于图像在多次卷积压缩后，小物体的特征容易丢失，所以用52x52的网格检测小物体，由于猫属于大物体，所以用13x13的网格检测</p>
 <h2 id="详细过程"><a href="#详细过程" class="headerlink" title="详细过程"></a>详细过程</h2><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.8ad0phujlt.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.8ad0phujlt.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
 
 <p>先上流程图，该图是基于<strong>voc数据集</strong>讲解的，voc数据集有20个类别，最下面红框中(13，13，75)表示预测结果的shape，实际上是13,13,3×25,表示有13*13的网格，每个网格有3个先验框（又称锚框，anchors，先验框下面有解释），每个先验框有25个参数(20个类别+5个参数)，这5个参数分别是<strong>x_offset</strong>、<strong>y_offset</strong>、<strong>height</strong>、<strong>width</strong>与<strong>置信度confidence</strong>，用这3个框去试探，试探是否框中有物体，如果有，就会把这个物体给框起来。如果是基于coco的数据集就会有80种类别，最后的维度应该为3x(80+5)&#x3D;255，最上面两个预测结果shape同理</p>
@@ -848,6 +848,24 @@
 <div class="post-nav">
 
 
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/2024/03/22/%E6%94%B6%E8%97%8F%E5%A4%B9/" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> Prev:
+        <div class="title-text">收藏夹</div>
+      </div>
+      
+      <!-- <div class="content">
+        从头开始实现一个神经网络https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTl
+      </div> -->
+    </a>
+  </div>
 
 
 
@@ -1120,6 +1138,27 @@
             
 
             <div class="post-img-box">
+              <a href="/2024/03/22/%E6%94%B6%E8%97%8F%E5%A4%B9/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">03-22</span>
+                
+              </div>
+              <a class="post-title" href="/2024/03/22/%E6%94%B6%E8%97%8F%E5%A4%B9/">收藏夹</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/2024/03/21/YoloV3%E6%A8%A1%E5%9E%8B%E6%9E%84%E5%BB%BA/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
@@ -1195,27 +1234,6 @@
                 
               </div>
               <a class="post-title" href="/2024/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89%EF%BC%9A%E6%A8%A1%E6%95%B0%E8%BD%AC%E6%8D%A2ADC/">蓝桥杯stm32学习笔记（八）：模数转换ADC</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89%EF%BC%9A%E8%BE%93%E5%85%A5%E6%8D%95%E8%8E%B7%EF%BC%88%E9%A2%91%E7%8E%87%EF%BC%8C%E5%8D%A0%E7%A9%BA%E6%AF%94%E6%B5%8B%E9%87%8F%EF%BC%89/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">03-18</span>
-                
-              </div>
-              <a class="post-title" href="/2024/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89%EF%BC%9A%E8%BE%93%E5%85%A5%E6%8D%95%E8%8E%B7%EF%BC%88%E9%A2%91%E7%8E%87%EF%BC%8C%E5%8D%A0%E7%A9%BA%E6%AF%94%E6%B5%8B%E9%87%8F%EF%BC%89/">蓝桥杯stm32学习笔记（七）：输入捕获（频率，占空比测量）</a>
             </div>
           </div>
         
