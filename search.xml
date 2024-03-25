@@ -4,11 +4,42 @@
   
     
     <entry>
+      <title>图像处理笔记</title>
+      <link href="/2024/03/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0-1/"/>
+      <url>/2024/03/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0-1/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 智能车 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> 智能车 </tag>
+            
+            <tag> 图像处理 </tag>
+            
+            <tag> OpenCV </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>c语言计算机二级笔记</title>
       <link href="/2024/03/23/c%E8%AF%AD%E8%A8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E7%AC%94%E8%AE%B0/"/>
       <url>/2024/03/23/c%E8%AF%AD%E8%A8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="计算机系统"><a href="#计算机系统" class="headerlink" title="计算机系统"></a>计算机系统</h2><h3 id="E-R实体联系"><a href="#E-R实体联系" class="headerlink" title="E-R实体联系"></a>E-R实体联系</h3><ol><li><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.2krogi3z4f.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.2krogi3z4f.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div> 矩形表示实体，菱形表示实体之间的联系</li><li>在关系数据库中，用于表示实体间联系的是<strong>二维表</strong></li><li>将E-R图转换为关系模式时，实体和联系都可以表示为<strong>关系</strong>(关系就是二维表)</li><li><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.969i7jl0dn.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.969i7jl0dn.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div></li><li></li></ol><p>已经考完了。。。。。</p>]]></content>
       
       
       <categories>
@@ -35,7 +66,7 @@
       <link href="/2024/03/22/%E6%94%B6%E8%97%8F%E5%A4%B9/"/>
       <url>/2024/03/22/%E6%94%B6%E8%97%8F%E5%A4%B9/</url>
       
-        <content type="html"><![CDATA[<div class="tagLink"><a class="link-card" title="从头开始实现一个神经网络" href="https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA"><span class="link-card-backdrop" style="background-image: url(https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567)"></span><div class="left"><img src="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">从头开始实现一个神经网络</p><p class="url">https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA</p></div></a></div><div class="tagLink"><a class="link-card" title="数据处理之归一化、标准化、正则化" href="https://job.yanxishe.com/blogDetail/27604"><span class="link-card-backdrop" style="background-image: url(https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png)"></span><div class="left"><img src="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" class="lazyload placeholder" data-srcset="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">数据处理之归一化、标准化、正则化</p><p class="url">https://job.yanxishe.com/blogDetail/27604</p></div></a></div><iframe src="//player.bilibili.com/player.html?aid=770444004&bvid=BV18r4y1M71J&cid=760424160&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><iframe src="//player.bilibili.com/player.html?aid=541842600&bvid=BV1yi4y1g7ro&cid=227677652&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
+        <content type="html"><![CDATA[<h2 id="AI"><a href="#AI" class="headerlink" title="AI"></a>AI</h2><div class="tagLink"><a class="link-card" title="从头开始实现一个神经网络" href="https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA"><span class="link-card-backdrop" style="background-image: url(https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567)"></span><div class="left"><img src="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">从头开始实现一个神经网络</p><p class="url">https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA</p></div></a></div><div class="tagLink"><a class="link-card" title="数据处理之归一化、标准化、正则化" href="https://job.yanxishe.com/blogDetail/27604"><span class="link-card-backdrop" style="background-image: url(https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png)"></span><div class="left"><img src="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" class="lazyload placeholder" data-srcset="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">数据处理之归一化、标准化、正则化</p><p class="url">https://job.yanxishe.com/blogDetail/27604</p></div></a></div><iframe src="//player.bilibili.com/player.html?aid=770444004&bvid=BV18r4y1M71J&cid=760424160&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><iframe src="//player.bilibili.com/player.html?aid=541842600&bvid=BV1yi4y1g7ro&cid=227677652&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><h2 id="图像处理"><a href="#图像处理" class="headerlink" title="图像处理"></a>图像处理</h2>]]></content>
       
       
       <categories>

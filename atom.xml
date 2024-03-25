@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2024-03-23T08:45:07.872Z</updated>
+  <updated>2024-03-25T03:54:14.754Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -17,12 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>图像处理笔记</title>
+    <link href="http://tumytime.github.io/2024/03/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0-1/"/>
+    <id>http://tumytime.github.io/2024/03/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0-1/</id>
+    <published>2024-03-25T03:51:05.000Z</published>
+    <updated>2024-03-25T03:54:14.754Z</updated>
+    
+    
+    
+    
+    <category term="智能车" scheme="http://tumytime.github.io/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
+    
+    
+    <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
+    
+    <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
+    
+    <category term="图像处理" scheme="http://tumytime.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    <category term="OpenCV" scheme="http://tumytime.github.io/tags/OpenCV/"/>
+    
+  </entry>
+  
+  <entry>
     <title>c语言计算机二级笔记</title>
     <link href="http://tumytime.github.io/2024/03/23/c%E8%AF%AD%E8%A8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E7%AC%94%E8%AE%B0/"/>
     <id>http://tumytime.github.io/2024/03/23/c%E8%AF%AD%E8%A8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E7%AC%94%E8%AE%B0/</id>
     <published>2024-03-23T08:39:11.000Z</published>
-    <updated>2024-03-23T08:45:07.872Z</updated>
+    <updated>2024-03-25T03:50:05.109Z</updated>
     
+    <content type="html"><![CDATA[<h2 id="计算机系统"><a href="#计算机系统" class="headerlink" title="计算机系统"></a>计算机系统</h2><h3 id="E-R实体联系"><a href="#E-R实体联系" class="headerlink" title="E-R实体联系"></a>E-R实体联系</h3><ol><li><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.2krogi3z4f.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.2krogi3z4f.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div> 矩形表示实体，菱形表示实体之间的联系</li><li>在关系数据库中，用于表示实体间联系的是<strong>二维表</strong></li><li>将E-R图转换为关系模式时，实体和联系都可以表示为<strong>关系</strong>(关系就是二维表)</li><li><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.969i7jl0dn.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.969i7jl0dn.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div></li><li></li></ol><p>已经考完了。。。。。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;计算机系统&quot;&gt;&lt;a href=&quot;#计算机系统&quot; class=&quot;headerlink&quot; title=&quot;计算机系统&quot;&gt;&lt;/a&gt;计算机系统&lt;/h2&gt;&lt;h3 id=&quot;E-R实体联系&quot;&gt;&lt;a href=&quot;#E-R实体联系&quot; class=&quot;headerlink&quot; title=</summary>
+      
     
     
     
@@ -40,14 +70,14 @@
     <link href="http://tumytime.github.io/2024/03/22/%E6%94%B6%E8%97%8F%E5%A4%B9/"/>
     <id>http://tumytime.github.io/2024/03/22/%E6%94%B6%E8%97%8F%E5%A4%B9/</id>
     <published>2024-03-22T11:54:52.000Z</published>
-    <updated>2024-03-23T02:23:03.111Z</updated>
+    <updated>2024-03-25T03:50:41.209Z</updated>
     
-    <content type="html"><![CDATA[<div class="tagLink"><a class="link-card" title="从头开始实现一个神经网络" href="https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA"><span class="link-card-backdrop" style="background-image: url(https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567)"></span><div class="left"><img src="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">从头开始实现一个神经网络</p><p class="url">https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA</p></div></a></div><div class="tagLink"><a class="link-card" title="数据处理之归一化、标准化、正则化" href="https://job.yanxishe.com/blogDetail/27604"><span class="link-card-backdrop" style="background-image: url(https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png)"></span><div class="left"><img src="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" class="lazyload placeholder" data-srcset="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">数据处理之归一化、标准化、正则化</p><p class="url">https://job.yanxishe.com/blogDetail/27604</p></div></a></div><iframe src="//player.bilibili.com/player.html?aid=770444004&bvid=BV18r4y1M71J&cid=760424160&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><iframe src="//player.bilibili.com/player.html?aid=541842600&bvid=BV1yi4y1g7ro&cid=227677652&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
+    <content type="html"><![CDATA[<h2 id="AI"><a href="#AI" class="headerlink" title="AI"></a>AI</h2><div class="tagLink"><a class="link-card" title="从头开始实现一个神经网络" href="https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA"><span class="link-card-backdrop" style="background-image: url(https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567)"></span><div class="left"><img src="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">从头开始实现一个神经网络</p><p class="url">https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA</p></div></a></div><div class="tagLink"><a class="link-card" title="数据处理之归一化、标准化、正则化" href="https://job.yanxishe.com/blogDetail/27604"><span class="link-card-backdrop" style="background-image: url(https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png)"></span><div class="left"><img src="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" class="lazyload placeholder" data-srcset="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">数据处理之归一化、标准化、正则化</p><p class="url">https://job.yanxishe.com/blogDetail/27604</p></div></a></div><iframe src="//player.bilibili.com/player.html?aid=770444004&bvid=BV18r4y1M71J&cid=760424160&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><iframe src="//player.bilibili.com/player.html?aid=541842600&bvid=BV1yi4y1g7ro&cid=227677652&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><h2 id="图像处理"><a href="#图像处理" class="headerlink" title="图像处理"></a>图像处理</h2>]]></content>
     
     
       
       
-    <summary type="html">&lt;div class=&quot;tagLink&quot;&gt;&lt;a class=&quot;link-card&quot; title=&quot;从头开始实现一个神经网络&quot; href=&quot;https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA&quot;&gt;&lt;span class=&quot;link-ca</summary>
+    <summary type="html">&lt;h2 id=&quot;AI&quot;&gt;&lt;a href=&quot;#AI&quot; class=&quot;headerlink&quot; title=&quot;AI&quot;&gt;&lt;/a&gt;AI&lt;/h2&gt;&lt;div class=&quot;tagLink&quot;&gt;&lt;a class=&quot;link-card&quot; title=&quot;从头开始实现一个神经网络&quot; href=&quot;http</summary>
       
     
     
@@ -537,32 +567,6 @@
     
     
     <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>线性代数</title>
-    <link href="http://tumytime.github.io/2024/03/02/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
-    <id>http://tumytime.github.io/2024/03/02/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</id>
-    <published>2024-03-02T09:40:08.000Z</published>
-    <updated>2024-03-03T12:00:53.777Z</updated>
-    
-    <content type="html"><![CDATA[<iframe src="//player.bilibili.com/player.html?aid=19844108&bvid=BV1sW411775X&cid=32363257&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><iframe src="//player.bilibili.com/player.html?aid=6731067&bvid=BV1ys411472E&cid=10959715&p=5" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.2yy3deimon.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.2yy3deimon.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.5j3xq1squd.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.5j3xq1squd.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3go51zvwgn.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3go51zvwgn.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.es90rvvkp.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.es90rvvkp.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3nrcyr5i7a.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3nrcyr5i7a.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.73toquhuk4.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.73toquhuk4.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=19844108&amp;bvid=BV1sW411775X&amp;cid=32363257&amp;p=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; f</summary>
-      
-    
-    
-    
-    <category term="线性代数" scheme="http://tumytime.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
-    
-    
-    <category term="高等数学" scheme="http://tumytime.github.io/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="线性代数" scheme="http://tumytime.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
   </entry>
   
