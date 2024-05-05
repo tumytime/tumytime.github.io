@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>收藏夹 | Hello！Welcom to Tumy-Time！</title>
+  <title>逆透视 | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -681,14 +681,14 @@
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        收藏夹
+        逆透视
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2024-03-22 |
+          <i class="fas fa-calendar"></i> Published in：2024-04-27 |
         </span>
       
 
@@ -706,7 +706,7 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 420 |
+            <i class="fas fa-file-text-o"></i> Words: 534 |
           </span>
   
           <span class="min2read">
@@ -737,39 +737,46 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h2 id="AI"><a href="#AI" class="headerlink" title="AI"></a>AI</h2><div class="tagLink"><a class="link-card" title="从头开始实现一个神经网络" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA"><span class="link-card-backdrop" style="background-image: url(https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567)"></span><div class="left"><img src="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">从头开始实现一个神经网络</p><p class="url">https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA</p></div></a></div>
+        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * @brief IPM初始化</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @param origSize 输入原始图像Size</span></span><br><span class="line"><span class="comment">     * @param dstSize 输出图像Size</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(<span class="type">const</span> cv::Size &amp;origSize, <span class="type">const</span> cv::Size &amp;dstSize)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 原始域：分辨率320x240</span></span><br><span class="line">        <span class="comment">// The 4-points at the input image</span></span><br><span class="line">        m_origPoints.<span class="built_in">clear</span>();</span><br><span class="line">        <span class="comment">// [第二版无带畸变镜头参数]</span></span><br><span class="line">        m_origPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">0</span>, <span class="number">214</span>));   <span class="comment">// 左下</span></span><br><span class="line">        m_origPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">319</span>, <span class="number">214</span>)); <span class="comment">// 右下</span></span><br><span class="line">        m_origPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">192</span>, <span class="number">0</span>));   <span class="comment">// 右上</span></span><br><span class="line">        m_origPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">128</span>, <span class="number">0</span>));   <span class="comment">// 左上</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 矫正域：分辨率320x240</span></span><br><span class="line">        <span class="comment">// The 4-points correspondences in the destination image</span></span><br><span class="line">        m_dstPoints.<span class="built_in">clear</span>();</span><br><span class="line">        m_dstPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">100</span>, <span class="number">400</span>)); <span class="comment">// 左下</span></span><br><span class="line">        m_dstPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">220</span>, <span class="number">400</span>)); <span class="comment">// 右下</span></span><br><span class="line">        m_dstPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">220</span>, <span class="number">0</span>));   <span class="comment">// 右上</span></span><br><span class="line">        m_dstPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">100</span>, <span class="number">0</span>));   <span class="comment">// 左上</span></span><br><span class="line"></span><br><span class="line">        m_origSize = origSize;</span><br><span class="line">        m_dstSize = dstSize;</span><br><span class="line">        <span class="built_in">assert</span>(m_origPoints.<span class="built_in">size</span>() == <span class="number">4</span> &amp;&amp; m_dstPoints.<span class="built_in">size</span>() == <span class="number">4</span> &amp;&amp; <span class="string">&quot;Orig. points and Dst. points must vectors of 4 points&quot;</span>);</span><br><span class="line">        m_H = <span class="built_in">getPerspectiveTransform</span>(m_origPoints, m_dstPoints); <span class="comment">// 计算变换矩阵 [3x3]</span></span><br><span class="line">        m_H_inv = m_H.<span class="built_in">inv</span>();                                      <span class="comment">// 求解逆转换矩阵</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">createMaps</span>();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<div class="tagLink"><a class="link-card" title="数据处理之归一化、标准化、正则化" target="_blank" rel="noopener" href="https://job.yanxishe.com/blogDetail/27604"><span class="link-card-backdrop" style="background-image: url(https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png)"></span><div class="left"><img src="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" class="lazyload placeholder" data-srcset="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">数据处理之归一化、标准化、正则化</p><p class="url">https://job.yanxishe.com/blogDetail/27604</p></div></a></div>
+<ol>
+<li><p><code>void init(const cv::Size &amp;origSize, const cv::Size &amp;dstSize)</code>: 这是一个名为<code>init</code>的函数，它接受两个参数<code>origSize</code>和<code>dstSize</code>，这两个参数是OpenCV库中的<code>cv::Size</code>类型，用来表示图像的尺寸。</p>
+</li>
+<li><p><code>m_origPoints.clear();</code>: 清空存储原始域点坐标的容器<code>m_origPoints</code>。</p>
+</li>
+<li><p><code>m_origPoints.push_back(Point2f(0, 214));</code>: 将<code>(0, 214)</code>点坐标添加到原始域的点坐标集合中，代表原始图像的左下角。</p>
+</li>
+<li><p>依次类推，将原始域的四个角的点坐标添加到<code>m_origPoints</code>中，依次是左下、右下、右上和左上。</p>
+</li>
+<li><p><code>m_dstPoints.clear();</code>: 清空存储矫正域点坐标的容器<code>m_dstPoints</code>。</p>
+</li>
+<li><p><code>m_dstPoints.push_back(Point2f(100, 400));</code>: 将<code>(100, 400)</code>点坐标添加到矫正域的点坐标集合中，代表矫正图像的左下角。</p>
+</li>
+<li><p>依次类推，将矫正域的四个角的点坐标添加到<code>m_dstPoints</code>中，依次是左下、右下、右上和左上。</p>
+</li>
+<li><p><code>m_origSize = origSize;</code>和<code>m_dstSize = dstSize;</code>: 将原始图像尺寸和目标图像尺寸保存下来。</p>
+</li>
+<li><p><code>assert(m_origPoints.size() == 4 &amp;&amp; m_dstPoints.size() == 4 &amp;&amp; &quot;Orig. points and Dst. points must vectors of 4 points&quot;);</code>: 使用<code>assert</code>断言来确保原始域和矫正域的点坐标集合都包含四个点。</p>
+</li>
+<li><p><code>m_H = getPerspectiveTransform(m_origPoints, m_dstPoints);</code>: 通过原始域和矫正域的点坐标计算透视变换矩阵<code>m_H</code>。</p>
+</li>
+<li><p><code>m_H_inv = m_H.inv();</code>: 求解透视变换矩阵<code>m_H</code>的逆矩阵，存储在<code>m_H_inv</code>中。</p>
+</li>
+<li><p><code>createMaps();</code>: 调用<code>createMaps</code>函数，创建地图。</p>
+</li>
+</ol>
 
-<iframe src="//player.bilibili.com/player.html?aid=770444004&bvid=BV18r4y1M71J&cid=760424160&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<iframe src="//player.bilibili.com/player.html?aid=541842600&bvid=BV1yi4y1g7ro&cid=227677652&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-
-<h2 id="图像处理"><a href="#图像处理" class="headerlink" title="图像处理"></a>图像处理</h2><details ><summary pointer> 存一下包版本 </summary>
-              <div class='content'>
-              <p>(Paddle_Py3.12) C:\Users\lxcqm&gt;pip list<br>Package                 Version</p><hr><p>absl-py                 2.1.0<br>anyio                   4.3.0<br>archspec                0.2.3<br>astor                   0.8.1<br>astunparse              1.6.3<br>boltons                 23.1.1<br>Brotli                  1.0.9<br>certifi                 2024.2.2<br>cffi                    1.16.0<br>charset-normalizer      3.3.2<br>cloudpickle             3.0.0<br>cmake                   3.28.3<br>colorama                0.4.6<br>conda                   24.1.2<br>conda-libmamba-solver   24.1.0<br>conda-package-handling  2.2.0<br>conda_package_streaming 0.9.0<br>contourpy               1.2.0<br>cycler                  0.11.0<br>Cython                  3.0.9<br>decorator               5.1.1<br>distro                  1.9.0<br>filelock                3.13.1<br>flatbuffers             24.3.7<br>fonttools               4.25.0<br>gast                    0.5.4<br>google-pasta            0.2.0<br>grpcio                  1.62.1<br>gym                     0.26.2<br>gym-notices             0.0.8<br>h11                     0.14.0<br>h5py                    3.10.0<br>httpcore                1.0.4<br>httpx                   0.27.0<br>idna                    3.6<br>Jinja2                  3.1.3<br>joblib                  1.3.2<br>jsonpatch               1.33<br>jsonpointer             2.4<br>keras                   3.1.1<br>kiwisolver              1.4.4<br>libclang                18.1.1<br>libmambapy              1.5.7<br>mamba                   1.5.7<br>Markdown                3.6<br>markdown-it-py          3.0.0<br>MarkupSafe              2.1.5<br>matplotlib              3.8.0<br>mdurl                   0.1.2<br>menuinst                2.0.2<br>meson                   1.3.2<br>mkl-fft                 1.3.8<br>mkl-random              1.2.4<br>mkl-service             2.4.0<br>ml-dtypes               0.3.2<br>mpmath                  1.3.0<br>munkres                 1.1.4<br>namex                   0.0.7<br>nes_py                  8.2.1<br>networkx                3.2.1<br>numpy                   1.26.4<br>opencv-python           4.9.0.80<br>opt-einsum              3.3.0<br>optree                  0.10.0<br>packaging               23.1<br>paddlepaddle-gpu        2.6.0.post120<br>pandas                  2.2.1<br>pillow                  10.2.0<br>pip                     24.0<br>platformdirs            4.2.0<br>pluggy                  1.4.0<br>ply                     3.11<br>protobuf                4.25.2<br>pycocotools             2.0<br>pycosat                 0.6.6<br>pycparser               2.21<br>pyglet                  1.5.21<br>Pygments                2.17.2<br>pyparsing               3.0.9<br>PyQt5                   5.15.10<br>PyQt5-sip               12.13.0<br>PySocks                 1.7.1<br>python-dateutil         2.8.2<br>pytz                    2024.1<br>PyYAML                  6.0.1<br>requests                2.31.0<br>rich                    13.7.1<br>ruamel.yaml             0.18.6<br>ruamel.yaml.clib        0.2.8<br>scipy                   1.12.0<br>setuptools              69.1.1<br>sip                     6.7.12<br>six                     1.16.0<br>sniffio                 1.3.1<br>sympy                   1.12<br>tensorboard             2.16.2<br>tensorboard-data-server 0.7.2<br>tensorflow              2.16.1<br>tensorflow-intel        2.16.1<br>termcolor               2.4.0<br>threadpoolctl           3.3.0<br>torch                   2.2.1<br>torchaudio              2.2.1<br>torchvision             0.17.1<br>tornado                 6.3.3<br>tqdm                    4.66.2<br>truststore              0.8.0<br>typing_extensions       4.10.0<br>tzdata                  2024.1<br>urllib3                 2.2.1<br>Werkzeug                3.0.1<br>wheel                   0.43.0<br>win-inet-pton           1.1.0<br>wrapt                   1.16.0<br>zstandard               0.22.0</p>
-              </div>
-            </details>
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/Python/" class="">
-              Python
-            </a>
-          
-            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="">
-              深度学习
-            </a>
-          
             <a href="/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/" class="">
               智能车
             </a>
           
-            <a href="/tags/YoloV3/" class="">
-              YoloV3
+            <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="">
+              图像处理
             </a>
           
         </div>
@@ -783,7 +790,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2024/03/22/收藏夹/" target="_blank" title="收藏夹">http://tumytime.github.io/2024/03/22/收藏夹/</a>
+    <a href="/2024/04/27/逆透视/" target="_blank" title="逆透视">http://tumytime.github.io/2024/04/27/逆透视/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -805,21 +812,18 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/a02288c4ba2a5d13a00f2eab7f16b324.qzuquzzsnp.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/a02288c4ba2a5d13a00f2eab7f16b324.qzuquzzsnp.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
-    <a href="/2024/03/23/c%E8%AF%AD%E8%A8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7%E7%AC%94%E8%AE%B0/" class="post-nav-link">
+    <a href="/2024/04/28/AuTop%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">c语言计算机二级笔记</div>
+        <div class="title-text">AuTop代码整理</div>
       </div>
       
       <!-- <div class="content">
-        计算机系统E-R实体联系
-
-
- 矩形表示实体，菱形表示实体之间的联系
-在关系数据库中，用于表示实体间联系的是二维表
-将E
+        圆环circle circle.c 
+              
+              123456789101
       </div> -->
     </a>
   </div>
@@ -832,13 +836,13 @@
       background-position: center center;">
       <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2024/03/21/YoloV3%E6%A8%A1%E5%9E%8B%E6%9E%84%E5%BB%BA/" class="post-nav-link">
+    <a href="/2024/04/26/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%A0%87%E6%B3%A8json%E8%BD%ACxml%E8%84%9A%E6%9C%AC/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">YoloV3模型构建</div>
+        <div class="title-text">数据集标注json转xml脚本</div>
       </div>
       <!-- <div class="content">
-        【yolov3详解】一文让你读懂yolov3目标检测原理https://blog.csdn.net/weixin_396
+        123456789101112131415161718192021222324252627282930313233343
       </div> -->
     </a>
   </div>
@@ -1059,7 +1063,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AI"><span class="toc-text">AI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86"><span class="toc-text">图像处理</span></a></li></ol> -->
+        <!--  -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1322,59 +1326,6 @@
 		height: 100%;
 	}
 </style>
-
-
-  <script>
-  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://unpkg.com/mathjax@3.0/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    // 文章章节标题不能为 “MathJax” ，否则会报错。
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
 
 
 
