@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>蓝桥杯stm32学习笔记（六）：PWM输出 | Hello！Welcom to Tumy-Time！</title>
+  <title>C++多线程 | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -674,21 +674,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp')">
+  background-position: center center;position: relative;background-image:url('https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        蓝桥杯stm32学习笔记（六）：PWM输出
+        C++多线程
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2024-03-17 |
+          <i class="fas fa-calendar"></i> Published in：2024-06-03 |
         </span>
       
 
@@ -696,8 +696,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> category：
           
-            <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" class="post-detail-header_category">
-              嵌入式
+            <a href="/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/" class="post-detail-header_category">
+              智能车
             </a>
           
         </span>
@@ -706,11 +706,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 287 |
+            <i class="fas fa-file-text-o"></i> Words: 7.1k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 1min |
+            <i class="fas fa-clock"></i> Reading time: 25min |
           </span>
   
           
@@ -737,57 +737,191 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <blockquote>
-<p>PWM的占空比改变的是CCR寄存器的值（不同通道对应不同的CCR），频率的改变对应的是ARR寄存器的值</p>
-</blockquote>
-<h3 id="CubeMX配置"><a href="#CubeMX配置" class="headerlink" title="CubeMX配置"></a>CubeMX配置</h3><h4 id="配置引脚"><a href="#配置引脚" class="headerlink" title="配置引脚"></a>配置引脚</h4><blockquote>
-<p>频率是指PWM信号的周期性重复频率，即PWM信号在一段时间内完整周期重复的次数。频率与占空比和自动重载值之间存在以下关系：</p>
+        <div class="note info"><p>上次更新blog还是生日4.29，这一个月真是忙鼠了，现在有了一个新任务-多线程，搞一下(不加多线程的话我的车车会变成蜗牛🐌的。。。。)</p></div>
+
+
+<h2 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h2><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>当我们谈论多线程时，可以想象成一个人同时在做多个事情，就像一个人既可以同时吃饭又可以同时写作业一样。在C++中，使用多线程可以让我们的程序同时执行多个任务，提高程序的效率和性能。</p>
+<p>首先，让我们用一个简单的例子来理解多线程。假设你有一个厨房，里面有一个厨师在煮面条，一个厨师在炒菜，还有一个服务员在端菜。这就相当于一个有多个线程的程序，每个线程负责不同的任务。</p>
+<p>在C++中，我们可以使用 <code>&lt;thread&gt;</code> 头文件来创建和管理线程。首先，我们需要定义一个函数，在这个函数中包含我们希望线程执行的任务。然后，我们使用 <code>std::thread</code> 类来创建线程并指定要执行的函数。</p>
+<p>让我们来看一个示例代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;thread&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数，作为线程的入口</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Hello from thread!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 创建一个新线程，并指定要执行的函数</span></span><br><span class="line">    <span class="function">std::thread <span class="title">t1</span><span class="params">(printMessage)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 主线程继续执行自己的任务</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Hello from main thread!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 等待线程 t1 执行完毕</span></span><br><span class="line">    t1.<span class="built_in">join</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，我们定义了一个简单的函数 <code>printMessage</code>，并在主函数中创建了一个新线程 <code>t1</code>，让它执行这个函数。同时，主函数也会继续执行，输出 “Hello from main thread!”。最后我们使用 <code>join()</code> 函数等待线程 <code>t1</code> 的执行完成。</p>
+<p>这样，就实现了一个简单的多线程程序。通过合理地使用多线程，我们可以更高效地利用计算机的资源，加快程序的运行速度。当然，在实际编程中，还需要考虑线程之间的同步、互斥访问等问题，以保证程序的正确性和稳定性。</p>
+<h3 id="std-thread-t1-printMessage-代表着线程开始执行吗"><a href="#std-thread-t1-printMessage-代表着线程开始执行吗" class="headerlink" title="std::thread t1(printMessage);代表着线程开始执行吗"></a>std::thread t1(printMessage);代表着线程开始执行吗</h3><p>是的，当你创建一个 <code>std::thread</code> 对象并传入要执行的函数，线程就会开始执行这个函数。在你的例子中，<code>std::thread t1(printMessage);</code>这一行代码就代表着线程开始执行 <code>printMessage</code> 函数。这意味着在运行时，会产生一个新的线程来执行 <code>printMessage</code> 函数中的代码，同时主线程会继续执行后面的代码。</p>
+<p>但需要注意的是，线程的启动并不是立即执行 <code>printMessage</code> 函数中的代码，而是在<code>std::thread</code> 对象被创建之后才会执行。如果立即调用 <code>join()</code> 函数，主线程会等待新线程执行完毕再继续往下执行。这种方式保证了线程的同步执行。</p>
+<p>因此，在上面提供的示例代码中，<code>std::thread t1(printMessage);</code>这一行代码会使得新线程开始执行 <code>printMessage</code> 函数，而主线程会继续执行紧随其后的代码，直到遇到 <code>t1.join();</code>。</p>
+<p>在C++中，如果我们使用std::thread来创建线程，线程的启动确实不会立即执行线程函数中的代码。当我们创建一个std::thread对象，指定要执行的线程函数，并调用该std::thread对象的构造函数时，线程对象就会被创建，但线程函数的代码并不会立即执行。实际上线程的实际执行时机取决于操作系统的调度器，在合适的时机会开始执行线程函数。</p>
+<p>如果在主线程中立即调用新线程的join()函数，主线程将会被阻塞，直到新线程的执行完成。这种方式确保了线程的同步执行，即主线程会等待新线程执行完毕后才会继续往下执行。在这种情况下，主线程和新线程是同步执行的，主线程起到了等待和协调的作用。</p>
+<p>总结：通过调用join()函数实现线程同步执行的流程是这样的，先创建新的线程对象，然后调用join()函数使得主线程等待新线程的执行完成，待新线程执行完毕后，主线程才继续往下执行。这种方式保证了线程的同步执行，特别适用于需要新线程执行完毕后才能继续主线程操作的场景。</p>
+<h2 id="进阶实例-互斥锁"><a href="#进阶实例-互斥锁" class="headerlink" title="进阶实例(互斥锁)"></a>进阶实例(互斥锁)</h2><p>让我们来看一个稍微复杂一点的多线程例子，考虑一个生产者-消费者模型。在这个例子中，有一个生产者线程负责生产数据，然后将数据发送给一个缓冲区，同时一个消费者线程从缓冲区中取出数据进行消费。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;mutex&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;condition_variable&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line">std::queue&lt;<span class="type">int</span>&gt; buffer;</span><br><span class="line">std::mutex mtx;</span><br><span class="line">std::condition_variable cv;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">producer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i) &#123;</span><br><span class="line">        std::this_thread::<span class="built_in">sleep_for</span>(std::chrono::<span class="built_in">milliseconds</span>(<span class="number">500</span>)); <span class="comment">// 模拟生产数据的耗时操作</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="function">std::lock_guard&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mtx)</span></span>;</span><br><span class="line">            buffer.<span class="built_in">push</span>(i);</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;Produced: &quot;</span> &lt;&lt; i &lt;&lt; std::endl;</span><br><span class="line">        &#125;</span><br><span class="line">        cv.<span class="built_in">notify_one</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">consumer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i) &#123;</span><br><span class="line">        <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mtx)</span></span>;</span><br><span class="line">        cv.<span class="built_in">wait</span>(lock, []&#123; <span class="keyword">return</span> !buffer.<span class="built_in">empty</span>(); &#125;);</span><br><span class="line">        <span class="type">int</span> data = buffer.<span class="built_in">front</span>();</span><br><span class="line">        buffer.<span class="built_in">pop</span>();</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Consumed: &quot;</span> &lt;&lt; data &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::thread <span class="title">producerThread</span><span class="params">(producer)</span></span>;</span><br><span class="line">    <span class="function">std::thread <span class="title">consumerThread</span><span class="params">(consumer)</span></span>;</span><br><span class="line"></span><br><span class="line">    producerThread.<span class="built_in">join</span>();</span><br><span class="line">    consumerThread.<span class="built_in">join</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们使用了一个互斥锁（std::mutex）来保护共享的数据结构（队列buffer），生产者线程往队列中写入数据，消费者线程从队列中读取数据。通过条件变量（std::condition_variable）实现了生产者与消费者之间的同步。</p>
+<p>生产者不断地在队列中插入数据，消费者则等待队列中有数据后进行消费。当队列中有数据时，消费者线程被唤醒，消费数据并输出，直至生产者生产完所有数据。整个过程利用互斥锁和条件变量实现了线程之间的同步操作，确保了数据的正确生产和消费。</p>
 <ol>
-<li>PWM信号的频率 &#x3D; 1 &#x2F; PWM信号的周期</li>
-<li>PWM信号的周期 &#x3D; 自动重载值 + 1</li>
-<li>PWM信号的占空比 &#x3D; 高电平时间 &#x2F; PWM信号的周期</li>
+<li><p><strong>前三行意思</strong></p>
+<p> 这三行代码声明了一个整型队列 <code>buffer</code>，一个互斥锁 <code>mtx</code> 和一个条件变量 <code>cv</code>。 </p>
+<ul>
+<li><p><code>std::queue&lt;int&gt; buffer;</code>：这行代码定义了一个STL队列，其中存储整型数据。在生产者和消费者模型中，<code>buffer</code>用于存储生产者生成的数据，在生产者线程将数据写入队列，消费者线程从队列中取出数据进行消费。</p>
+</li>
+<li><p><code>std::mutex mtx;</code>：这行代码定义了一个互斥锁，用于在多线程环境中对共享数据结构进行访问控制。在此例中，<code>mtx</code> 用于保护队列 <code>buffer</code>，确保在任一时刻只有一个线程可以访问队列。</p>
+</li>
+<li><p><code>std::condition_variable cv;</code>：这行代码定义了一个条件变量，用于线程间的同步。在此例中，<code>cv</code> 用于通知消费者线程有新的数据可用于消费。消费者线程会通过 <code>wait()</code> 来等待生产者通知，一旦有数据可用，它会被 <code>notify_one()</code> 通知可以继续执行。</p>
+</li>
+</ul>
+<p> 这些机制共同构成了一个生产者-消费者模型，确保在多线程环境下数据的安全访问和同步处理。</p>
+</li>
+<li><p><strong>为什么确保在任一时刻只有一个线程可以访问队列</strong><br> 在多线程环境中，如果不对共享数据结构（比如队列）进行保护，就可能导致数据竞争（Data Race）的问题。数据竞争指的是多个线程同时访问共享数据，其中至少一个线程对数据进行写操作，而其他线程进行读或写操作，从而导致未定义行为。对于队列这样的数据结构，如果没有互斥访问，会导致以下问题：</p>
+<ul>
+<li><p>不确定性：多个线程同时对队列进行操作，可能造成队列中数据的乱序或丢失，导致程序逻辑错误。</p>
+</li>
+<li><p>数据损坏：当一个线程正在修改队列中的数据时，另一个线程可能同时读取或修改这些数据，造成意外的数据损坏。</p>
+</li>
+<li><p>死锁：如果多个线程同时尝试对队列进行读写操作而没有恰当的同步机制，可能会出现死锁情况，使得程序无法继续执行。</p>
+</li>
+</ul>
+<p> 因此，通过使用互斥锁（<code>mutex</code>）来保护队列，在任一时刻只允许一个线程访问队列，可以确保在多线程环境下数据的安全访问，避免数据竞争和可能导致的问题。</p>
+</li>
+<li><p><strong>什么是死锁</strong><br> 死锁（Deadlock）是指在并发系统中，两个或多个进程（线程）因争夺共享资源而进入一种互相等待的状态，导致它们都无法继续执行下去的情况。在死锁情况下，每个进程都在等待其他进程释放资源，而同时又不愿意主动释放自己当前已经占有的资源，从而形成了一种僵局。死锁是多线程编程中常见的并发问题，需要通过合理的设计和实现来避免和解决死锁问题。</p>
+</li>
+<li><p><strong>std::this_thread::sleep_for(std::chrono::milliseconds(500)); &#x2F;&#x2F; 模拟生产数据的耗时操作</strong></p>
+<p> 这行代码是使用C++标准库提供的线程库<code>&lt;thread&gt;</code>中的<code>std::this_thread::sleep_for</code>函数，用来模拟在生产数据过程中的耗时操作。让我们来详细解释一下这行代码的作用：</p>
+<ul>
+<li><p><code>std::this_thread::sleep_for</code>：这是C++标准库中用于线程操作的静态成员函数，允许当前线程休眠一段时间。因为是<code>this_thread</code>所以是当前线程。</p>
+</li>
+<li><p><code>std::chrono::milliseconds(500)</code>：这里使用<code>std::chrono::milliseconds</code>来创建一个表示时间间隔的对象，参数为500，表示500毫秒（即0.5秒）的时间间隔。<code>std::chrono</code>是C++标准库提供的日期和时间库，用于处理时间相关的操作。</p>
+</li>
+<li><p><code>// 模拟生产数据的耗时操作</code>：这是一行注释，说明了这行代码的目的，即模拟在生产数据过程中的耗时操作。通常在生产数据或其他需要等待的操作中，为了模拟真实场景的延迟，会使用类似的休眠操作来延迟线程的执行。</p>
+</li>
+</ul>
+<p> 因此，这行代码的作用是让当前线程休眠500毫秒，模拟生产数据过程中的耗时操作，以便更好地测试和理解程序的行为。</p>
+</li>
+<li><p><strong>std::lock_guard &lt; std::mutex &gt; lock(mtx);</strong></p>
+<p> <code>std::lock_guard&lt;std::mutex&gt; lock(mtx);</code>是C++中使用RAII机制来管理互斥锁（<code>std::mutex</code>）的典型语法格式。这行代码的作用是创建一个<code>lock_guard</code>对象并用其构造函数锁住一个<code>std::mutex</code>对象<code>mtx</code>。</p>
+<p> 具体解释如下：</p>
+<ul>
+<li><code>std::lock_guard</code>是一个模板类，用于管理锁对象（互斥锁）。它会在构造时锁住给定的互斥锁，在析构时解锁互斥锁，实现了RAII机制。</li>
+<li><code>&lt;std::mutex&gt;</code>是模板参数，表示<code>std::lock_guard</code>将要管理的互斥锁的类型是<code>std::mutex</code>。</li>
+<li><code>lock</code>是<code>std::lock_guard</code>对象的名称，可以根据需要命名。</li>
+<li><code>(mtx)</code>表示用<code>mtx</code>（一个名为<code>mtx</code>的<code>std::mutex</code>对象）来初始化<code>lock_guard</code>对象，即在构造<code>lock_guard</code>对象时锁住<code>mtx</code>。</li>
+</ul>
+<p> <code>std::lock_guard</code>是C++标准库提供的一个RAII（资源获取即初始化）风格的互斥量封装类，通过它可以在一个作用域中保持互斥锁的持有状态。在这段代码中，<code>std::lock_guard&lt;std::mutex&gt; lock(mtx);</code>的作用是使用互斥量<code>mtx</code>对临界区进行加锁，确保对共享数据结构<code>buffer</code>的访问是线程安全的。让我们来详细解释其作用：</p>
+<ul>
+<li><p><strong>RAII机制</strong>：RAII（Resource Acquisition Is Initialization）是一种C++编程范式，它通过对象的生命周期来管理资源的获取和释放，确保资源在对象构造时被正确获取，而在对象析构时被自动释放。这种机制的核心思想是利用局部对象的生命周期控制资源的获取和释放，从而确保资源的正确管理，提高代码的可靠性和可维护性。</p>
+<p>  下面是RAII机制的工作原理和优势：</p>
+<ol>
+<li><p><strong>资源获取即初始化</strong>：当一个对象被创建时，同时获取所需的资源，例如内存、文件句柄、互斥锁等，这样资源的获取和初始化是统一的操作。</p>
+</li>
+<li><p><strong>资源的自动释放</strong>：当对象离开其作用域时（比如函数返回、作用域结束等），其析构函数会被调用，负责释放已获取的资源，无论是正常执行还是异常发生，资源都会被正常释放。</p>
+</li>
+<li><p><strong>避免资源泄漏和确保资源管理</strong>：通过RAII机制，程序员无需手动管理资源的获取和释放，减少了因忘记释放资源而导致的内存泄漏或资源泄漏问题。</p>
+</li>
+<li><p><strong>异常安全性</strong>：RAII可确保在异常发生时，资源能够被正确释放，避免资源泄漏，同时保证程序的安全性。</p>
+</li>
+<li><p><strong>提高代码的可维护性和可读性</strong>：RAII使资源管理的逻辑更加清晰明了，代码更易于理解和维护，同时降低了在多线程环境下出现的死锁等问题。</p>
+</li>
 </ol>
-</blockquote>
-<p><strong>我们这里配置PC9输出PWM波</strong><br>配置<code>PC9</code>引脚为<code>TIM3_CH4</code>,选择定时器<code>TIM3</code>的通道4(有哪个用哪个)<br>(后面带<code>N</code>的是互补PWM波)</p>
-<blockquote>
-<p>PWM频率 &#x3D; 1 &#x2F; (周期时间)<br>单个脉冲宽度 &#x3D; (占空比) * (周期时间)</p>
-</blockquote>
-<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.ibvk6580f.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.ibvk6580f.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+<p>  在C++中，标准库中的智能指针（<code>std::unique_ptr</code>、<code>std::shared_ptr</code>等）和锁（<code>std::lock_guard</code>、<code>std::unique_lock</code>等）都是基于RAII机制设计的。通过合理利用RAII机制，可以有效管理资源，提高代码的健壮性和可靠性。</p>
+</li>
+<li><p><strong>加锁</strong>：当<code>std::lock_guard</code>对象<code>lock</code>被创建时，它会在构造函数中对互斥量<code>mtx</code>进行加锁操作，即锁住<code>mtx</code>。这样就确保了在<code>lock_guard</code>对象的作用域内（在这个括号内）对<code>buffer</code>的访问是受到保护的，其他线程无法同时修改<code>buffer</code>的内容，避免了数据竞争和不一致性。<code>在这个括号内</code>指的是<code>std::lock_guard</code>对象<code>lock</code>的作用域范围，即<code>lock</code>对象的生命周期。在C++中，作用域用花括号<code>&#123;&#125;</code>表示，也叫做代码块。当<code>std::lock_guard</code>对象<code>lock</code>的作用域范围结束（即超出了花括号的范围），该对象的析构函数会被调用，从而自动释放锁。这种方式确保了在<code>lock</code>对象的作用域内，互斥锁被保持，从而保护了共享资源（如<code>buffer</code>）的访问并避免了数据竞争和不一致性的问题。</p>
+</li>
+</ul>
+<p> 因此，通过在花括号内创建<code>std::lock_guard</code>对象并锁住互斥量，可以确保只有一个线程能够访问或修改被保护的共享资源，从而提高多线程程序的安全性。</p>
+<ul>
+<li><strong>解锁</strong>：当<code>lock_guard</code>对象的作用域结束时，会调用其析构函数，在析构函数中会自动解锁互斥量<code>mtx</code>，即释放<code>mtx</code>的锁，使得其他线程可以访问共享资源。</li>
+</ul>
+<p> 通过使用<code>std::lock_guard</code>和互斥量，可以简化了对临界区的加锁和解锁过程，并且可以避免因为忘记解锁导致的死锁情况。这样的操作保证了对临界区资源的访问是互斥的，确保了多线程环境下的数据安全性。</p>
+</li>
+<li><p><strong>cv.notify_one();</strong><br> 在多线程编程中，<code>cv.notify_one()</code> 是用来通知等待在条件变量上的某个线程继续执行的函数。当某个线程调用 <code>cv.wait()</code> 方法并在条件变量上等待时，其他线程可以通过调用 <code>cv.notify_one()</code> 或 <code>cv.notify_all()</code> 来通知等待的线程可以继续执行。</p>
+<p> 具体来说，<code>cv.notify_one()</code> 会唤醒在条件变量上等待的一个线程（如果有的话），让其可以从等待状态中醒来并继续执行。如果没有线程在条件变量上等待，那么调用 <code>cv.notify_one()</code> 也不会有任何效果。</p>
+<p> 在多线程协作中，通常会结合条件变量和互斥量来实现线程之间的同步操作。当一个线程修改了共享数据，并希望通知其他线程有关此数据的改变时，可以使用条件变量来实现线程之间的同步通信。通常的流程是，先获得互斥锁，然后修改共享数据，再通知等待在条件变量上的线程，最后释放互斥锁。</p>
+<p> 在这段示例代码中，生产者线程和消费者线程通过条件变量 <code>cv</code> 和互斥量 <code>mtx</code> 实现了线程之间的同步通信。生产者线程通过 <code>notify_one()</code> 方法通知消费者线程，告知其有新的数据可以被消费。具体来说，<code>cv.notify_one()</code> 的作用是：</p>
+<ol>
+<li>当生产者线程生产了一个数据后（通过 <code>buffer.push(i)</code>），它会立即通知等待在条件变量 <code>cv</code> 上的消费者线程。</li>
+<li>在消费者线程中，当它通过 <code>cv.wait(lock, [] &#123; return !buffer.empty(); &#125;);</code> 进入等待状态时，会自动释放 <code>mtx</code> 互斥量并等待，直到生产者线程调用 <code>cv.notify_one()</code> 来唤醒它。</li>
+<li>一旦消费者线程被唤醒，它会重新获取 <code>mtx</code> 互斥量并继续执行，从 <code>buffer</code> 中取出数据消费。</li>
+<li>生产者线程每生产一个数据，就会唤醒一个等待的消费者线程。如果有多个消费者线程在等待，只有一个会被唤醒。</li>
+</ol>
+<p> 综上所述，<code>cv.notify_one()</code> 的作用是唤醒一个等待在条件变量上的线程，用来提示该线程可以继续执行，适用于协调多线程之间的操作顺序和数据传递。</p>
+</li>
+<li><p><strong>为什么一个用std::lock_guard一个用std::unique_lock</strong><br> 在上述代码中，<code>producer()</code> 函数使用了 <code>std::lock_guard</code> 来锁定互斥量，而 <code>consumer()</code> 函数则使用了 <code>std::unique_lock</code>。这种选择并非绝对，而是根据不同的需求和情境来决定使用哪种锁定方式。</p>
+<ol>
+<li><strong><code>std::lock_guard</code> 在 producer 函数中的使用：</strong></li>
+</ol>
+<ul>
+<li>在 <code>producer()</code> 函数中，生产者生产数据到缓冲区，并在数据生产完成后立即释放互斥量。由于在生产者生产完数据后就会释放互斥量，因此使用 <code>std::lock_guard</code> 而不是 <code>std::unique_lock</code> 更加简洁和合适。<code>std::lock_guard</code> 自动锁定互斥量，并在作用域结束时自动释放互斥量，非常适合这种简单的锁定和释放情况。</li>
+</ul>
+<ol start="2">
+<li><strong><code>std::unique_lock</code> 在 consumer 函数中的使用：</strong></li>
+</ol>
+<ul>
+<li>在 <code>consumer()</code> 函数中，消费者需要等待缓冲区中有数据可消费时才能继续执行。为了支持在等待期间手动解锁互斥量并等待条件变量，这里使用了 <code>std::unique_lock</code>。<code>std::unique_lock</code> 提供了更灵活的加锁和解锁操作，同时支持条件变量的等待。在等待缓冲区有数据可消费时，我们使用 <code>cv.wait(lock, [] &#123; return !buffer.empty(); &#125;);</code> 来等待条件变量满足。</li>
+</ul>
+<p> 综上所述，选择使用 <code>std::lock_guard</code> 或 <code>std::unique_lock</code> 取决于具体的应用场景和需求。在简单的自动锁定和释放互斥量情况下，可以使用 <code>std::lock_guard</code>；而在需要更多灵活性和条件变量支持的情况下，可以选择使用 <code>std::unique_lock</code>。在生产者消费者模型中，生产者和消费者可能有不同的需求，因此可以根据具体情况选择不同的锁定方式。</p>
+</li>
+<li><p><strong>cv.wait(lock, [] { return !buffer.empty(); });</strong></p>
+<p> <code>cv.wait(lock, [] &#123; return !buffer.empty(); &#125;);</code> 这行代码是在<code>consumer()</code>函数中使用条件变量等待的部分。让我们详细解释这段代码的作用和具体执行流程：</p>
+<ol>
+<li><p><code>cv.wait(lock, condition)</code>：这是条件变量 <code>cv</code> 的等待函数调用。在这里，<code>lock</code> 是一个 <code>std::unique_lock&lt;std::mutex&gt;</code> 对象，通过将 <code>lock</code> 传递给 <code>cv.wait</code>，会在等待期间将互斥量解锁，以便其他线程可以在该互斥量上执行操作。<code>condition</code> 是一个 lambda 函数，用于指定等待条件。在这种情况下，<code>cv.wait</code>会在等待期间检查 lambda 函数返回的布尔值，只有在 lambda 函数返回 <code>true</code> 时才会继续执行。</p>
+</li>
+<li><p><code>[] &#123; return !buffer.empty(); &#125;</code>：这是一个 lambda 函数，它检查 <code>buffer</code> 是否为空。条件变量的 <code>wait</code> 操作依赖于用户提供的条件函数。在这里，条件函数检查 <code>buffer</code> 是否为空，如果为空，则条件为假， <code>cv.wait</code> 会一直等待，直到条件变为真。一旦条件为真，<code>cv.wait</code> 将继续执行，即互斥量被重新锁定，并且线程继续执行下去。</p>
+</li>
+<li><p>执行流程：</p>
+<ul>
+<li>当消费者线程开始执行 <code>consumer()</code> 函数时，首先会创建一个 <code>std::unique_lock&lt;std::mutex&gt;</code> 对象 <code>lock</code>，该对象在实例化时会锁定其关联的互斥量 <code>mtx</code>。</li>
+<li>接着，消费者线程调用 <code>cv.wait(lock, condition)</code>，这会导致线程释放互斥量的锁并等待，直到<code>condition</code>返回 <code>true</code>。</li>
+<li>在等待过程中，其他线程可以获得互斥量的锁并修改共享数据，但由于条件未满足，消费者线程会一直保持等待状态。</li>
+<li>当生产者线程向 <code>buffer</code> 中加入数据并调用 <code>cv.notify_one()</code> 通知时，条件 <code>!buffer.empty()</code> 变为真，这会导致条件变量通知消费者线程继续执行。</li>
+<li>消费者线程被唤醒后，会重新获得互斥量的锁，这时可以安全地从 <code>buffer</code> 中取出数据进行消费，然后继续执行后续的操作。</li>
+</ul>
+</li>
+</ol>
+<p> 总之，通过使用条件变量和 lambda 函数等待特定条件，可以实现线程间的同步和协调，确保消费者在有数据可消费时才执行消费操作，从而有效避免了竞态条件和数据不一致的问题。</p>
+</li>
+<li><p><strong>lambda 表达式</strong><br> 用于定义函数对象：</p>
+<ol>
+<li><p><code>[]</code>：lambda 表达式的开头以一对方括号开始。在这里，<code>[]</code> 表示 lambda 表达式不捕获任何外部变量。这意味着 lambda 表达式只能访问传递给它的参数，而不能访问外部作用域的变量。</p>
+</li>
+<li><p><code>&#123;&#125;</code>：lambda 表达式的主体使用一对大括号来定义，在大括号内部是 lambda 表达式的具体实现。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a>互斥锁</h2><p>在多线程编程中，为了避免多个线程同时访问共享资源而引起的竞争条件和数据不一致性问题，我们使用互斥锁（Mutex，全称Mutual Exclusion）。互斥锁是一种同步原语，它允许线程在进入临界区（对共享资源操作的临界区域）前先获取锁，执行完后再释放锁，从而确保在同一时刻只有一个线程能进入临界区进行操作。</p>
+<p>详细解释互斥锁包括以下几点：</p>
+<ol>
+<li><p><strong>锁的状态</strong>: 互斥锁有两种状态，分别是锁定（locked）和解锁（unlocked）。线程在进入临界区之前需要先获取锁（即将锁定状态设定为locked），执行完后再释放锁（将状态设定为unlocked）。</p>
+</li>
+<li><p><strong>互斥性</strong>: 互斥锁的特性确保了同一时刻只有一个线程能够获取锁，其他线程需要等待当前持有锁的线程释放锁后才能继续执行。这样可以避免多个线程同时访问共享资源导致的数据竞争和不一致性问题。</p>
+</li>
+<li><p><strong>使用方法</strong>: 在多线程代码中使用互斥锁时，一般会使用<code>std::mutex</code>或类似的互斥锁类型。典型的用法是在临界区开始之前调用<code>lock()</code>方法获取锁，在临界区结束后调用<code>unlock()</code>方法释放锁。</p>
+</li>
+<li><p><strong>死锁</strong>: 如果在多线程代码中使用互斥锁不当，可能会导致死锁（Deadlock）的问题。死锁指的是多个线程相互等待对方释放资源而无法继续执行的情况，因此在使用互斥锁时要注意避免造成死锁。</p>
+</li>
+</ol>
+<p>总之，互斥锁是一种重要的同步工具，用于在多线程环境下控制对共享资源的访问，确保线程安全性并避免竞争条件和数据不一致性问题的发生。在正确使用互斥锁的情况下，可以有效地保证多线程程序的正确性和稳定性。</p>
+<h3 id="临界区（对共享资源操作的临界区域）"><a href="#临界区（对共享资源操作的临界区域）" class="headerlink" title="临界区（对共享资源操作的临界区域）"></a>临界区（对共享资源操作的临界区域）</h3><p>临界区是指在多线程程序中，多个线程共享的某一段代码或数据区域，这里的代码或数据可能会被多个线程同时访问和操作。在临界区中，如果多个线程同时对共享资源进行读写操作，就会发生竞态条件（Race Condition），导致程序出现错误或产生不确定的结果。</p>
+<p>让我们通过一个生动的比喻来解释临界区：</p>
+<p>假设有一个小咖啡厅只有一个咖啡机可以制作咖啡。多个服务员（线程）需要制作咖啡时，他们需要先检查咖啡机是否空闲。如果咖啡机正在被使用，那么其他服务员必须等待直到当前制作完成并释放咖啡机。在这个过程中，检查咖啡机状态、占用咖啡机、释放咖啡机的这一段代码就是临界区。只能有一个服务员进入临界区，占用咖啡机，制作咖啡，防止出现多个服务员同时操作导致的错误。</p>
+<p>所以，临界区是指在多线程环境下，需要同步访问共享资源的代码区域或数据区域，为了避免竞态条件，需要通过互斥锁等同步机制来确保同一时刻只有一个线程能够访问临界区，保证数据的正确性和一致性。通过合理管理临界区，可以有效避免多线程程序中的各种潜在问题，确保程序的正确性和稳定性。</p>
+<h2 id="复杂一点点的例子"><a href="#复杂一点点的例子" class="headerlink" title="复杂一点点的例子"></a>复杂一点点的例子</h2><p>以下是一个更复杂的多线程示例，其中包含两个线程，一个是生产者线程，一个是消费者线程，它们之间通过共享的缓冲区进行通信：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;mutex&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;condition_variable&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line">std::mutex mtx;</span><br><span class="line">std::condition_variable produceCondition, consumeCondition;</span><br><span class="line">std::queue&lt;<span class="type">int</span>&gt; buffer;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> bufferSize = <span class="number">10</span>;</span><br><span class="line"><span class="type">bool</span> done = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">producer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; ++i) &#123;</span><br><span class="line">        <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mtx)</span></span>;</span><br><span class="line">        produceCondition.<span class="built_in">wait</span>(lock, [] &#123; <span class="keyword">return</span> buffer.<span class="built_in">size</span>() &lt; bufferSize; &#125;);</span><br><span class="line">        </span><br><span class="line">        buffer.<span class="built_in">push</span>(i);</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Produced: &quot;</span> &lt;&lt; i &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">        lock.<span class="built_in">unlock</span>();</span><br><span class="line">        consumeCondition.<span class="built_in">notify_one</span>();        </span><br><span class="line">    &#125;</span><br><span class="line">    done = <span class="literal">true</span>;</span><br><span class="line">    consumeCondition.<span class="built_in">notify_one</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">consumer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (!done) &#123;</span><br><span class="line">        <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mtx)</span></span>;</span><br><span class="line">        consumeCondition.<span class="built_in">wait</span>(lock, [] &#123; <span class="keyword">return</span> !buffer.<span class="built_in">empty</span>() || done; &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!buffer.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="type">int</span> val = buffer.<span class="built_in">front</span>();</span><br><span class="line">            buffer.<span class="built_in">pop</span>();</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;Consumed: &quot;</span> &lt;&lt; val &lt;&lt; std::endl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        lock.<span class="built_in">unlock</span>();</span><br><span class="line">        produceCondition.<span class="built_in">notify_one</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::thread <span class="title">producerThread</span><span class="params">(producer)</span></span>;</span><br><span class="line">    <span class="function">std::thread <span class="title">consumerThread</span><span class="params">(consumer)</span></span>;</span><br><span class="line"></span><br><span class="line">    producerThread.<span class="built_in">join</span>();</span><br><span class="line">    consumerThread.<span class="built_in">join</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="生成工程"><a href="#生成工程" class="headerlink" title="生成工程"></a>生成工程</h4><p><strong>点击右上角”GENERATE CODE”,生成工程</strong></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="打开定时器"><a href="#打开定时器" class="headerlink" title="打开定时器"></a>打开定时器</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HAL_TIM_PWM_Start(&amp;htim3,TIM_CHANNEL_4);</span><br></pre></td></tr></table></figure>
-<h4 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h4><details open><summary pointer> while(1) </summary>
-              <div class='content'>
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">		LED_Disp(<span class="number">0x00</span>);<span class="comment">//LED的初始化	</span></span><br><span class="line">		<span class="keyword">if</span>(key[<span class="number">2</span>].single_flag==<span class="number">1</span>) &#123;</span><br><span class="line">		</span><br><span class="line">			w+=<span class="number">1000</span>;</span><br><span class="line">			<span class="keyword">if</span>(w&gt;<span class="number">10000</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				w=<span class="number">0</span>;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		TIM3-&gt;CCR4 = w;</span><br><span class="line">		key[<span class="number">2</span>].single_flag=<span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">    <span class="comment">/* USER CODE END WHILE */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* USER CODE BEGIN 3 */</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-              </div>
-            </details>
-
-
-
-
-
-
-
-
-
-
-
+<p>在这个示例中，生产者线程负责向缓冲区中放入数据，而消费者线程则负责从缓冲区中取出数据。生产者线程会一直生产数据直到生产完20个数据为止。消费者线程会在生产者线程生产数据时，从缓冲区中消费数据，并且当生产者线程结束时也会结束。</p>
+<p>通过使用互斥锁和条件变量来实现对缓冲区的访问控制和线程通信。生产者线程会根据缓冲区的状态来决定是否生产数据，而消费者线程也会根据缓冲区的状态来决定是否消费数据。在主函数中，调用了 <code>join()</code> 来等待生产者线程和消费者线程的结束。</p>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" class="">
-              嵌入式
+            <a href="/tags/C/" class="">
+              C++
             </a>
           
-            <a href="/tags/stm32/" class="">
-              stm32
-            </a>
-          
-            <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" class="">
-              蓝桥杯
+            <a href="/tags/%E6%99%BA%E8%83%BD%E8%BD%A6%EF%BC%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="">
+              智能车，多线程
             </a>
           
         </div>
@@ -801,7 +935,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2024/03/17/蓝桥杯stm32学习笔记（六）：PWM输出/" target="_blank" title="蓝桥杯stm32学习笔记（六）：PWM输出">http://tumytime.github.io/2024/03/17/蓝桥杯stm32学习笔记（六）：PWM输出/</a>
+    <a href="/2024/06/03/C-多线程/" target="_blank" title="C++多线程">http://tumytime.github.io/2024/06/03/C-多线程/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -819,45 +953,22 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2024/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89%EF%BC%9A%E8%BE%93%E5%85%A5%E6%8D%95%E8%8E%B7%EF%BC%88%E9%A2%91%E7%8E%87%EF%BC%8C%E5%8D%A0%E7%A9%BA%E6%AF%94%E6%B5%8B%E9%87%8F%EF%BC%89/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">蓝桥杯stm32学习笔记（七）：输入捕获（频率，占空比测量）</div>
-      </div>
-      
-      <!-- <div class="content">
-        
-跳线帽拔了不能烧工程。。。。(好像可以。。。那天不知道怎么了板子抽风)
-
-CubeMX配置配置引脚我们这里使用PA7进
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/20240205/Screenshot_20240205_223525.11l7h2o44fzk.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2024/03/16/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E6%8C%89%E9%94%AE/" class="post-nav-link">
+    <a href="/2024/04/29/%E4%B8%80%E4%BA%9B%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%9A%84%E5%87%BD%E6%95%B0/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">蓝桥杯stm32学习笔记（五）：按键</div>
+        <div class="title-text">一些图像处理的函数</div>
       </div>
       <!-- <div class="content">
-        短按键电路图
-
-按键按下后接地变为低电平，未按下为高电平；
-不用定时器的简单按键：123456789if(HAL_GPI
+        中值滤波卷积核大小为7：
+1234567891011121314151617181920212223Mat median
       </div> -->
     </a>
   </div>
@@ -1078,7 +1189,7 @@ CubeMX配置配置引脚我们这里使用PA7进
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CubeMX%E9%85%8D%E7%BD%AE"><span class="toc-text">CubeMX配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%BC%95%E8%84%9A"><span class="toc-text">配置引脚</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%B7%A5%E7%A8%8B"><span class="toc-text">生成工程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="toc-text">打开定时器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81"><span class="toc-text">编写代码</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">简单示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-thread-t1-printMessage-%E4%BB%A3%E8%A1%A8%E7%9D%80%E7%BA%BF%E7%A8%8B%E5%BC%80%E5%A7%8B%E6%89%A7%E8%A1%8C%E5%90%97"><span class="toc-text">std::thread t1(printMessage);代表着线程开始执行吗</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E5%AE%9E%E4%BE%8B-%E4%BA%92%E6%96%A5%E9%94%81"><span class="toc-text">进阶实例(互斥锁)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%92%E6%96%A5%E9%94%81"><span class="toc-text">互斥锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA%EF%BC%88%E5%AF%B9%E5%85%B1%E4%BA%AB%E8%B5%84%E6%BA%90%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%B4%E7%95%8C%E5%8C%BA%E5%9F%9F%EF%BC%89"><span class="toc-text">临界区（对共享资源操作的临界区域）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E4%B8%80%E7%82%B9%E7%82%B9%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">复杂一点点的例子</span></a></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1341,6 +1452,59 @@ CubeMX配置配置引脚我们这里使用PA7进
 		height: 100%;
 	}
 </style>
+
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://unpkg.com/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
 
 
 
