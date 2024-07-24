@@ -47,11 +47,11 @@
   </entry>
   
   <entry>
-    <title>电赛笔记一[配置树莓派opencv&amp;&amp;c++环境]</title>
+    <title>电赛笔记一【配置树莓派opencv&amp;&amp;c++环境】</title>
     <link href="http://tumytime.github.io/2024/07/21/%E7%94%B5%E8%B5%9B%E7%AC%94%E8%AE%B0%E4%B8%80/"/>
     <id>http://tumytime.github.io/2024/07/21/%E7%94%B5%E8%B5%9B%E7%AC%94%E8%AE%B0%E4%B8%80/</id>
     <published>2024-07-21T07:14:03.000Z</published>
-    <updated>2024-07-21T07:38:02.761Z</updated>
+    <updated>2024-07-24T09:09:22.274Z</updated>
     
     <content type="html"><![CDATA[<div class="note info"><p>树莓派型号：pi5，8G</p></div><h2 id="配置树莓派opencv和c-环境"><a href="#配置树莓派opencv和c-环境" class="headerlink" title="配置树莓派opencv和c++环境"></a>配置树莓派opencv和c++环境</h2><p><strong>这个亲测有效！！</strong></p><div class="tagLink"><a class="link-card" title="Ubuntu 20.04搭建OpenCV 4.5.0 & C++环境" href="https://blog.csdn.net/weixin_44796670/article/details/115900538"><span class="link-card-backdrop" style="background-image: url(https://tumytime.github.io/picx-images-hosting/hamburger.969mywtn31.png)"></span><div class="left"><img src="https://tumytime.github.io/picx-images-hosting/hamburger.969mywtn31.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/hamburger.969mywtn31.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">Ubuntu 20.04搭建OpenCV 4.5.0 & C++环境</p><p class="url">https://blog.csdn.net/weixin_44796670/article/details/115900538</p></div></a></div>]]></content>
     
