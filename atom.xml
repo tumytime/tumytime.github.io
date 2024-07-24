@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2024-07-21T07:38:02.761Z</updated>
+  <updated>2024-07-24T07:57:45.849Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【第一个项目】Cybery第一天（24.7.24）</title>
+    <link href="http://tumytime.github.io/2024/07/24/%E3%80%90%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E3%80%91Cybery%E7%AC%AC%E4%B8%80%E5%A4%A9%EF%BC%8824-7-24%EF%BC%89/"/>
+    <id>http://tumytime.github.io/2024/07/24/%E3%80%90%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E3%80%91Cybery%E7%AC%AC%E4%B8%80%E5%A4%A9%EF%BC%8824-7-24%EF%BC%89/</id>
+    <published>2024-07-24T06:48:00.000Z</published>
+    <updated>2024-07-24T07:57:45.849Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note info"><p>很早就跟<a href="https://snowmiku-home.top/">小葱酱</a>说好了要一起做一个项目，我还是负责视觉和ai，今天就打算把我的部分按我的想法开始做咯~ 现在初步设想我这边是以树莓派为中心，主要程序展现在树莓派的一个显示屏上，显示屏上的程序包含live2d和一些功能卡片(可触摸)，外接摄像头能传感器完成与用户的交互和物体识别。暂时把这个项目叫做Cybery咯</p></div><h2 id="step1-学习live2d操作"><a href="#step1-学习live2d操作" class="headerlink" title="step1-学习live2d操作"></a>step1-学习live2d操作</h2><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/pitao.1hs419iagd.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/pitao.1hs419iagd.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><p>我是有一个皮套的（是公皮，不知道有没有同学能找到我的套皮小号哈哈哈哈哈），可以用vts面捕，但是要做东西的话，还是得看一下怎么直接控制比较好</p><p>用下面这个教程比较好:</p><div class="tagLink"><a class="link-card" title="基于Qt的Live2D模型显示以及控制" href="https://blog.csdn.net/y123456wydhckd/article/details/134899183?ops_request_misc=&request_id=&biz_id=102&utm_term=live2d&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-7-134899183.142^v100^pc_search_result_base9&spm=1018.2226.3001.4187"><span class="link-card-backdrop" style="background-image: url(https://img-blog.csdnimg.cn/direct/3f5a82e8d0d44219960008e4142ad4af.png#pic_center)"></span><div class="left"><img src="https://img-blog.csdnimg.cn/direct/3f5a82e8d0d44219960008e4142ad4af.png#pic_center" class="lazyload placeholder" data-srcset="https://img-blog.csdnimg.cn/direct/3f5a82e8d0d44219960008e4142ad4af.png#pic_center" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">基于Qt的Live2D模型显示以及控制</p><p class="url">https://blog.csdn.net/y123456wydhckd/article/details/134899183?ops_request_misc=&request_id=&biz_id=102&utm_term=live2d&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-7-134899183.142^v100^pc_search_result_base9&spm=1018.2226.3001.4187</p></div></a></div><h3 id="Cubism-SDK-for-Native下载"><a href="#Cubism-SDK-for-Native下载" class="headerlink" title="Cubism SDK for Native下载"></a>Cubism SDK for Native下载</h3><p>官网下载基本下不了(反正我这里是这样)，可以在GitHub上下载</p><div class="tagLink"><a class="link-card" title="CubismSdkForNative-5-r.1" href="https://github.com/andforce/CubismSdkForNative-5-r.1"><span class="link-card-backdrop" style="background-image: url(https://github.com/andforce/CubismSdkForNative-5-r.1/blob/main/logos.png)"></span><div class="left"><img src="https://github.com/andforce/CubismSdkForNative-5-r.1/blob/main/logos.png" class="lazyload placeholder" data-srcset="https://github.com/andforce/CubismSdkForNative-5-r.1/blob/main/logos.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">CubismSdkForNative-5-r.1</p><p class="url">https://github.com/andforce/CubismSdkForNative-5-r.1</p></div></a></div><p>然后根据上面的教程运行一个demo</p><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.4n7m08w4ed.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.4n7m08w4ed.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;&lt;p&gt;很早就跟&lt;a href=&quot;https://snowmiku-home.top/&quot;&gt;小葱酱&lt;/a&gt;说好了要一起做一个项目，我还是负责视觉和ai，今天就打算把我的部分按我的想法开始做咯~ 现在初步设想我这边是以树莓派为中心，主要程序</summary>
+      
+    
+    
+    
+    <category term="树莓派" scheme="http://tumytime.github.io/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    
+    <category term="树莓派" scheme="http://tumytime.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    <category term="c++" scheme="http://tumytime.github.io/tags/c/"/>
+    
+    <category term="Linux" scheme="http://tumytime.github.io/tags/Linux/"/>
+    
+    <category term="live2d" scheme="http://tumytime.github.io/tags/live2d/"/>
+    
+  </entry>
   
   <entry>
     <title>电赛笔记一[配置树莓派opencv&amp;&amp;c++环境]</title>
@@ -530,37 +560,6 @@
 &lt;p&gt;跳线帽拔了不能烧工程。。。。(好像可以。。。那天不知道怎么了板子抽风)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;CubeMX配置&quot;&gt;&lt;a href=&quot;#CubeMX配置&quot; class=&quot;headerlink&quot; title=&quot;CubeMX</summary>
-      
-    
-    
-    
-    <category term="嵌入式" scheme="http://tumytime.github.io/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-    <category term="嵌入式" scheme="http://tumytime.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    <category term="stm32" scheme="http://tumytime.github.io/tags/stm32/"/>
-    
-    <category term="蓝桥杯" scheme="http://tumytime.github.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>蓝桥杯stm32学习笔记（六）：PWM输出</title>
-    <link href="http://tumytime.github.io/2024/03/17/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9APWM%E8%BE%93%E5%87%BA/"/>
-    <id>http://tumytime.github.io/2024/03/17/%E8%93%9D%E6%A1%A5%E6%9D%AFstm32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9APWM%E8%BE%93%E5%87%BA/</id>
-    <published>2024-03-17T11:01:43.000Z</published>
-    <updated>2024-03-19T08:39:12.112Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>PWM的占空比改变的是CCR寄存器的值（不同通道对应不同的CCR），频率的改变对应的是ARR寄存器的值</p></blockquote><h3 id="CubeMX配置"><a href="#CubeMX配置" class="headerlink" title="CubeMX配置"></a>CubeMX配置</h3><h4 id="配置引脚"><a href="#配置引脚" class="headerlink" title="配置引脚"></a>配置引脚</h4><blockquote><p>频率是指PWM信号的周期性重复频率，即PWM信号在一段时间内完整周期重复的次数。频率与占空比和自动重载值之间存在以下关系：</p><ol><li>PWM信号的频率 &#x3D; 1 &#x2F; PWM信号的周期</li><li>PWM信号的周期 &#x3D; 自动重载值 + 1</li><li>PWM信号的占空比 &#x3D; 高电平时间 &#x2F; PWM信号的周期</li></ol></blockquote><p><strong>我们这里配置PC9输出PWM波</strong><br>配置<code>PC9</code>引脚为<code>TIM3_CH4</code>,选择定时器<code>TIM3</code>的通道4(有哪个用哪个)<br>(后面带<code>N</code>的是互补PWM波)</p><blockquote><p>PWM频率 &#x3D; 1 &#x2F; (周期时间)<br>单个脉冲宽度 &#x3D; (占空比) * (周期时间)</p></blockquote><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.ibvk6580f.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.ibvk6580f.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><h4 id="生成工程"><a href="#生成工程" class="headerlink" title="生成工程"></a>生成工程</h4><p><strong>点击右上角”GENERATE CODE”,生成工程</strong></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="打开定时器"><a href="#打开定时器" class="headerlink" title="打开定时器"></a>打开定时器</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HAL_TIM_PWM_Start(&amp;htim3,TIM_CHANNEL_4);</span><br></pre></td></tr></table></figure><h4 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h4><details open><summary pointer> while(1) </summary>              <div class='content'>              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">LED_Disp(<span class="number">0x00</span>);<span class="comment">//LED的初始化</span></span><br><span class="line"><span class="keyword">if</span>(key[<span class="number">2</span>].single_flag==<span class="number">1</span>) &#123;</span><br><span class="line"></span><br><span class="line">w+=<span class="number">1000</span>;</span><br><span class="line"><span class="keyword">if</span>(w&gt;<span class="number">10000</span>)</span><br><span class="line">&#123;</span><br><span class="line">w=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">TIM3-&gt;CCR4 = w;</span><br><span class="line">key[<span class="number">2</span>].single_flag=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* USER CODE END WHILE */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* USER CODE BEGIN 3 */</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>              </div>            </details>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;PWM的占空比改变的是CCR寄存器的值（不同通道对应不同的CCR），频率的改变对应的是ARR寄存器的值&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;CubeMX配置&quot;&gt;&lt;a href=&quot;#CubeMX配置&quot; class=&quot;headerlin</summary>
       
     
     

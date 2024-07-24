@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>【第一个项目】Cybery第一天（24.7.24）</title>
+      <link href="/2024/07/24/%E3%80%90%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E3%80%91Cybery%E7%AC%AC%E4%B8%80%E5%A4%A9%EF%BC%8824-7-24%EF%BC%89/"/>
+      <url>/2024/07/24/%E3%80%90%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E3%80%91Cybery%E7%AC%AC%E4%B8%80%E5%A4%A9%EF%BC%8824-7-24%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<div class="note info"><p>很早就跟<a href="https://snowmiku-home.top/">小葱酱</a>说好了要一起做一个项目，我还是负责视觉和ai，今天就打算把我的部分按我的想法开始做咯~ 现在初步设想我这边是以树莓派为中心，主要程序展现在树莓派的一个显示屏上，显示屏上的程序包含live2d和一些功能卡片(可触摸)，外接摄像头能传感器完成与用户的交互和物体识别。暂时把这个项目叫做Cybery咯</p></div><h2 id="step1-学习live2d操作"><a href="#step1-学习live2d操作" class="headerlink" title="step1-学习live2d操作"></a>step1-学习live2d操作</h2><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/pitao.1hs419iagd.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/pitao.1hs419iagd.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><p>我是有一个皮套的（是公皮，不知道有没有同学能找到我的套皮小号哈哈哈哈哈），可以用vts面捕，但是要做东西的话，还是得看一下怎么直接控制比较好</p><p>用下面这个教程比较好:</p><div class="tagLink"><a class="link-card" title="基于Qt的Live2D模型显示以及控制" href="https://blog.csdn.net/y123456wydhckd/article/details/134899183?ops_request_misc=&request_id=&biz_id=102&utm_term=live2d&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-7-134899183.142^v100^pc_search_result_base9&spm=1018.2226.3001.4187"><span class="link-card-backdrop" style="background-image: url(https://img-blog.csdnimg.cn/direct/3f5a82e8d0d44219960008e4142ad4af.png#pic_center)"></span><div class="left"><img src="https://img-blog.csdnimg.cn/direct/3f5a82e8d0d44219960008e4142ad4af.png#pic_center" class="lazyload placeholder" data-srcset="https://img-blog.csdnimg.cn/direct/3f5a82e8d0d44219960008e4142ad4af.png#pic_center" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">基于Qt的Live2D模型显示以及控制</p><p class="url">https://blog.csdn.net/y123456wydhckd/article/details/134899183?ops_request_misc=&request_id=&biz_id=102&utm_term=live2d&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-7-134899183.142^v100^pc_search_result_base9&spm=1018.2226.3001.4187</p></div></a></div><h3 id="Cubism-SDK-for-Native下载"><a href="#Cubism-SDK-for-Native下载" class="headerlink" title="Cubism SDK for Native下载"></a>Cubism SDK for Native下载</h3><p>官网下载基本下不了(反正我这里是这样)，可以在GitHub上下载</p><div class="tagLink"><a class="link-card" title="CubismSdkForNative-5-r.1" href="https://github.com/andforce/CubismSdkForNative-5-r.1"><span class="link-card-backdrop" style="background-image: url(https://github.com/andforce/CubismSdkForNative-5-r.1/blob/main/logos.png)"></span><div class="left"><img src="https://github.com/andforce/CubismSdkForNative-5-r.1/blob/main/logos.png" class="lazyload placeholder" data-srcset="https://github.com/andforce/CubismSdkForNative-5-r.1/blob/main/logos.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">CubismSdkForNative-5-r.1</p><p class="url">https://github.com/andforce/CubismSdkForNative-5-r.1</p></div></a></div><p>然后根据上面的教程运行一个demo</p><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.4n7m08w4ed.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.4n7m08w4ed.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 树莓派 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 树莓派 </tag>
+            
+            <tag> c++ </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> live2d </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>电赛笔记一[配置树莓派opencv&amp;&amp;c++环境]</title>
       <link href="/2024/07/21/%E7%94%B5%E8%B5%9B%E7%AC%94%E8%AE%B0%E4%B8%80/"/>
       <url>/2024/07/21/%E7%94%B5%E8%B5%9B%E7%AC%94%E8%AE%B0%E4%B8%80/</url>

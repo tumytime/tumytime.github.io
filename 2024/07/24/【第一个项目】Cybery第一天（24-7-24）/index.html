@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>图像处理笔记（二）灰度变换和空间滤波基础 | Hello！Welcom to Tumy-Time！</title>
+  <title>【第一个项目】Cybery第一天（24.7.24） | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -674,21 +674,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://tumytime.github.io/picx-images-hosting/e8c8a0f4ae6e0a120636ff844bab7b3.839sz755de.webp')">
+  background-position: center center;position: relative;background-image:url('https://tumytime.space/picx-images-hosting/3c23d57bd9aef7fb468b34272422b20.1sexue8736.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        图像处理笔记（二）灰度变换和空间滤波基础
+        【第一个项目】Cybery第一天（24.7.24）
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2024-03-25 |
+          <i class="fas fa-calendar"></i> Published in：2024-07-24 |
         </span>
       
 
@@ -696,8 +696,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> category：
           
-            <a href="/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/" class="post-detail-header_category">
-              智能车
+            <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/" class="post-detail-header_category">
+              树莓派
             </a>
           
         </span>
@@ -706,11 +706,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 1.9k |
+            <i class="fas fa-file-text-o"></i> Words: 311 |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 8min |
+            <i class="fas fa-clock"></i> Reading time: 1min |
           </span>
   
           
@@ -737,103 +737,40 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h2 id="灰度变换和空间滤波基础"><a href="#灰度变换和空间滤波基础" class="headerlink" title="灰度变换和空间滤波基础"></a>灰度变换和空间滤波基础</h2><h3 id="灰度变换（灰度反转，对数变换，幂律变换）"><a href="#灰度变换（灰度反转，对数变换，幂律变换）" class="headerlink" title="灰度变换（灰度反转，对数变换，幂律变换）"></a>灰度变换（灰度反转，对数变换，幂律变换）</h3><h4 id="灰度变换原理"><a href="#灰度变换原理" class="headerlink" title="灰度变换原理"></a>灰度变换原理</h4><p>变换原理：通过变换函数T将原图像像素灰度值r映射为灰度值s：</p>
-<p>$s&#x3D;T(r)$</p>
-<h4 id="灰度反转"><a href="#灰度反转" class="headerlink" title="灰度反转"></a>灰度反转</h4><h5 id="原理"><a href="#原理" class="headerlink" title="原理:"></a>原理:</h5><p>灰度反转：将图像亮暗对调，可以增强图像中暗色区域细节<br>$s&#x3D;T(r)&#x3D;L-1-r$<br>其中L为图像灰度级，0~255灰度图像的灰度级为256.</p>
-<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line">using namespace cv;</span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	Mat image1, output_image, image1_gray;   <span class="comment">//定义输入图像，输出图像，灰度图像</span></span><br><span class="line">	image1 = imread(<span class="string">&quot;fire.jpg&quot;</span>);  <span class="comment">//读取图像；</span></span><br><span class="line">	<span class="keyword">if</span> (image1.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;读取错误&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	cvtColor(image1, image1_gray, COLOR_BGR2GRAY);  <span class="comment">//灰度化</span></span><br><span class="line">	imshow(<span class="string">&quot; image1_gray&quot;</span>, image1_gray);   <span class="comment">//显示灰度图像</span></span><br><span class="line"></span><br><span class="line">	output_image = image1_gray.clone();</span><br><span class="line">	<span class="comment">//遍历像素点</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; image1_gray.rows; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; image1_gray.cols; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			output_image.at&lt;uchar&gt;(i, j) = <span class="number">255</span> - image1_gray.at&lt;uchar&gt;(i, j);  <span class="comment">//灰度反转</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	imshow(<span class="string">&quot;output_image&quot;</span>, output_image);  <span class="comment">//显示反转图像</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	waitKey(<span class="number">0</span>);  <span class="comment">//暂停，保持图像显示，等待按键结束</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>输出</strong></p>
-<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.lvht9o5v6.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.lvht9o5v6.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+        <div class="note info"><p>很早就跟<a target="_blank" rel="noopener" href="https://snowmiku-home.top/">小葱酱</a>说好了要一起做一个项目，我还是负责视觉和ai，今天就打算把我的部分按我的想法开始做咯~ 现在初步设想我这边是以树莓派为中心，主要程序展现在树莓派的一个显示屏上，显示屏上的程序包含live2d和一些功能卡片(可触摸)，外接摄像头能传感器完成与用户的交互和物体识别。暂时把这个项目叫做Cybery咯</p></div>
 
-<h4 id="对数变换"><a href="#对数变换" class="headerlink" title="对数变换"></a>对数变换</h4><h5 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h5><p>对数变换：扩展图像中的暗像素值，压缩高灰度值。<br>$s&#x3D;T(r)&#x3D;c*log(1+r)$<br>$log(1+r)$斜率逐渐降低，上升趋势逐渐放缓</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line">using namespace cv;</span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	Mat image1, output_image, image1_gray;   <span class="comment">//定义输入图像，输出图像，灰度图像</span></span><br><span class="line">	image1 = imread(<span class="string">&quot;fire.jpg&quot;</span>);  <span class="comment">//读取图像；</span></span><br><span class="line">	<span class="keyword">if</span> (image1.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;读取错误&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	cvtColor(image1, image1_gray, COLOR_BGR2GRAY);  <span class="comment">//灰度化</span></span><br><span class="line">	imshow(<span class="string">&quot; image1_gray&quot;</span>, image1_gray);   <span class="comment">//显示灰度图像</span></span><br><span class="line"></span><br><span class="line">	output_image = image1_gray.clone();</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; image1_gray.rows; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; image1_gray.cols; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			output_image.at&lt;uchar&gt;(i, j) = <span class="number">6</span> * <span class="built_in">log</span>((<span class="type">double</span>)(image1_gray.at&lt;uchar&gt;(i, j)) + <span class="number">1</span>);  <span class="comment">//对数变换 s=6*log(r+1)</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	normalize(output_image, output_image, <span class="number">0</span>, <span class="number">255</span>, NORM_MINMAX);  <span class="comment">//图像归一化，转到0~255范围内</span></span><br><span class="line">	convertScaleAbs(output_image, output_image);  <span class="comment">//数据类型转换到CV_8U</span></span><br><span class="line">	imshow(<span class="string">&quot; output_image&quot;</span>, output_image);  <span class="comment">//显示变换图像</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	waitKey(<span class="number">0</span>);  <span class="comment">//暂停，保持图像显示，等待按键结束</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>输出</strong></p>
-<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3uulpxj04i.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3uulpxj04i.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+<h2 id="step1-学习live2d操作"><a href="#step1-学习live2d操作" class="headerlink" title="step1-学习live2d操作"></a>step1-学习live2d操作</h2><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/pitao.1hs419iagd.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/pitao.1hs419iagd.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+<p>我是有一个皮套的（是公皮，不知道有没有同学能找到我的套皮小号哈哈哈哈哈），可以用vts面捕，但是要做东西的话，还是得看一下怎么直接控制比较好</p>
+<p>用下面这个教程比较好:</p>
+<div class="tagLink"><a class="link-card" title="基于Qt的Live2D模型显示以及控制" target="_blank" rel="noopener" href="https://blog.csdn.net/y123456wydhckd/article/details/134899183?ops_request_misc=&request_id=&biz_id=102&utm_term=live2d&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-7-134899183.142^v100^pc_search_result_base9&spm=1018.2226.3001.4187"><span class="link-card-backdrop" style="background-image: url(https://img-blog.csdnimg.cn/direct/3f5a82e8d0d44219960008e4142ad4af.png#pic_center)"></span><div class="left"><img src="https://img-blog.csdnimg.cn/direct/3f5a82e8d0d44219960008e4142ad4af.png#pic_center" class="lazyload placeholder" data-srcset="https://img-blog.csdnimg.cn/direct/3f5a82e8d0d44219960008e4142ad4af.png#pic_center" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">基于Qt的Live2D模型显示以及控制</p><p class="url">https://blog.csdn.net/y123456wydhckd/article/details/134899183?ops_request_misc=&request_id=&biz_id=102&utm_term=live2d&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-7-134899183.142^v100^pc_search_result_base9&spm=1018.2226.3001.4187</p></div></a></div>
 
-<h4 id="幂律（伽马变换）"><a href="#幂律（伽马变换）" class="headerlink" title="幂律（伽马变换）"></a>幂律（伽马变换）</h4><h5 id="原理-2"><a href="#原理-2" class="headerlink" title="原理"></a>原理</h5><p>幂律变换与对数变换类似：<br>$s&#x3D;T(r)&#x3D;c*r^γ$</p>
-<h5 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line">using namespace cv;</span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123; </span><br><span class="line">	Mat image1, output_image, image1_gray;   <span class="comment">//定义输入图像，输出图像，灰度图像</span></span><br><span class="line">	image1 = imread(<span class="string">&quot;lena.png&quot;</span>);  <span class="comment">//读取图像；</span></span><br><span class="line">	<span class="keyword">if</span> (image1.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;读取错误&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	cvtColor(image1, image1_gray, COLOR_BGR2GRAY);  <span class="comment">//灰度化</span></span><br><span class="line">	imshow(<span class="string">&quot; image1_gray&quot;</span>, image1_gray);   <span class="comment">//显示灰度图像</span></span><br><span class="line"></span><br><span class="line">	output_image = image1_gray.clone();</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; image1_gray.rows; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; image1_gray.cols; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			output_image.at&lt;uchar&gt;(i, j) =<span class="number">6</span>*<span class="built_in">pow</span>((<span class="type">double</span>)image1_gray.at&lt;uchar&gt;(i, j),<span class="number">0.5</span>);  <span class="comment">//幂律变换 s=6*r^0.5</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	normalize(output_image, output_image, <span class="number">0</span>, <span class="number">255</span>, NORM_MINMAX);  <span class="comment">//图像归一化，转到0~255范围内</span></span><br><span class="line">	convertScaleAbs(output_image, output_image);  <span class="comment">//数据类型转换到CV_8U</span></span><br><span class="line">	imshow(<span class="string">&quot; output_image&quot;</span>, output_image);  <span class="comment">//显示变换图像</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	waitKey(<span class="number">0</span>);  <span class="comment">//暂停，保持图像显示，等待按键结束</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Cubism-SDK-for-Native下载"><a href="#Cubism-SDK-for-Native下载" class="headerlink" title="Cubism SDK for Native下载"></a>Cubism SDK for Native下载</h3><p>官网下载基本下不了(反正我这里是这样)，可以在GitHub上下载</p>
+<div class="tagLink"><a class="link-card" title="CubismSdkForNative-5-r.1" target="_blank" rel="noopener" href="https://github.com/andforce/CubismSdkForNative-5-r.1"><span class="link-card-backdrop" style="background-image: url(https://github.com/andforce/CubismSdkForNative-5-r.1/blob/main/logos.png)"></span><div class="left"><img src="https://github.com/andforce/CubismSdkForNative-5-r.1/blob/main/logos.png" class="lazyload placeholder" data-srcset="https://github.com/andforce/CubismSdkForNative-5-r.1/blob/main/logos.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">CubismSdkForNative-5-r.1</p><p class="url">https://github.com/andforce/CubismSdkForNative-5-r.1</p></div></a></div>
 
-<p><strong>输出</strong></p>
-<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.2obahbyue1.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.2obahbyue1.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+<p>然后根据上面的教程运行一个demo</p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.4n7m08w4ed.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.4n7m08w4ed.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
 
-<h3 id="直方图处理（直方图均衡化，直方图匹配（规定化））"><a href="#直方图处理（直方图均衡化，直方图匹配（规定化））" class="headerlink" title="直方图处理（直方图均衡化，直方图匹配（规定化））"></a>直方图处理（直方图均衡化，直方图匹配（规定化））</h3><p>直方图显示了每个像素值在整幅图像中出现的频率或数量，从而帮助我们理解图像的亮度分布情况。</p>
-<h4 id="图像直方图"><a href="#图像直方图" class="headerlink" title="图像直方图"></a>图像直方图</h4><p>非归一化直方图:<br>$h(r_k)&#x3D;n_k$<br>归一化直方图:<br>$p(r_k)&#x3D;{n_k \over MN}$<br>其中MN为图像行数和列数，常说的图像直方图就是归一化直方图。</p>
-<p>获取图像直方图示例：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line">using namespace cv;</span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	Mat image, image_gray, hist;   <span class="comment">//定义输入图像，灰度图像, 直方图</span></span><br><span class="line">	image = imread(<span class="string">&quot;fire.jpg&quot;</span>);  <span class="comment">//读取图像；</span></span><br><span class="line">	<span class="keyword">if</span> (image.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;读取错误&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	cvtColor(image, image_gray, COLOR_BGR2GRAY);  <span class="comment">//灰度化</span></span><br><span class="line">	imshow(<span class="string">&quot; image_gray&quot;</span>, image_gray);   <span class="comment">//显示灰度图像</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取图像直方图</span></span><br><span class="line"><span class="type">int</span> histsize = <span class="number">256</span>;</span><br><span class="line"><span class="type">float</span> ranges[] = &#123; <span class="number">0</span>,<span class="number">256</span> &#125;;</span><br><span class="line"><span class="type">const</span> <span class="type">float</span>* histRanges = &#123; ranges &#125;;</span><br><span class="line">calcHist(&amp;image_gray, <span class="number">1</span>, <span class="number">0</span>, Mat(), hist, <span class="number">1</span>, &amp;histsize, &amp;histRanges, <span class="literal">true</span>, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-<p>这段代码用于计算图像的直方图，下面是对这段代码的详细解释：</p>
-<ol>
-<li><p><strong>histsize &#x3D; 256：</strong> 这里定义了直方图的大小为256，表示直方图的横轴范围，通常对应着图像可能的像素值范围（0到255）。</p>
-</li>
-<li><p><strong>ranges[] &#x3D; {0, 256}：</strong> 这里定义了直方图可能的像素值范围为0到256，用于指定直方图中每个像素值的范围。</p>
-</li>
-<li><p><em><em>const float</em> histRanges &#x3D; {ranges};</em>* 这一行用于将ranges数组转换为指向常量浮点数的指针，供calcHist函数使用。</p>
-</li>
-<li><p><strong>calcHist(&amp;image_gray, 1, 0, Mat(), hist, 1, &amp;histsize, &amp;histRanges, true, false)：</strong></p>
-<ul>
-<li><strong>&amp;image_gray：</strong> 这是输入的灰度图像，表示要计算直方图的原始图像。</li>
-<li><strong>1：</strong> 表示要计算的图像数量。</li>
-<li><strong>0：</strong> 表示直方图要计算的通道索引，0表示灰度图像。</li>
-<li><strong>Mat()：</strong> 这里是一个掩码图像，用于指定要计算直方图的区域；在这里没有使用，因此为空。</li>
-<li><strong>hist：</strong> 这是用于存储计算后直方图的Mat对象。</li>
-<li><strong>1：</strong> 直方图的维数，对于灰度图像是1维。</li>
-<li><strong>&amp;histsize：</strong> 这是包含直方图大小（256）的指针。</li>
-<li><strong>&amp;histRanges：</strong> 指向直方图范围的指针。</li>
-<li><strong>true：</strong> 指示直方图是否均一化，即在范围0到255内对直方图进行归一化处理。</li>
-<li><strong>false：</strong> 指示直方图是否累积，即表示直方图是否累积计算。</li>
-</ul>
-</li>
-</ol>
-<p>通过这段代码，可以通过calcHist函数计算图像image_gray的直方图，并将结果存储在hist对象中。直方图的范围是0到255之间，且进行了归一化处理。这能够帮助我们了解图像的像素值分布情况，为后续的图像处理和分析提供数据支持。希望这个解释对您有帮助，如果您有任何其他问题，请随时告诉我！</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建直方图显示图像</span></span><br><span class="line"><span class="type">int</span> hist_h = <span class="number">300</span>;<span class="comment">//直方图的图像的高</span></span><br><span class="line"><span class="type">int</span> hist_w = <span class="number">512</span>; <span class="comment">//直方图的图像的宽</span></span><br><span class="line"><span class="type">int</span> bin_w = hist_w / histsize;<span class="comment">//直方图的等级</span></span><br><span class="line">Mat <span class="title function_">histImage</span><span class="params">(hist_h, hist_w, CV_8UC3, Scalar(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>))</span>;<span class="comment">//绘制直方图显示的图像</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">//绘制并显示直方图</span></span><br><span class="line">	normalize(hist, hist, <span class="number">0</span>, hist_h, NORM_MINMAX, <span class="number">-1</span>, Mat());<span class="comment">//归一化直方图</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; histsize; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		line(histImage, Point((i - <span class="number">1</span>) * bin_w, hist_h - cvRound(hist.at&lt;<span class="type">float</span>&gt;(i - <span class="number">1</span>))),</span><br><span class="line">			Point((i)*bin_w, hist_h - cvRound(hist.at&lt;<span class="type">float</span>&gt;(i))), Scalar(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">2</span>, <span class="number">8</span>, <span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	imshow(<span class="string">&quot;histImage&quot;</span>, histImage);</span><br><span class="line"></span><br><span class="line">	waitKey(<span class="number">0</span>);  <span class="comment">//暂停，保持图像显示，等待按键结束</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这段代码是用于将归一化后的直方图数据绘制成直方图图像的过程。下面是对代码的详细解释：</p>
-<ol>
-<li><p><strong><code>for</code>循环：</strong></p>
-<ul>
-<li>这段代码使用<code>for</code>循环遍历直方图的每个条，从第2个条开始到最后一个条。</li>
-<li><code>i</code>从1开始，因为第0个条通常代表背景，可以跳过不绘制。</li>
-</ul>
-</li>
-<li><p><strong><code>line()</code>函数：</strong></p>
-<ul>
-<li><code>line()</code>函数用于在<code>histImage</code>上绘制直方图的条。</li>
-<li><code>Point((i - 1) * bin_w, hist_h - cvRound(hist.at&lt;float&gt;(i - 1)))</code>表示当前条的起始点位置，前一个条的结束点位置。</li>
-<li><code>Point((i)*bin_w, hist_h - cvRound(hist.at&lt;float&gt;(i)))</code> 表示当前条的终点位置。</li>
-<li><code>Scalar(255, 0, 0)</code>指定绘制直线的颜色为蓝色。</li>
-<li><code>2</code>表示线的粗细为2个像素。</li>
-<li><code>8</code>表示线的类型为8-connected。</li>
-<li><code>0</code>表示线的偏移值为0。</li>
-</ul>
-</li>
-<li><p><strong>绘制直方图条：</strong></p>
-<ul>
-<li>通过计算每个直方图条的起始和终止点，使用<code>line()</code>函数在<code>histImage</code>上绘制直方图条。</li>
-<li><code>cvRound()</code>用于将浮点值四舍五入为最接近的整数，确保直方图能够正确映射到图像上。</li>
-</ul>
-</li>
-</ol>
-<h4 id="直方图均衡化"><a href="#直方图均衡化" class="headerlink" title="直方图均衡化"></a>直方图均衡化</h4><p>(我感觉差不多了，我去做考核咯~)</p>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/Python/" class="">
-              Python
+            <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" class="">
+              树莓派
             </a>
           
-            <a href="/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/" class="">
-              智能车
+            <a href="/tags/c/" class="">
+              c++
             </a>
           
-            <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="">
-              图像处理
+            <a href="/tags/Linux/" class="">
+              Linux
             </a>
           
-            <a href="/tags/OpenCV/" class="">
-              OpenCV
+            <a href="/tags/live2d/" class="">
+              live2d
             </a>
           
         </div>
@@ -847,7 +784,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2024/03/25/图像处理笔记（二）灰度变换和空间滤波基础/" target="_blank" title="图像处理笔记（二）灰度变换和空间滤波基础">http://tumytime.github.io/2024/03/25/图像处理笔记（二）灰度变换和空间滤波基础/</a>
+    <a href="/2024/07/24/【第一个项目】Cybery第一天（24-7-24）/" target="_blank" title="【第一个项目】Cybery第一天（24.7.24）">http://tumytime.github.io/2024/07/24/【第一个项目】Cybery第一天（24-7-24）/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -865,48 +802,24 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/e8c8a0f4ae6e0a120636ff844bab7b3.839sz755de.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/e8c8a0f4ae6e0a120636ff844bab7b3.839sz755de.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2024/03/25/%E6%91%84%E5%83%8F%E5%A4%B4%E8%80%83%E6%A0%B8/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">摄像头考核</div>
-      </div>
-      
-      <!-- <div class="content">
-        
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/e8c8a0f4ae6e0a120636ff844bab7b3.839sz755de.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/e8c8a0f4ae6e0a120636ff844bab7b3.839sz755de.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/hamburger.969mywtn31.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/hamburger.969mywtn31.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2024/03/25/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0-1/" class="post-nav-link">
+    <a href="/2024/07/21/%E7%94%B5%E8%B5%9B%E7%AC%94%E8%AE%B0%E4%B8%80/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">图像处理笔记（一）基础操作</div>
+        <div class="title-text">电赛笔记一[配置树莓派opencv&amp;&amp;c++环境]</div>
       </div>
       <!-- <div class="content">
-        
-前面一部分笔记都是学习一个大佬的教程做的，但是大佬用的python，我在笔记里都转换成了c++
+        树莓派型号：pi5，8G
 
-基础配置
-
-
-
-
-
-
+配置树莓派opencv和c++环境这个亲测有效！！
+Ubuntu 20.04搭建OpenCV
       </div> -->
     </a>
   </div>
@@ -1127,7 +1040,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E5%92%8C%E7%A9%BA%E9%97%B4%E6%BB%A4%E6%B3%A2%E5%9F%BA%E7%A1%80"><span class="toc-text">灰度变换和空间滤波基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%EF%BC%88%E7%81%B0%E5%BA%A6%E5%8F%8D%E8%BD%AC%EF%BC%8C%E5%AF%B9%E6%95%B0%E5%8F%98%E6%8D%A2%EF%BC%8C%E5%B9%82%E5%BE%8B%E5%8F%98%E6%8D%A2%EF%BC%89"><span class="toc-text">灰度变换（灰度反转，对数变换，幂律变换）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%81%B0%E5%BA%A6%E5%8F%98%E6%8D%A2%E5%8E%9F%E7%90%86"><span class="toc-text">灰度变换原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%81%B0%E5%BA%A6%E5%8F%8D%E8%BD%AC"><span class="toc-text">灰度反转</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E6%95%B0%E5%8F%98%E6%8D%A2"><span class="toc-text">对数变换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-1"><span class="toc-text">原理</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%82%E5%BE%8B%EF%BC%88%E4%BC%BD%E9%A9%AC%E5%8F%98%E6%8D%A2%EF%BC%89"><span class="toc-text">幂律（伽马变换）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-2"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="toc-text">代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%A4%84%E7%90%86%EF%BC%88%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96%EF%BC%8C%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%8C%B9%E9%85%8D%EF%BC%88%E8%A7%84%E5%AE%9A%E5%8C%96%EF%BC%89%EF%BC%89"><span class="toc-text">直方图处理（直方图均衡化，直方图匹配（规定化））</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%9B%B4%E6%96%B9%E5%9B%BE"><span class="toc-text">图像直方图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96"><span class="toc-text">直方图均衡化</span></a></li></ol></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#step1-%E5%AD%A6%E4%B9%A0live2d%E6%93%8D%E4%BD%9C"><span class="toc-text">step1-学习live2d操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cubism-SDK-for-Native%E4%B8%8B%E8%BD%BD"><span class="toc-text">Cubism SDK for Native下载</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1390,59 +1303,6 @@
 		height: 100%;
 	}
 </style>
-
-
-  <script>
-  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://unpkg.com/mathjax@3.0/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    // 文章章节标题不能为 “MathJax” ，否则会报错。
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
 
 
 
