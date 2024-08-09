@@ -38,9 +38,9 @@
     
     <category term="树莓派" scheme="http://tumytime.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
     
-    <category term="c++" scheme="http://tumytime.github.io/tags/c/"/>
-    
     <category term="Linux" scheme="http://tumytime.github.io/tags/Linux/"/>
+    
+    <category term="c++" scheme="http://tumytime.github.io/tags/c/"/>
     
     <category term="live2d" scheme="http://tumytime.github.io/tags/live2d/"/>
     
@@ -51,7 +51,7 @@
     <link href="http://tumytime.github.io/2024/07/21/%E7%94%B5%E8%B5%9B%E7%AC%94%E8%AE%B0%E4%B8%80/"/>
     <id>http://tumytime.github.io/2024/07/21/%E7%94%B5%E8%B5%9B%E7%AC%94%E8%AE%B0%E4%B8%80/</id>
     <published>2024-07-21T07:14:03.000Z</published>
-    <updated>2024-07-24T09:09:22.274Z</updated>
+    <updated>2024-07-24T12:46:15.959Z</updated>
     
     <content type="html"><![CDATA[<div class="note info"><p>树莓派型号：pi5，8G</p></div><h2 id="配置树莓派opencv和c-环境"><a href="#配置树莓派opencv和c-环境" class="headerlink" title="配置树莓派opencv和c++环境"></a>配置树莓派opencv和c++环境</h2><p><strong>这个亲测有效！！</strong></p><div class="tagLink"><a class="link-card" title="Ubuntu 20.04搭建OpenCV 4.5.0 & C++环境" href="https://blog.csdn.net/weixin_44796670/article/details/115900538"><span class="link-card-backdrop" style="background-image: url(https://tumytime.github.io/picx-images-hosting/hamburger.969mywtn31.png)"></span><div class="left"><img src="https://tumytime.github.io/picx-images-hosting/hamburger.969mywtn31.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/hamburger.969mywtn31.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">Ubuntu 20.04搭建OpenCV 4.5.0 & C++环境</p><p class="url">https://blog.csdn.net/weixin_44796670/article/details/115900538</p></div></a></div>]]></content>
     
@@ -68,13 +68,13 @@
     <category term="树莓派" scheme="http://tumytime.github.io/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
     
     
-    <category term="电赛" scheme="http://tumytime.github.io/tags/%E7%94%B5%E8%B5%9B/"/>
-    
     <category term="树莓派" scheme="http://tumytime.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
     
-    <category term="opencv" scheme="http://tumytime.github.io/tags/opencv/"/>
-    
     <category term="c++" scheme="http://tumytime.github.io/tags/c/"/>
+    
+    <category term="电赛" scheme="http://tumytime.github.io/tags/%E7%94%B5%E8%B5%9B/"/>
+    
+    <category term="opencv" scheme="http://tumytime.github.io/tags/opencv/"/>
     
     <category term="机器视觉" scheme="http://tumytime.github.io/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/"/>
     
@@ -307,9 +307,9 @@
     <category term="智能车" scheme="http://tumytime.github.io/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
     
     
-    <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
-    
     <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
+    
+    <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
     
     <category term="图像处理" scheme="http://tumytime.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
@@ -337,9 +337,9 @@
     <category term="智能车" scheme="http://tumytime.github.io/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
     
     
-    <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
-    
     <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
+    
+    <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
     
     <category term="图像处理" scheme="http://tumytime.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
@@ -370,9 +370,9 @@
     <category term="智能车" scheme="http://tumytime.github.io/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
     
     
-    <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
-    
     <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
+    
+    <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
     
     <category term="图像处理" scheme="http://tumytime.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
@@ -426,11 +426,11 @@
     <category term="智能车" scheme="http://tumytime.github.io/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
     
     
+    <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
+    
     <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
     
     <category term="深度学习" scheme="http://tumytime.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
     
     <category term="YoloV3" scheme="http://tumytime.github.io/tags/YoloV3/"/>
     
@@ -456,11 +456,11 @@
     <category term="智能车" scheme="http://tumytime.github.io/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
     
     
+    <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
+    
     <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
     
     <category term="深度学习" scheme="http://tumytime.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
     
     <category term="YoloV3" scheme="http://tumytime.github.io/tags/YoloV3/"/>
     
@@ -486,11 +486,11 @@
     <category term="智能车" scheme="http://tumytime.github.io/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
     
     
+    <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
+    
     <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
     
     <category term="深度学习" scheme="http://tumytime.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
     
   </entry>
   
@@ -514,11 +514,11 @@
     <category term="智能车" scheme="http://tumytime.github.io/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
     
     
+    <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
+    
     <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
     
     <category term="深度学习" scheme="http://tumytime.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
     
   </entry>
   
