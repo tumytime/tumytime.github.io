@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>数据集标注json转xml脚本 | Hello！Welcom to Tumy-Time！</title>
+  <title>【C++学习】Day1 | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -674,21 +674,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp')">
+  background-position: center center;position: relative;background-image:url('https://github.com/tumytime/picx-images-hosting/raw/master/c15f881d72afbc2c902de950de39b3ae.2a50690wah.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        数据集标注json转xml脚本
+        【C++学习】Day1
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2024-04-26 |
+          <i class="fas fa-calendar"></i> Published in：2024-08-09 |
         </span>
       
 
@@ -696,8 +696,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> category：
           
-            <a href="/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/" class="post-detail-header_category">
-              智能车
+            <a href="/categories/C/" class="post-detail-header_category">
+              C++
             </a>
           
         </span>
@@ -706,11 +706,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 310 |
+            <i class="fas fa-file-text-o"></i> Words: 3.4k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 1min |
+            <i class="fas fa-clock"></i> Reading time: 12min |
           </span>
   
           
@@ -737,27 +737,140 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert_json_to_xml</span>(<span class="params">json_data</span>):</span><br><span class="line">    root = ET.Element(<span class="string">&quot;annotation&quot;</span>)</span><br><span class="line">    filename = ET.SubElement(root, <span class="string">&quot;filename&quot;</span>)</span><br><span class="line">    filename.text = json_data[<span class="string">&quot;imagePath&quot;</span>]</span><br><span class="line">    object_num = ET.SubElement(root, <span class="string">&quot;object_num&quot;</span>)</span><br><span class="line">    object_num.text = <span class="built_in">str</span>(<span class="built_in">len</span>(json_data[<span class="string">&quot;shapes&quot;</span>]))</span><br><span class="line">    size = ET.SubElement(root, <span class="string">&quot;size&quot;</span>)</span><br><span class="line">    width = ET.SubElement(size, <span class="string">&quot;width&quot;</span>)</span><br><span class="line">    width.text = <span class="built_in">str</span>(json_data[<span class="string">&quot;imageWidth&quot;</span>])</span><br><span class="line">    height = ET.SubElement(size, <span class="string">&quot;height&quot;</span>)</span><br><span class="line">    height.text = <span class="built_in">str</span>(json_data[<span class="string">&quot;imageHeight&quot;</span>])</span><br><span class="line">    <span class="keyword">for</span> shape <span class="keyword">in</span> json_data[<span class="string">&quot;shapes&quot;</span>]:</span><br><span class="line">        object_element = ET.SubElement(root, <span class="string">&quot;object&quot;</span>)</span><br><span class="line">        name = ET.SubElement(object_element, <span class="string">&quot;name&quot;</span>)</span><br><span class="line">        name.text = shape[<span class="string">&quot;label&quot;</span>]</span><br><span class="line">        difficult = ET.SubElement(object_element, <span class="string">&quot;difficult&quot;</span>)</span><br><span class="line">        difficult.text = <span class="string">&quot;0&quot;</span></span><br><span class="line">        bndbox = ET.SubElement(object_element, <span class="string">&quot;bndbox&quot;</span>)</span><br><span class="line">        xmin = ET.SubElement(bndbox, <span class="string">&quot;xmin&quot;</span>)</span><br><span class="line">        xmin.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">0</span>][<span class="number">0</span>]))</span><br><span class="line">        ymin = ET.SubElement(bndbox, <span class="string">&quot;ymin&quot;</span>)</span><br><span class="line">        ymin.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">0</span>][<span class="number">1</span>]))</span><br><span class="line">        xmax = ET.SubElement(bndbox, <span class="string">&quot;xmax&quot;</span>)</span><br><span class="line">        xmax.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">1</span>][<span class="number">0</span>]))</span><br><span class="line">        ymax = ET.SubElement(bndbox, <span class="string">&quot;ymax&quot;</span>)</span><br><span class="line">        ymax.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">1</span>][<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">return</span> ET.tostring(root, encoding=<span class="string">&quot;unicode&quot;</span>)</span><br><span class="line">current_dir = os.getcwd()</span><br><span class="line">parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))</span><br><span class="line">output_dir = os.path.join(parent_dir, <span class="string">&quot;xml_output&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(output_dir):</span><br><span class="line">    os.makedirs(output_dir)</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(current_dir):</span><br><span class="line">    <span class="keyword">if</span> file.endswith(<span class="string">&quot;.json&quot;</span>):</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(os.path.join(current_dir, file), <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> json_file:</span><br><span class="line">            json_data = json.load(json_file)</span><br><span class="line">            xml_data = convert_json_to_xml(json_data)</span><br><span class="line">            xml_filename = file.replace(<span class="string">&quot;.json&quot;</span>, <span class="string">&quot;.xml&quot;</span>)</span><br><span class="line">            output_path = os.path.join(output_dir, xml_filename)</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(output_path, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> xml_file:</span><br><span class="line">                xml_file.write(xml_data)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;所有JSON文件已经转换为XML并保存在文件夹 xml_output 中&quot;</span>)</span><br></pre></td></tr></table></figure>
+        <h2 id="基础框架"><a href="#基础框架" class="headerlink" title="基础框架"></a>基础框架</h2><p><strong>一个基础程序框架：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Hello World&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>); <span class="comment">//pause:暂停</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
+<h3 id="＜iostream＞"><a href="#＜iostream＞" class="headerlink" title="＜iostream＞"></a>＜iostream＞</h3><p><code>#include &lt;stdio.h&gt;</code> 和 <code>#include &lt;iostream&gt;</code> 是C和C++编程语言中用于包含标准输入输出库的头文件语句。该编译指令导致预处理器将iostream文件的内容添加到程序中。#include编译指令导致iostream文件的内容随源<br>代码文件的内容一起被发送给编译器。实际上，iostream文件的内容将<br>取代程序中的代码行#include <iostream>。原始文件没有被修改，而是<br>注意：<br>将源代码文件和iostream组合成一个复合文件，编译的下一阶段将使用<br>该文件。<br>下面是这两条语句之间的主要区别：</p>
+<h5 id="1-语言差异"><a href="#1-语言差异" class="headerlink" title="1. 语言差异"></a>1. 语言差异</h5><ul>
+<li><code>#include &lt;stdio.h&gt;</code> 是C语言的标准输入输出库头文件。<code>stdio.h</code> 是 “standard input-output header” 的缩写，它是C语言的一部分。</li>
+<li><code>#include &lt;iostream&gt;</code> 是C++语言的标准输入输出库头文件。<code>iostream</code> 是 “input-output stream” 的缩写，它是C++语言的一部分。</li>
+</ul>
+<h5 id="2-库类型"><a href="#2-库类型" class="headerlink" title="2. 库类型"></a>2. 库类型</h5><ul>
+<li><code>stdio.h</code> 提供的是C语言风格的输入输出函数，例如 <code>printf()</code>, <code>scanf()</code>, <code>fprintf()</code>, <code>fscanf()</code> 等。这些函数通常是非面向对象的，并且它们直接处理字符和字节流。</li>
+<li><code>iostream</code> 提供的是C++语言风格的输入输出流类，例如 <code>std::cout</code>, <code>std::cin</code>, <code>std::cerr</code>, 以及 <code>std::ofstream</code>, <code>std::ifstream</code> 等。这些是面向对象的，提供了更多的功能，例如类型安全和重载操作符。</li>
+</ul>
+<h5 id="3-使用方式"><a href="#3-使用方式" class="headerlink" title="3. 使用方式"></a>3. 使用方式</h5><ul>
+<li>使用 <code>stdio.h</code> 时，程序员通常需要指定格式化字符串，并且要注意类型匹配，以避免格式化错误或缓冲区溢出。</li>
+<li>使用 <code>iostream</code> 时，类型信息是自动处理的，因为流操作符（如 <code>&lt;&lt;</code> 和 <code>&gt;&gt;</code>）被重载以支持不同的数据类型。</li>
+</ul>
+<h5 id="4-性能"><a href="#4-性能" class="headerlink" title="4. 性能"></a>4. 性能</h5><ul>
+<li><code>stdio.h</code> 中的函数通常比C++的iostream库更快，因为iostream库进行了更多的封装和类型检查。然而，现代编译器已经优化了iostream库，使得性能差距不像过去那样显著。</li>
+</ul>
+<h5 id="5-头文件扩展名"><a href="#5-头文件扩展名" class="headerlink" title="5. 头文件扩展名"></a>5. 头文件扩展名</h5><ul>
+<li>注意到 <code>stdio.h</code> 有一个 <code>.h</code> 扩展名，而 <code>iostream</code> 没有。在C++中，标准库的头文件通常不带 <code>.h</code> 扩展名。这是为了区分C和C++的标准库头文件。</li>
+</ul>
+<h5 id="6-命名空间"><a href="#6-命名空间" class="headerlink" title="6. 命名空间"></a>6. 命名空间</h5><ul>
+<li><code>iostream</code> 中的对象和函数都是在 <code>std</code> 命名空间中的，所以通常需要使用 <code>std::</code> 前缀来访问它们，除非你使用了 <code>using namespace std;</code> 语句。</li>
+<li><code>stdio.h</code> 中的函数通常不需要命名空间前缀。</li>
+</ul>
+<h5 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h5><p>以下是如何使用这两个头文件的简单例子：<br><strong>使用 <code>stdio.h</code>:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>使用 <code>iostream</code>:</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Hello, World!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总结来说，<code>#include &lt;stdio.h&gt;</code> 和 <code>#include &lt;iostream&gt;</code> 分别用于C和C++中处理输入输出，它们代表了两种不同的编程范式和风格。在实际使用中，应根据编程语言和项目需求选择合适的头文件。</p>
+<h3 id="using-namespace"><a href="#using-namespace" class="headerlink" title="using namespace"></a>using namespace</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br></pre></td></tr></table></figure>
+<p>这个using编译指令使得std名称空间中的所有名称都可用。这是一种偷懒的做法，在大型项目中一个潜在的问题。更好的方法是，只使所需的名称可用，这可以通过使用using声明来实现：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> std::cout;</span><br><span class="line"><span class="keyword">using</span> std::endl;</span><br><span class="line"><span class="keyword">using</span> std::cin;</span><br></pre></td></tr></table></figure>
 
+<h3 id="使用cout进行C-输出"><a href="#使用cout进行C-输出" class="headerlink" title="使用cout进行C++输出"></a>使用cout进行C++输出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;Hello World&quot;</span> &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在C++中，用双引号括起的一系列字符叫做字符串，因为它是由若干字符组合而成的。</li>
+<li>&lt;&lt;符号表示该语句将把这个字符串发送给cout；该符号指出了信息流动的路径。</li>
+<li>cout是一个预定义的对象，知道如何显示字符串、数字和单个字符等<br>从概念上看，输出是一个流，即从程序流出的一系列字符。cout对象表示这种流，其属性是在iostream文件中定义的。cout的对象属性包括一个插入运算符（&lt;&lt;），它可以将其右侧的信息插入到流中。<br>因此，与其说程序显示了一条消息，不如说它将一个字符串插入到了输出流中。</li>
+</ul>
+<details open><summary pointer> 初识运算符重载 </summary>
+              <div class='content'>
+              <p>如果熟悉C后才开始学习C++，则可能注意到了，插入运算符（&lt;&lt;）看上去就像按位左移运算符（&lt;&lt;），这是一个运算符重载的例子，通过重载，同一个运算符将有不同的含义。编译器通过上下文来确定运算符的含义。C本身也有一些运算符重载的情况。例如，&amp;符号既表示地址运算符，又表示按位AND运算符；* 既表示乘法，又表示对指针解除引用。这里重要的不是这些运算符的具体功能，而是同一个符号可以有多种含义，而编译器可以根据上下文来确定其含义（这和确定“sound card”中的“sound”与“sound financial basic”中的“sound”的含义是一样的）。C++扩展了运算符重载的概念，允许为用户定义的类型（类）重新定义运算符的含义。</p>
+              </div>
+            </details>
+
+<p>确实，C++中的 <code>std::cout</code> 可以用来输出不同类型的数据，包括整数和字符串。虽然从用户的角度来看，输出数字和字符串似乎没有太大区别，但在幕后，这两者处理方式是不同的。以下是详细解释：</p>
+<ol>
+<li>字符串<ul>
+<li>字符串是由一系列字符组成的序列。在C++中，字符串通常表示为 <code>std::string</code> 类型或者以空字符 <code>\0</code> 结尾的字符数组 <code>char[]</code>。</li>
+<li>当 <code>std::cout</code> 输出字符串时，它会从内存中读取每个字符的编码（通常是ASCII或UTF-8编码），并将其逐个发送到输出设备。</li>
+<li>例如，字符串 <code>&quot;25&quot;</code> 在内存中存储为两个字符：字符 <code>&#39;2&#39;</code> 和字符 <code>&#39;5&#39;</code>，以及一个结束标记 <code>\0</code>。</li>
+</ul>
+</li>
+<li>整数<ul>
+<li>整数在计算机内部以二进制形式存储。例如，整数 <code>25</code> 在内存中以二进制形式表示，可能看起来像 <code>00011001</code>（这取决于具体的系统架构和整数的大小）。</li>
+<li>当 <code>std::cout</code> 输出整数时，它不能直接将二进制数发送到输出设备，因为输出设备期望接收字符编码，而不是二进制数值。</li>
+<li>因此，<code>std::cout</code> 必须将整数转换为字符串形式。这个过程称为数值到字符串的转换，涉及以下步骤：</li>
+</ul>
+<ol>
+<li>计算整数的每一位数字。</li>
+<li>将这些数字转换为对应的字符。</li>
+<li>将这些字符按正确的顺序组合成字符串。</li>
+<li>输出字符串。</li>
+</ol>
+</li>
+<li>自动类型转换<ul>
+<li>在C++中，<code>std::cout</code> 使用操作符重载来处理不同类型的数据。当 <code>std::cout</code> 遇到一个整数时，它会调用一个专门的重载版本的操作符 <code>&lt;&lt;</code>，这个版本知道如何将整数转换为字符串。</li>
+<li>这个转换过程是自动进行的，所以程序员不需要编写额外的代码来将整数转换为字符串。这是C++的面向对象特性之一，允许操作符根据操作数的类型进行不同的操作。</li>
+</ul>
+</li>
+</ol>
+<h3 id="endl"><a href="#endl" class="headerlink" title="endl"></a>endl</h3><p><code>endl</code> 是一个操纵符（manipulator），它在iostream库中被定义为输出一个换行符（通常是 <code>\n</code>），并紧接着刷新输出缓冲区。刷新输出缓冲区意味着缓冲区中的所有数据都会被发送到输出设备（通常是屏幕），确保了这些数据在程序继续执行之前被立即显示。<br><code>\n</code> 是一个转义字符，用于在字符串中插入一个换行符。当使用 <code>\n</code> 时，iostream库会将一个换行符写入输出缓冲区，但不会立即刷新缓冲区。这意味着输出可能暂时留在缓冲区中，直到缓冲区满了或者程序结束，这时缓冲区才会被刷新。</p>
+<h3 id="system-“pause”"><a href="#system-“pause”" class="headerlink" title="system(“pause”);"></a>system(“pause”);</h3><ul>
+<li><p>不加：</p>
+  <div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.45lkjet59.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.45lkjet59.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+
+</li>
+<li><p>加上：</p>
+  <div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.8dws8r9vq0.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.8dws8r9vq0.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div></li>
+</ul>
+<p><code>system(&quot;pause&quot;);</code> 是一个在C或C++程序中常用的语句，它用于暂停程序的执行，直到用户按下任意键。这个语句调用了操作系统的命令行界面来执行 <code>pause</code> 命令。<br>下面是对 <code>system(&quot;pause&quot;);</code> 语句的详细解释：</p>
+<h5 id="1-作用"><a href="#1-作用" class="headerlink" title="1. 作用"></a>1. 作用</h5><ul>
+<li><code>system(&quot;pause&quot;);</code> 的主要作用是在程序执行完毕后暂停程序，尤其是在命令行界面（CLI）中运行程序时。这样可以让用户有机会查看程序的输出结果，而不是立即关闭命令行窗口。</li>
+</ul>
+<h5 id="2-工作原理"><a href="#2-工作原理" class="headerlink" title="2. 工作原理"></a>2. 工作原理</h5><ul>
+<li><code>system</code> 是C和C++标准库中的一个函数，它位于 <code>&lt;cstdlib&gt;</code> 或 <code>&lt;stdlib.h&gt;</code> 头文件中。</li>
+<li>当调用 <code>system</code> 函数时，它会创建一个新的进程来执行其参数指定的命令。在 <code>system(&quot;pause&quot;);</code> 中，参数是字符串 <code>&quot;pause&quot;</code>。</li>
+<li>在Windows操作系统中，<code>pause</code> 命令会暂停命令行进程，并显示消息 <code>&quot;Press any key to continue . . .&quot;</code>。用户必须按下任意键才能继续执行程序或关闭命令行窗口。</li>
+</ul>
+<h5 id="3-跨平台问题"><a href="#3-跨平台问题" class="headerlink" title="3. 跨平台问题"></a>3. 跨平台问题</h5><ul>
+<li><code>system(&quot;pause&quot;);</code> 主要用于Windows操作系统。在Unix-like系统（如Linux或macOS）中，<code>pause</code> 命令通常不存在，因此这条语句在这些系统中不会按预期工作。</li>
+<li>为了实现跨平台兼容性，通常建议使用其他方法来暂停程序，例如在Unix-like系统中使用 <code>getchar();</code> 来实现类似的效果。</li>
+</ul>
+<h5 id="4-安全性和性能"><a href="#4-安全性和性能" class="headerlink" title="4. 安全性和性能"></a>4. 安全性和性能</h5><ul>
+<li>使用 <code>system</code> 函数通常不被认为是安全的，因为它会执行传递给它的任何命令，这可能导致安全漏洞，尤其是当命令包含用户输入时。</li>
+<li>调用 <code>system</code> 函数创建新进程可能会影响程序的性能，因为它涉及到操作系统的进程管理。</li>
+</ul>
+<h5 id="5-替代方案"><a href="#5-替代方案" class="headerlink" title="5. 替代方案"></a>5. 替代方案</h5><ul>
+<li>如果你只是想等待用户按键，而不是关闭命令行窗口，可以使用以下代码作为替代方案，它具有更好的跨平台兼容性：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Press any key to continue . . .&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    std::cin.<span class="built_in">get</span>();  <span class="comment">// 等待用户按键</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+或者，在Unix-like系统中：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Press any key to continue . . .\n&quot;</span>);</span><br><span class="line">    <span class="built_in">getchar</span>();  <span class="comment">// 等待用户按键</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+这些替代方案不需要调用 <code>system</code> 函数，因此它们更安全且更适合跨平台使用。</li>
+</ul>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p><strong>给一段指定的内存空间起名，方便操作这段内存</strong>（一下子就清楚了）<br>使用声明语句来指出存储类型并提供位置标签。<br><strong>变量存在的意义就是方便我们管理内存空间</strong></p>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p><strong>用于记录程序中不可更改的数据</strong><br><strong>定义常量的两种方式：</strong></p>
+<ol>
+<li>#define 宏常量： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> day 7</span></span><br></pre></td></tr></table></figure></li>
+<li>const修饰的变量：<br> 在变量定义前加const</li>
+</ol>
+<p><strong>Q:#define day 7这样子day代表的7是什么数据类型</strong><br>在C或C++语言中，使用 <code>#define</code> 预处理器指令来定义宏。宏定义 <code>#define day 7</code> 不会指定数据类型，它仅仅是一个文本替换。当编译器看到 <code>day</code> 时，它会在编译前将其替换为 <code>7</code>。<br>由于宏只是简单的文本替换，<code>day</code> 代表的 <code>7</code> 在编译后的代码中并没有特定的数据类型。它的数据类型取决于它被使用的上下文。例如：</p>
+<ul>
+<li>如果 <code>day</code> 被用在需要整数的地方，它将被当作整数处理。</li>
+<li>如果 <code>day</code> 被用在需要浮点数的地方，它可能会被隐式转换成浮点数。<br>下面是一些使用 <code>day</code> 的例子，以及它如何根据上下文被解释：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> day 7</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> days = day;    <span class="comment">// day 被当作整数</span></span><br><span class="line">    <span class="type">float</span> days_float = day;  <span class="comment">// day 被隐式转换成浮点数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Integer: %d\n&quot;</span>, days);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Float: %f\n&quot;</span>, days_float);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+在这个例子中，<code>day</code> 被用作整数 <code>int</code> 类型的值，也被用作 <code>float</code> 类型的值。在编译时，预处理器将 <code>day</code> 替换为 <code>7</code>，然后编译器根据变量声明决定 <code>7</code> 的数据类型。在第一个例子中，<code>7</code> 是 <code>int</code> 类型的，而在第二个例子中，<code>7</code> 被隐式转换为 <code>float</code> 类型。</li>
+</ul>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.2vensn8i5n.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.2vensn8i5n.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+
+
+<h3 id="赋值语句"><a href="#赋值语句" class="headerlink" title="赋值语句"></a>赋值语句</h3><p>C++（和C）有一项不寻常的特性—可以连续使用赋值运算符。例如，下面的代码是合法的：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=b=c=<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>赋值将从右向左进行。</strong><br>首先，2被赋给c，然后c的值（2）被赋给b，然后b的值被赋给a；</p>
+<h3 id="使用cin"><a href="#使用cin" class="headerlink" title="使用cin"></a>使用cin</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cin &gt;&gt; carrots;</span><br></pre></td></tr></table></figure>
+<p>从这条语句可知，信息从cin流向carrots。显然，对这一过程有更为正式的描述。就像C++将输出看作是流出程序的字符流一样，它也将输入看作是流入程序的字符流。iostream文件将cin定义为一个表示这种流的对象。输出时，&lt;&lt;运算符将字符串插入到输出流中；输入时，cin使用&gt;&gt;运算符从输入流中抽取字符。通常，需要在运算符右侧提供一个变量，以接收抽取的信息（符号&lt;&lt;和&gt;&gt;被选择用来指示信息流的方向）。</p>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/AI/" class="">
-              AI
-            </a>
-          
-            <a href="/tags/python/" class="">
-              python
-            </a>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">
-              数据集
+            <a href="/tags/c/" class="">
+              c++
             </a>
           
         </div>
@@ -771,7 +884,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2024/04/26/数据集标注json转xml脚本/" target="_blank" title="数据集标注json转xml脚本">http://tumytime.github.io/2024/04/26/数据集标注json转xml脚本/</a>
+    <a href="/2024/08/09/【C-学习】Day1/" target="_blank" title="【C++学习】Day1">http://tumytime.github.io/2024/08/09/【C-学习】Day1/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -789,41 +902,21 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2024/04/27/%E9%80%86%E9%80%8F%E8%A7%86/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">逆透视</div>
-      </div>
-      
-      <!-- <div class="content">
-        123456789101112131415161718192021222324252627282930313233/**
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.space/picx-images-hosting/3c23d57bd9aef7fb468b34272422b20.1sexue8736.webp" class="lazyload placeholder" data-srcset="https://tumytime.space/picx-images-hosting/3c23d57bd9aef7fb468b34272422b20.1sexue8736.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2024/04/25/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%B1%BD%E8%BD%A6%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E4%B8%8E%E7%9B%AE%E6%A0%87%E8%BF%BD%E8%B8%AA/" class="post-nav-link">
+    <a href="/2024/07/24/%E3%80%90%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E3%80%91Cybery%E7%AC%AC%E4%B8%80%E5%A4%A9%EF%BC%8824-7-24%EF%BC%89/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">无人驾驶汽车系统入门（一）卡尔曼滤波与目标追踪</div>
+        <div class="title-text">【第一个项目】Cybery第一天（24.7.24）</div>
       </div>
       <!-- <div class="content">
-        卡尔曼滤波教程https://www.kalmanfilter.net/CN/background_cn.html
-
-一
+        很早就跟小葱酱说好了要一起做一个项目，我还是负责视觉和ai，今天就打算把我的部分按我的想法开始做咯~ 现在初步设想我这边
       </div> -->
     </a>
   </div>
@@ -1044,7 +1137,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!--  -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6"><span class="toc-text">基础框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%9Ciostream%EF%BC%9E"><span class="toc-text">＜iostream＞</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E8%AF%AD%E8%A8%80%E5%B7%AE%E5%BC%82"><span class="toc-text">1. 语言差异</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%BA%93%E7%B1%BB%E5%9E%8B"><span class="toc-text">2. 库类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">3. 使用方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E6%80%A7%E8%83%BD"><span class="toc-text">4. 性能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%A4%B4%E6%96%87%E4%BB%B6%E6%89%A9%E5%B1%95%E5%90%8D"><span class="toc-text">5. 头文件扩展名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-text">6. 命名空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BE%E4%BE%8B"><span class="toc-text">举例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#using-namespace"><span class="toc-text">using namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8cout%E8%BF%9B%E8%A1%8CC-%E8%BE%93%E5%87%BA"><span class="toc-text">使用cout进行C++输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#endl"><span class="toc-text">endl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#system-%E2%80%9Cpause%E2%80%9D"><span class="toc-text">system(“pause”);</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BD%9C%E7%94%A8"><span class="toc-text">1. 作用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">2. 工作原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E9%97%AE%E9%A2%98"><span class="toc-text">3. 跨平台问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E5%AE%89%E5%85%A8%E6%80%A7%E5%92%8C%E6%80%A7%E8%83%BD"><span class="toc-text">4. 安全性和性能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88"><span class="toc-text">5. 替代方案</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-text">常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC%E8%AF%AD%E5%8F%A5"><span class="toc-text">赋值语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8cin"><span class="toc-text">使用cin</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1307,59 +1400,6 @@
 		height: 100%;
 	}
 </style>
-
-
-  <script>
-  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://unpkg.com/mathjax@3.0/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    // 文章章节标题不能为 “MathJax” ，否则会报错。
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
 
 
 
