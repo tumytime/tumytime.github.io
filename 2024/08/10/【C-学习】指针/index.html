@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>逆透视 | Hello！Welcom to Tumy-Time！</title>
+  <title>【C++学习】指针 | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -674,21 +674,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp')">
+  background-position: center center;position: relative;background-image:url('https://tumytime.github.io/picx-images-hosting/fe33158c2cb4a6bb1aca9fec87343688.5q7bzmgvez.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        逆透视
+        【C++学习】指针
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2024-04-27 |
+          <i class="fas fa-calendar"></i> Published in：2024-08-10 |
         </span>
       
 
@@ -696,8 +696,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> category：
           
-            <a href="/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/" class="post-detail-header_category">
-              智能车
+            <a href="/categories/C/" class="post-detail-header_category">
+              C++
             </a>
           
         </span>
@@ -706,11 +706,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 534 |
+            <i class="fas fa-file-text-o"></i> Words: 1.4k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 2min |
+            <i class="fas fa-clock"></i> Reading time: 6min |
           </span>
   
           
@@ -737,46 +737,80 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * @brief IPM初始化</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @param origSize 输入原始图像Size</span></span><br><span class="line"><span class="comment">     * @param dstSize 输出图像Size</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(<span class="type">const</span> cv::Size &amp;origSize, <span class="type">const</span> cv::Size &amp;dstSize)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 原始域：分辨率320x240</span></span><br><span class="line">        <span class="comment">// The 4-points at the input image</span></span><br><span class="line">        m_origPoints.<span class="built_in">clear</span>();</span><br><span class="line">        <span class="comment">// [第二版无带畸变镜头参数]</span></span><br><span class="line">        m_origPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">0</span>, <span class="number">214</span>));   <span class="comment">// 左下</span></span><br><span class="line">        m_origPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">319</span>, <span class="number">214</span>)); <span class="comment">// 右下</span></span><br><span class="line">        m_origPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">192</span>, <span class="number">0</span>));   <span class="comment">// 右上</span></span><br><span class="line">        m_origPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">128</span>, <span class="number">0</span>));   <span class="comment">// 左上</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 矫正域：分辨率320x240</span></span><br><span class="line">        <span class="comment">// The 4-points correspondences in the destination image</span></span><br><span class="line">        m_dstPoints.<span class="built_in">clear</span>();</span><br><span class="line">        m_dstPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">100</span>, <span class="number">400</span>)); <span class="comment">// 左下</span></span><br><span class="line">        m_dstPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">220</span>, <span class="number">400</span>)); <span class="comment">// 右下</span></span><br><span class="line">        m_dstPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">220</span>, <span class="number">0</span>));   <span class="comment">// 右上</span></span><br><span class="line">        m_dstPoints.<span class="built_in">push_back</span>(<span class="built_in">Point2f</span>(<span class="number">100</span>, <span class="number">0</span>));   <span class="comment">// 左上</span></span><br><span class="line"></span><br><span class="line">        m_origSize = origSize;</span><br><span class="line">        m_dstSize = dstSize;</span><br><span class="line">        <span class="built_in">assert</span>(m_origPoints.<span class="built_in">size</span>() == <span class="number">4</span> &amp;&amp; m_dstPoints.<span class="built_in">size</span>() == <span class="number">4</span> &amp;&amp; <span class="string">&quot;Orig. points and Dst. points must vectors of 4 points&quot;</span>);</span><br><span class="line">        m_H = <span class="built_in">getPerspectiveTransform</span>(m_origPoints, m_dstPoints); <span class="comment">// 计算变换矩阵 [3x3]</span></span><br><span class="line">        m_H_inv = m_H.<span class="built_in">inv</span>();                                      <span class="comment">// 求解逆转换矩阵</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">createMaps</span>();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>野指针我老熟人了。。。。</p>
+</blockquote>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>**作用:**通过指针间接访问内存</p>
+<ul>
+<li>内存编号是从0开始记录的，一般用十六进制数字表示</li>
+<li>可以利用指针变量保存地址</li>
+</ul>
+<h2 id="指针变量的定义和使用"><a href="#指针变量的定义和使用" class="headerlink" title="指针变量的定义和使用"></a>指针变量的定义和使用</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1.指针的定义</span></span><br><span class="line">    <span class="type">int</span> a=<span class="number">10</span>;</span><br><span class="line">    <span class="type">int</span> * p;</span><br><span class="line"></span><br><span class="line">    p=&amp;a;</span><br><span class="line">    cout&lt;&lt;&amp;a&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;p&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.指针的使用</span></span><br><span class="line">    <span class="comment">//通过*操作指针变量指向的内存</span></span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;*p = &quot;</span>&lt;&lt;*p&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h2 id="指针变量和普通变量的区别"><a href="#指针变量和普通变量的区别" class="headerlink" title="指针变量和普通变量的区别"></a>指针变量和普通变量的区别</h2><ul>
+<li>普通变量存放的是数据，指针变量存放的是地址</li>
+<li>指针变量可以通过”*”操作符，操作指针变量指向的内存空间，这个过程称为解引用</li>
+</ul>
+<blockquote>
+<p>用&amp;获取变量的地址</p>
+</blockquote>
+<h2 id="指针所占内存空间"><a href="#指针所占内存空间" class="headerlink" title="指针所占内存空间"></a>指针所占内存空间</h2><blockquote>
+<p><strong>Q:</strong> 指针也是种数据类型，那么这种数据类型占用多少空间呢？</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> * p;</span><br><span class="line">	p = &amp;a; <span class="comment">//指针指向数据a的地址</span></span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; *p &lt;&lt; endl; <span class="comment">//* 解引用</span></span><br><span class="line">	cout &lt;&lt; <span class="built_in">sizeof</span>(p) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">char</span> *) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">float</span> *) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">double</span> *) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在C++中，指针类型的大小取决于所运行的系统架构。通常情况下：</p>
+<ul>
+<li>在32位系统中，指针通常占用4个字节。</li>
+<li>在64位系统中，指针通常占用8个字节。</li>
+</ul>
+</blockquote>
+<h2 id="空指针和野指针"><a href="#空指针和野指针" class="headerlink" title="空指针和野指针"></a>空指针和野指针</h2><h3 id="空指针"><a href="#空指针" class="headerlink" title="空指针"></a>空指针</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//指针变量p指向内存地址编号为0的空间</span></span><br><span class="line">	<span class="type">int</span> * p = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//访问空指针报错 </span></span><br><span class="line">	<span class="comment">//内存编号0 ~255为系统占用内存，不允许用户访问</span></span><br><span class="line">	cout &lt;&lt; *p &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="野指针"><a href="#野指针" class="headerlink" title="野指针"></a>野指针</h3><blockquote>
+<p><strong>野指针:</strong> 指针变量指向非法的内存空间</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//指针变量p指向内存地址编号为0x1100的空间</span></span><br><span class="line">	<span class="type">int</span> * p = (<span class="type">int</span> *)<span class="number">0x1100</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//访问野指针报错 </span></span><br><span class="line">	cout &lt;&lt; *p &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在编写C++程序时，应确保指针指向有效的内存地址。直接将指针指向一个硬编码的地址，而没有确保该地址是有效和安全的，是一种危险的做法。正确的做法是使用动态内存分配（如new关键字）来获取内存，或者确保指针指向已分配的内存区域。</p>
+</blockquote>
+<blockquote>
+<p>空指针和野指针都不是我们申请的空间，因此不要访问</p>
+</blockquote>
+<h2 id="const修饰指针"><a href="#const修饰指针" class="headerlink" title="const修饰指针"></a>const修饰指针</h2><p>在C++中，当使用<code>const</code>修饰指针时，它有两种不同的含义，这取决于<code>const</code>的位置：</p>
 <ol>
-<li><p><code>void init(const cv::Size &amp;origSize, const cv::Size &amp;dstSize)</code>: 这是一个名为<code>init</code>的函数，它接受两个参数<code>origSize</code>和<code>dstSize</code>，这两个参数是OpenCV库中的<code>cv::Size</code>类型，用来表示图像的尺寸。</p>
-</li>
-<li><p><code>m_origPoints.clear();</code>: 清空存储原始域点坐标的容器<code>m_origPoints</code>。</p>
-</li>
-<li><p><code>m_origPoints.push_back(Point2f(0, 214));</code>: 将<code>(0, 214)</code>点坐标添加到原始域的点坐标集合中，代表原始图像的左下角。</p>
-</li>
-<li><p>依次类推，将原始域的四个角的点坐标添加到<code>m_origPoints</code>中，依次是左下、右下、右上和左上。</p>
-</li>
-<li><p><code>m_dstPoints.clear();</code>: 清空存储矫正域点坐标的容器<code>m_dstPoints</code>。</p>
-</li>
-<li><p><code>m_dstPoints.push_back(Point2f(100, 400));</code>: 将<code>(100, 400)</code>点坐标添加到矫正域的点坐标集合中，代表矫正图像的左下角。</p>
-</li>
-<li><p>依次类推，将矫正域的四个角的点坐标添加到<code>m_dstPoints</code>中，依次是左下、右下、右上和左上。</p>
-</li>
-<li><p><code>m_origSize = origSize;</code>和<code>m_dstSize = dstSize;</code>: 将原始图像尺寸和目标图像尺寸保存下来。</p>
-</li>
-<li><p><code>assert(m_origPoints.size() == 4 &amp;&amp; m_dstPoints.size() == 4 &amp;&amp; &quot;Orig. points and Dst. points must vectors of 4 points&quot;);</code>: 使用<code>assert</code>断言来确保原始域和矫正域的点坐标集合都包含四个点。</p>
-</li>
-<li><p><code>m_H = getPerspectiveTransform(m_origPoints, m_dstPoints);</code>: 通过原始域和矫正域的点坐标计算透视变换矩阵<code>m_H</code>。</p>
-</li>
-<li><p><code>m_H_inv = m_H.inv();</code>: 求解透视变换矩阵<code>m_H</code>的逆矩阵，存储在<code>m_H_inv</code>中。</p>
-</li>
-<li><p><code>createMaps();</code>: 调用<code>createMaps</code>函数，创建地图。</p>
-</li>
+<li><strong><code>const</code>位于星号（*）之前</strong>：这表示指针指向的内容是常量，即不能通过这个指针修改所指向的数据。但指针本身可以改变，指向不同的地址。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> y = <span class="number">20</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span>* p = &amp;x;  <span class="comment">// p是指向int常量的指针</span></span><br><span class="line">p = &amp;y;             <span class="comment">// 正确：可以改变p指向的地址</span></span><br><span class="line">*p = <span class="number">30</span>;            <span class="comment">// 错误：不能通过p修改所指向的数据</span></span><br></pre></td></tr></table></figure></li>
+<li><strong><code>const</code>位于星号（*）之后</strong>：这表示指针本身是常量，即不能更改指针的值（它所指向的地址）。但可以通过指针修改它所指向的数据。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> y = <span class="number">20</span>;</span><br><span class="line"><span class="type">int</span>* <span class="type">const</span> p = &amp;x;  <span class="comment">// p是常量指针</span></span><br><span class="line">*p = <span class="number">30</span>;            <span class="comment">// 正确：可以通过p修改所指向的数据</span></span><br><span class="line">p = &amp;y;             <span class="comment">// 错误：不能更改p的值（它所指向的地址）</span></span><br></pre></td></tr></table></figure></li>
 </ol>
+<h2 id="指针和数组"><a href="#指针和数组" class="headerlink" title="指针和数组"></a>指针和数组</h2><blockquote>
+<p>利用指针访问数组中元素</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> a[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span> &#125;;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span>* p = a;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;第一个元素:&quot;</span> &lt;&lt; a[<span class="number">0</span>] &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;指针访问第一个元素:&quot;</span> &lt;&lt; *p &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line"></span><br><span class="line">		cout &lt;&lt; *p &lt;&lt; endl;</span><br><span class="line">		p++;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="指针和函数"><a href="#指针和函数" class="headerlink" title="指针和函数"></a>指针和函数</h2><blockquote>
+<p>利用指针作函数参数，可以修改实参的值</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//值传递</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap1</span><span class="params">(<span class="type">int</span> a ,<span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> temp = a;</span><br><span class="line">	a = b; </span><br><span class="line">	b = temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//地址传递</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap2</span><span class="params">(<span class="type">int</span> * p1, <span class="type">int</span> *p2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> temp = *p1;</span><br><span class="line">	*p1 = *p2;</span><br><span class="line">	*p2 = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="type">int</span> b = <span class="number">20</span>;</span><br><span class="line">	<span class="built_in">swap1</span>(a, b); <span class="comment">// 值传递不会改变实参</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">swap2</span>(&amp;a, &amp;b); <span class="comment">//地址传递会改变实参</span></span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;a = &quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;b = &quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="指针、数组、函数"><a href="#指针、数组、函数" class="headerlink" title="指针、数组、函数"></a>指针、数组、函数</h2><blockquote>
+<p><strong>封装一个函数:</strong> 利用冒泡排序，实现对整型数组的升序排序<br>例如数组:int arr[10]&#x3D;{4,3,6,9,1,2,10,8,7,5};</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//冒泡排序函数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="type">int</span> * arr, <span class="type">int</span> len)</span>  <span class="comment">//int * arr 也可以写为int arr[]</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; len - <span class="number">1</span> - i; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="type">int</span> temp = arr[j];</span><br><span class="line">				arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">				arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//打印数组函数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printArray</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; arr[i] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">4</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">5</span> &#125;;</span><br><span class="line">	<span class="type">int</span> len = <span class="built_in">sizeof</span>(arr) / <span class="built_in">sizeof</span>(<span class="type">int</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">bubbleSort</span>(arr, len);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printArray</span>(arr, len);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>当数组名传入到函数作为参数时，被退化为指向首元素的指针</strong><br>在C++中，当你将数组作为参数传递给函数时，它实际上被转换为一个指向数组首元素的指针。这意味着在函数内部，你没有数组的大小信息。因此，在函数内部无法直接计算数组的长度。</p>
+</blockquote>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/" class="">
-              智能车
-            </a>
-          
-            <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="">
-              图像处理
+            <a href="/tags/c/" class="">
+              c++
             </a>
           
         </div>
@@ -790,7 +824,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2024/04/27/逆透视/" target="_blank" title="逆透视">http://tumytime.github.io/2024/04/27/逆透视/</a>
+    <a href="/2024/08/10/【C-学习】指针/" target="_blank" title="【C++学习】指针">http://tumytime.github.io/2024/08/10/【C-学习】指针/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -812,18 +846,16 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/fe33158c2cb4a6bb1aca9fec87343688.5q7bzmgvez.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/fe33158c2cb4a6bb1aca9fec87343688.5q7bzmgvez.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
-    <a href="/2024/04/28/AuTop%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/" class="post-nav-link">
+    <a href="/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E7%BB%93%E6%9E%84%E4%BD%93/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">AuTop代码整理</div>
+        <div class="title-text">【C++学习】结构体</div>
       </div>
       
       <!-- <div class="content">
-        圆环circle circle.c 
-              
-              123456789101
+        
       </div> -->
     </a>
   </div>
@@ -834,15 +866,19 @@
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/fe33158c2cb4a6bb1aca9fec87343688.5q7bzmgvez.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/fe33158c2cb4a6bb1aca9fec87343688.5q7bzmgvez.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2024/04/26/%E6%95%B0%E6%8D%AE%E9%9B%86%E6%A0%87%E6%B3%A8json%E8%BD%ACxml%E8%84%9A%E6%9C%AC/" class="post-nav-link">
+    <a href="/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E5%87%BD%E6%95%B0/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">数据集标注json转xml脚本</div>
+        <div class="title-text">【C++学习】函数</div>
       </div>
       <!-- <div class="content">
-        123456789101112131415161718192021222324252627282930313233343
+        基础注意事项函数的声明可以多次，但是函数的定义只能有一次
+函数的分文件编写
+创建头文件
+创建函数.cpp文件
+在头文件里
       </div> -->
     </a>
   </div>
@@ -1063,7 +1099,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!--  -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%8F%98%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-text">指针变量的定义和使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%8F%98%E9%87%8F%E5%92%8C%E6%99%AE%E9%80%9A%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">指针变量和普通变量的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E6%89%80%E5%8D%A0%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4"><span class="toc-text">指针所占内存空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E6%8C%87%E9%92%88%E5%92%8C%E9%87%8E%E6%8C%87%E9%92%88"><span class="toc-text">空指针和野指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E6%8C%87%E9%92%88"><span class="toc-text">空指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8E%E6%8C%87%E9%92%88"><span class="toc-text">野指针</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#const%E4%BF%AE%E9%A5%B0%E6%8C%87%E9%92%88"><span class="toc-text">const修饰指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84"><span class="toc-text">指针和数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%92%8C%E5%87%BD%E6%95%B0"><span class="toc-text">指针和函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%87%BD%E6%95%B0"><span class="toc-text">指针、数组、函数</span></a></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
