@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>数据集标注json转xml脚本 | Hello！Welcom to Tumy-Time！</title>
+  <title>【C++学习】数据类型 | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -674,21 +674,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp')">
+  background-position: center center;position: relative;background-image:url('https://github.com/tumytime/picx-images-hosting/raw/master/c15f881d72afbc2c902de950de39b3ae.2a50690wah.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        数据集标注json转xml脚本
+        【C++学习】数据类型
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2024-04-26 |
+          <i class="fas fa-calendar"></i> Published in：2024-08-10 |
         </span>
       
 
@@ -696,8 +696,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> category：
           
-            <a href="/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/" class="post-detail-header_category">
-              智能车
+            <a href="/categories/C/" class="post-detail-header_category">
+              C++
             </a>
           
         </span>
@@ -706,11 +706,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 310 |
+            <i class="fas fa-file-text-o"></i> Words: 2.6k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 1min |
+            <i class="fas fa-clock"></i> Reading time: 10min |
           </span>
   
           
@@ -737,27 +737,218 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert_json_to_xml</span>(<span class="params">json_data</span>):</span><br><span class="line">    root = ET.Element(<span class="string">&quot;annotation&quot;</span>)</span><br><span class="line">    filename = ET.SubElement(root, <span class="string">&quot;filename&quot;</span>)</span><br><span class="line">    filename.text = json_data[<span class="string">&quot;imagePath&quot;</span>]</span><br><span class="line">    object_num = ET.SubElement(root, <span class="string">&quot;object_num&quot;</span>)</span><br><span class="line">    object_num.text = <span class="built_in">str</span>(<span class="built_in">len</span>(json_data[<span class="string">&quot;shapes&quot;</span>]))</span><br><span class="line">    size = ET.SubElement(root, <span class="string">&quot;size&quot;</span>)</span><br><span class="line">    width = ET.SubElement(size, <span class="string">&quot;width&quot;</span>)</span><br><span class="line">    width.text = <span class="built_in">str</span>(json_data[<span class="string">&quot;imageWidth&quot;</span>])</span><br><span class="line">    height = ET.SubElement(size, <span class="string">&quot;height&quot;</span>)</span><br><span class="line">    height.text = <span class="built_in">str</span>(json_data[<span class="string">&quot;imageHeight&quot;</span>])</span><br><span class="line">    <span class="keyword">for</span> shape <span class="keyword">in</span> json_data[<span class="string">&quot;shapes&quot;</span>]:</span><br><span class="line">        object_element = ET.SubElement(root, <span class="string">&quot;object&quot;</span>)</span><br><span class="line">        name = ET.SubElement(object_element, <span class="string">&quot;name&quot;</span>)</span><br><span class="line">        name.text = shape[<span class="string">&quot;label&quot;</span>]</span><br><span class="line">        difficult = ET.SubElement(object_element, <span class="string">&quot;difficult&quot;</span>)</span><br><span class="line">        difficult.text = <span class="string">&quot;0&quot;</span></span><br><span class="line">        bndbox = ET.SubElement(object_element, <span class="string">&quot;bndbox&quot;</span>)</span><br><span class="line">        xmin = ET.SubElement(bndbox, <span class="string">&quot;xmin&quot;</span>)</span><br><span class="line">        xmin.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">0</span>][<span class="number">0</span>]))</span><br><span class="line">        ymin = ET.SubElement(bndbox, <span class="string">&quot;ymin&quot;</span>)</span><br><span class="line">        ymin.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">0</span>][<span class="number">1</span>]))</span><br><span class="line">        xmax = ET.SubElement(bndbox, <span class="string">&quot;xmax&quot;</span>)</span><br><span class="line">        xmax.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">1</span>][<span class="number">0</span>]))</span><br><span class="line">        ymax = ET.SubElement(bndbox, <span class="string">&quot;ymax&quot;</span>)</span><br><span class="line">        ymax.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">1</span>][<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">return</span> ET.tostring(root, encoding=<span class="string">&quot;unicode&quot;</span>)</span><br><span class="line">current_dir = os.getcwd()</span><br><span class="line">parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))</span><br><span class="line">output_dir = os.path.join(parent_dir, <span class="string">&quot;xml_output&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(output_dir):</span><br><span class="line">    os.makedirs(output_dir)</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(current_dir):</span><br><span class="line">    <span class="keyword">if</span> file.endswith(<span class="string">&quot;.json&quot;</span>):</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(os.path.join(current_dir, file), <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> json_file:</span><br><span class="line">            json_data = json.load(json_file)</span><br><span class="line">            xml_data = convert_json_to_xml(json_data)</span><br><span class="line">            xml_filename = file.replace(<span class="string">&quot;.json&quot;</span>, <span class="string">&quot;.xml&quot;</span>)</span><br><span class="line">            output_path = os.path.join(output_dir, xml_filename)</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(output_path, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> xml_file:</span><br><span class="line">                xml_file.write(xml_data)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;所有JSON文件已经转换为XML并保存在文件夹 xml_output 中&quot;</span>)</span><br></pre></td></tr></table></figure>
+        <h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><h3 id="short"><a href="#short" class="headerlink" title="short"></a>short</h3><h4 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h4><ul>
+<li>16 位（2 字节）</li>
+<li>由于它是整型，所以内存中的布局取决于系统的字节序（大端或小端）。  <details open><summary pointer> 字节序 </summary>
+              <div class='content'>
+              <div class="tagLink"><a class="link-card" title="“字节序”是个什么鬼？" target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21388517"><span class="link-card-backdrop" style="background-image: url(https://picx.zhimg.com/70/78062b837a79dffae48bff7aea79579f_1440w.avis?source=172ae18b&biz_tag=Post)"></span><div class="left"><img src="https://picx.zhimg.com/70/78062b837a79dffae48bff7aea79579f_1440w.avis?source=172ae18b&biz_tag=Post" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/70/78062b837a79dffae48bff7aea79579f_1440w.avis?source=172ae18b&biz_tag=Post" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">“字节序”是个什么鬼？</p><p class="url">https://zhuanlan.zhihu.com/p/21388517</p></div></a></div><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> x = <span class="number">0x12345678</span>;</span><br><span class="line">    <span class="type">char</span>* c = (<span class="type">char</span>*)&amp;x;</span><br><span class="line">    <span class="keyword">if</span> (*c == <span class="number">0x78</span>) &#123;   <span class="comment">//*c代表x在内存地址上的第一个字节</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Little endian&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Big endian&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              </div>
+            </details></li>
+</ul>
+<h4 id="范围"><a href="#范围" class="headerlink" title="范围"></a>范围</h4><ul>
+<li><code>short</code>: -32,768 - 32,767</li>
+<li><code>unsigned short</code>: 0 - 65,535 (2^8&#x3D;65536)</li>
+</ul>
+<h4 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h4><ul>
+<li>如果对 <code>short</code> 变量赋值超出其范围，将会发生溢出。例如，尝试将 32,769 赋值给一个有符号 <code>short</code> 变量会导致溢出。</li>
+<li>溢出会导致变量值“环绕”回其范围的另一端。例如，如果 <code>short</code> 变量的值为 32,767，然后增加 1，它将变为 -32,768。</li>
+</ul>
+<h3 id="int"><a href="#int" class="headerlink" title="int"></a>int</h3><h4 id="大小-1"><a href="#大小-1" class="headerlink" title="大小"></a>大小</h4><ul>
+<li>32 位（4 字节）</li>
+</ul>
+<h4 id="范围-1"><a href="#范围-1" class="headerlink" title="范围"></a>范围</h4><ul>
+<li><code>int</code>: -2,147,483,648 - 2,147,483,647</li>
+<li><code>unsigned int</code>: 0 - 4,294,967,295     (2^32)</li>
+</ul>
+<h3 id="long"><a href="#long" class="headerlink" title="long"></a>long</h3><p><strong>long类型和指针类型需要特别注意，编写跨平台的软件时尽量不要使用long类型，或者需要对long类型做特殊处理。</strong></p>
+<h4 id="大小-2"><a href="#大小-2" class="headerlink" title="大小"></a>大小</h4><ul>
+<li>widows4字节,linux32位4字节,linux64位8字节</li>
+</ul>
+<h4 id="范围-2"><a href="#范围-2" class="headerlink" title="范围"></a>范围</h4><ul>
+<li><code>long</code>: -2,147,483,648 - 2,147,483,647</li>
+<li><code>unsigned long</code>: 0 - 4,294,967,295    (2^32)</li>
+</ul>
+<h3 id="long-long"><a href="#long-long" class="headerlink" title="long long"></a>long long</h3><h4 id="大小-3"><a href="#大小-3" class="headerlink" title="大小"></a>大小</h4><ul>
+<li>64 位（8 字节）</li>
+</ul>
+<h4 id="范围-3"><a href="#范围-3" class="headerlink" title="范围"></a>范围</h4><ul>
+<li><code>long long</code>: -9,223,372,036,854,775,808 - 9,223,372,036,854,775,807</li>
+<li><code>unsigned long long</code>: 0 - 18,446,744,073,709,551,615  (2^64)</li>
+</ul>
+<h2 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h2><h3 id="char"><a href="#char" class="headerlink" title="char"></a>char</h3><p><strong>适用于需要存储单个字符的场景</strong></p>
+<h4 id="大小-4"><a href="#大小-4" class="headerlink" title="大小"></a>大小</h4><ul>
+<li>8 位（1 字节）</li>
+</ul>
+<h4 id="范围-4"><a href="#范围-4" class="headerlink" title="范围"></a>范围</h4><ul>
+<li>char: -128 - 127</li>
+<li>unsigned char: 0 - 255</li>
+</ul>
+<h3 id="wchar-t"><a href="#wchar-t" class="headerlink" title="wchar_t"></a>wchar_t</h3><p>对比一下<code>wchar_t</code>和<code>char</code>，这两个在C&#x2F;C++编程中常用的数据类型。</p>
+<ol>
+<li><strong>存储大小</strong>：<ul>
+<li><code>char</code>：通常占用1个字节（8位）的存储空间。它被用来存储ASCII字符集中的字符，因为ASCII字符集只需要7位就能表示所有的字符。</li>
+<li><code>wchar_t</code>：宽字符类型，通常占用2个或4个字节。它被用来存储宽字符，比如Unicode字符集中的字符。Unicode字符集包含了世界上大多数文字系统的字符，所以需要更多的存储空间。</li>
+</ul>
+</li>
+<li><strong>用途</strong>：<ul>
+<li><code>char</code>：主要用于处理ASCII字符集或单字节编码的字符集。在C&#x2F;C++中，它是最基本的字符类型。</li>
+<li><code>wchar_t</code>：用于处理宽字符集，如Unicode。它允许你处理包含非ASCII字符的文本，这对于国际化和本地化非常重要。</li>
+</ul>
+</li>
+<li><strong>可移植性</strong>：<ul>
+<li><code>char</code>：在所有C&#x2F;C++实现中都是1个字节，具有很好的可移植性。</li>
+<li><code>wchar_t</code>：大小依赖于实现和平台。在32位系统中，它通常是4字节，在16位系统中，通常是2字节。这种差异可能导致代码在不同平台上的行为不一致。</li>
+</ul>
+</li>
+<li><strong>字符串表示</strong>：<ul>
+<li><code>char</code>：在C&#x2F;C++中，<code>char</code>数组或指针常用来表示和操作字符串。</li>
+<li><code>wchar_t</code>：用于表示宽字符串，通常在字符串前加上<code>L</code>前缀，如<code>L&quot;Hello World&quot;</code>。</li>
+</ul>
+</li>
+<li><strong>标准库支持</strong>：<ul>
+<li><code>char</code>：标准库中的大多数字符串处理函数，如<code>strlen</code>、<code>strcpy</code>等，都是针对<code>char</code>类型设计的。</li>
+<li><code>wchar_t</code>：C&#x2F;C++标准库也提供了一些宽字符串处理函数，如<code>wcslen</code>、<code>wcscpy</code>等，用于处理<code>wchar_t</code>类型的字符串。<br>总的来说，<code>char</code>和<code>wchar_t</code>的主要区别在于它们存储字符的方式和大小。<code>char</code>适用于ASCII或单字节编码的字符，而<code>wchar_t</code>则用于处理需要更多存储空间的宽字符，如Unicode字符。不过，由于<code>wchar_t</code>的大小依赖于平台，现代C++更倾向于使用<code>char16_t</code>、<code>char32_t</code>以及Unicode字符串字面量来处理Unicode字符，以提供更好的可移植性和一致性。</li>
+</ul>
+</li>
+</ol>
+<h2 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h2><p>布尔类型用于存储真（true）或假（false）的值。</p>
+<h3 id="bool"><a href="#bool" class="headerlink" title="bool"></a>bool</h3><ul>
+<li>通常占用1字节。</li>
+<li>取值为 <code>true</code> 或 <code>false</code>。</li>
+</ul>
+<h2 id="浮点类型"><a href="#浮点类型" class="headerlink" title="浮点类型"></a>浮点类型</h2><p>(歪个楼，我的Cybery宝宝回答的比智谱清言要好欸)<br>(再歪一下，过两天给宝做个自己的皮套💕)</p>
+<h3 id="float"><a href="#float" class="headerlink" title="float"></a>float</h3><h4 id="大小-5"><a href="#大小-5" class="headerlink" title="大小"></a>大小</h4><p>通常占用4个字节（32位）的存储空间。</p>
+<h4 id="表示"><a href="#表示" class="headerlink" title="表示"></a>表示</h4><ul>
+<li><p>根据IEEE 754标准，一个float类型的值通常包括1位符号位、8位指数位和23位尾数位。</p>
+<details open><summary pointer> 浮点数的表示 </summary>
+              <div class='content'>
+              <p>浮点数的表示类似于科学记数法，它由两部分组成：一个基数和一个指数。在浮点数的二进制表示中，基数通常是2（对于十进制浮点数，基数是10），而指数和尾数则用特定的位来表示。</p><ul><li>尾数位（Fraction&#x2F;Mantissa）<br>尾数位（或尾数）是浮点数中用来表示数字的“有效数字”部分，也就是不包括前导的1（对于规范化浮点数）或0（对于非规范化浮点数）的部分。尾数位决定了浮点数的精度，就像尺子上的刻度越密，你就能越精确地测量长度一样。<br>在IEEE 754标准中，尾数位通常省略了最前面的1（因为规范化浮点数的第一个有效数字总是1），所以尾数位实际上表示的是小数点后的部分。例如，对于二进制数1.101，尾数位就是101。</li><li>指数位（Exponent）<br>指数位表示2的幂次，它决定了尾数位应该乘以2的多少次方。在IEEE 754标准中，指数位是一个带偏移的值，这意味着实际指数是指数位表示的值减去一个固定的偏移量（对于单精度浮点数，这个偏移量是127）。<br>例如，如果指数位表示的值是130（二进制为10000010），那么实际的指数是130 - 127 &#x3D; 3。这意味着尾数位应该乘以2^3，也就是8。</li><li>结合尾数位和指数位<br>对于二进制表示的浮点数 <code>0 10000010 10100000000000000000000</code>：<ul><li><strong>符号位</strong>：0（表示正数）</li><li><strong>指数位</strong>：10000010（二进制），转换为十进制是 130，减去偏移量 127，得到实际指数是 3。</li><li><strong>尾数位</strong>：10100000000000000000000，加上隐含的 1（对于规范化浮点数），实际尾数是 <code>1.10100000000000000000000</code>（二进制）。<br>现在，让我们将尾数转换为十进制：<br>1.10100000000000000000000（二进制）&#x3D; 1 * 2^0 + 1 * 2^-1 + 0 * 2^-2 + 1 * 2^-3 + … (只有前三位的计算对最终结果有影响，因为后续的0不改变值)<br>&#x3D; 1 + 0.5 + 0 + 0.125 + … (其他位都是0，所以可以忽略)<br>&#x3D; 1.625（十进制）<br>现在，将尾数乘以 2 的指数：<br>1.625 * 2^3 &#x3D; 1.625 * 8 &#x3D; 13（十进制）</li></ul></li></ul>
+              </div>
+            </details>
+</li>
+<li><p>它能提供大约6-7位的十进制精度。</p>
+</li>
+<li><p>float类型通常用于那些不需要非常高精度的计算，或者当你需要大量浮点数并且内存使用效率很重要时。</p>
+</li>
+</ul>
+<h3 id="double"><a href="#double" class="headerlink" title="double"></a>double</h3><h4 id="精度"><a href="#精度" class="headerlink" title="精度"></a>精度</h4><p><code>double</code>通常占用64位（8字节）的存储空间。在大多数现代计算机中，按照IEEE 754标准，<code>double</code>可以提供大约15-17位十进制数的精度。</p>
+<h4 id="表示范围"><a href="#表示范围" class="headerlink" title="表示范围"></a>表示范围</h4><p><code>double</code>能表示的数值范围大约在10^-308到10^308之间。这意味着它既可以表示非常小的数，也可以表示非常大的数。</p>
+<h4 id="默认初始化值"><a href="#默认初始化值" class="headerlink" title="默认初始化值"></a>默认初始化值</h4><p>如果你声明了一个<code>double</code>变量但没有初始化它，它将包含一个未定义的值，通常是垃圾数据。</p>
+<h3 id="long-double"><a href="#long-double" class="headerlink" title="long double"></a>long double</h3><p>long double通常比double占用更多的存储空间，具体大小依赖于平台和编译器。在一些系统上，它可能占用96位或128位（12或16字节），但这并不是固定的。</p>
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>含义</th>
+<th>ASCII码值（十进制）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\a</td>
+<td>警报</td>
+<td>007</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格(BS)，将当前位置移到前一列</td>
+<td>008</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页(FF)，将当前位置移到下页开头</td>
+<td>012</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行(LF)，将当前位置移到下一行开头</td>
+<td>010</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车(CR)，将当前位置移到本行开头</td>
+<td>013</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表(HT)（跳到下一个TAB位置）</td>
+<td>009</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表(VT)</td>
+<td>011</td>
+</tr>
+<tr>
+<td>\</td>
+<td>反斜线字符</td>
+<td>092</td>
+</tr>
+<tr>
+<td>&#39;</td>
+<td>单引号</td>
+<td>039</td>
+</tr>
+<tr>
+<td>&quot;</td>
+<td>双引号</td>
+<td>034</td>
+</tr>
+<tr>
+<td>?</td>
+<td>问号</td>
+<td>063</td>
+</tr>
+<tr>
+<td>\0</td>
+<td>数字0</td>
+<td>000</td>
+</tr>
+<tr>
+<td>\ddd</td>
+<td>8进制转义字符，d范围0-7</td>
+<td>3位8进制</td>
+</tr>
+<tr>
+<td>\xhh</td>
+<td>16进制转义字符，h范围0-9，a-f，A-F</td>
+<td>3位16进制</td>
+</tr>
+</tbody></table>
+<h2 id="字符串型"><a href="#字符串型" class="headerlink" title="字符串型"></a>字符串型</h2><h3 id="C风格字符串"><a href="#C风格字符串" class="headerlink" title="C风格字符串"></a>C风格字符串</h3><p><strong>char 变量名[] &#x3D; “字符串值”</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">char</span> str1[] = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">	cout &lt;&lt; str1 &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>char str1[]</code> 和 <code>char* str1[]</code> 在C语言中是两种不同的声明方式，它们分别表示不同的数据类型和内存布局。</p>
+<ol>
+<li><code>char str1[]</code>：<ul>
+<li>这是一个字符数组，它声明了一个数组，其元素类型为 <code>char</code>。</li>
+<li>这个数组可以存储一系列的字符，并且这些字符连续存储在内存中。</li>
+<li>声明时可以指定数组的大小，也可以在初始化时由编译器自动计算大小。</li>
+<li>例如：<code>char str1[] = &quot;Hello, World!&quot;;</code> 这里 <code>str1</code> 是一个字符数组，包含字符串 “Hello, World!” 以及一个空字符 <code>\0</code> 作为字符串的结束标志。</li>
+</ul>
+</li>
+<li><code>char* str1[]</code>：<ul>
+<li>这是一个指向字符的指针数组，它声明了一个数组，其元素类型为 <code>char*</code>。</li>
+<li>这个数组中的每个元素都是一个指向 <code>char</code> 类型的指针，也就是说，每个元素都可以指向一个字符串。</li>
+<li>常用于声明一个字符串数组，每个元素都是指向不同字符串的指针。</li>
+<li>例如：<code>char* str1[] = &#123;&quot;Hello&quot;, &quot;World&quot;, &quot;!&quot;&#125;;</code> 这里 <code>str1</code> 是一个指针数组，其中 <code>str1[0]</code> 指向字符串 “Hello”，<code>str1[1]</code> 指向字符串 “World”，以此类推。<br>以下是一个具体的例子来说明两者的不同：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 字符数组</span></span><br><span class="line">    <span class="type">char</span> str1[] = <span class="string">&quot;Hello, World!&quot;</span>;</span><br><span class="line">    <span class="comment">// 指向字符的指针数组</span></span><br><span class="line">    <span class="type">char</span>* str2[] = &#123;<span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;World&quot;</span>, <span class="string">&quot;!&quot;</span>&#125;;</span><br><span class="line">    <span class="comment">// 输出 str1</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;str1: %s\n&quot;</span>, str1);</span><br><span class="line">    <span class="comment">// 输出 str2 中的每个字符串</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;str2[0]: %s\n&quot;</span>, str2[<span class="number">0</span>]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;str2[1]: %s\n&quot;</span>, str2[<span class="number">1</span>]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;str2[2]: %s\n&quot;</span>, str2[<span class="number">2</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+在这个例子中，<code>str1</code> 是一个包含 “Hello, World!” 字符串的字符数组，而 <code>str2</code> 是一个包含三个字符串指针的数组。</li>
+</ul>
+</li>
+</ol>
+<h3 id="C-风格字符串"><a href="#C-风格字符串" class="headerlink" title="C++风格字符串"></a>C++风格字符串</h3><p><strong>string 变量名 &#x3D; “字符串值”</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	string str = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">	cout &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 
-
+<p><strong>###########################完结撒花###########################</strong></p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://github.com/tumytime/picx-images-hosting/raw/master/eba59d911c3c8fd32afafd4c0d57d40.70a95u8niw.webp" class="lazyload placeholder" data-srcset="https://github.com/tumytime/picx-images-hosting/raw/master/eba59d911c3c8fd32afafd4c0d57d40.70a95u8niw.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="那嘛一挖---米子哈！！！"/></div><span class="image-caption">那嘛一挖---米子哈！！！</span></div>
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/AI/" class="">
-              AI
-            </a>
-          
-            <a href="/tags/python/" class="">
-              python
-            </a>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">
-              数据集
+            <a href="/tags/c/" class="">
+              c++
             </a>
           
         </div>
@@ -771,7 +962,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2024/04/26/数据集标注json转xml脚本/" target="_blank" title="数据集标注json转xml脚本">http://tumytime.github.io/2024/04/26/数据集标注json转xml脚本/</a>
+    <a href="/2024/08/10/【C-学习】数据类型/" target="_blank" title="【C++学习】数据类型">http://tumytime.github.io/2024/08/10/【C-学习】数据类型/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -793,16 +984,16 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
-    <a href="/2024/04/27/%E9%80%86%E9%80%8F%E8%A7%86/" class="post-nav-link">
+    <a href="/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">逆透视</div>
+        <div class="title-text">【C++学习】运算符</div>
       </div>
       
       <!-- <div class="content">
-        123456789101112131415161718192021222324252627282930313233/**
+        
       </div> -->
     </a>
   </div>
@@ -813,17 +1004,16 @@
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://github.com/tumytime/picx-images-hosting/raw/master/c15f881d72afbc2c902de950de39b3ae.2a50690wah.webp" class="lazyload placeholder" data-srcset="https://github.com/tumytime/picx-images-hosting/raw/master/c15f881d72afbc2c902de950de39b3ae.2a50690wah.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2024/04/25/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%B1%BD%E8%BD%A6%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E4%B8%8E%E7%9B%AE%E6%A0%87%E8%BF%BD%E8%B8%AA/" class="post-nav-link">
+    <a href="/2024/08/09/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91Day1/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">无人驾驶汽车系统入门（一）卡尔曼滤波与目标追踪</div>
+        <div class="title-text">【C++学习】程序基础部分</div>
       </div>
       <!-- <div class="content">
-        卡尔曼滤波教程https://www.kalmanfilter.net/CN/background_cn.html
-
-一
+        基础框架一个基础程序框架：
+123456789101112#include &lt;iostream&gt;using 
       </div> -->
     </a>
   </div>
@@ -1044,7 +1234,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!--  -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E5%9E%8B"><span class="toc-text">整型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#short"><span class="toc-text">short</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E5%B0%8F"><span class="toc-text">大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8C%83%E5%9B%B4"><span class="toc-text">范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%A2%E5%87%BA"><span class="toc-text">溢出</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#int"><span class="toc-text">int</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E5%B0%8F-1"><span class="toc-text">大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8C%83%E5%9B%B4-1"><span class="toc-text">范围</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#long"><span class="toc-text">long</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E5%B0%8F-2"><span class="toc-text">大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8C%83%E5%9B%B4-2"><span class="toc-text">范围</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#long-long"><span class="toc-text">long long</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E5%B0%8F-3"><span class="toc-text">大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8C%83%E5%9B%B4-3"><span class="toc-text">范围</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E5%9E%8B"><span class="toc-text">字符型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#char"><span class="toc-text">char</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E5%B0%8F-4"><span class="toc-text">大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8C%83%E5%9B%B4-4"><span class="toc-text">范围</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wchar-t"><span class="toc-text">wchar_t</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B"><span class="toc-text">布尔类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bool"><span class="toc-text">bool</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="toc-text">浮点类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#float"><span class="toc-text">float</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E5%B0%8F-5"><span class="toc-text">大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E7%A4%BA"><span class="toc-text">表示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#double"><span class="toc-text">double</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%BE%E5%BA%A6"><span class="toc-text">精度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4"><span class="toc-text">表示范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%88%9D%E5%A7%8B%E5%8C%96%E5%80%BC"><span class="toc-text">默认初始化值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#long-double"><span class="toc-text">long double</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9E%8B"><span class="toc-text">字符串型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">C风格字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">C++风格字符串</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1307,59 +1497,6 @@
 		height: 100%;
 	}
 </style>
-
-
-  <script>
-  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://unpkg.com/mathjax@3.0/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    // 文章章节标题不能为 “MathJax” ，否则会报错。
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
 
 
 

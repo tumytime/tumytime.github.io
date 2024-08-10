@@ -23,7 +23,7 @@
 </script>
 
 
-  <title>数据集标注json转xml脚本 | Hello！Welcom to Tumy-Time！</title>
+  <title>【C++学习】运算符 | Hello！Welcom to Tumy-Time！</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -674,39 +674,30 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp')">
+  background-position: center center;position: relative;background-image:url('https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        数据集标注json转xml脚本
+        【C++学习】运算符
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2024-04-26 |
+          <i class="fas fa-calendar"></i> Published in：2024-08-10 |
         </span>
       
 
-      
-        <span class="post-detail-header_categories">
-          <i class="iconfont iconbookmark1"></i> category：
-          
-            <a href="/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/" class="post-detail-header_category">
-              智能车
-            </a>
-          
-        </span>
       
 
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 310 |
+            <i class="fas fa-file-text-o"></i> Words: 0 |
           </span>
   
           <span class="min2read">
@@ -737,30 +728,9 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert_json_to_xml</span>(<span class="params">json_data</span>):</span><br><span class="line">    root = ET.Element(<span class="string">&quot;annotation&quot;</span>)</span><br><span class="line">    filename = ET.SubElement(root, <span class="string">&quot;filename&quot;</span>)</span><br><span class="line">    filename.text = json_data[<span class="string">&quot;imagePath&quot;</span>]</span><br><span class="line">    object_num = ET.SubElement(root, <span class="string">&quot;object_num&quot;</span>)</span><br><span class="line">    object_num.text = <span class="built_in">str</span>(<span class="built_in">len</span>(json_data[<span class="string">&quot;shapes&quot;</span>]))</span><br><span class="line">    size = ET.SubElement(root, <span class="string">&quot;size&quot;</span>)</span><br><span class="line">    width = ET.SubElement(size, <span class="string">&quot;width&quot;</span>)</span><br><span class="line">    width.text = <span class="built_in">str</span>(json_data[<span class="string">&quot;imageWidth&quot;</span>])</span><br><span class="line">    height = ET.SubElement(size, <span class="string">&quot;height&quot;</span>)</span><br><span class="line">    height.text = <span class="built_in">str</span>(json_data[<span class="string">&quot;imageHeight&quot;</span>])</span><br><span class="line">    <span class="keyword">for</span> shape <span class="keyword">in</span> json_data[<span class="string">&quot;shapes&quot;</span>]:</span><br><span class="line">        object_element = ET.SubElement(root, <span class="string">&quot;object&quot;</span>)</span><br><span class="line">        name = ET.SubElement(object_element, <span class="string">&quot;name&quot;</span>)</span><br><span class="line">        name.text = shape[<span class="string">&quot;label&quot;</span>]</span><br><span class="line">        difficult = ET.SubElement(object_element, <span class="string">&quot;difficult&quot;</span>)</span><br><span class="line">        difficult.text = <span class="string">&quot;0&quot;</span></span><br><span class="line">        bndbox = ET.SubElement(object_element, <span class="string">&quot;bndbox&quot;</span>)</span><br><span class="line">        xmin = ET.SubElement(bndbox, <span class="string">&quot;xmin&quot;</span>)</span><br><span class="line">        xmin.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">0</span>][<span class="number">0</span>]))</span><br><span class="line">        ymin = ET.SubElement(bndbox, <span class="string">&quot;ymin&quot;</span>)</span><br><span class="line">        ymin.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">0</span>][<span class="number">1</span>]))</span><br><span class="line">        xmax = ET.SubElement(bndbox, <span class="string">&quot;xmax&quot;</span>)</span><br><span class="line">        xmax.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">1</span>][<span class="number">0</span>]))</span><br><span class="line">        ymax = ET.SubElement(bndbox, <span class="string">&quot;ymax&quot;</span>)</span><br><span class="line">        ymax.text = <span class="built_in">str</span>(<span class="built_in">int</span>(shape[<span class="string">&quot;points&quot;</span>][<span class="number">1</span>][<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">return</span> ET.tostring(root, encoding=<span class="string">&quot;unicode&quot;</span>)</span><br><span class="line">current_dir = os.getcwd()</span><br><span class="line">parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))</span><br><span class="line">output_dir = os.path.join(parent_dir, <span class="string">&quot;xml_output&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(output_dir):</span><br><span class="line">    os.makedirs(output_dir)</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(current_dir):</span><br><span class="line">    <span class="keyword">if</span> file.endswith(<span class="string">&quot;.json&quot;</span>):</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(os.path.join(current_dir, file), <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> json_file:</span><br><span class="line">            json_data = json.load(json_file)</span><br><span class="line">            xml_data = convert_json_to_xml(json_data)</span><br><span class="line">            xml_filename = file.replace(<span class="string">&quot;.json&quot;</span>, <span class="string">&quot;.xml&quot;</span>)</span><br><span class="line">            output_path = os.path.join(output_dir, xml_filename)</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(output_path, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> xml_file:</span><br><span class="line">                xml_file.write(xml_data)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;所有JSON文件已经转换为XML并保存在文件夹 xml_output 中&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+        
       </div>
       <div class="post-tags-categories">
-        
-        <div class="tags">
-          
-            <a href="/tags/AI/" class="">
-              AI
-            </a>
-          
-            <a href="/tags/python/" class="">
-              python
-            </a>
-          
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" class="">
-              数据集
-            </a>
-          
-        </div>
         
       </div>
       
@@ -771,7 +741,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2024/04/26/数据集标注json转xml脚本/" target="_blank" title="数据集标注json转xml脚本">http://tumytime.github.io/2024/04/26/数据集标注json转xml脚本/</a>
+    <a href="/2024/08/10/【C-学习】运算符/" target="_blank" title="【C++学习】运算符">http://tumytime.github.io/2024/08/10/【C-学习】运算符/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -793,16 +763,16 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
-    <a href="/2024/04/27/%E9%80%86%E9%80%8F%E8%A7%86/" class="post-nav-link">
+    <a href="/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%84/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">逆透视</div>
+        <div class="title-text">【C++学习】程序流程结构</div>
       </div>
       
       <!-- <div class="content">
-        123456789101112131415161718192021222324252627282930313233/**
+        
       </div> -->
     </a>
   </div>
@@ -813,17 +783,17 @@
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3ye6mhxpch.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://github.com/tumytime/picx-images-hosting/raw/master/c15f881d72afbc2c902de950de39b3ae.2a50690wah.webp" class="lazyload placeholder" data-srcset="https://github.com/tumytime/picx-images-hosting/raw/master/c15f881d72afbc2c902de950de39b3ae.2a50690wah.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2024/04/25/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E6%B1%BD%E8%BD%A6%E7%B3%BB%E7%BB%9F%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E4%B8%8E%E7%9B%AE%E6%A0%87%E8%BF%BD%E8%B8%AA/" class="post-nav-link">
+    <a href="/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">无人驾驶汽车系统入门（一）卡尔曼滤波与目标追踪</div>
+        <div class="title-text">【C++学习】数据类型</div>
       </div>
       <!-- <div class="content">
-        卡尔曼滤波教程https://www.kalmanfilter.net/CN/background_cn.html
-
-一
+        整型short大小
+16 位（2 字节）
+由于它是整型，所以内存中的布局取决于系统的字节序（大端或小端）。   字节序 
       </div> -->
     </a>
   </div>
@@ -1261,7 +1231,7 @@
 			clearInterval(this.time);
 		},
 		mounted() {
-			let prop = 'https://tumytime.github.io/picx-images-hosting/20240205/9f2685b1e4401ff98ae648edd1cb8866.39vtcqu2gu60.webp' || '';
+			let prop = '' || '';
 			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
 			if (isImg) {
 				let img = prop.split(',');
@@ -1307,59 +1277,6 @@
 		height: 100%;
 	}
 </style>
-
-
-  <script>
-  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://unpkg.com/mathjax@3.0/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    // 文章章节标题不能为 “MathJax” ，否则会报错。
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
 
 
 
