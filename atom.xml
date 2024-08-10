@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2024-08-10T11:20:40.784Z</updated>
+  <updated>2024-08-10T13:28:11.475Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -17,12 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【C++学习】函数</title>
+    <link href="http://tumytime.github.io/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E5%87%BD%E6%95%B0/"/>
+    <id>http://tumytime.github.io/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E5%87%BD%E6%95%B0/</id>
+    <published>2024-08-10T13:28:11.000Z</published>
+    <updated>2024-08-10T13:28:11.475Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>【C++学习】数组</title>
     <link href="http://tumytime.github.io/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E6%95%B0%E7%BB%84/"/>
     <id>http://tumytime.github.io/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E6%95%B0%E7%BB%84/</id>
     <published>2024-08-10T10:52:50.000Z</published>
-    <updated>2024-08-10T11:20:40.784Z</updated>
+    <updated>2024-08-10T13:27:48.221Z</updated>
     
+    <content type="html"><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>数组是一块连续的内存区域，用于存储固定数量的元素</p><ul><li>元素必须是相同的数据类型</li><li>数组的大小在声明时必须是已知的，并且在程序运行期间不可更改。</li></ul><h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><h3 id="定义方式"><a href="#定义方式" class="headerlink" title="定义方式"></a>定义方式</h3><ul><li>int a[10];</li><li>int a[2]&#x3D;{1,2};</li><li>int a[]&#x3D;{1,2};</li></ul><p><strong>数组名不能与变量名重名</strong></p><h3 id="数组名用途"><a href="#数组名用途" class="headerlink" title="数组名用途"></a>数组名用途</h3><ol><li><p>统计整个数组在内存中的长度</p> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">//数组名用途</span></span><br><span class="line"><span class="comment">//1、可以获取整个数组占用内存空间大小</span></span><br><span class="line"><span class="type">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span> &#125;;</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;整个数组所占内存空间为： &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(arr) &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;每个元素所占内存空间为： &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(arr[<span class="number">0</span>]) &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;数组的元素个数为： &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(arr) / <span class="built_in">sizeof</span>(arr[<span class="number">0</span>]) &lt;&lt; endl;</span><br></pre></td></tr></table></figure></li><li><p>获取数组在内存中的首地址</p> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">//2、可以通过数组名获取到数组首地址</span></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;数组首地址为： &quot;</span> &lt;&lt; (<span class="type">int</span>)arr &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;数组中第一个元素地址为： &quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;arr[<span class="number">0</span>] &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;数组中第二个元素地址为： &quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;arr[<span class="number">1</span>] &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">//arr = 100; 错误，数组名是常量，因此不可以赋值</span></span><br></pre></td></tr></table></figure></li></ol><p><strong>数组名是常量，不可以赋值</strong></p><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><h3 id="作用：最常用的排序算法，对数组内元素进行排序"><a href="#作用：最常用的排序算法，对数组内元素进行排序" class="headerlink" title="作用：最常用的排序算法，对数组内元素进行排序"></a><strong>作用：</strong>最常用的排序算法，对数组内元素进行排序</h3><ol><li>比较相邻的元素，如果第一个比第二个大，就交换他们两个</li><li>对每一对相邻元素做相同的工作，执行完毕后，找到第一个最大值</li><li>重复以上的步骤，每次比较次数-1，直到不需要比较</li></ol><h3 id="示例：将数组-4，2，8，0，5，7，1，3，9-进行升序排序"><a href="#示例：将数组-4，2，8，0，5，7，1，3，9-进行升序排序" class="headerlink" title="示例：将数组{4，2，8，0，5，7，1，3，9}进行升序排序"></a><strong>示例</strong>：将数组{4，2，8，0，5，7，1，3，9}进行升序排序</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> arr[<span class="number">9</span>] = &#123;<span class="number">4</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">9</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span><span class="number">-1</span>;i++)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">9</span><span class="number">-1</span>-i;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])[</span><br><span class="line">                <span class="type">int</span> temp=arr[j];</span><br><span class="line">                arr[j]=arr[j+<span class="number">1</span>];</span><br><span class="line">                arr[j+<span class="number">1</span>]=temp;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">        cout&lt;&lt;arr[i]&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    retrun <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a><strong>原理</strong></h3><p>建议打个断点一步步观察一下<br><strong>i的每一步都能保证前i个元素里的最大值被放置在i+1的位置上</strong></p><h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><h3 id="定义方式-1"><a href="#定义方式-1" class="headerlink" title="定义方式"></a>定义方式</h3><p><strong>数据类型 数组名[行数][列数]</strong></p><ol><li>int a[2][3];</li><li>int a[2][3]&#x3D;<br> {<br> {1,2,3},<br> {4,5,6}<br> };</li><li>int a[2][3]&#x3D;{1,2,3,4,5,6};</li><li>int a[][3]&#x3D;{1,2,3,4,5,6};</li></ol><p><strong>在定义二维数组时，如果初始化了数据，可以省略行数</strong></p><h3 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h3><p><strong>二维数组一行大小:</strong><br>sizeod(a[0])</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h2&gt;&lt;p&gt;数组是一块连续的内存区域，用于存储固定数量的元素&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;元素必须是相同的数据类型&lt;/li&gt;
+&lt;li&gt;数组的大小在声明时必</summary>
+      
     
     
     
@@ -517,36 +540,6 @@
     <category term="c语言" scheme="http://tumytime.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
     
     <category term="计算机二级" scheme="http://tumytime.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8C%E7%BA%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>收藏夹</title>
-    <link href="http://tumytime.github.io/2024/03/22/%E6%94%B6%E8%97%8F%E5%A4%B9/"/>
-    <id>http://tumytime.github.io/2024/03/22/%E6%94%B6%E8%97%8F%E5%A4%B9/</id>
-    <published>2024-03-22T11:54:52.000Z</published>
-    <updated>2024-03-25T05:21:58.138Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="AI"><a href="#AI" class="headerlink" title="AI"></a>AI</h2><div class="tagLink"><a class="link-card" title="从头开始实现一个神经网络" href="https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA"><span class="link-card-backdrop" style="background-image: url(https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567)"></span><div class="left"><img src="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-0b63b54fc59d235ad97530a98bc0e014_1440w.webp?source=2c26e567" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">从头开始实现一个神经网络</p><p class="url">https://mp.weixin.qq.com/s/lk12kP2fbuSBSV5lSFKTlA</p></div></a></div><div class="tagLink"><a class="link-card" title="数据处理之归一化、标准化、正则化" href="https://job.yanxishe.com/blogDetail/27604"><span class="link-card-backdrop" style="background-image: url(https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png)"></span><div class="left"><img src="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" class="lazyload placeholder" data-srcset="https://static.leiphone.com/uploads/new/sns/blogSpe/article/202110/616c488c9c69f.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">数据处理之归一化、标准化、正则化</p><p class="url">https://job.yanxishe.com/blogDetail/27604</p></div></a></div><iframe src="//player.bilibili.com/player.html?aid=770444004&bvid=BV18r4y1M71J&cid=760424160&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><iframe src="//player.bilibili.com/player.html?aid=541842600&bvid=BV1yi4y1g7ro&cid=227677652&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><h2 id="图像处理"><a href="#图像处理" class="headerlink" title="图像处理"></a>图像处理</h2><details ><summary pointer> 存一下包版本 </summary>              <div class='content'>              <p>(Paddle_Py3.12) C:\Users\lxcqm&gt;pip list<br>Package                 Version</p><hr><p>absl-py                 2.1.0<br>anyio                   4.3.0<br>archspec                0.2.3<br>astor                   0.8.1<br>astunparse              1.6.3<br>boltons                 23.1.1<br>Brotli                  1.0.9<br>certifi                 2024.2.2<br>cffi                    1.16.0<br>charset-normalizer      3.3.2<br>cloudpickle             3.0.0<br>cmake                   3.28.3<br>colorama                0.4.6<br>conda                   24.1.2<br>conda-libmamba-solver   24.1.0<br>conda-package-handling  2.2.0<br>conda_package_streaming 0.9.0<br>contourpy               1.2.0<br>cycler                  0.11.0<br>Cython                  3.0.9<br>decorator               5.1.1<br>distro                  1.9.0<br>filelock                3.13.1<br>flatbuffers             24.3.7<br>fonttools               4.25.0<br>gast                    0.5.4<br>google-pasta            0.2.0<br>grpcio                  1.62.1<br>gym                     0.26.2<br>gym-notices             0.0.8<br>h11                     0.14.0<br>h5py                    3.10.0<br>httpcore                1.0.4<br>httpx                   0.27.0<br>idna                    3.6<br>Jinja2                  3.1.3<br>joblib                  1.3.2<br>jsonpatch               1.33<br>jsonpointer             2.4<br>keras                   3.1.1<br>kiwisolver              1.4.4<br>libclang                18.1.1<br>libmambapy              1.5.7<br>mamba                   1.5.7<br>Markdown                3.6<br>markdown-it-py          3.0.0<br>MarkupSafe              2.1.5<br>matplotlib              3.8.0<br>mdurl                   0.1.2<br>menuinst                2.0.2<br>meson                   1.3.2<br>mkl-fft                 1.3.8<br>mkl-random              1.2.4<br>mkl-service             2.4.0<br>ml-dtypes               0.3.2<br>mpmath                  1.3.0<br>munkres                 1.1.4<br>namex                   0.0.7<br>nes_py                  8.2.1<br>networkx                3.2.1<br>numpy                   1.26.4<br>opencv-python           4.9.0.80<br>opt-einsum              3.3.0<br>optree                  0.10.0<br>packaging               23.1<br>paddlepaddle-gpu        2.6.0.post120<br>pandas                  2.2.1<br>pillow                  10.2.0<br>pip                     24.0<br>platformdirs            4.2.0<br>pluggy                  1.4.0<br>ply                     3.11<br>protobuf                4.25.2<br>pycocotools             2.0<br>pycosat                 0.6.6<br>pycparser               2.21<br>pyglet                  1.5.21<br>Pygments                2.17.2<br>pyparsing               3.0.9<br>PyQt5                   5.15.10<br>PyQt5-sip               12.13.0<br>PySocks                 1.7.1<br>python-dateutil         2.8.2<br>pytz                    2024.1<br>PyYAML                  6.0.1<br>requests                2.31.0<br>rich                    13.7.1<br>ruamel.yaml             0.18.6<br>ruamel.yaml.clib        0.2.8<br>scipy                   1.12.0<br>setuptools              69.1.1<br>sip                     6.7.12<br>six                     1.16.0<br>sniffio                 1.3.1<br>sympy                   1.12<br>tensorboard             2.16.2<br>tensorboard-data-server 0.7.2<br>tensorflow              2.16.1<br>tensorflow-intel        2.16.1<br>termcolor               2.4.0<br>threadpoolctl           3.3.0<br>torch                   2.2.1<br>torchaudio              2.2.1<br>torchvision             0.17.1<br>tornado                 6.3.3<br>tqdm                    4.66.2<br>truststore              0.8.0<br>typing_extensions       4.10.0<br>tzdata                  2024.1<br>urllib3                 2.2.1<br>Werkzeug                3.0.1<br>wheel                   0.43.0<br>win-inet-pton           1.1.0<br>wrapt                   1.16.0<br>zstandard               0.22.0</p>              </div>            </details>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;AI&quot;&gt;&lt;a href=&quot;#AI&quot; class=&quot;headerlink&quot; title=&quot;AI&quot;&gt;&lt;/a&gt;AI&lt;/h2&gt;&lt;div class=&quot;tagLink&quot;&gt;&lt;a class=&quot;link-card&quot; title=&quot;从头开始实现一个神经网络&quot; href=&quot;http</summary>
-      
-    
-    
-    
-    <category term="智能车" scheme="http://tumytime.github.io/categories/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
-    
-    
-    <category term="Python" scheme="http://tumytime.github.io/tags/Python/"/>
-    
-    <category term="深度学习" scheme="http://tumytime.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="智能车" scheme="http://tumytime.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/"/>
-    
-    <category term="YoloV3" scheme="http://tumytime.github.io/tags/YoloV3/"/>
     
   </entry>
   
