@@ -706,11 +706,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 0 |
+            <i class="fas fa-file-text-o"></i> Words: 1.1k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 1min |
+            <i class="fas fa-clock"></i> Reading time: 4min |
           </span>
   
           
@@ -737,7 +737,64 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        
+        <blockquote>
+<p>C++程序在执行时，将内存大方向划分位4个区域</p>
+<ul>
+<li><strong>代码区:</strong> 存放函数体的二进制代码,由操作系统进行管理的</li>
+<li><strong>全局区:</strong> 存放全局变量和静态变量以及常量</li>
+<li><strong>栈区:</strong> 由编译器自动分配释放,存放函数的参数值,局部变量等</li>
+<li><strong>堆区:</strong> 由程序员分配和释放,若程序员不释放,程序结束时由操作系统回收<br><strong>意义:</strong> 不同区域存放的数据，赋予不同的生命周期，给我们更大的灵活编程</li>
+</ul>
+</blockquote>
+<h2 id="程序运行前"><a href="#程序运行前" class="headerlink" title="程序运行前"></a>程序运行前</h2><p>在程序编译后，生成了exe可执行程序，<strong>未执行该程序前</strong>分为两个区域:</p>
+<h3 id="代码区"><a href="#代码区" class="headerlink" title="代码区"></a>代码区</h3><blockquote>
+<p>存放CPU执行的机器指令</p>
+</blockquote>
+<ul>
+<li>代码区是<strong>共享</strong>的，共享的目的是对于频繁被执行的程序，只需要在内存中有一份代码即可</li>
+<li>代码区是<strong>只读</strong>的，使其只读的原因是防止程序意外地修改了它的指令</li>
+</ul>
+<h3 id="全局区"><a href="#全局区" class="headerlink" title="全局区"></a>全局区</h3><blockquote>
+<p>全局变量、静态变量字符串常量和其他常量存放在此</p>
+</blockquote>
+<blockquote>
+<p>该区域的数据在程序结束后由操作系统释放</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 全局变量</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> g_a = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> g_b = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局常量</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> c_g_a = <span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> c_g_b = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 局部变量</span></span><br><span class="line">	<span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="type">int</span> b = <span class="number">10</span>;</span><br><span class="line">	<span class="comment">// 打印地址</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;局部变量a地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;局部变量b地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;b &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;全局变量g_a地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;g_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;全局变量g_b地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;g_b &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 静态变量</span></span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> s_a = <span class="number">10</span>;</span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> s_b = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;静态变量s_a地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;s_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;静态变量s_b地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;s_b &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;字符串常量地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;<span class="string">&quot;hello world&quot;</span> &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;字符串常量地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;<span class="string">&quot;hello world1&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;全局常量c_g_a地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;c_g_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;全局常量c_g_b地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;c_g_b &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> c_l_a = <span class="number">10</span>;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> c_l_b = <span class="number">10</span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;局部常量c_l_a地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;c_l_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;局部常量c_l_b地址为:&quot;</span> &lt;&lt; (<span class="type">int</span>)&amp;c_l_b &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>x64(64位)：</strong></p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.1zi6igjuin.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.1zi6igjuin.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+
+<p><strong>x86(32位):</strong></p>
+<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.231sg6ei3g.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.231sg6ei3g.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>
+
+<blockquote>
+<p><strong>Q:</strong> 为什么当vs管理器为x64(64位)时，a的地址比b小32，但是管理器改为x86(32位)时，a比b地址大12</p>
+</blockquote>
+<ul>
+<li>x64架构（64位）<ol>
+<li><strong>栈对齐</strong>：x64架构通常要求栈对齐到16字节或32字节边界，以优化性能并满足某些指令集的要求。这可能导致在局部变量之间插入额外的填充（padding）。</li>
+<li><strong>调用约定</strong>：在x64架构下，函数调用时可能需要在栈上保留更多的空间用于寄存器保存区域（callee-saved registers）和其他目的。这可能导致局部变量之间的地址差异大于它们的大小。</li>
+<li><strong>优化</strong>：编译器可能会在64位模式下执行更积极的优化，这可能会影响变量的布局。</li>
+<li><strong>局部变量大小</strong>：即使局部变量是<code>int</code>类型，它们在栈上的布局也可能会受到其他因素的影响，如调用约定、栈对齐等。</li>
+</ol>
+</li>
+</ul>
+<p>在x64架构下，32字节的差异可能是由于编译器在<code>a</code>和<code>b</code>之间插入了对齐填充，或者由于其他局部变量或保留空间的布局。</p>
+<ul>
+<li>x86架构（32位）<ol>
+<li><strong>栈对齐</strong>：x86架构通常要求栈对齐到4字节边界，这意味着局部变量之间的地址差异通常是它们大小的整数倍。</li>
+<li><strong>调用约定</strong>：在x86架构下，函数调用时在栈上保留的空间通常比x64架构少，因此局部变量之间的地址差异可能更小。</li>
+<li><strong>优化</strong>：编译器在32位模式下的优化可能与64位模式不同，这可能会影响变量的布局。<br>  在x86架构下，12字节的差异可能是因为：<ul>
+<li>在<code>a</code>和<code>b</code>之间可能有其他局部变量或对齐填充。</li>
+<li>编译器可能为了保持栈对齐而插入填充。</li>
+<li>由于某些优化，编译器可能改变了局部变量的顺序或布局。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+
       </div>
       <div class="post-tags-categories">
         
@@ -775,6 +832,25 @@
 <div class="post-nav">
 
 
+
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.3nrjfx6xzp.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3nrjfx6xzp.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/2024/08/13/%E6%88%91%E6%98%AF%E4%B8%80%E4%B8%AA%E5%88%86%E7%95%8C%E7%BA%BF/" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> Prev:
+        <div class="title-text">我是一个分界线</div>
+      </div>
+      
+      <!-- <div class="content">
+        
+这几天一直在学c++，但是学着学着容易没劲，发现我不适合那种跟着课按部就班学东西，还是打算那种给一天干完一个任务的模式
+      </div> -->
+    </a>
+  </div>
 
 
 
@@ -1018,7 +1094,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!--  -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E5%89%8D"><span class="toc-text">程序运行前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%8C%BA"><span class="toc-text">代码区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%8C%BA"><span class="toc-text">全局区</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1044,6 +1120,27 @@
       <!-- hash算法 -->
       
       <div class="aside-list">
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/08/13/%E6%88%91%E6%98%AF%E4%B8%80%E4%B8%AA%E5%88%86%E7%95%8C%E7%BA%BF/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/image.3nrjfx6xzp.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.3nrjfx6xzp.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">08-13</span>
+                
+              </div>
+              <a class="post-title" href="/2024/08/13/%E6%88%91%E6%98%AF%E4%B8%80%E4%B8%AA%E5%88%86%E7%95%8C%E7%BA%BF/">我是一个分界线</a>
+            </div>
+          </div>
         
           <div class="aside-list-item">
             
@@ -1126,27 +1223,6 @@
                 
               </div>
               <a class="post-title" href="/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E5%87%BD%E6%95%B0/">【C++学习】函数</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E6%95%B0%E7%BB%84/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/fe33158c2cb4a6bb1aca9fec87343688.5q7bzmgvez.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/fe33158c2cb4a6bb1aca9fec87343688.5q7bzmgvez.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">08-10</span>
-                
-              </div>
-              <a class="post-title" href="/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E6%95%B0%E7%BB%84/">【C++学习】数组</a>
             </div>
           </div>
         
