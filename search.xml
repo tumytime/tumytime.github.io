@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>软件设计师（一）数据的表示</title>
+      <link href="/2024/09/08/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%EF%BC%88%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA/"/>
+      <url>/2024/09/08/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%EF%BC%88%E4%B8%80%EF%BC%89%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA/</url>
+      
+        <content type="html"><![CDATA[<h2 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h2><p>在计算机科学和信息技术中，二进制、十进制和十六进制都是常用的数制系统，它们各自在计算机中扮演着重要的角色。</p><h3 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h3><p><strong>应用：</strong></p><ol><li><strong>数据存储与处理</strong>：计算机的基本工作单位是位（bit），每个位只能是0或1，这就是二进制。所有的数据，包括文本、图片、视频等，在计算机内部都是以二进制的形式存储的。</li><li><strong>逻辑运算</strong>：计算机的CPU进行逻辑运算，如与（AND）、或（OR）、非（NOT）等，都是基于二进制的。</li><li><strong>指令编码</strong>：计算机指令集也是以二进制编码的形式存在，CPU根据这些编码来执行相应的操作。<br><strong>特点：</strong></li></ol><ul><li>简单性：二进制只有两个状态，易于物理实现（例如，通过电路的开关状态）。</li><li>易于逻辑运算：二进制与逻辑代数紧密相关，便于实现逻辑电路。</li></ul><h3 id="十进制"><a href="#十进制" class="headerlink" title="十进制"></a>十进制</h3><p><strong>应用：</strong></p><ol><li><strong>用户界面</strong>：虽然计算机内部使用二进制，但用户与计算机交互时通常使用十进制，因为它更符合人类的日常习惯。</li><li><strong>数据表示</strong>：在表示大量数据时，例如文件大小、内存容量等，通常使用十进制，因为它更容易被用户理解。</li><li><strong>程序设计</strong>：在高级编程语言中，十进制常用于表示整型常量、循环计数等。<br><strong>特点：</strong></li></ol><ul><li>符合人类习惯：十进制基于10的幂次，与人类使用的计数系统相同。</li><li>易于阅读和书写：十进制数的每一位的权重是明确且固定的。</li></ul><h3 id="十六进制"><a href="#十六进制" class="headerlink" title="十六进制"></a>十六进制</h3><p><strong>应用：</strong></p><ol><li><strong>内存地址表示</strong>：在编程中，内存地址常常用十六进制表示，因为它可以更紧凑地表示较大的数值。</li><li><strong>颜色编码</strong>：在网页设计和图形编程中，颜色值经常使用十六进制表示，例如#FFFFFF代表白色。</li><li><strong>数据校验</strong>：在数据通信和存储中，校验和（如CRC）有时使用十六进制表示，便于阅读和校验。<br><strong>特点：</strong></li></ol><ul><li>紧凑性：十六进制使用数字0-9和字母A-F，可以比二进制更紧凑地表示相同的值。</li><li>与二进制的紧密关系：十六进制的一个数字恰好对应二进制的四个位（一个半字节），这使得它成为表示二进制数据的有效方式。</li></ul><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul><li><strong>二进制</strong>是计算机硬件处理数据的基础。</li><li><strong>十进制</strong>是用户与计算机交互时的主要数制。</li><li><strong>十六进制</strong>则作为二进制和十进制之间的桥梁，在需要紧凑表示大量数据时非常有用。<br>这三种数制在计算机中的应用是相辅相成的，各自适用于不同的场景和目的。</li></ul><table><thead><tr><th>进制</th><th>数码</th><th>基数</th><th>位权</th></tr></thead><tbody><tr><td>十进制(D)</td><td>0，1，2，3，4，5，6，7，8，9</td><td>10</td><td>$10^k$</td></tr><tr><td>二进制(B)</td><td>0，1</td><td>2</td><td>$2^k$</td></tr><tr><td>十六进制(H)</td><td>0~9，A,B,C,D,E,F</td><td>16</td><td>$16^k$</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软考 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 软考 </tag>
+            
+            <tag> 计算机 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>任务整理</title>
+      <link href="/2024/09/08/%E4%BB%BB%E5%8A%A1%E6%95%B4%E7%90%86/"/>
+      <url>/2024/09/08/%E4%BB%BB%E5%8A%A1%E6%95%B4%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h2 id="软考"><a href="#软考" class="headerlink" title="软考"></a>软考</h2><blockquote><p>考试内容大概如下:</p><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.4917285z8t.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.4917285z8t.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.9nzpknmnhv.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.9nzpknmnhv.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.lzsehtof.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.lzsehtof.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.5c0wd44l0r.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.5c0wd44l0r.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.7i0ayvwrfi.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.7i0ayvwrfi.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 任务整理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 任务整理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>OpenGL环境配置</title>
       <link href="/2024/09/07/OpenGL%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
       <url>/2024/09/07/OpenGL%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
