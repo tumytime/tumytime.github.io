@@ -706,7 +706,7 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 106 |
+            <i class="fas fa-file-text-o"></i> Words: 403 |
           </span>
   
           <span class="min2read">
@@ -742,6 +742,15 @@
 </blockquote>
 <blockquote>
 <p>本来想在jetson nano上跑一个live2d，但是live2d官方编译好的链接库对于linux只有x86_64的版本，我又没找到怎么重新编译，然后就想到也许live2d在windows的电脑上跑然后和jetson nano主控进行一个交互也许更有意思（例如点击什么的会有灯光特效）就有点像对于一个桌宠有了灯光外设</p>
+</blockquote>
+<blockquote>
+<p>现在的方案是，主控全部使用Jetson Nano，虽然因为机箱的拓展板把所有Jetson Nano的IO口都占了，所以有关检测光照强度的任务就不使用光照传感器了，直接使用opencv检测光照强度，虽然不精准，但是在大的范围，比如说在实验室测试的开关灯，还是可以大致检测出来的。</p>
+</blockquote>
+<blockquote>
+<p>然后就是用QT写界面，现在已经有了一个大致的带滑动转换界面的一个Demo，可以魔改</p>
+</blockquote>
+<blockquote>
+<p>然后人与桌面距离检测的方案就是，AI部分使用Jetson Inferenced的人体关键点检测（主要用到的就是人脸关键点和肩膀位置的关键点），精准距离检测方案就是假设人的眼距是大致相同的（取一个标准值），然后根据鼻子到脖子中间拉的一条线的斜率得出人体相对摄像头的旋转角度，计算出这个旋转角度下人的平面眼距的绝对值，然后和图片里的眼距长度对比，从而判断出人距离摄像头的距离，</p>
 </blockquote>
 <blockquote>
 </blockquote>
@@ -805,9 +814,7 @@
       </div>
       
       <!-- <div class="content">
-        
-
-&#x2F;&#x2F;类的定义class  类名(首字母大写){  public:      公有的数据;  pr
+        类和对象12345678910111213141516171819202122232425262728293031323
       </div> -->
     </a>
   </div>
@@ -1083,6 +1090,48 @@ k-最近邻（k-Nearest Neighbors，k
             
 
             <div class="post-img-box">
+              <a href="/2024/09/30/Linux%E6%8A%A5%E9%94%99%E5%90%88%E9%9B%86/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">09-30</span>
+                
+              </div>
+              <a class="post-title" href="/2024/09/30/Linux%E6%8A%A5%E9%94%99%E5%90%88%E9%9B%86/">Linux报错合集</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2024/09/27/%E7%94%A8OpenCV%E5%86%99UI%E7%95%8C%E9%9D%A2/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">09-27</span>
+                
+              </div>
+              <a class="post-title" href="/2024/09/27/%E7%94%A8OpenCV%E5%86%99UI%E7%95%8C%E9%9D%A2/">用OpenCV写UI界面</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/2024/09/24/%E3%80%90Jetson-Nano%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91py%E7%89%88Jetson-Inference/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
@@ -1137,48 +1186,6 @@ k-最近邻（k-Nearest Neighbors，k
                 
               </div>
               <a class="post-title" href="/2024/09/18/%E6%99%BA%E8%83%BD%E5%8F%B0%E7%81%AF/">智能台灯</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/09/16/%E3%80%90%E6%9D%8E%E9%A3%9E%E9%A3%9E%E7%9A%84AI%E8%AF%BE%E3%80%91Introduction-to-Convolut/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">09-16</span>
-                
-              </div>
-              <a class="post-title" href="/2024/09/16/%E3%80%90%E6%9D%8E%E9%A3%9E%E9%A3%9E%E7%9A%84AI%E8%AF%BE%E3%80%91Introduction-to-Convolut/">【李飞飞的AI课】Introduction to Convolut</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2024/09/16/windows%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%A7%E5%B0%8F%E7%9A%84%E5%91%BD%E4%BB%A4/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">09-16</span>
-                
-              </div>
-              <a class="post-title" href="/2024/09/16/windows%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%A7%E5%B0%8F%E7%9A%84%E5%91%BD%E4%BB%A4/">windows查看当前目录下文件夹大小的命令</a>
             </div>
           </div>
         

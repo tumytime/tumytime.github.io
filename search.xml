@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>Linux报错合集</title>
+      <link href="/2024/09/30/Linux%E6%8A%A5%E9%94%99%E5%90%88%E9%9B%86/"/>
+      <url>/2024/09/30/Linux%E6%8A%A5%E9%94%99%E5%90%88%E9%9B%86/</url>
+      
+        <content type="html"><![CDATA[<h2 id="无法定位软件包"><a href="#无法定位软件包" class="headerlink" title="无法定位软件包"></a>无法定位软件包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository universe</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure><blockquote><p>如果你的默认仓库没有这个软件包，你可能需要添加额外的仓库。例如，对于Ubuntu，你可以添加universe仓库，它通常包含更多的软件包</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>用OpenCV写UI界面</title>
+      <link href="/2024/09/27/%E7%94%A8OpenCV%E5%86%99UI%E7%95%8C%E9%9D%A2/"/>
+      <url>/2024/09/27/%E7%94%A8OpenCV%E5%86%99UI%E7%95%8C%E9%9D%A2/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>之前电赛队友的物理按钮不够了，为了方便快捷，就用了这个，好用，就是运行时间长了可能失效(在树莓派5上当时使用的时候是这样)</p></blockquote><div class="tagLink"><a class="link-card" title="cvui" href="https://fernandobevilacqua.com/cvui/"><span class="link-card-backdrop" style="background-image: url(https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg)"></span><div class="left"><img src="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">cvui</p><p class="url">https://fernandobevilacqua.com/cvui/</p></div></a></div><div class="tagLink"><a class="link-card" title="cvui的github仓库地址" href="https://github.com/Dovyski/cvui/releases/tag/v2.7.0"><span class="link-card-backdrop" style="background-image: url(https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg)"></span><div class="left"><img src="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/1b83b88d3cf497d2d322e0fc1cdc77e.3uusmgziev.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div><div class="right"><p class="text">cvui的github仓库地址</p><p class="url">https://github.com/Dovyski/cvui/releases/tag/v2.7.0</p></div></a></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> Jetson Nano </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> AI </tag>
+            
+            <tag> opencv </tag>
+            
+            <tag> UI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【Jetson-Nano学习笔记】Jetson_Inference</title>
       <link href="/2024/09/24/%E3%80%90Jetson-Nano%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91py%E7%89%88Jetson-Inference/"/>
       <url>/2024/09/24/%E3%80%90Jetson-Nano%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91py%E7%89%88Jetson-Inference/</url>
@@ -37,7 +93,7 @@
       <link href="/2024/09/19/Linux%E5%B5%8C%E5%85%A5%E5%BC%8FQT%E5%BC%80%E5%8F%91/"/>
       <url>/2024/09/19/Linux%E5%B5%8C%E5%85%A5%E5%BC%8FQT%E5%BC%80%E5%8F%91/</url>
       
-        <content type="html"><![CDATA[<blockquote><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.5q7dnh8f86.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.5q7dnh8f86.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><p>&#x2F;&#x2F;类的定义<br>class  类名(首字母大写)<br>{<br>  public:<br>      公有的数据;<br>  protected:<br>      保护的数据;<br>  private:<br>      私有的数据;<br>  };<br>C++通过public、protected、private三个关键字来控制成员变量和成员函数的访问权限，它们分别表示公有的、受保护的、私有的，被称为成员访问限定符。所谓访问权限，就是你能不能使用该类中的成员</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h2 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    string name;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;小狗的名字是:&quot;</span>&lt;&lt;name&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;<span class="string">&quot;年龄是:&quot;</span>&lt;&lt;age&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Dog dog1;</span><br><span class="line"></span><br><span class="line">    dog1.name=<span class="string">&quot;旺财&quot;</span>;</span><br><span class="line">    dog1.age=<span class="number">2</span>;</span><br><span class="line">    dog1.<span class="built_in">run</span>();</span><br><span class="line"></span><br><span class="line">    Dog *dog2 = <span class="keyword">new</span> <span class="built_in">Dog</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">NULL</span> == dog2)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    dog2-&gt;name=<span class="string">&quot;富贵&quot;</span>;</span><br><span class="line">    dog2-&gt;age=<span class="number">1</span>;</span><br><span class="line">    dog2-&gt;<span class="built_in">run</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> dog2;</span><br><span class="line">    dog2=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="栈上创建-dog1"><a href="#栈上创建-dog1" class="headerlink" title="栈上创建 (dog1)"></a>栈上创建 (<code>dog1</code>)</h3><p><strong>解释：</strong></p><ol><li><strong>声明和定义：</strong> <code>Dog dog1;</code> 在栈上声明并定义了一个<code>Dog</code>类型的对象<code>dog1</code>。栈上的对象在定义它的作用域结束时自动销毁。</li><li><strong>成员赋值：</strong> 通过点操作符<code>.</code>，您可以访问和修改<code>dog1</code>对象的公共成员变量<code>name</code>和<code>age</code>。</li><li><strong>调用成员函数：</strong> <code>dog1.run();</code> 调用了<code>dog1</code>对象的<code>run</code>成员函数，输出小狗的名字和年龄。</li><li><strong>生命周期：</strong> 当<code>main</code>函数执行完毕，<code>dog1</code>对象的生命周期结束，它的析构函数（如果有的话）将被调用，释放它所占用的资源。</li></ol><h3 id="堆上创建-dog2"><a href="#堆上创建-dog2" class="headerlink" title="堆上创建 (dog2)"></a>堆上创建 (<code>dog2</code>)</h3><p><strong>解释：</strong></p><ol><li><strong>动态分配：</strong> <code>Dog *dog2 = new Dog();</code> 使用<code>new</code>关键字在堆上动态分配了一个<code>Dog</code>类型的对象，并返回了这个对象的指针。指针<code>dog2</code>存储了对象在内存中的地址。</li><li><strong>成员赋值：</strong> 由于<code>dog2</code>是一个指针，您需要使用箭头操作符<code>-&gt;</code>来访问对象的成员变量。</li><li><strong>调用成员函数：</strong> 同样使用箭头操作符<code>-&gt;</code>来调用<code>dog2</code>指向的对象的成员函数。</li><li><strong>手动管理生命周期：</strong> 在堆上分配的对象不会自动销毁，需要程序员手动管理。使用<code>delete dog2;</code>来释放<code>dog2</code>指向的内存，防止内存泄漏。之后，将<code>dog2</code>设置为<code>NULL</code>是一个好习惯，这样可以避免悬空指针的问题，即避免使用已经释放的内存。</li></ol><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul><li><strong>栈上创建</strong>的对象生命周期由编译器管理，简单且安全，但栈空间有限，不适合创建大量或大对象。</li><li><strong>堆上创建</strong>的对象生命周期由程序员管理，提供了更大的灵活性，但需要手动释放内存，容易出错（如忘记释放或重复释放内存）。<br>两种方式的选择取决于具体的应用场景和性能要求。在大多数情况下，简单的对象可以使用栈分配，而复杂或大量对象则适合使用堆分配。</li></ul>]]></content>
       
       
       
@@ -50,7 +106,7 @@
       <link href="/2024/09/18/%E6%99%BA%E8%83%BD%E5%8F%B0%E7%81%AF/"/>
       <url>/2024/09/18/%E6%99%BA%E8%83%BD%E5%8F%B0%E7%81%AF/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>Jetson Nano引脚图<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.6m3v0bkaa5.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.6m3v0bkaa5.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div></p></blockquote><blockquote><p>本来想在jetson nano上跑一个live2d，但是live2d官方编译好的链接库对于linux只有x86_64的版本，我又没找到怎么重新编译，然后就想到也许live2d在windows的电脑上跑然后和jetson nano主控进行一个交互也许更有意思（例如点击什么的会有灯光特效）就有点像对于一个桌宠有了灯光外设</p></blockquote><blockquote></blockquote>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>Jetson Nano引脚图<div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.6m3v0bkaa5.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.6m3v0bkaa5.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div></p></blockquote><blockquote><p>本来想在jetson nano上跑一个live2d，但是live2d官方编译好的链接库对于linux只有x86_64的版本，我又没找到怎么重新编译，然后就想到也许live2d在windows的电脑上跑然后和jetson nano主控进行一个交互也许更有意思（例如点击什么的会有灯光特效）就有点像对于一个桌宠有了灯光外设</p></blockquote><blockquote><p>现在的方案是，主控全部使用Jetson Nano，虽然因为机箱的拓展板把所有Jetson Nano的IO口都占了，所以有关检测光照强度的任务就不使用光照传感器了，直接使用opencv检测光照强度，虽然不精准，但是在大的范围，比如说在实验室测试的开关灯，还是可以大致检测出来的。</p></blockquote><blockquote><p>然后就是用QT写界面，现在已经有了一个大致的带滑动转换界面的一个Demo，可以魔改</p></blockquote><blockquote><p>然后人与桌面距离检测的方案就是，AI部分使用Jetson Inferenced的人体关键点检测（主要用到的就是人脸关键点和肩膀位置的关键点），精准距离检测方案就是假设人的眼距是大致相同的（取一个标准值），然后根据鼻子到脖子中间拉的一条线的斜率得出人体相对摄像头的旋转角度，计算出这个旋转角度下人的平面眼距的绝对值，然后和图片里的眼距长度对比，从而判断出人距离摄像头的距离，</p></blockquote><blockquote></blockquote>]]></content>
       
       
       <categories>
