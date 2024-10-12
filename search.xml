@@ -4,11 +4,38 @@
   
     
     <entry>
+      <title>计算机网络（一）计算机网络体系结构</title>
+      <link href="/2024/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/"/>
+      <url>/2024/10/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[<h2 id="计算机网络的概念"><a href="#计算机网络的概念" class="headerlink" title="计算机网络的概念"></a>计算机网络的概念</h2><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.32hy7g2b2e.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.32hy7g2b2e.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机 </tag>
+            
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>操作系统（一）操作系统概述</title>
       <link href="/2024/10/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/"/>
       <url>/2024/10/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="基础概述"><a href="#基础概述" class="headerlink" title="基础概述"></a>基础概述</h2><h3 id="功能和目标"><a href="#功能和目标" class="headerlink" title="功能和目标"></a>功能和目标</h3><h4 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h4><ol><li>处理机管理</li><li>存储器管理</li><li>文件管理</li><li>设备管理</li></ol><h4 id="向上层提供服务"><a href="#向上层提供服务" class="headerlink" title="向上层提供服务"></a>向上层提供服务</h4><h5 id="给普通用户用的"><a href="#给普通用户用的" class="headerlink" title="给普通用户用的"></a>给普通用户用的</h5><ol><li>GUI用户图形界面</li><li>命令接口：<ul><li>联机命令接口</li><li>脱机命令接口</li></ul></li></ol><h5 id="给软件-程序员用的"><a href="#给软件-程序员用的" class="headerlink" title="给软件&#x2F;程序员用的"></a>给软件&#x2F;程序员用的</h5><blockquote><p>程序接口，即系统调用</p></blockquote><h4 id="对硬件机器的扩展"><a href="#对硬件机器的扩展" class="headerlink" title="对硬件机器的扩展"></a>对硬件机器的扩展</h4><blockquote><p>扩充机器</p></blockquote><h2 id="操作系统的特征"><a href="#操作系统的特征" class="headerlink" title="操作系统的特征"></a>操作系统的特征</h2><h3 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h3><blockquote><p>指两个或多个事件在同一时间间隔内发生。这些事件宏观上是同时发生的，但微观上是交替发生的。<br><strong>并行：</strong>指两个或多个事件在同一时刻同时发生。</p></blockquote><h4 id="操作系统的并发性"><a href="#操作系统的并发性" class="headerlink" title="操作系统的并发性"></a>操作系统的并发性</h4><p>操作系统的并发性指计算机系统中“同时”运行着多个程序，这些程序宏观上看是同时运行着的，而微观上是交替运行的</p><blockquote><p><strong>单核CPU</strong>同一时刻只能执行一个程序，各个程序只能并发地执行<br><strong>多核CPU</strong>同一时刻可以同时执行多个程序，多个程序可以并行地执行</p></blockquote><h3 id="共享"><a href="#共享" class="headerlink" title="共享"></a>共享</h3><blockquote><p>并非和共享是两个最基本的特征，二者互为存在条件</p></blockquote><blockquote><p>共享即资源共享，是指系统中地资源可供内存中多个并发执行的进程共同使用</p></blockquote><h4 id="两种资源共享方式"><a href="#两种资源共享方式" class="headerlink" title="两种资源共享方式"></a>两种资源共享方式</h4><h5 id="互斥共享方式"><a href="#互斥共享方式" class="headerlink" title="互斥共享方式"></a>互斥共享方式</h5><blockquote><p>系统中的某些资源，虽然可以提供给多个进程使用，但是一个时间段内只允许一个进程访问该资源<br>如使用QQ和微信视频，同一时间段内摄像头只能分配给其中一个进程</p></blockquote><h5 id="同时共享方式"><a href="#同时共享方式" class="headerlink" title="同时共享方式"></a>同时共享方式</h5><blockquote><p>系统中的某些资源，允许一个时间段内由多个进程“同时”对它们进行访问。<br>所谓的同时往往是宏观上的，而在微观上，这些进程可能是交替地对该资源进行访问的（即分时共享）<br>如使用QQ发送文件A，同时使用微信发送文件B。宏观上看，两边都在同时读取并发送文件，说明两个进程都在访问硬盘资源，从中读取数据。微观上看，两个进程是交替着访问硬盘的<br>也可以是真的共享，如扬声器（多个音频播放时）</p></blockquote><blockquote><p>发送文件的例子:</p><ol><li>两个进程正在并发执行（并发性）</li><li>需要共享地访问硬盘资源（共享性）<br>如果失去并发性，则系统中只有一个程序正在运行，则共享性失去存在的意义<br>如果失去共享性，则QQ和微信不能同时访问硬盘资源，就无法实现同时发送文件，也就无法并发</li></ol></blockquote><h3 id="虚拟"><a href="#虚拟" class="headerlink" title="虚拟"></a>虚拟</h3><blockquote><p>虚拟是指把一个物理上的实体变为若干个逻辑上的对应物。物理实体（前者）是实际存在的，而逻辑上对应物（后者）是用户感受到的<br>没有并发性，就谈不上虚拟性</p></blockquote><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.13lrh1z3v2.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.13lrh1z3v2.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.6t73smvhea.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.6t73smvhea.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><h4 id="空分复用技术（如虚拟存储器技术）"><a href="#空分复用技术（如虚拟存储器技术）" class="headerlink" title="空分复用技术（如虚拟存储器技术）"></a>空分复用技术（如虚拟存储器技术）</h4><h4 id="时分复用技术（如虚拟处理器）"><a href="#时分复用技术（如虚拟处理器）" class="headerlink" title="时分复用技术（如虚拟处理器）"></a>时分复用技术（如虚拟处理器）</h4><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><blockquote><p>异步是指，在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而是走走停停，以不可预知的速度向前推进，这就是进程的异步性</p></blockquote><blockquote><p>失去了并发性，系统只能串行地运行各个程序，那么每个程序的执行会一贯到底。只有系统拥有并发性，才有可能导致异步性</p></blockquote><h2 id="操作系统的发展与分类"><a href="#操作系统的发展与分类" class="headerlink" title="操作系统的发展与分类"></a>操作系统的发展与分类</h2><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.2krwitur68.png" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.2krwitur68.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div>]]></content>
       
       
       <categories>
