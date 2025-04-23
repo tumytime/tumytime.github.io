@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任务拖动排序</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+       .container {
+            width: 90%;
+            max-width: 1200px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            animation: fadeIn 0.8s ease-out;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 4rem !important;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ffffff, #ffffff, #ffffff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 400% 400%;
+            animation: gradientText 5s ease infinite, glow 1.5s ease-in-out infinite alternate;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes gradientText {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        h1:hover {
+            transform: scale(1.1) rotate(3deg);
+            animation-play-state: paused;
+        }
+
+        h1:active {
+            transform: scale(0.95);
+        }
+
+       .tasks-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+       .task {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            cursor: grab;
+            user-select: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+            transform-origin: center;
+            position: relative;
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+       .task:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+       .task:active {
+            cursor: grabbing;
+            transform: scale(0.98);
+        }
+
+       .task.dragging {
+            opacity: 0.8;
+            transform: scale(1.02);
+            z-index: 10;
+            animation: none;
+            filter: blur(0);
+        }
+
+       .task.deleting {
+            animation: shrinkAndFade 0.3s ease-out forwards;
+        }
+
+        @keyframes shrinkAndFade {
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(0.2);
+                opacity: 0;
+            }
+        }
+
+       .coordinate-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1.5rem;
+            position: relative;
+        }
+
+       .quadrant {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px dashed rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            padding: 1.5rem;
+            min-height: 250px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+       .quadrant.dragover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.03);
+            border-color: #fff;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1.03);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1.03);
+            }
+        }
+
+       .quadrant.inactive {
+            transform: scale(0.95);
+            opacity: 0.7;
+            filter: blur(2px);
+        }
+
+       .quadrant h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+       .axis-label {
+            position: absolute;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+       .x-axis-label {
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+       .y-axis-label {
+            top: 50%;
+            left: -3.5rem;
+            transform: translateY(-50%) rotate(-90deg);
+        }
+
+       .task-index {
+            margin-right: 0.8rem;
+            font-weight: 700;
+            color: #e73c7e;
+            font-size: 1.2rem;
+        }
+
+       .new-task-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+       .new-task-input {
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+       .new-task-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(35, 213, 171, 0.3);
+        }
+
+       .new-task-button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            background-color: #23d5ab;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+       .new-task-button:hover {
+            background-color: #1da08c;
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+       .new-task-button:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+       .delete-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+       .delete-button:hover {
+            background-color: #c0392b;
+            transform: scale(1.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+       .delete-button:active {
+            transform: scale(0.9);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+       .task:hover .delete-button {
+            display: flex;
+        }
+
+       .empty-message {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.7;
+        }
+
+       .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 100;
+        }
+
+       .toast.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>任务拖动排序</h1>
+        <div class="new-task-container">
+            <input type="text" class="new-task-input" placeholder="输入新任务名称">
+            <button class="new-task-button">创建任务</button>
+        </div>
+        <div class="tasks-container" id="tasks-container">
+            <div class="task" draggable="true" id="lora-upper-computer">
+                <span class="task-index">1.</span>
+                悬停可以删除哦
+                <button class="delete-button"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+        <div class="coordinate-container">
+            <div class="quadrant" id="quadrant-1">
+                <h2>重要且紧急</h2>
+                <p class="empty-message">暂无任务</p>
+            </div>
+            <div class="quadrant" id="quadrant-2">
+                <h2>重要不紧急</h2>
+                <p class="empty-message">暂无任务</p>
+            </div>
+            <div class="quadrant" id="quadrant-3">
+                <h2>不重要但紧急</h2>
+                <p class="empty-message">暂无任务</p>
+            </div>
+            <div class="quadrant" id="quadrant-4">
+                <h2>不重要不紧急</h2>
+                <p class="empty-message">暂无任务</p>
+            </div>
+            <div class="axis-label x-axis-label">紧急程度</div>
+            <div class="axis-label y-axis-label">重要性</div>
+        </div>
+    </div>
+    <div class="toast" id="toast">任务操作成功！</div>
+    <script>
+        const tasks = document.querySelectorAll('.task');
+        const quadrants = document.querySelectorAll('.quadrant');
+        const initialTasksContainer = document.getElementById('tasks-container');
+        const newTaskInput = document.querySelector('.new-task-input');
+        const newTaskButton = document.querySelector('.new-task-button');
+        const toast = document.getElementById('toast');
+
+        tasks.forEach(task => {
+            task.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', e.target.id);
+                e.target.classList.add('dragging');
+                quadrants.forEach(quadrant => {
+                    if (quadrant !== e.target.parentNode) {
+                        quadrant.classList.add('inactive');
+                    }
+                });
+                document.body.classList.add('dragging-active');
+            });
+
+            task.addEventListener('dragend', (e) => {
+                e.target.classList.remove('dragging');
+                quadrants.forEach(quadrant => {
+                    quadrant.classList.remove('inactive');
+                });
+                document.body.classList.remove('dragging-active');
+            });
+
+            const deleteButton = task.querySelector('.delete-button');
+            deleteButton.addEventListener('click', () => {
+                task.classList.add('deleting');
+                setTimeout(() => {
+                    task.remove();
+                    updateTaskIndices(initialTasksContainer);
+                    quadrants.forEach(quadrant => {
+                        updateTaskIndices(quadrant);
+                        toggleEmptyMessage(quadrant);
+                    });
+                    showToast('任务删除成功！');
+                }, 300);
+            });
+        });
+
+        const containers = [...quadrants, initialTasksContainer];
+
+        containers.forEach(container => {
+            container.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                container.classList.add('dragover');
+            });
+
+            container.addEventListener('dragleave', () => {
+                container.classList.remove('dragover');
+            });
+
+            container.addEventListener('drop', (e) => {
+                e.preventDefault();
+                container.classList.remove('dragover');
+                const taskId = e.dataTransfer.getData('text/plain');
+                const task = document.getElementById(taskId);
+                const inputRect = newTaskInput.getBoundingClientRect();
+                const taskRect = task.getBoundingClientRect();
+                const offsetX = taskRect.left - inputRect.left;
+                const offsetY = taskRect.top - inputRect.top;
+                task.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+                setTimeout(() => {
+                    task.style.transform = 'translate(0, 0)';
+                    container.appendChild(task);
+                    updateTaskIndices(container);
+                    quadrants.forEach(quadrant => {
+                        toggleEmptyMessage(quadrant);
+                    });
+                    showToast('任务移动成功！');
+                }, 0);
+            });
+
+            container.addEventListener('dragend', () => {
+                updateTaskIndices(container);
+            });
+        });
+
+        newTaskButton.addEventListener('click', () => {
+            const taskName = newTaskInput.value.trim();
+            if (taskName) {
+                const newTask = document.createElement('div');
+                newTask.classList.add('task');
+                newTask.draggable = true;
+
+                const taskIndex = document.createElement('span');
+                taskIndex.classList.add('task-index');
+                newTask.appendChild(taskIndex);
+
+                const taskText = document.createTextNode(taskName);
+                newTask.appendChild(taskText);
+
+                const deleteButton = document.createElement('button');
+                deleteButton.classList.add('delete-button');
+                deleteButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                newTask.appendChild(deleteButton);
+
+                const taskId = `task-${Date.now()}`;
+                newTask.id = taskId;
+                const inputRect = newTaskInput.getBoundingClientRect();
+                newTask.style.position = 'absolute';
+                newTask.style.left = inputRect.left + 'px';
+                newTask.style.top = inputRect.top + 'px';
+                document.body.appendChild(newTask);
+                setTimeout(() => {
+                    newTask.style.position = 'static';
+                    initialTasksContainer.appendChild(newTask);
+                    updateTaskIndices(initialTasksContainer);
+                    newTaskInput.value = '';
+                    showToast('任务创建成功！');
+                }, 0);
+
+                deleteButton.addEventListener('click', () => {
+                    newTask.classList.add('deleting');
+                    setTimeout(() => {
+                        newTask.remove();
+                        updateTaskIndices(initialTasksContainer);
+                        quadrants.forEach(quadrant => {
+                            updateTaskIndices(quadrant);
+                            toggleEmptyMessage(quadrant);
+                        });
+                        showToast('任务删除成功！');
+                    }, 300);
+                });
+
+                newTask.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', e.target.id);
+                    e.target.classList.add('dragging');
+                    quadrants.forEach(quadrant => {
+                        if (quadrant !== e.target.parentNode) {
+                            quadrant.classList.add('inactive');
+                        }
+                    });
+                    document.body.classList.add('dragging-active');
+                });
+
+                newTask.addEventListener('dragend', (e) => {
+                    e.target.classList.remove('dragging');
+                    quadrants.forEach(quadrant => {
+                        quadrant.classList.remove('inactive');
+                    });
+                    document.body.classList.remove('dragging-active');
+                });
+            }
+        });
+
+        function updateTaskIndices(container) {
+            const tasksInContainer = container.querySelectorAll('.task');
+            tasksInContainer.forEach((task, index) => {
+                const indexElement = task.querySelector('.task-index');
+                indexElement.textContent = `${index + 1}.`;
+            });
+        }
+
+        function toggleEmptyMessage(quadrant) {
+            const tasksInQuadrant = quadrant.querySelectorAll('.task');
+            const emptyMessage = quadrant.querySelector('.empty-message');
+            if (tasksInQuadrant.length === 0) {
+                emptyMessage.style.display = 'block';
+            } else {
+                emptyMessage.style.display = 'none';
+            }
+        }
+
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>    
