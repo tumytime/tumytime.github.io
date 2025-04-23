@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>近期任务安排（大二下）</title>
+      <link href="/2025/04/22/%E8%BF%91%E6%9C%9F%E4%BB%BB%E5%8A%A1%E5%AE%89%E6%8E%92%EF%BC%88%E5%A4%A7%E4%BA%8C%E4%B8%8B%EF%BC%89/"/>
+      <url>/2025/04/22/%E8%BF%91%E6%9C%9F%E4%BB%BB%E5%8A%A1%E5%AE%89%E6%8E%92%EF%BC%88%E5%A4%A7%E4%BA%8C%E4%B8%8B%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<ol><li>lora上位机</li><li>机械臂ov2640</li><li>jetson火焰识别</li><li>智能车线上赛</li><li>智能车上位机视觉算法</li><li>智能车上位机模型训练</li><li>小智上层分析</li><li>专业课复习</li><li>六级单词</li><li>六级真题</li><li>六级听力</li><li>电机作业</li><li>电力工程作业</li><li>电力工程大图</li><li></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 任务整理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 任务整理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++指针</title>
       <link href="/2024/11/16/C-%E6%8C%87%E9%92%88/"/>
       <url>/2024/11/16/C-%E6%8C%87%E9%92%88/</url>
@@ -596,11 +621,11 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> c++ </tag>
             
             <tag> 树莓派 </tag>
-            
-            <tag> Linux </tag>
             
             <tag> live2d </tag>
             
@@ -631,9 +656,9 @@
             
             <tag> 树莓派 </tag>
             
-            <tag> 电赛 </tag>
-            
             <tag> opencv </tag>
+            
+            <tag> 电赛 </tag>
             
             <tag> 机器视觉 </tag>
             
@@ -866,9 +891,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 智能车 </tag>
+            
+            <tag> Python </tag>
             
             <tag> 图像处理 </tag>
             
@@ -897,9 +922,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 智能车 </tag>
+            
+            <tag> Python </tag>
             
             <tag> 图像处理 </tag>
             
@@ -928,9 +953,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 智能车 </tag>
+            
+            <tag> Python </tag>
             
             <tag> 图像处理 </tag>
             
@@ -986,11 +1011,11 @@
       
         <tags>
             
+            <tag> 智能车 </tag>
+            
             <tag> Python </tag>
             
             <tag> 深度学习 </tag>
-            
-            <tag> 智能车 </tag>
             
             <tag> YoloV3 </tag>
             
@@ -1017,11 +1042,11 @@
       
         <tags>
             
+            <tag> 智能车 </tag>
+            
             <tag> Python </tag>
             
             <tag> 深度学习 </tag>
-            
-            <tag> 智能车 </tag>
             
             <tag> YoloV3 </tag>
             
@@ -1048,11 +1073,11 @@
       
         <tags>
             
+            <tag> 智能车 </tag>
+            
             <tag> Python </tag>
             
             <tag> 深度学习 </tag>
-            
-            <tag> 智能车 </tag>
             
         </tags>
       
@@ -1077,11 +1102,11 @@
       
         <tags>
             
+            <tag> 智能车 </tag>
+            
             <tag> Python </tag>
             
             <tag> 深度学习 </tag>
-            
-            <tag> 智能车 </tag>
             
         </tags>
       
@@ -1241,11 +1266,11 @@
       
         <tags>
             
+            <tag> 智能车 </tag>
+            
             <tag> Python </tag>
             
             <tag> 深度学习 </tag>
-            
-            <tag> 智能车 </tag>
             
         </tags>
       
@@ -1270,11 +1295,11 @@
       
         <tags>
             
+            <tag> 智能车 </tag>
+            
             <tag> Python </tag>
             
             <tag> 深度学习 </tag>
-            
-            <tag> 智能车 </tag>
             
             <tag> 考核 </tag>
             
@@ -1301,11 +1326,11 @@
       
         <tags>
             
+            <tag> 智能车 </tag>
+            
             <tag> Python </tag>
             
             <tag> 深度学习 </tag>
-            
-            <tag> 智能车 </tag>
             
         </tags>
       
@@ -1330,11 +1355,11 @@
       
         <tags>
             
+            <tag> 智能车 </tag>
+            
             <tag> Python </tag>
             
             <tag> 深度学习 </tag>
-            
-            <tag> 智能车 </tag>
             
         </tags>
       
@@ -1575,11 +1600,11 @@
       
         <tags>
             
+            <tag> 智能车 </tag>
+            
             <tag> Python </tag>
             
             <tag> 深度学习 </tag>
-            
-            <tag> 智能车 </tag>
             
         </tags>
       
