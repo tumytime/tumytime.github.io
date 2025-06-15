@@ -6,7 +6,7 @@
   <link href="http://tumytime.github.io/atom.xml" rel="self"/>
   
   <link href="http://tumytime.github.io/"/>
-  <updated>2025-04-22T16:27:59.881Z</updated>
+  <updated>2025-05-14T17:07:09.732Z</updated>
   <id>http://tumytime.github.io/</id>
   
   <author>
@@ -17,34 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>近期任务安排（大二下）</title>
-    <link href="http://tumytime.github.io/2025/04/22/%E8%BF%91%E6%9C%9F%E4%BB%BB%E5%8A%A1%E5%AE%89%E6%8E%92%EF%BC%88%E5%A4%A7%E4%BA%8C%E4%B8%8B%EF%BC%89/"/>
-    <id>http://tumytime.github.io/2025/04/22/%E8%BF%91%E6%9C%9F%E4%BB%BB%E5%8A%A1%E5%AE%89%E6%8E%92%EF%BC%88%E5%A4%A7%E4%BA%8C%E4%B8%8B%EF%BC%89/</id>
+    <title>25线上赛分析</title>
+    <link href="http://tumytime.github.io/2025/05/15/25%E7%BA%BF%E4%B8%8A%E8%B5%9B%E5%88%86%E6%9E%90/"/>
+    <id>http://tumytime.github.io/2025/05/15/25%E7%BA%BF%E4%B8%8A%E8%B5%9B%E5%88%86%E6%9E%90/</id>
+    <published>2025-05-14T17:07:09.000Z</published>
+    <updated>2025-05-14T17:07:09.732Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【自动驾驶】局部路径规划-曲线插值法</title>
+    <link href="http://tumytime.github.io/2025/04/22/%E3%80%90%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E3%80%91%E5%B1%80%E9%83%A8%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92-%E6%9B%B2%E7%BA%BF%E6%8F%92%E5%80%BC%E6%B3%95/"/>
+    <id>http://tumytime.github.io/2025/04/22/%E3%80%90%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E3%80%91%E5%B1%80%E9%83%A8%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92-%E6%9B%B2%E7%BA%BF%E6%8F%92%E5%80%BC%E6%B3%95/</id>
     <published>2025-04-22T14:06:39.000Z</published>
-    <updated>2025-04-22T16:27:59.881Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>lora上位机</li><li>机械臂ov2640</li><li>jetson火焰识别</li><li>智能车线上赛</li><li>智能车上位机视觉算法</li><li>智能车上位机模型训练</li><li>小智上层分析</li><li>专业课复习</li><li>六级单词</li><li>六级真题</li><li>六级听力</li><li>电机作业</li><li>电力工程作业</li><li>电力工程大图</li><li></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;lora上位机&lt;/li&gt;
-&lt;li&gt;机械臂ov2640&lt;/li&gt;
-&lt;li&gt;jetson火焰识别&lt;/li&gt;
-&lt;li&gt;智能车线上赛&lt;/li&gt;
-&lt;li&gt;智能车上位机视觉算法&lt;/li&gt;
-&lt;li&gt;智能车上位机模型训练&lt;/li&gt;
-&lt;li&gt;小智上层分析&lt;/li&gt;
-&lt;li&gt;专业课</summary>
-      
+    <updated>2025-06-15T01:45:33.714Z</updated>
     
     
     
-    <category term="任务整理" scheme="http://tumytime.github.io/categories/%E4%BB%BB%E5%8A%A1%E6%95%B4%E7%90%86/"/>
+    
+    <category term="自动驾驶" scheme="http://tumytime.github.io/categories/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/"/>
     
     
-    <category term="任务整理" scheme="http://tumytime.github.io/tags/%E4%BB%BB%E5%8A%A1%E6%95%B4%E7%90%86/"/>
+    <category term="自动驾驶, 自动驾驶路径规划, 曲线插值法" scheme="http://tumytime.github.io/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6-%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92-%E6%9B%B2%E7%BA%BF%E6%8F%92%E5%80%BC%E6%B3%95/"/>
     
   </entry>
   
@@ -529,30 +527,6 @@
 &lt;ul&gt;
 &lt;li&gt;元素必须是相同的数据类型&lt;/li&gt;
 &lt;li&gt;数组的大小在声明时必</summary>
-      
-    
-    
-    
-    <category term="C++" scheme="http://tumytime.github.io/categories/C/"/>
-    
-    
-    <category term="c++" scheme="http://tumytime.github.io/tags/c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【C++学习】程序流程结构</title>
-    <link href="http://tumytime.github.io/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%84/"/>
-    <id>http://tumytime.github.io/2024/08/10/%E3%80%90C-%E5%AD%A6%E4%B9%A0%E3%80%91%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%84/</id>
-    <published>2024-08-10T10:52:38.000Z</published>
-    <updated>2024-08-10T11:20:37.216Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//请给电影评分 </span></span><br><span class="line"><span class="comment">//10 ~ 9   经典   </span></span><br><span class="line"><span class="comment">// 8 ~ 7   非常好</span></span><br><span class="line"><span class="comment">// 6 ~ 5   一般</span></span><br><span class="line"><span class="comment">// 5分以下 烂片</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> score = <span class="number">0</span>;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;请给电影打分&quot;</span> &lt;&lt; endl;</span><br><span class="line">cin &gt;&gt; score;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (score)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line"><span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;经典&quot;</span> &lt;&lt; endl;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;非常好&quot;</span> &lt;&lt; endl;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line"><span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;一般&quot;</span> &lt;&lt; endl;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;烂片&quot;</span> &lt;&lt; endl;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>switch语句中表达式类型只能是整型或者字符型</li><li>case里如果没有break，那么程序会一直向下执行</li></ul><h2 id="do…while循环语句"><a href="#do…while循环语句" class="headerlink" title="do…while循环语句"></a>do…while循环语句</h2><p><strong>注意：</strong>与while的区别在于do…while会先执行一次循环语句，再判断循环条件</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">&#123;</span><br><span class="line">cout &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">num++;</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">while</span> (num &lt; <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><div class="img-wrap"><div class="img-bg"><img class="img lazyload placeholder" src="https://tumytime.github.io/picx-images-hosting/image.4g4et9b8a7.webp" class="lazyload placeholder" data-srcset="https://tumytime.github.io/picx-images-hosting/image.4g4et9b8a7.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"/></div></div><h2 id="continue语句"><a href="#continue语句" class="headerlink" title="continue语句"></a>continue语句</h2><p><strong>作用：</strong>在循环语句中，跳过本次循环中余下尚未执行的语句，继续执行下一次循环</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">continue</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="goto语句"><a href="#goto语句" class="headerlink" title="goto语句"></a>goto语句</h2><p><strong>作用：</strong>可以无条件跳转语句</p><p><strong>解释：</strong>如果标记的名称存在，执行到goto语句时，会跳转到标记的位置</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;1&quot;</span> &lt;&lt; endl;</span><br><span class="line"><span class="keyword">goto</span> FLAG;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;2&quot;</span> &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;3&quot;</span> &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;4&quot;</span> &lt;&lt; endl;</span><br><span class="line">FLAG:</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;5&quot;</span> &lt;&lt; endl;</span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;switch语句&quot;&gt;&lt;a href=&quot;#switch语句&quot; class=&quot;headerlink&quot; title=&quot;switch语句&quot;&gt;&lt;/a&gt;switch语句&lt;/h2&gt;&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas</summary>
       
     
     

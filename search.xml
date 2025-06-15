@@ -4,23 +4,36 @@
   
     
     <entry>
-      <title>近期任务安排（大二下）</title>
-      <link href="/2025/04/22/%E8%BF%91%E6%9C%9F%E4%BB%BB%E5%8A%A1%E5%AE%89%E6%8E%92%EF%BC%88%E5%A4%A7%E4%BA%8C%E4%B8%8B%EF%BC%89/"/>
-      <url>/2025/04/22/%E8%BF%91%E6%9C%9F%E4%BB%BB%E5%8A%A1%E5%AE%89%E6%8E%92%EF%BC%88%E5%A4%A7%E4%BA%8C%E4%B8%8B%EF%BC%89/</url>
+      <title>25线上赛分析</title>
+      <link href="/2025/05/15/25%E7%BA%BF%E4%B8%8A%E8%B5%9B%E5%88%86%E6%9E%90/"/>
+      <url>/2025/05/15/25%E7%BA%BF%E4%B8%8A%E8%B5%9B%E5%88%86%E6%9E%90/</url>
       
-        <content type="html"><![CDATA[<ol><li>lora上位机</li><li>机械臂ov2640</li><li>jetson火焰识别</li><li>智能车线上赛</li><li>智能车上位机视觉算法</li><li>智能车上位机模型训练</li><li>小智上层分析</li><li>专业课复习</li><li>六级单词</li><li>六级真题</li><li>六级听力</li><li>电机作业</li><li>电力工程作业</li><li>电力工程大图</li><li></li></ol>]]></content>
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【自动驾驶】局部路径规划-曲线插值法</title>
+      <link href="/2025/04/22/%E3%80%90%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E3%80%91%E5%B1%80%E9%83%A8%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92-%E6%9B%B2%E7%BA%BF%E6%8F%92%E5%80%BC%E6%B3%95/"/>
+      <url>/2025/04/22/%E3%80%90%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E3%80%91%E5%B1%80%E9%83%A8%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92-%E6%9B%B2%E7%BA%BF%E6%8F%92%E5%80%BC%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
       
       <categories>
           
-          <category> 任务整理 </category>
+          <category> 自动驾驶 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 任务整理 </tag>
+            <tag> 自动驾驶, 自动驾驶路径规划, 曲线插值法 </tag>
             
         </tags>
       
