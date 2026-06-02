@@ -74,6 +74,16 @@
     }).format(date);
   }
 
+  function cacheBustedUrl(value) {
+    const url = new URL(value, window.location.origin);
+    url.searchParams.set("_", String(Date.now()));
+    return url.href;
+  }
+
+  function isLocalEditorHost() {
+    return ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+  }
+
   function hashSeed(value) {
     let hash = 0;
     const text = String(value || "study");
@@ -118,7 +128,7 @@
 
   async function loadNotes() {
     try {
-      const response = await fetch("/study/data/notes.json", { cache: "no-store" });
+      const response = await fetch(cacheBustedUrl("/study/data/notes.json"), { cache: "no-store" });
       if (!response.ok) throw new Error(`notes.json ${response.status}`);
       const data = await response.json();
       return Array.isArray(data.notes) ? data.notes : [];
@@ -634,7 +644,7 @@ $$
   }
 
   async function loadPublishedNote(note) {
-    const response = await fetch(note.url, { cache: "no-store" });
+    const response = await fetch(cacheBustedUrl(note.url), { cache: "no-store" });
     if (!response.ok) throw new Error(`无法读取 ${note.url}`);
     const pageHtml = await response.text();
     const doc = new DOMParser().parseFromString(pageHtml, "text/html");
@@ -794,6 +804,8 @@ $$
       node.removeAttribute("data-rendered");
     });
     $$(".surface-widget", root).forEach((node) => {
+      node.classList.remove("js-plotly-plot");
+      node.removeAttribute("style");
       node.innerHTML = "";
     });
   }
@@ -852,12 +864,23 @@ $$
     return { visual, selection, range };
   }
 
-  function insertHtmlIntoVisual(html) {
+  function rangeAfterCurrentBlock(context) {
+    if (!context) return null;
+    const element = nodeElement(context.range.commonAncestorContainer);
+    const block = element?.closest?.("p, h1, h2, h3, h4, li, blockquote, pre");
+    if (!block || !context.visual.contains(block)) return null;
+    const range = document.createRange();
+    range.setStartAfter(block);
+    range.collapse(true);
+    return range;
+  }
+
+  function insertHtmlIntoVisual(html, options = {}) {
     const context = selectionInsideVisual();
     const visual = $("#visual-editor");
     if (!visual) return;
     visual.focus();
-    const range = context?.range || document.createRange();
+    const range = (options.afterCurrentBlock ? rangeAfterCurrentBlock(context) : null) || context?.range || document.createRange();
     if (!context) {
       range.selectNodeContents(visual);
       range.collapse(false);
@@ -878,13 +901,120 @@ $$
     syncMarkdownFromVisual();
   }
 
-  function insertVisualSnippet(snippet) {
-    insertHtmlIntoVisual(renderMarkdownToHtml(snippet));
+  function insertVisualSnippet(snippet, options = {}) {
+    insertHtmlIntoVisual(renderMarkdownToHtml(snippet), options);
   }
 
   function selectedVisualText() {
     const context = selectionInsideVisual();
     return context ? context.selection.toString().trim() : "";
+  }
+
+  function nodeElement(node) {
+    return node?.nodeType === 1 ? node : node?.parentElement;
+  }
+
+  function blockInsideWidget(element, widget) {
+    const blockTags = new Set(["P", "LI", "DIV", "BLOCKQUOTE", "PRE", "H2", "H3"]);
+    let node = element;
+    while (node && node !== widget) {
+      if (blockTags.has(node.tagName)) return node;
+      node = node.parentElement;
+    }
+    return null;
+  }
+
+  function isBlankEditableBlock(node) {
+    if (!node) return false;
+    if (node.querySelector?.("img, .surface-widget, .study-widget")) return false;
+    return textFromNode(node) === "";
+  }
+
+  function isCaretAtBlockEnd(range, block) {
+    if (!range || !block?.contains(range.startContainer)) return false;
+    const tail = range.cloneRange();
+    tail.selectNodeContents(block);
+    tail.setStart(range.startContainer, range.startOffset);
+    return tail.toString().trim() === "";
+  }
+
+  function isLastTextBlockInWidget(block, widget) {
+    if (!block || !widget) return false;
+    const blocks = $$("p, li, blockquote, pre", widget)
+      .filter((node) => textFromNode(node) || node === block);
+    return blocks[blocks.length - 1] === block;
+  }
+
+  function placeCaretInside(node) {
+    const range = document.createRange();
+    range.selectNodeContents(node);
+    range.collapse(true);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+
+  function insertParagraphAfterWidget(widget) {
+    const paragraph = document.createElement("p");
+    paragraph.innerHTML = "<br>";
+    widget.insertAdjacentElement("afterend", paragraph);
+    placeCaretInside(paragraph);
+  }
+
+  function handleVisualEnter(event) {
+    if (event.key !== "Enter" || event.shiftKey || event.altKey || event.ctrlKey || event.metaKey) return;
+    const context = selectionInsideVisual();
+    if (!context || !context.range.collapsed) return;
+
+    const element = nodeElement(context.range.startContainer);
+    const widget = element?.closest?.(".study-widget");
+    if (!widget || !context.visual.contains(widget)) return;
+
+    const block = blockInsideWidget(element, widget);
+    const exitsAtBlockEnd = ["callout", "theorem"].includes(widget.dataset.widget || "") &&
+      isLastTextBlockInWidget(block, widget) &&
+      isCaretAtBlockEnd(context.range, block);
+    if (!isBlankEditableBlock(block) && !exitsAtBlockEnd) return;
+
+    event.preventDefault();
+    if (isBlankEditableBlock(block)) block.remove();
+    context.visual.focus();
+    insertParagraphAfterWidget(widget);
+    syncMarkdownFromVisual();
+    setStatus("已跳出卡片，可以继续写下一段。");
+  }
+
+  function closeRenderPreview() {
+    const modal = $("#render-preview-modal");
+    const content = $("#render-preview-content");
+    if (!modal) return;
+    modal.hidden = true;
+    modal.setAttribute("aria-hidden", "true");
+    if (content) content.innerHTML = "";
+    $("#visual-editor")?.focus();
+  }
+
+  function openRenderPreview() {
+    const payload = buildPublishPayload();
+    const modal = $("#render-preview-modal");
+    const content = $("#render-preview-content");
+    if (!modal || !content) return;
+
+    const subject = SUBJECTS[payload.metadata.subject] || SUBJECTS.math;
+    content.innerHTML = `
+      <article class="reader-card">
+        <span class="reader-kicker">${escapeHtml(subject.label)}</span>
+        <h1>${escapeHtml(payload.metadata.title)}</h1>
+        <p class="reader-lead">${escapeHtml(payload.metadata.summary)}</p>
+        <p class="reader-date">${formatDate(payload.metadata.date)}</p>
+        <div class="article">${payload.articleHtml}</div>
+      </article>`;
+    modal.hidden = false;
+    modal.setAttribute("aria-hidden", "false");
+    renderMath(content);
+    renderSurfaces(content);
+    $("#close-render-preview")?.focus();
+    setStatus("已打开渲染预览。");
   }
 
   function renderEditorPreview() {
@@ -1006,7 +1136,22 @@ $$
       await populateExistingNotes();
     } catch (error) {
       downloadHtmlPayload(payload);
-      setStatus(`没有连接本地发布服务，已改为下载 HTML：${payload.metadata.slug}-index.html。`);
+      setStatus(isLocalEditorHost()
+        ? `没有连接本地发布服务，已改为下载 HTML：${payload.metadata.slug}-index.html。`
+        : `线上发布服务还没接入，浏览器不能直接写 GitHub；已改为下载 HTML：${payload.metadata.slug}-index.html。`);
+    }
+  }
+
+  async function refreshPublishServiceStatus() {
+    try {
+      const response = await fetch(cacheBustedUrl("/__study_publish/status"), { cache: "no-store" });
+      if (!response.ok) return;
+      const status = await response.json();
+      setStatus(status.pushEnabled ? "发布服务已连接：发布后会自动推送到 GitHub。" : "发布服务已连接：发布后会更新本地文件。");
+    } catch {
+      if (!isLocalEditorHost()) {
+        setStatus("当前是线上静态编辑器：可读取线上笔记；直接发布还需要接入云端发布服务。");
+      }
     }
   }
 
@@ -1054,6 +1199,7 @@ $$
     });
     markdown?.addEventListener("input", syncVisualFromMarkdown);
     markdown?.addEventListener("change", syncVisualFromMarkdown);
+    visual?.addEventListener("keydown", handleVisualEnter);
     visual?.addEventListener("input", syncMarkdownFromVisual);
     visual?.addEventListener("blur", syncMarkdownFromVisual);
     visual?.addEventListener("dragover", (event) => event.preventDefault());
@@ -1077,6 +1223,7 @@ $$
     });
 
     populateExistingNotes();
+    refreshPublishServiceStatus();
     $("#load-existing")?.addEventListener("click", async () => {
       const selectedUrl = $("#existing-note")?.value || "";
       const note = (window.__studyNotes || []).find((item) => item.url === selectedUrl);
@@ -1093,7 +1240,15 @@ $$
     });
     $("#new-note")?.addEventListener("click", newBlankNote);
 
-    $("#insert-model")?.addEventListener("click", () => insertVisualSnippet(currentShortcode()));
+    $("#insert-model")?.addEventListener("click", () => insertVisualSnippet(currentShortcode(), { afterCurrentBlock: true }));
+    $("#render-preview")?.addEventListener("click", openRenderPreview);
+    $("#close-render-preview")?.addEventListener("click", closeRenderPreview);
+    $$("[data-close-render-preview]").forEach((element) => {
+      element.addEventListener("click", closeRenderPreview);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !$("#render-preview-modal")?.hidden) closeRenderPreview();
+    });
     $("#publish-note")?.addEventListener("click", publishNote);
     $("#download-html")?.addEventListener("click", downloadHtml);
     $("#export-html")?.addEventListener("click", exportHtml);
@@ -1111,7 +1266,7 @@ $$
 
     $$(".tool-chip").forEach((tool) => {
       makeSnippetDraggable(tool, () => tool.dataset.snippet || "");
-      tool.addEventListener("click", () => insertVisualSnippet(tool.dataset.snippet || ""));
+      tool.addEventListener("click", () => insertVisualSnippet(tool.dataset.snippet || "", { afterCurrentBlock: true }));
     });
     $$(".format-toolbar [data-format]").forEach((button) => {
       button.addEventListener("click", () => applyFormat(button.dataset.format));

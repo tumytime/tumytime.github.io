@@ -1,13 +1,31 @@
 #!/usr/bin/env node
 import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
+import { execFile } from "node:child_process";
 import http from "node:http";
+import os from "node:os";
 import path from "node:path";
+import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 
 const editorDir = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(editorDir, "../..");
-const portArgIndex = process.argv.findIndex((arg) => arg === "--port");
-const port = Number(process.env.PORT || (portArgIndex >= 0 ? process.argv[portArgIndex + 1] : "") || 8787);
+const execFileAsync = promisify(execFile);
+
+function argValue(flag) {
+  const index = process.argv.findIndex((arg) => arg === flag);
+  return index >= 0 ? process.argv[index + 1] : "";
+}
+
+function hasFlag(flag) {
+  return process.argv.includes(flag);
+}
+
+const port = Number(process.env.PORT || argValue("--port") || 8787);
+const shouldPush = process.env.STUDY_PUBLISH_PUSH === "1" || hasFlag("--push");
+const shouldPull = process.env.STUDY_PUBLISH_PULL === "1" || hasFlag("--pull");
+const gitRemote = process.env.STUDY_PUBLISH_REMOTE || argValue("--remote") || "origin";
+const gitBranch = process.env.STUDY_PUBLISH_BRANCH || argValue("--branch") || "main";
+const sshKey = process.env.STUDY_PUBLISH_SSH_KEY || argValue("--ssh-key") || "";
 
 const mimeTypes = new Map([
   [".css", "text/css;charset=utf-8"],
@@ -36,6 +54,40 @@ function send(response, status, body, contentType = "text/plain;charset=utf-8") 
 
 function sendJson(response, status, payload) {
   send(response, status, JSON.stringify(payload), "application/json;charset=utf-8");
+}
+
+function shellQuote(value) {
+  return `'${String(value).replace(/'/g, "'\\''")}'`;
+}
+
+function expandHome(value) {
+  if (!value) return "";
+  if (value === "~") return os.homedir();
+  if (value.startsWith("~/")) return path.join(os.homedir(), value.slice(2));
+  return value;
+}
+
+async function runGit(args) {
+  const env = { ...process.env };
+  const keyPath = expandHome(sshKey);
+  if (keyPath) {
+    env.GIT_SSH_COMMAND = `ssh -i ${shellQuote(keyPath)} -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new`;
+  }
+  return execFileAsync("git", args, {
+    cwd: siteRoot,
+    env,
+    maxBuffer: 1024 * 1024
+  });
+}
+
+async function hasStagedChanges(paths) {
+  try {
+    await runGit(["diff", "--cached", "--quiet", "--", ...paths]);
+    return false;
+  } catch (error) {
+    if (error.code === 1) return true;
+    throw error;
+  }
 }
 
 async function readJsonBody(request) {
@@ -85,14 +137,20 @@ async function publishNote(request, response, options = {}) {
   if (options.dryRun) {
     sendJson(response, 200, {
       message: `发布服务已连接，${metadata.url} 校验通过。`,
+      pushEnabled: shouldPush,
       metadata
     });
     return;
   }
 
+  if (shouldPull) {
+    await runGit(["pull", "--ff-only", gitRemote, gitBranch]);
+  }
+
   const noteDir = path.join(siteRoot, "study", metadata.subject, metadata.slug);
+  const notePath = path.join(noteDir, "index.html");
   await mkdir(noteDir, { recursive: true });
-  await writeFile(path.join(noteDir, "index.html"), html, "utf8");
+  await writeFile(notePath, html, "utf8");
 
   const notesPath = path.join(siteRoot, "study", "data", "notes.json");
   let notesData = { notes: [] };
@@ -115,8 +173,30 @@ async function publishNote(request, response, options = {}) {
   }
 
   await writeFile(notesPath, `${JSON.stringify(notesData, null, 2)}\n`, "utf8");
+  const publishedFiles = [
+    path.relative(siteRoot, notesPath),
+    path.relative(siteRoot, notePath)
+  ];
+  let pushed = false;
+  let commit = "";
+
+  if (shouldPush) {
+    await runGit(["add", "--", ...publishedFiles]);
+    if (await hasStagedChanges(publishedFiles)) {
+      await runGit(["commit", "-m", `Publish study note: ${metadata.title}`]);
+      const log = await runGit(["rev-parse", "--short", "HEAD"]);
+      commit = log.stdout.trim();
+    }
+    await runGit(["push", gitRemote, gitBranch]);
+    pushed = true;
+  }
+
   sendJson(response, 200, {
-    message: `已发布到 ${metadata.url}，并更新 /study/data/notes.json。`,
+    message: pushed
+      ? `已发布到 ${metadata.url}，并推送到 GitHub。GitHub Pages 通常还要等几十秒到几分钟刷新。`
+      : `已发布到 ${metadata.url}，并更新 /study/data/notes.json。`,
+    pushed,
+    commit,
     metadata
   });
 }
@@ -148,6 +228,16 @@ async function serveStatic(url, response) {
 const server = http.createServer(async (request, response) => {
   const url = new URL(request.url || "/", `http://${request.headers.host || "localhost"}`);
   try {
+    if (request.method === "GET" && url.pathname === "/__study_publish/status") {
+      sendJson(response, 200, {
+        service: "study-editor-publish-server",
+        pushEnabled: shouldPush,
+        pullEnabled: shouldPull,
+        remote: gitRemote,
+        branch: gitBranch
+      });
+      return;
+    }
     if (request.method === "POST" && url.pathname === "/__study_publish") {
       await publishNote(request, response, { dryRun: url.searchParams.get("dryRun") === "1" });
       return;
@@ -164,4 +254,5 @@ const server = http.createServer(async (request, response) => {
 
 server.listen(port, () => {
   console.log(`Study editor server: http://localhost:${port}/study/editor/`);
+  console.log(`Publish push: ${shouldPush ? `enabled (${gitRemote}/${gitBranch})` : "disabled"}`);
 });

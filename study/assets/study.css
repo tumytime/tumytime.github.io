@@ -1084,6 +1084,68 @@ textarea {
   font-weight: 800;
 }
 
+.render-preview-modal[hidden] {
+  display: none;
+}
+
+.render-preview-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.render-preview-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.54);
+  backdrop-filter: blur(10px);
+}
+
+.render-preview-modal__panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: min(980px, 100%);
+  max-height: min(860px, calc(100vh - 48px));
+  border: 1px solid rgba(31, 41, 55, 0.14);
+  border-radius: 24px;
+  background: rgba(248, 242, 231, 0.96);
+  box-shadow: 0 34px 90px rgba(17, 24, 39, 0.34);
+  overflow: hidden;
+}
+
+.render-preview-modal__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(31, 41, 55, 0.1);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.render-preview-modal__bar strong {
+  color: #397d71;
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.render-preview-content {
+  min-height: 0;
+  padding: 22px;
+  overflow: auto;
+}
+
+.render-preview-content .reader-card {
+  width: min(760px, 100%);
+  margin: 0 auto;
+}
+
 @keyframes rise {
   from {
     opacity: 0;
@@ -1186,6 +1248,19 @@ textarea {
   .surface-widget,
   .surface-preview {
     min-height: 340px;
+  }
+
+  .render-preview-modal {
+    padding: 12px;
+  }
+
+  .render-preview-modal__panel {
+    max-height: calc(100vh - 24px);
+    border-radius: 18px;
+  }
+
+  .render-preview-content {
+    padding: 14px;
   }
 
   .tool-grid,
