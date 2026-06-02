@@ -1,6 +1,15 @@
 {
   "notes": [
     {
+      "title": "新的学习笔记",
+      "subject": "math",
+      "summary": "这里写一句话摘要，列表页会显示它。",
+      "date": "2026-06-02",
+      "slug": "new-study-note",
+      "coverSeed": "new-study-note",
+      "url": "/study/math/new-study-note/"
+    },
+    {
       "title": "曲面、极限与直观图像",
       "subject": "math",
       "summary": "用一个可旋转的曲面，把二元函数的局部形状和极限直观联系起来。",
