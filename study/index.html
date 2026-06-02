@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tumy Study | 数学与自动控制笔记</title>
-  <meta name="description" content="Tumy Time 的学习笔记小站，记录数学和自动控制原理的学习过程。">
+  <meta name="description" content="Tumy Study 的数学、自控与笔记编辑入口。">
   <link rel="stylesheet" href="/study/assets/study.css">
 </head>
 <body data-page="home">
@@ -23,69 +23,116 @@
       </div>
     </nav>
 
-    <section class="hero-grid" aria-labelledby="study-title">
-      <div class="hero-panel">
-        <p class="eyebrow">Learning cockpit</p>
-        <h1 class="hero-title" id="study-title">把抽象变成可旋转的直觉。</h1>
-        <p class="hero-lead">
-          这里是我的学习笔记小站。第一版先收纳数学和自动控制原理：公式、图像、反馈、稳定性，以及那些刚开始绕脑但值得记下来的瞬间。
-        </p>
+    <section class="hero-grid hero-grid--studio" aria-labelledby="study-title">
+      <div class="hero-panel hero-panel--studio">
+        <div class="hero-copy">
+          <p class="eyebrow">Study Lab</p>
+          <h1 class="hero-title" id="study-title">Tumy Study</h1>
+          <p class="hero-lead">数学 / 自控 / 编辑区</p>
+        </div>
+
+        <div class="desk-board" aria-hidden="true">
+          <svg class="desk-board__trace" viewBox="0 0 620 320" fill="none">
+            <defs>
+              <linearGradient id="study-trace" x1="112" y1="210" x2="548" y2="90" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#58e6cf"/>
+                <stop offset="0.52" stop-color="#ffb75e"/>
+                <stop offset="1" stop-color="#d7f171"/>
+              </linearGradient>
+            </defs>
+            <path class="desk-board__route" d="M112 210 C202 102 308 102 390 178 S506 238 548 90" stroke="url(#study-trace)"/>
+            <path d="M132 236 H516"/>
+            <path d="M132 236 V62"/>
+          </svg>
+          <div class="desk-node desk-node--math">
+            <span>01</span>
+            <strong>数学</strong>
+            <small>z = f(x, y)</small>
+          </div>
+          <div class="desk-node desk-node--control">
+            <span>02</span>
+            <strong>自控</strong>
+            <small>feedback</small>
+          </div>
+          <div class="desk-node desk-node--editor">
+            <span>03</span>
+            <strong>编辑区</strong>
+            <small>publish</small>
+          </div>
+        </div>
+
         <div class="hero-actions">
-          <a class="study-button" href="/study/math/">进入数学区域</a>
-          <a class="study-button control" href="/study/control/">进入自控区域</a>
-          <a class="study-button editor" href="/study/editor/">进入编辑区</a>
+          <a class="study-button" href="/study/math/">数学</a>
+          <a class="study-button control" href="/study/control/">自控</a>
+          <a class="study-button editor" href="/study/editor/">写笔记</a>
         </div>
       </div>
 
       <div class="course-stack" aria-label="学科入口">
         <a class="course-card course-card--math" href="/study/math/">
-          <div class="course-card__meta">
-            <span>Mathematics</span>
-            <span>z = f(x, y)</span>
+          <div class="course-card__content">
+            <div class="course-card__meta">
+              <span>Mathematics</span>
+              <span>01</span>
+            </div>
+            <h2>数学</h2>
+            <p>极限、曲面、矩阵、推导。</p>
           </div>
-          <h2>数学</h2>
-          <p>用公式、曲面和推导记录分析与代数的学习过程，把“看不见”的结构变成可以观察的图景。</p>
-          <svg class="math-glyph" viewBox="0 0 180 130" aria-hidden="true">
-            <path d="M8 92 C38 18 64 118 92 50 S136 12 172 86"/>
-            <path d="M22 112 H160"/>
-            <path d="M40 104 V32"/>
-            <path d="M64 78 C84 52 104 52 124 78"/>
-          </svg>
+          <div class="course-card__visual">
+            <svg class="math-glyph" viewBox="0 0 220 150" fill="none" aria-hidden="true">
+              <path d="M18 112 C54 26 82 134 118 62 S168 18 204 100"/>
+              <path d="M30 128 H190"/>
+              <path d="M50 120 V30"/>
+              <path d="M72 94 C94 66 124 66 146 94"/>
+              <path d="M72 108 C96 86 130 86 158 108"/>
+            </svg>
+          </div>
         </a>
 
         <a class="course-card course-card--control" href="/study/control/">
-          <div class="course-card__meta">
-            <span>Control Theory</span>
-            <span>feedback loop</span>
+          <div class="course-card__content">
+            <div class="course-card__meta">
+              <span>Control Theory</span>
+              <span>02</span>
+            </div>
+            <h2>自动控制原理</h2>
+            <p>传递函数、反馈环、稳定性。</p>
           </div>
-          <h2>自动控制原理</h2>
-          <p>从传递函数、方框图、反馈环到稳定性分析，记录系统如何响应，也记录我如何理解它。</p>
-          <svg class="control-glyph" viewBox="0 0 180 130" aria-hidden="true">
-            <rect x="22" y="44" width="48" height="34" rx="8"/>
-            <rect x="110" y="44" width="48" height="34" rx="8"/>
-            <path d="M70 61 H110"/>
-            <path d="M158 61 C174 61 174 108 92 108 C38 108 38 78 38 78"/>
-            <circle cx="88" cy="61" r="5"/>
-            <path d="M10 61 H22"/>
-          </svg>
+          <div class="course-card__visual">
+            <svg class="control-glyph" viewBox="0 0 220 150" fill="none" aria-hidden="true">
+              <rect x="26" y="52" width="58" height="40" rx="10"/>
+              <rect x="136" y="52" width="58" height="40" rx="10"/>
+              <path d="M84 72 H136"/>
+              <path d="M194 72 C214 72 214 126 112 126 C46 126 46 92 46 92"/>
+              <circle cx="110" cy="72" r="6"/>
+              <path d="M14 72 H26"/>
+              <path d="M104 58 L116 72 L104 86"/>
+            </svg>
+          </div>
         </a>
 
         <a class="course-card course-card--editor" href="/study/editor/">
-          <div class="course-card__meta">
-            <span>Editor</span>
-            <span>write & publish</span>
+          <div class="course-card__content">
+            <div class="course-card__meta">
+              <span>Editor</span>
+              <span>03</span>
+            </div>
+            <h2>编辑区</h2>
+            <p>新建、载入、预览、发布。</p>
           </div>
-          <h2>编辑区</h2>
-          <p>从主页直接进入笔记撰写工具，新建、载入、预览并发布学习笔记。</p>
-          <svg class="editor-glyph" viewBox="0 0 180 130" aria-hidden="true">
-            <path d="M34 24 H124 L148 48 V106 H34 Z"/>
-            <path d="M124 24 V50 H148"/>
-            <path d="M58 58 H114"/>
-            <path d="M58 76 H122"/>
-            <path d="M58 94 H98"/>
-            <path d="M116 94 L144 66"/>
-            <path d="M136 58 L152 74"/>
-          </svg>
+          <div class="course-card__visual">
+            <svg class="editor-glyph" viewBox="0 0 220 150" fill="none" aria-hidden="true">
+              <path d="M58 24 H136 L168 56 V126 H58 Z"/>
+              <path d="M136 24 V58 H168"/>
+              <path d="M78 66 H134"/>
+              <path d="M78 84 H146"/>
+              <path d="M78 102 H120"/>
+              <path d="M142 110 C164 100 172 86 176 66"/>
+              <path d="M166 70 L178 58 L184 74"/>
+              <path d="M34 112 H58"/>
+              <path d="M44 38 H58"/>
+            </svg>
+          </div>
         </a>
       </div>
     </section>

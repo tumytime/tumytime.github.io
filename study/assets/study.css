@@ -10,8 +10,8 @@
   --math-2: #7aa8ff;
   --control: #ffb75e;
   --control-2: #ff6f91;
-  --editor: #c6f56f;
-  --editor-2: #55d6be;
+  --editor: #d7f171;
+  --editor-2: #5bd6b2;
   --paper: #f8f2e7;
   --paper-ink: #1f2937;
   --paper-muted: #697386;
@@ -39,6 +39,16 @@ body {
     radial-gradient(circle at 86% 10%, rgba(255, 111, 145, 0.2), transparent 28rem),
     linear-gradient(135deg, var(--bg), var(--bg-2) 48%, #111827);
   overflow-x: hidden;
+}
+
+body[data-page="home"] {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 24% 18%, rgba(88, 230, 207, 0.18), transparent 28rem),
+    radial-gradient(circle at 80% 34%, rgba(255, 183, 94, 0.13), transparent 30rem),
+    linear-gradient(135deg, #07111f, #101c2c 54%, #0a1422);
+  background-size: 44px 44px, 44px 44px, auto, auto, auto;
 }
 
 body.study-reader,
@@ -86,7 +96,7 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: clamp(34px, 6vw, 78px);
+  margin-bottom: clamp(28px, 4.5vw, 56px);
   animation: rise 700ms ease both;
 }
 
@@ -156,6 +166,11 @@ textarea {
   align-items: stretch;
 }
 
+.hero-grid--studio {
+  grid-template-columns: minmax(0, 1.06fr) minmax(360px, 0.82fr);
+  gap: 24px;
+}
+
 .hero-panel,
 .course-card,
 .orbital-panel,
@@ -177,6 +192,17 @@ textarea {
   animation: rise 760ms 80ms ease both;
 }
 
+.hero-panel--studio {
+  display: grid;
+  min-height: 626px;
+  grid-template-rows: auto 1fr auto;
+  padding: clamp(26px, 3.6vw, 48px);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.045)),
+    radial-gradient(circle at 78% 70%, rgba(88, 230, 207, 0.16), transparent 21rem);
+}
+
 .hero-panel::before {
   position: absolute;
   inset: 24px;
@@ -184,6 +210,13 @@ textarea {
   border: 1px dashed rgba(255, 255, 255, 0.18);
   border-radius: 26px;
   pointer-events: none;
+}
+
+.hero-panel--studio::before {
+  inset: 18px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.13);
+  border-radius: 14px;
 }
 
 .hero-panel::after {
@@ -198,6 +231,23 @@ textarea {
   opacity: 0.24;
   filter: blur(2px);
   animation: spin 18s linear infinite;
+}
+
+.hero-panel--studio::after {
+  right: 44px;
+  bottom: 72px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgba(88, 230, 207, 0.28);
+  border-radius: 50%;
+  background: conic-gradient(from 40deg, transparent, rgba(88, 230, 207, 0.62), transparent, rgba(255, 183, 94, 0.56), transparent);
+  opacity: 0.5;
+  filter: none;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
 }
 
 .eyebrow {
@@ -231,6 +281,15 @@ textarea {
   letter-spacing: -0.075em;
 }
 
+.hero-panel--studio .hero-title {
+  max-width: 640px;
+  font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: clamp(3.7rem, 7vw, 6.4rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
 .hero-lead {
   position: relative;
   z-index: 1;
@@ -241,6 +300,114 @@ textarea {
   line-height: 1.9;
 }
 
+.hero-panel--studio .hero-lead {
+  width: fit-content;
+  margin-top: 20px;
+  padding: 9px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #d7e5f5;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.desk-board {
+  position: relative;
+  z-index: 1;
+  min-height: 252px;
+  margin: 14px 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 68% 54%, rgba(122, 168, 255, 0.12), transparent 18rem),
+    rgba(5, 13, 25, 0.34);
+  background-size: 28px 28px, 28px 28px, auto, auto;
+  overflow: hidden;
+}
+
+.desk-board::before {
+  position: absolute;
+  inset: 20px;
+  content: "";
+  border: 1px dashed rgba(255, 255, 255, 0.11);
+  border-radius: 10px;
+}
+
+.desk-board__trace {
+  position: absolute;
+  inset: 26px 22px 18px;
+  width: calc(100% - 44px);
+  height: calc(100% - 44px);
+  opacity: 0.76;
+}
+
+.desk-board__trace path {
+  stroke: rgba(216, 231, 255, 0.42);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.desk-node {
+  position: absolute;
+  display: grid;
+  gap: 4px;
+  min-width: 122px;
+  padding: 15px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  background: rgba(9, 19, 33, 0.78);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22);
+}
+
+.desk-node::after {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 9px;
+  height: 9px;
+  content: "";
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 18px currentColor;
+}
+
+.desk-node span,
+.desk-node small {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.desk-node strong {
+  color: var(--ink);
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+.desk-node--math {
+  left: 10%;
+  bottom: 16%;
+  color: var(--math);
+}
+
+.desk-node--control {
+  left: 43%;
+  top: 18%;
+  color: var(--control);
+}
+
+.desk-node--editor {
+  right: 8%;
+  bottom: 20%;
+  color: var(--editor);
+}
+
 .hero-actions {
   position: relative;
   z-index: 1;
@@ -248,6 +415,10 @@ textarea {
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 38px;
+}
+
+.hero-panel--studio .hero-actions {
+  margin-top: 0;
 }
 
 .study-button {
@@ -291,14 +462,19 @@ textarea {
 
 .course-stack {
   display: grid;
-  gap: 22px;
+  align-content: start;
+  gap: 16px;
 }
 
 .course-card {
   position: relative;
-  min-height: 226px;
-  padding: 28px;
-  border-radius: var(--radius-xl);
+  display: grid;
+  min-height: 198px;
+  grid-template-columns: minmax(0, 1fr) 158px;
+  gap: 16px;
+  align-items: center;
+  padding: 24px;
+  border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
@@ -310,7 +486,7 @@ textarea {
 }
 
 .course-card:hover {
-  transform: translateY(-8px) scale(1.01);
+  transform: translateY(-6px);
   border-color: rgba(255, 255, 255, 0.28);
   box-shadow: 0 36px 90px rgba(0, 0, 0, 0.42);
 }
@@ -324,7 +500,7 @@ textarea {
   content: "";
   border-radius: 50%;
   background: radial-gradient(circle, var(--math), transparent 68%);
-  opacity: 0.28;
+  opacity: 0.2;
 }
 
 .course-card--control::after {
@@ -338,7 +514,7 @@ textarea {
 .course-card__meta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 18px;
   color: var(--muted);
   font-weight: 800;
@@ -347,29 +523,59 @@ textarea {
   letter-spacing: 0.12em;
 }
 
+.course-card__meta span:last-child {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+
 .course-card h2 {
-  margin: 30px 0 12px;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1;
-  letter-spacing: -0.055em;
+  margin: 20px 0 10px;
+  font-size: clamp(1.85rem, 3.2vw, 2.8rem);
+  line-height: 1.04;
+  letter-spacing: 0;
 }
 
 .course-card p {
-  max-width: 500px;
+  max-width: 340px;
   margin: 0;
   color: var(--muted);
-  line-height: 1.75;
+  line-height: 1.65;
+  font-weight: 700;
+}
+
+.course-card__content {
+  position: relative;
+  z-index: 1;
+}
+
+.course-card__visual {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  height: 136px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    rgba(2, 8, 18, 0.22);
+  background-size: 18px 18px;
 }
 
 .math-glyph,
 .control-glyph,
 .editor-glyph {
-  position: absolute;
-  right: 24px;
-  top: 68px;
-  width: 170px;
-  height: 120px;
-  opacity: 0.82;
+  width: 100%;
+  max-width: 190px;
+  height: 118px;
+  opacity: 0.9;
 }
 
 .math-glyph path {
@@ -1204,6 +1410,14 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .hero-panel--studio {
+    min-height: 620px;
+  }
+
+  .course-card {
+    grid-template-columns: minmax(0, 1fr) 190px;
+  }
+
   .reader-aside {
     position: static;
   }
@@ -1243,23 +1457,57 @@ textarea {
     border-radius: 26px;
   }
 
+  .hero-panel--studio {
+    gap: 22px;
+    padding: 26px;
+    border-radius: 18px;
+  }
+
   .hero-panel::before {
     inset: 14px;
     border-radius: 20px;
   }
 
   .course-card {
-    min-height: 300px;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .course-card__visual {
+    height: 126px;
   }
 
   .math-glyph,
   .control-glyph,
   .editor-glyph {
-    right: 10px;
-    top: auto;
-    bottom: 10px;
-    width: 132px;
-    opacity: 0.46;
+    max-width: 170px;
+    height: 112px;
+    opacity: 0.72;
+  }
+
+  .desk-board {
+    min-height: 420px;
+    margin: 10px 0;
+  }
+
+  .desk-node {
+    min-width: 112px;
+  }
+
+  .desk-node--math {
+    left: 7%;
+    bottom: 12%;
+  }
+
+  .desk-node--control {
+    left: 30%;
+    top: 16%;
+  }
+
+  .desk-node--editor {
+    right: 6%;
+    bottom: 24%;
   }
 
   .orbital-panel__grid,
