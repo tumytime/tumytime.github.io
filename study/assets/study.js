@@ -21,6 +21,7 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
   let isSyncingVisualEditor = false;
+  let publishServiceStatus = null;
 
   function escapeHtml(value) {
     return String(value || "")
@@ -1119,14 +1120,44 @@ $$
     setStatus(`已下载 ${payload.metadata.slug}-index.html。`);
   }
 
+  function getPublishPassword(force = false) {
+    const stored = window.sessionStorage?.getItem("studyPublishPassword") || "";
+    if (stored && !force) return stored;
+    const password = window.prompt("请输入发布密码");
+    if (password) window.sessionStorage?.setItem("studyPublishPassword", password);
+    return password || "";
+  }
+
+  async function sendPublishRequest(payload, password = "") {
+    const headers = { "Content-Type": "application/json" };
+    if (password) headers["X-Study-Editor-Password"] = password;
+    return fetch("/__study_publish", {
+      method: "POST",
+      headers,
+      body: JSON.stringify(payload)
+    });
+  }
+
   async function publishNote() {
     const payload = buildPublishPayload();
     try {
-      const response = await fetch("/__study_publish", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
+      const needsPassword = publishServiceStatus?.authRequired || !isLocalEditorHost();
+      const password = needsPassword ? getPublishPassword() : "";
+      if (needsPassword && !password) {
+        setStatus("已取消发布。");
+        return;
+      }
+
+      let response = await sendPublishRequest(payload, password);
+      if (response.status === 401 && needsPassword) {
+        window.sessionStorage?.removeItem("studyPublishPassword");
+        const retryPassword = getPublishPassword(true);
+        if (!retryPassword) {
+          setStatus("发布密码不正确，已取消发布。");
+          return;
+        }
+        response = await sendPublishRequest(payload, retryPassword);
+      }
       if (!response.ok) {
         const detail = await response.text();
         throw new Error(detail || `发布服务返回 ${response.status}`);
@@ -1147,7 +1178,12 @@ $$
       const response = await fetch(cacheBustedUrl("/__study_publish/status"), { cache: "no-store" });
       if (!response.ok) return;
       const status = await response.json();
-      setStatus(status.pushEnabled ? "发布服务已连接：发布后会自动推送到 GitHub。" : "发布服务已连接：发布后会更新本地文件。");
+      publishServiceStatus = status;
+      if (status.authRequired) {
+        setStatus("云端发布服务已连接：发布时需要输入发布密码。");
+      } else {
+        setStatus(status.pushEnabled ? "发布服务已连接：发布后会自动推送到 GitHub。" : "发布服务已连接：发布后会更新本地文件。");
+      }
     } catch {
       if (!isLocalEditorHost()) {
         setStatus("当前是线上静态编辑器：可读取线上笔记；直接发布还需要接入云端发布服务。");
