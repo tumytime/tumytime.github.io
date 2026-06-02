@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>写作小岛 | Tumy Time</title>
+  <meta name="description" content="Tumy Time 的二级写作小站，用来存放随笔、计划和正在发生的想法。">
+  <style>
+    :root {
+      --ink: #18212f;
+      --muted: #627085;
+      --paper: #fff9ef;
+      --card: rgba(255, 252, 244, 0.78);
+      --line: rgba(24, 33, 47, 0.12);
+      --green: #2b7a66;
+      --orange: #e98b48;
+      --blue: #3a6ea5;
+      --shadow: 0 24px 70px rgba(24, 33, 47, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      font-family: "Iowan Old Style", "Songti SC", "STSong", Georgia, serif;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(233, 139, 72, 0.26), transparent 28rem),
+        radial-gradient(circle at 86% 10%, rgba(58, 110, 165, 0.22), transparent 25rem),
+        linear-gradient(135deg, #fff4de 0%, #f2eee3 44%, #dce9e2 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      position: fixed;
+      content: "";
+      z-index: 0;
+      border-radius: 999px;
+      pointer-events: none;
+      filter: blur(2px);
+    }
+
+    body::before {
+      width: 26rem;
+      height: 26rem;
+      right: -8rem;
+      bottom: -10rem;
+      background: rgba(43, 122, 102, 0.24);
+      animation: drift 13s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      width: 18rem;
+      height: 18rem;
+      left: -7rem;
+      top: 42%;
+      background: rgba(255, 255, 255, 0.42);
+      animation: drift 16s ease-in-out infinite alternate-reverse;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.34;
+      background-image:
+        linear-gradient(rgba(24, 33, 47, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 33, 47, 0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, #000 0%, transparent 78%);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 2;
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 38px 0 54px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 64px;
+      animation: rise 700ms ease both;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font: 700 0.78rem/1.2 "Avenir Next", "Trebuchet MS", sans-serif;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.48);
+      box-shadow: 0 12px 26px rgba(24, 33, 47, 0.08);
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.44);
+      text-decoration: none;
+      color: var(--muted);
+      font: 700 0.82rem/1 "Avenir Next", "Trebuchet MS", sans-serif;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .home-link:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--ink);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .notice-board,
+    .note-card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-copy {
+      position: relative;
+      min-height: 520px;
+      padding: clamp(28px, 5vw, 58px);
+      border-radius: 42px;
+      overflow: hidden;
+      animation: rise 800ms 80ms ease both;
+    }
+
+    .hero-copy::before {
+      position: absolute;
+      inset: 22px;
+      content: "";
+      border: 1px dashed rgba(24, 33, 47, 0.18);
+      border-radius: 30px;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 24px;
+      color: var(--green);
+      font: 800 0.84rem/1 "Avenir Next", "Trebuchet MS", sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(3.4rem, 9vw, 7.2rem);
+      line-height: 0.9;
+      letter-spacing: -0.075em;
+    }
+
+    .lead {
+      max-width: 640px;
+      margin: 30px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.36rem);
+      line-height: 1.9;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 40px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font: 800 0.92rem/1 "Avenir Next", "Trebuchet MS", sans-serif;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button.primary {
+      color: #fffaf0;
+      background: var(--ink);
+      box-shadow: 0 14px 30px rgba(24, 33, 47, 0.22);
+    }
+
+    .button.secondary {
+      color: var(--ink);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.46);
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 34px rgba(24, 33, 47, 0.16);
+    }
+
+    .side {
+      display: grid;
+      gap: 22px;
+    }
+
+    .notice-board {
+      position: relative;
+      min-height: 290px;
+      padding: 28px;
+      border-radius: 34px;
+      animation: rise 800ms 180ms ease both;
+    }
+
+    .notice-board::before {
+      position: absolute;
+      top: 22px;
+      right: 26px;
+      content: "";
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: conic-gradient(from 190deg, var(--orange), #f6d7a6, var(--blue), var(--green), var(--orange));
+      opacity: 0.74;
+    }
+
+    .notice-board h2,
+    .note-card h3 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .notice-board p,
+    .note-card p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mini-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 0;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font: 700 0.92rem/1.4 "Avenir Next", "Trebuchet MS", sans-serif;
+    }
+
+    .mini-list span {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .note-card {
+      padding: 26px;
+      border-radius: 30px;
+      animation: rise 800ms 260ms ease both;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(43, 122, 102, 0.12);
+      color: var(--green);
+      font: 800 0.72rem/1 "Avenir Next", "Trebuchet MS", sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      margin-top: 36px;
+      color: rgba(24, 33, 47, 0.54);
+      text-align: center;
+      font: 700 0.78rem/1.6 "Avenir Next", "Trebuchet MS", sans-serif;
+      animation: rise 800ms 340ms ease both;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes drift {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(24px, -18px, 0) scale(1.06);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .shell {
+        width: min(100% - 28px, 680px);
+        padding-top: 24px;
+      }
+
+      .nav {
+        margin-bottom: 28px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        min-height: auto;
+        border-radius: 30px;
+      }
+
+      .hero-copy::before {
+        inset: 14px;
+        border-radius: 22px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand {
+        letter-spacing: 0.04em;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <main class="shell">
+    <nav class="nav" aria-label="页面导航">
+      <a class="brand" href="/">
+        <span class="brand-mark">T</span>
+        <span>Tumy Time / Write</span>
+      </a>
+      <a class="home-link" href="/">返回主站</a>
+    </nav>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">A little writing island</p>
+        <h1 id="page-title">写作小岛</h1>
+        <p class="lead">
+          这里先作为一个新的二级小站入口：可以写随笔、放学习笔记、记录想做的东西，也可以慢慢长成一个更自由的个人空间。
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#notes">看看占位内容</a>
+          <a class="button secondary" href="/">回到 Tumy Time</a>
+        </div>
+      </div>
+
+      <aside class="side" aria-label="小站信息">
+        <div class="notice-board">
+          <h2>今天先把门打开</h2>
+          <p>
+            页面已经可以通过二级路径访问。后面我们可以把这里做成文章索引、项目日志、灵感便签，或者一个完全不同风格的小站。
+          </p>
+          <ul class="mini-list">
+            <li>路径 <span>/write/notes/</span></li>
+            <li>状态 <span>可继续扩展</span></li>
+            <li>风格 <span>暖色纸张感</span></li>
+          </ul>
+        </div>
+
+        <div class="note-card">
+          <span class="tag">Next step</span>
+          <h3>下一篇可以写什么？</h3>
+          <p>
+            比如“最近在学什么”“网站改造记录”“一个项目的开始”。只要你给标题，我就能继续帮你加成真实文章页。
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="cards" id="notes" aria-label="占位内容">
+      <article class="note-card">
+        <span class="tag">Memo</span>
+        <h3>灵感暂存</h3>
+        <p>把突然出现的想法先放在这里，不急着整理成完美文章。页面先长出来，内容会慢慢找到自己的形状。</p>
+      </article>
+      <article class="note-card">
+        <span class="tag">Log</span>
+        <h3>网站改造记录</h3>
+        <p>之后每次加功能、换样式、修小 bug，都可以在这里留一笔。小站也会有自己的生长史。</p>
+      </article>
+      <article class="note-card">
+        <span class="tag">Study</span>
+        <h3>学习碎片</h3>
+        <p>不一定要很正式，可以放代码片段、读书摘记、实验结果，甚至只是某天终于想明白的一件小事。</p>
+      </article>
+    </section>
+
+    <p class="footer">Built as a small corner of Tumy Time. More notes are coming.</p>
+  </main>
+</body>
+</html>
