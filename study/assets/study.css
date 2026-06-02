@@ -10,6 +10,8 @@
   --math-2: #7aa8ff;
   --control: #ffb75e;
   --control-2: #ff6f91;
+  --editor: #c6f56f;
+  --editor-2: #55d6be;
   --paper: #f8f2e7;
   --paper-ink: #1f2937;
   --paper-muted: #697386;
@@ -277,6 +279,11 @@ textarea {
   box-shadow: 0 18px 34px rgba(255, 111, 145, 0.18);
 }
 
+.study-button.editor {
+  background: linear-gradient(135deg, var(--editor), var(--editor-2));
+  box-shadow: 0 18px 34px rgba(85, 214, 190, 0.18);
+}
+
 .study-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 22px 42px rgba(88, 230, 207, 0.24);
@@ -289,7 +296,7 @@ textarea {
 
 .course-card {
   position: relative;
-  min-height: 260px;
+  min-height: 226px;
   padding: 28px;
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -324,6 +331,10 @@ textarea {
   background: radial-gradient(circle, var(--control), transparent 68%);
 }
 
+.course-card--editor::after {
+  background: radial-gradient(circle, var(--editor), transparent 68%);
+}
+
 .course-card__meta {
   display: flex;
   align-items: center;
@@ -351,7 +362,8 @@ textarea {
 }
 
 .math-glyph,
-.control-glyph {
+.control-glyph,
+.editor-glyph {
   position: absolute;
   right: 24px;
   top: 68px;
@@ -377,6 +389,15 @@ textarea {
   stroke-linecap: round;
   stroke-linejoin: round;
   filter: drop-shadow(0 0 10px rgba(255, 183, 94, 0.28));
+}
+
+.editor-glyph path {
+  fill: none;
+  stroke: var(--editor);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 10px rgba(198, 245, 111, 0.28));
 }
 
 .orbital-panel {
@@ -1232,7 +1253,8 @@ textarea {
   }
 
   .math-glyph,
-  .control-glyph {
+  .control-glyph,
+  .editor-glyph {
     right: 10px;
     top: auto;
     bottom: 10px;
