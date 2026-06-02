@@ -3,7 +3,7 @@
     {
       "title": "曲面、极限与直观图像",
       "subject": "math",
-      "summary": "用可旋转的二元函数曲面，把多元函数极限和路径观察连接起来。",
+      "summary": "用一个可旋转的曲面，把二元函数的局部形状和极限直观联系起来。",
       "date": "2026-06-02",
       "slug": "limit-surface",
       "coverSeed": "limit-surface",
