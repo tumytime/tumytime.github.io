@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>曲面、极限与直观图像 | 数学 | Tumy Study</title>
+  <meta name="description" content="用可旋转的二元函数曲面，把多元函数极限和路径观察连接起来。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="/study/assets/study.css">
+</head>
+<body class="study-reader" data-page="note">
+  <canvas class="study-canvas" aria-hidden="true"></canvas>
+  <main class="study-shell">
+    <nav class="study-nav" aria-label="页面导航">
+      <a class="study-brand" href="/study/">
+        <span class="study-brand__mark">S</span>
+        <span>Tumy Study</span>
+      </a>
+      <div class="study-nav__links">
+        <a class="study-pill" href="/study/math/">返回数学</a>
+        <a class="study-pill" href="/study/">学习主页</a>
+      </div>
+    </nav>
+
+    <section class="reader-wrap">
+      <article class="reader-card">
+        <span class="reader-kicker">数学</span>
+        <h1>曲面、极限与直观图像</h1>
+        <p class="reader-lead">用可旋转的二元函数曲面，把多元函数极限和路径观察连接起来。</p>
+        <p class="reader-date">2026/06/02</p>
+
+        <div class="article">
+          <h2>从一维图像到二维曲面</h2>
+          <p>
+            一元函数 $y=f(x)$ 的图像是一条曲线，二元函数 $z=f(x,y)$ 的图像则是一张曲面。
+            当我在学习多元函数极限时，最大的困难不是公式本身，而是如何在脑子里看见“从不同方向靠近同一点”。
+          </p>
+          <p>
+            对于二元函数，我们常写：
+          </p>
+          <p>
+            $$
+            \lim_{(x,y)\to(a,b)} f(x,y)=L
+            $$
+          </p>
+          <p>
+            这句话背后的直觉是：无论 $(x,y)$ 从哪条路径靠近 $(a,b)$，曲面的高度都应该靠近同一个 $L$。
+          </p>
+
+          <h2>拖动曲面观察路径</h2>
+          <p>
+            下面这张曲面来自 $z=\sin(x)\cos(y)$。你可以旋转、缩放它，观察曲面在不同方向上的起伏。
+            以后写数学笔记时，类似模型可以直接从编辑器生成并嵌入正文。
+          </p>
+
+          <div class="surface-widget" data-expression="sin(x)*cos(y)" data-range="-6,6" data-title="振荡曲面"></div>
+
+          <h2>这类模型有什么用</h2>
+          <ul>
+            <li>把抽象公式变成可以观察的几何对象。</li>
+            <li>帮助判断某一点附近不同路径的变化趋势。</li>
+            <li>让“极限不存在”的例子不只是代数计算，而是能被看见。</li>
+          </ul>
+
+          <h2>后续想补的内容</h2>
+          <p>
+            下一步可以补一些典型例子，比如 $f(x,y)=\frac{x^2-y^2}{x^2+y^2}$，
+            它沿不同路径靠近原点时会得到不同结果，是理解多元极限路径法的好素材。
+          </p>
+        </div>
+      </article>
+
+      <aside class="reader-aside">
+        <div class="reader-card">
+          <strong>目录</strong>
+          <ul class="toc-list" data-toc></ul>
+        </div>
+        <div class="reader-card">
+          <strong>模型</strong>
+          <p>本页包含一个可交互 Plotly 3D 曲面，可拖拽旋转、滚轮缩放。</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="/study/assets/study.js"></script>
+</body>
+</html>

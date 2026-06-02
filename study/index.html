@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tumy Study | 数学与自动控制笔记</title>
+  <meta name="description" content="Tumy Time 的学习笔记小站，记录数学和自动控制原理的学习过程。">
+  <link rel="stylesheet" href="/study/assets/study.css">
+</head>
+<body data-page="home">
+  <canvas class="study-canvas" aria-hidden="true"></canvas>
+  <main class="study-shell">
+    <nav class="study-nav" aria-label="学习小站导航">
+      <a class="study-brand" href="/study/">
+        <span class="study-brand__mark">S</span>
+        <span>Tumy Study</span>
+      </a>
+      <div class="study-nav__links">
+        <a class="study-pill" href="/study/math/">数学</a>
+        <a class="study-pill" href="/study/control/">自动控制原理</a>
+        <a class="study-pill" href="/">返回主站</a>
+      </div>
+    </nav>
+
+    <section class="hero-grid" aria-labelledby="study-title">
+      <div class="hero-panel">
+        <p class="eyebrow">Learning cockpit</p>
+        <h1 class="hero-title" id="study-title">把抽象变成可旋转的直觉。</h1>
+        <p class="hero-lead">
+          这里是我的学习笔记小站。第一版先收纳数学和自动控制原理：公式、图像、反馈、稳定性，以及那些刚开始绕脑但值得记下来的瞬间。
+        </p>
+        <div class="hero-actions">
+          <a class="study-button" href="/study/math/">进入数学区域</a>
+          <a class="study-button control" href="/study/control/">进入自控区域</a>
+        </div>
+      </div>
+
+      <div class="course-stack" aria-label="学科入口">
+        <a class="course-card course-card--math" href="/study/math/">
+          <div class="course-card__meta">
+            <span>Mathematics</span>
+            <span>z = f(x, y)</span>
+          </div>
+          <h2>数学</h2>
+          <p>用公式、曲面和推导记录分析与代数的学习过程，把“看不见”的结构变成可以观察的图景。</p>
+          <svg class="math-glyph" viewBox="0 0 180 130" aria-hidden="true">
+            <path d="M8 92 C38 18 64 118 92 50 S136 12 172 86"/>
+            <path d="M22 112 H160"/>
+            <path d="M40 104 V32"/>
+            <path d="M64 78 C84 52 104 52 124 78"/>
+          </svg>
+        </a>
+
+        <a class="course-card course-card--control" href="/study/control/">
+          <div class="course-card__meta">
+            <span>Control Theory</span>
+            <span>feedback loop</span>
+          </div>
+          <h2>自动控制原理</h2>
+          <p>从传递函数、方框图、反馈环到稳定性分析，记录系统如何响应，也记录我如何理解它。</p>
+          <svg class="control-glyph" viewBox="0 0 180 130" aria-hidden="true">
+            <rect x="22" y="44" width="48" height="34" rx="8"/>
+            <rect x="110" y="44" width="48" height="34" rx="8"/>
+            <path d="M70 61 H110"/>
+            <path d="M158 61 C174 61 174 108 92 108 C38 108 38 78 38 78"/>
+            <circle cx="88" cy="61" r="5"/>
+            <path d="M10 61 H22"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="orbital-panel" aria-label="学习统计">
+      <div class="orbital-panel__grid">
+        <div class="metric">
+          <strong data-stat="total">0</strong>
+          <span>已收录笔记</span>
+        </div>
+        <div class="metric">
+          <strong data-stat="math">0</strong>
+          <span>数学笔记</span>
+        </div>
+        <div class="metric">
+          <strong data-stat="control">0</strong>
+          <span>自控笔记，最近更新：<span data-stat="latest">加载中</span></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/study/assets/study.js"></script>
+</body>
+</html>

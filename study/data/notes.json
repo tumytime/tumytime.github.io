@@ -1,0 +1,22 @@
+{
+  "notes": [
+    {
+      "title": "曲面、极限与直观图像",
+      "subject": "math",
+      "summary": "用可旋转的二元函数曲面，把多元函数极限和路径观察连接起来。",
+      "date": "2026-06-02",
+      "slug": "limit-surface",
+      "coverSeed": "limit-surface",
+      "url": "/study/math/limit-surface/"
+    },
+    {
+      "title": "反馈系统的第一张地图",
+      "subject": "control",
+      "summary": "从一个简单闭环方框图开始，梳理输入、输出、误差、控制器和被控对象之间的关系。",
+      "date": "2026-06-02",
+      "slug": "feedback-basics",
+      "coverSeed": "feedback-basics",
+      "url": "/study/control/feedback-basics/"
+    }
+  ]
+}

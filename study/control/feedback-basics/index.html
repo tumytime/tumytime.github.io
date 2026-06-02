@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>反馈系统的第一张地图 | 自动控制原理 | Tumy Study</title>
+  <meta name="description" content="从一个简单闭环方框图开始，梳理输入、输出、误差、控制器和被控对象之间的关系。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="/study/assets/study.css">
+</head>
+<body class="study-reader" data-page="note">
+  <canvas class="study-canvas" aria-hidden="true"></canvas>
+  <main class="study-shell">
+    <nav class="study-nav" aria-label="页面导航">
+      <a class="study-brand" href="/study/">
+        <span class="study-brand__mark">S</span>
+        <span>Tumy Study</span>
+      </a>
+      <div class="study-nav__links">
+        <a class="study-pill" href="/study/control/">返回自控</a>
+        <a class="study-pill" href="/study/">学习主页</a>
+      </div>
+    </nav>
+
+    <section class="reader-wrap">
+      <article class="reader-card">
+        <span class="reader-kicker">自动控制原理</span>
+        <h1>反馈系统的第一张地图</h1>
+        <p class="reader-lead">从一个简单闭环方框图开始，梳理输入、输出、误差、控制器和被控对象之间的关系。</p>
+        <p class="reader-date">2026/06/02</p>
+
+        <div class="article">
+          <h2>闭环系统的核心问题</h2>
+          <p>
+            自动控制原理最迷人的地方在于：系统不是单向地“做完就算”，它会观察自己的输出，
+            再把输出和目标进行比较，由误差驱动下一步动作。
+          </p>
+
+          <p>
+            典型单位负反馈系统的闭环传递函数可以写成：
+          </p>
+
+          <p>
+            $$
+            \frac{Y(s)}{R(s)}=\frac{G(s)}{1+G(s)H(s)}
+            $$
+          </p>
+
+          <h2>第一张方框图</h2>
+          <svg viewBox="0 0 900 330" role="img" aria-label="单位负反馈系统方框图" style="width:100%;max-width:900px;border-radius:24px;background:#111827;margin:16px 0 22px;box-shadow:0 18px 44px rgba(17,24,39,.18)">
+            <defs>
+              <linearGradient id="line" x1="0" x2="1">
+                <stop offset="0%" stop-color="#ffb75e"/>
+                <stop offset="100%" stop-color="#ff6f91"/>
+              </linearGradient>
+              <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ffb75e"/>
+              </marker>
+            </defs>
+            <rect x="300" y="104" width="150" height="72" rx="18" fill="rgba(255,255,255,.08)" stroke="url(#line)" stroke-width="3"/>
+            <rect x="560" y="104" width="150" height="72" rx="18" fill="rgba(255,255,255,.08)" stroke="url(#line)" stroke-width="3"/>
+            <circle cx="205" cy="140" r="24" fill="rgba(255,255,255,.08)" stroke="#58e6cf" stroke-width="3"/>
+            <text x="64" y="146" fill="#f8fbff" font-size="25" font-family="Avenir Next, sans-serif">R(s)</text>
+            <text x="194" y="146" fill="#f8fbff" font-size="28" font-family="Avenir Next, sans-serif">Σ</text>
+            <text x="348" y="147" fill="#f8fbff" font-size="25" font-family="Avenir Next, sans-serif">C(s)</text>
+            <text x="606" y="147" fill="#f8fbff" font-size="25" font-family="Avenir Next, sans-serif">G(s)</text>
+            <text x="782" y="146" fill="#f8fbff" font-size="25" font-family="Avenir Next, sans-serif">Y(s)</text>
+            <path d="M106 140 H181" stroke="#58e6cf" stroke-width="4" marker-end="url(#arrow)"/>
+            <path d="M229 140 H300" stroke="#ffb75e" stroke-width="4" marker-end="url(#arrow)"/>
+            <path d="M450 140 H560" stroke="#ffb75e" stroke-width="4" marker-end="url(#arrow)"/>
+            <path d="M710 140 H820" stroke="#ffb75e" stroke-width="4" marker-end="url(#arrow)"/>
+            <path d="M760 140 V260 H205 V166" fill="none" stroke="#58e6cf" stroke-width="4" marker-end="url(#arrow)"/>
+            <text x="185" y="104" fill="#58e6cf" font-size="28" font-family="Avenir Next, sans-serif">+</text>
+            <text x="176" y="195" fill="#58e6cf" font-size="34" font-family="Avenir Next, sans-serif">−</text>
+            <text x="420" y="282" fill="#a9b8d0" font-size="22" font-family="Avenir Next, sans-serif">feedback path H(s)</text>
+          </svg>
+
+          <h2>先记住三件事</h2>
+          <ul>
+            <li>$R(s)$ 是期望输入，$Y(s)$ 是系统输出。</li>
+            <li>比较环节产生误差，控制器根据误差行动。</li>
+            <li>反馈会改变系统响应，也会带来稳定性分析问题。</li>
+          </ul>
+
+          <h2>接下来要继续追的问题</h2>
+          <p>
+            下一篇可以继续写“为什么分母里的 $1+G(s)H(s)$ 决定闭环极点”，
+            也就是稳定性为什么会和特征方程联系起来。
+          </p>
+        </div>
+      </article>
+
+      <aside class="reader-aside">
+        <div class="reader-card">
+          <strong>目录</strong>
+          <ul class="toc-list" data-toc></ul>
+        </div>
+        <div class="reader-card">
+          <strong>后续 v2</strong>
+          <p>可以继续给自控区域加阶跃响应、Bode 图和 Nyquist 图生成器。</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="/study/assets/study.js"></script>
+</body>
+</html>
