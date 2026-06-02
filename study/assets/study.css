@@ -811,6 +811,28 @@ textarea {
   letter-spacing: -0.04em;
 }
 
+.quick-tools-card {
+  margin: 18px 0;
+  border-color: rgba(57, 125, 113, 0.28);
+  background:
+    linear-gradient(135deg, rgba(88, 230, 207, 0.16), rgba(255, 255, 255, 0.74)),
+    rgba(255, 255, 255, 0.62);
+  box-shadow: 0 20px 54px rgba(57, 125, 113, 0.16);
+}
+
+.quick-tools-card h2::after {
+  display: inline-flex;
+  margin-left: 10px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(57, 125, 113, 0.12);
+  color: #397d71;
+  content: "选中正文后点这里";
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+
 .field {
   display: grid;
   gap: 8px;
@@ -1011,6 +1033,14 @@ textarea {
 
   .note-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 981px) {
+  .quick-tools-card {
+    position: sticky;
+    top: 14px;
+    z-index: 4;
   }
 }
 

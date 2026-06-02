@@ -30,6 +30,47 @@
           用 Markdown 写正文，公式用 <code>$...$</code> 或 <code>$$...$$</code>。3D 曲面可以拖进正文，也可以点击插入。
         </p>
 
+        <div class="editor-card quick-tools-card">
+          <h2>快速编辑工具栏</h2>
+          <p>先在正文里选中一段文字，再点按钮，就能把它变成提示、定理、证明、双栏等区域；模块卡也可以直接点击或拖进正文。</p>
+          <div class="format-toolbar" aria-label="选区格式化工具">
+            <button type="button" data-format="h2">小节标题</button>
+            <button type="button" data-format="h3">三级标题</button>
+            <button type="button" data-format="bold">加粗</button>
+            <button type="button" data-format="latex">公式区</button>
+            <button type="button" data-format="callout">提示卡片</button>
+            <button type="button" data-format="theorem">定理卡片</button>
+            <button type="button" data-format="proof">证明区域</button>
+            <button type="button" data-format="twocol">双栏比较</button>
+          </div>
+          <div class="tool-grid" aria-label="可拖拽笔记模块">
+            <div class="tool-chip" draggable="true" data-snippet="[[callout:type=idea;title=灵感]]&#10;这里写突然想到的关键观察。&#10;[[/callout]]">
+              <strong>灵感卡</strong>
+              <span>适合记录突然想通的点</span>
+            </div>
+            <div class="tool-chip" draggable="true" data-snippet="[[theorem:title=定理名称]]&#10;这里写定理内容。&#10;[[/theorem]]">
+              <strong>定理</strong>
+              <span>醒目展示定义/定理</span>
+            </div>
+            <div class="tool-chip" draggable="true" data-snippet="[[proof:title=证明思路]]&#10;1. 先写条件。&#10;2. 再写推导。&#10;[[/proof]]">
+              <strong>证明</strong>
+              <span>给推导一个独立区域</span>
+            </div>
+            <div class="tool-chip" draggable="true" data-snippet="[[flashcard:front=这个概念的核心问题是什么？;back=这里写答案。]]">
+              <strong>问答卡</strong>
+              <span>复习时很好用</span>
+            </div>
+            <div class="tool-chip" draggable="true" data-snippet="[[image:src=/study/assets/note-placeholder.svg;caption=这里写图片说明]]">
+              <strong>配图</strong>
+              <span>插入图片和说明</span>
+            </div>
+            <div class="tool-chip" draggable="true" data-snippet="[[twocol:title=对比]]&#10;左侧写概念 A。&#10;[[column]]&#10;右侧写概念 B。&#10;[[/twocol]]">
+              <strong>双栏</strong>
+              <span>适合做公式/直觉对照</span>
+            </div>
+          </div>
+        </div>
+
         <div class="editor-card" style="box-shadow:none;margin:18px 0;background:rgba(255,255,255,0.46)">
           <h2>编辑已有笔记</h2>
           <p>从已发布列表中载入笔记。以后由本编辑器导出的页面会保留 Markdown 源数据，可以无损再编辑。</p>
@@ -100,47 +141,6 @@
             <button class="study-button" id="insert-model" type="button">插入模型块</button>
           </div>
           <div id="model-preview" class="surface-preview"></div>
-        </div>
-
-        <div class="editor-card" style="box-shadow:none;margin:18px 0;background:rgba(255,255,255,0.46)">
-          <h2>选区改造和模块库</h2>
-          <p>先在正文里选中一段，再点按钮，就能把它变成提示、定理、证明、双栏等区域。下面的小模块也可以直接拖进正文。</p>
-          <div class="format-toolbar" aria-label="选区格式化工具">
-            <button type="button" data-format="h2">小节标题</button>
-            <button type="button" data-format="h3">三级标题</button>
-            <button type="button" data-format="bold">加粗</button>
-            <button type="button" data-format="latex">公式区</button>
-            <button type="button" data-format="callout">提示卡片</button>
-            <button type="button" data-format="theorem">定理卡片</button>
-            <button type="button" data-format="proof">证明区域</button>
-            <button type="button" data-format="twocol">双栏比较</button>
-          </div>
-          <div class="tool-grid" aria-label="可拖拽笔记模块">
-            <div class="tool-chip" draggable="true" data-snippet="[[callout:type=idea;title=灵感]]&#10;这里写突然想到的关键观察。&#10;[[/callout]]">
-              <strong>灵感卡</strong>
-              <span>适合记录突然想通的点</span>
-            </div>
-            <div class="tool-chip" draggable="true" data-snippet="[[theorem:title=定理名称]]&#10;这里写定理内容。&#10;[[/theorem]]">
-              <strong>定理</strong>
-              <span>醒目展示定义/定理</span>
-            </div>
-            <div class="tool-chip" draggable="true" data-snippet="[[proof:title=证明思路]]&#10;1. 先写条件。&#10;2. 再写推导。&#10;[[/proof]]">
-              <strong>证明</strong>
-              <span>给推导一个独立区域</span>
-            </div>
-            <div class="tool-chip" draggable="true" data-snippet="[[flashcard:front=这个概念的核心问题是什么？;back=这里写答案。]]">
-              <strong>问答卡</strong>
-              <span>复习时很好用</span>
-            </div>
-            <div class="tool-chip" draggable="true" data-snippet="[[image:src=/study/assets/note-placeholder.svg;caption=这里写图片说明]]">
-              <strong>配图</strong>
-              <span>插入图片和说明</span>
-            </div>
-            <div class="tool-chip" draggable="true" data-snippet="[[twocol:title=对比]]&#10;左侧写概念 A。&#10;[[column]]&#10;右侧写概念 B。&#10;[[/twocol]]">
-              <strong>双栏</strong>
-              <span>适合做公式/直觉对照</span>
-            </div>
-          </div>
         </div>
 
         <div class="field">
