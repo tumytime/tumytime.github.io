@@ -20,6 +20,7 @@
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+  const CLOUD_PUBLISH_ENDPOINT = "https://tumy-study-publisher.quantumy478-72d.workers.dev";
   let isSyncingVisualEditor = false;
   let publishServiceStatus = null;
 
@@ -83,6 +84,11 @@
 
   function isLocalEditorHost() {
     return ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+  }
+
+  function publishApiUrl(path) {
+    const base = isLocalEditorHost() ? window.location.origin : CLOUD_PUBLISH_ENDPOINT;
+    return `${base}${path}`;
   }
 
   function hashSeed(value) {
@@ -1131,7 +1137,7 @@ $$
   async function sendPublishRequest(payload, password = "") {
     const headers = { "Content-Type": "application/json" };
     if (password) headers["X-Study-Editor-Password"] = password;
-    return fetch("/__study_publish", {
+    return fetch(publishApiUrl("/__study_publish"), {
       method: "POST",
       headers,
       body: JSON.stringify(payload)
@@ -1175,7 +1181,7 @@ $$
 
   async function refreshPublishServiceStatus() {
     try {
-      const response = await fetch(cacheBustedUrl("/__study_publish/status"), { cache: "no-store" });
+      const response = await fetch(cacheBustedUrl(publishApiUrl("/__study_publish/status")), { cache: "no-store" });
       if (!response.ok) return;
       const status = await response.json();
       publishServiceStatus = status;
