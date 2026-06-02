@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>笔记撰写工具 | Tumy Study</title>
-  <meta name="description" content="Tumy Study 的隐藏笔记撰写工具，可写 Markdown、预览 LaTeX 并生成交互式 3D 曲面。">
+  <meta name="description" content="Tumy Study 的隐藏笔记撰写工具，可以直接编辑正文并发布学习笔记。">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <link rel="stylesheet" href="/study/assets/study.css">
 </head>
@@ -23,57 +23,16 @@
       </div>
     </nav>
 
-    <section class="editor-layout" aria-label="笔记撰写工具">
-      <div class="editor-card">
+    <section class="editor-layout editor-layout--workbench" aria-label="笔记撰写工具">
+      <aside class="editor-card editor-sidebar">
         <h1>写一篇新笔记</h1>
         <p>
-          用 Markdown 写正文，公式用 <code>$...$</code> 或 <code>$$...$$</code>。3D 曲面可以拖进正文，也可以点击插入。
+          中间的纸张就是正文编辑区，写完后可以直接生成站点页面。
         </p>
 
-        <div class="editor-card quick-tools-card">
-          <h2>快速编辑工具栏</h2>
-          <p>先在正文里选中一段文字，再点按钮，就能把它变成提示、定理、证明、双栏等区域；模块卡也可以直接点击或拖进正文。</p>
-          <div class="format-toolbar" aria-label="选区格式化工具">
-            <button type="button" data-format="h2">小节标题</button>
-            <button type="button" data-format="h3">三级标题</button>
-            <button type="button" data-format="bold">加粗</button>
-            <button type="button" data-format="latex">公式区</button>
-            <button type="button" data-format="callout">提示卡片</button>
-            <button type="button" data-format="theorem">定理卡片</button>
-            <button type="button" data-format="proof">证明区域</button>
-            <button type="button" data-format="twocol">双栏比较</button>
-          </div>
-          <div class="tool-grid" aria-label="可拖拽笔记模块">
-            <div class="tool-chip" draggable="true" data-snippet="[[callout:type=idea;title=灵感]]&#10;这里写突然想到的关键观察。&#10;[[/callout]]">
-              <strong>灵感卡</strong>
-              <span>适合记录突然想通的点</span>
-            </div>
-            <div class="tool-chip" draggable="true" data-snippet="[[theorem:title=定理名称]]&#10;这里写定理内容。&#10;[[/theorem]]">
-              <strong>定理</strong>
-              <span>醒目展示定义/定理</span>
-            </div>
-            <div class="tool-chip" draggable="true" data-snippet="[[proof:title=证明思路]]&#10;1. 先写条件。&#10;2. 再写推导。&#10;[[/proof]]">
-              <strong>证明</strong>
-              <span>给推导一个独立区域</span>
-            </div>
-            <div class="tool-chip" draggable="true" data-snippet="[[flashcard:front=这个概念的核心问题是什么？;back=这里写答案。]]">
-              <strong>问答卡</strong>
-              <span>复习时很好用</span>
-            </div>
-            <div class="tool-chip" draggable="true" data-snippet="[[image:src=/study/assets/note-placeholder.svg;caption=这里写图片说明]]">
-              <strong>配图</strong>
-              <span>插入图片和说明</span>
-            </div>
-            <div class="tool-chip" draggable="true" data-snippet="[[twocol:title=对比]]&#10;左侧写概念 A。&#10;[[column]]&#10;右侧写概念 B。&#10;[[/twocol]]">
-              <strong>双栏</strong>
-              <span>适合做公式/直觉对照</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="editor-card" style="box-shadow:none;margin:18px 0;background:rgba(255,255,255,0.46)">
+        <div class="editor-subpanel">
           <h2>编辑已有笔记</h2>
-          <p>从已发布列表中载入笔记。以后由本编辑器导出的页面会保留 Markdown 源数据，可以无损再编辑。</p>
+          <p>从已发布列表中载入笔记，修改后重新发布到同一个页面。</p>
           <div class="field">
             <label for="existing-note">选择笔记</label>
             <select id="existing-note">
@@ -86,40 +45,95 @@
           </div>
         </div>
 
-        <div class="field">
-          <label for="note-title">标题</label>
-          <input id="note-title" type="text" autocomplete="off">
+        <details class="editor-details" open>
+          <summary>笔记信息</summary>
+          <div class="field">
+            <label for="note-title">标题</label>
+            <input id="note-title" type="text" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="note-subject">学科</label>
+            <select id="note-subject">
+              <option value="math">数学</option>
+              <option value="control">自动控制原理</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="note-slug">URL Slug</label>
+            <input id="note-slug" type="text" autocomplete="off" placeholder="limit-surface">
+          </div>
+
+          <div class="field">
+            <label for="note-date">日期</label>
+            <input id="note-date" type="date">
+          </div>
+
+          <div class="field">
+            <label for="note-summary">摘要</label>
+            <textarea id="note-summary" style="min-height: 96px"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="cover-seed">自动封面种子</label>
+            <input id="cover-seed" type="text" autocomplete="off" placeholder="limit-surface">
+          </div>
+        </details>
+      </aside>
+
+      <section class="visual-composer" aria-label="可视化笔记正文编辑区">
+        <div class="composer-header">
+          <span>直接写作区</span>
+          <strong>正文可直接编辑</strong>
+        </div>
+        <article id="visual-editor" class="reader-card visual-editor article" contenteditable="true" spellcheck="false" aria-label="可直接编辑的笔记正文"></article>
+        <textarea id="note-markdown" hidden aria-hidden="true"></textarea>
+      </section>
+
+      <aside class="editor-card editor-tools-panel">
+        <h2>快速编辑工具栏</h2>
+        <p>标题、公式、模块和发布操作都放在右手边。</p>
+
+        <div class="format-toolbar" aria-label="选区格式化工具">
+          <button type="button" data-format="h2">小节标题</button>
+          <button type="button" data-format="h3">三级标题</button>
+          <button type="button" data-format="bold">加粗</button>
+          <button type="button" data-format="latex">公式区</button>
+          <button type="button" data-format="callout">提示卡片</button>
+          <button type="button" data-format="theorem">定理卡片</button>
+          <button type="button" data-format="proof">证明区域</button>
+          <button type="button" data-format="twocol">双栏比较</button>
         </div>
 
-        <div class="field">
-          <label for="note-subject">学科</label>
-          <select id="note-subject">
-            <option value="math">数学</option>
-            <option value="control">自动控制原理</option>
-          </select>
+        <div class="tool-grid tool-grid--single" aria-label="可拖拽笔记模块">
+          <div class="tool-chip" draggable="true" data-snippet="[[callout:type=idea;title=灵感]]&#10;这里写突然想到的关键观察。&#10;[[/callout]]">
+            <strong>灵感卡</strong>
+            <span>适合记录突然想通的点</span>
+          </div>
+          <div class="tool-chip" draggable="true" data-snippet="[[theorem:title=定理名称]]&#10;这里写定理内容。&#10;[[/theorem]]">
+            <strong>定理</strong>
+            <span>醒目展示定义/定理</span>
+          </div>
+          <div class="tool-chip" draggable="true" data-snippet="[[proof:title=证明思路]]&#10;1. 先写条件。&#10;2. 再写推导。&#10;[[/proof]]">
+            <strong>证明</strong>
+            <span>给推导一个独立区域</span>
+          </div>
+          <div class="tool-chip" draggable="true" data-snippet="[[flashcard:front=这个概念的核心问题是什么？;back=这里写答案。]]">
+            <strong>问答卡</strong>
+            <span>复习时很好用</span>
+          </div>
+          <div class="tool-chip" draggable="true" data-snippet="[[image:src=/study/assets/note-placeholder.svg;caption=这里写图片说明]]">
+            <strong>配图</strong>
+            <span>插入图片和说明</span>
+          </div>
+          <div class="tool-chip" draggable="true" data-snippet="[[twocol:title=对比]]&#10;左侧写概念 A。&#10;[[column]]&#10;右侧写概念 B。&#10;[[/twocol]]">
+            <strong>双栏</strong>
+            <span>适合做公式/直觉对照</span>
+          </div>
         </div>
 
-        <div class="field">
-          <label for="note-slug">URL Slug</label>
-          <input id="note-slug" type="text" autocomplete="off" placeholder="limit-surface">
-        </div>
-
-        <div class="field">
-          <label for="note-date">日期</label>
-          <input id="note-date" type="date">
-        </div>
-
-        <div class="field">
-          <label for="note-summary">摘要</label>
-          <textarea id="note-summary" style="min-height: 96px"></textarea>
-        </div>
-
-        <div class="field">
-          <label for="cover-seed">自动封面种子</label>
-          <input id="cover-seed" type="text" autocomplete="off" placeholder="limit-surface">
-        </div>
-
-        <div class="editor-card" style="box-shadow:none;margin:18px 0;background:rgba(255,255,255,0.46)">
+        <div class="editor-subpanel model-tool-card">
           <h2>交互式 3D 模型</h2>
           <div class="field">
             <label for="surface-expression">函数 z = f(x, y)</label>
@@ -133,7 +147,7 @@
             <label for="surface-title">模型标题</label>
             <input id="surface-title" type="text" value="振荡曲面" autocomplete="off">
           </div>
-          <div id="model-chip" class="model-chip" draggable="true" title="拖到 Markdown 正文里">
+          <div id="model-chip" class="model-chip" draggable="true" title="拖到正文里">
             <strong>可拖拽模型块</strong>
             <code></code>
           </div>
@@ -143,27 +157,19 @@
           <div id="model-preview" class="surface-preview"></div>
         </div>
 
-        <div class="field">
-          <label for="note-markdown">Markdown 正文</label>
-          <textarea id="note-markdown" spellcheck="false"></textarea>
-          <p class="drop-hint">可以选中文字后点上方按钮，也可以把模型块/模块卡直接拖到这里。</p>
-        </div>
-
         <div class="editor-actions">
-          <button class="study-button" id="refresh-preview" type="button">刷新预览</button>
-          <button class="study-button control" id="export-html" type="button">导出 HTML</button>
+          <button class="study-button control" id="publish-note" type="button">发布到网站</button>
+          <button class="study-button secondary" id="download-html" type="button">下载 HTML</button>
           <button class="study-button secondary" id="copy-metadata" type="button">复制元数据</button>
         </div>
 
         <p class="status-line" id="editor-status"></p>
 
         <div class="field">
-          <label for="metadata-output">notes.json 元数据片段</label>
+          <label for="metadata-output">发布元数据</label>
           <textarea class="metadata-box" id="metadata-output" readonly></textarea>
         </div>
-      </div>
-
-      <div class="preview-frame" id="editor-preview" aria-label="笔记预览"></div>
+      </aside>
     </section>
   </main>
 

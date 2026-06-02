@@ -20,6 +20,7 @@
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+  let isSyncingVisualEditor = false;
 
   function escapeHtml(value) {
     return String(value || "")
@@ -33,7 +34,16 @@
   function sanitizeHtml(html) {
     if (window.DOMPurify) {
       return window.DOMPurify.sanitize(html, {
-        ADD_ATTR: ["data-expression", "data-range", "data-title", "data-snippet"]
+        ADD_ATTR: [
+          "data-caption",
+          "data-expression",
+          "data-range",
+          "data-snippet",
+          "data-src",
+          "data-title",
+          "data-type",
+          "data-widget"
+        ]
       });
     }
 
@@ -240,24 +250,24 @@
     const expression = config.function || config.expression || "sin(x)*cos(y)";
     const range = config.range || "-6,6";
     const title = config.title || "交互式 3D 曲面";
-    return `<div class="surface-widget" data-expression="${escapeHtml(expression)}" data-range="${escapeHtml(range)}" data-title="${escapeHtml(title)}"></div>`;
+    return `<div class="surface-widget" data-widget="surface" data-expression="${escapeHtml(expression)}" data-range="${escapeHtml(range)}" data-title="${escapeHtml(title)}" contenteditable="false"></div>`;
   }
 
   function calloutWidgetHtml(config, bodyHtml) {
     const type = config.type || "idea";
     const safeType = ["idea", "focus", "warn", "tip"].includes(type) ? type : "idea";
     const title = config.title || (safeType === "warn" ? "注意" : "提示");
-    return `<section class="study-widget study-widget--${safeType}"><h4>${escapeHtml(title)}</h4>${bodyHtml}</section>`;
+    return `<section class="study-widget study-widget--${safeType}" data-widget="callout" data-type="${escapeHtml(safeType)}" data-title="${escapeHtml(title)}"><h4>${escapeHtml(title)}</h4>${bodyHtml}</section>`;
   }
 
   function theoremWidgetHtml(config, bodyHtml) {
     const title = config.title || "定理";
-    return `<section class="study-widget theorem-box"><h4>${escapeHtml(title)}</h4>${bodyHtml}</section>`;
+    return `<section class="study-widget theorem-box" data-widget="theorem" data-title="${escapeHtml(title)}"><h4>${escapeHtml(title)}</h4>${bodyHtml}</section>`;
   }
 
   function proofWidgetHtml(config, bodyHtml) {
     const title = config.title || "证明";
-    return `<section class="study-widget proof-box"><h4>${escapeHtml(title)}</h4>${bodyHtml}</section>`;
+    return `<section class="study-widget proof-box" data-widget="proof" data-title="${escapeHtml(title)}"><h4>${escapeHtml(title)}</h4>${bodyHtml}</section>`;
   }
 
   function twoColumnWidgetHtml(config, rawBody) {
@@ -265,13 +275,13 @@
     const parts = String(rawBody || "").split("[[column]]");
     const left = renderMarkdownFragment(parts[0] || "左侧内容");
     const right = renderMarkdownFragment(parts.slice(1).join("[[column]]") || "右侧内容");
-    return `<section class="study-widget"><h4>${escapeHtml(title)}</h4><div class="two-col-widget"><div class="two-col-widget__pane">${left}</div><div class="two-col-widget__pane">${right}</div></div></section>`;
+    return `<section class="study-widget" data-widget="twocol" data-title="${escapeHtml(title)}"><h4>${escapeHtml(title)}</h4><div class="two-col-widget"><div class="two-col-widget__pane">${left}</div><div class="two-col-widget__pane">${right}</div></div></section>`;
   }
 
   function flashcardWidgetHtml(config) {
     const front = config.front || "问题";
     const back = config.back || "答案";
-    return `<section class="study-widget flashcard"><h4>复习问答卡</h4><div class="flashcard__face"><strong>Q</strong>${escapeHtml(front)}</div><div class="flashcard__face"><strong>A</strong>${escapeHtml(back)}</div></section>`;
+    return `<section class="study-widget flashcard" data-widget="flashcard"><h4>复习问答卡</h4><div class="flashcard__face"><strong>Q</strong>${escapeHtml(front)}</div><div class="flashcard__face"><strong>A</strong>${escapeHtml(back)}</div></section>`;
   }
 
   function imageWidgetHtml(config) {
@@ -280,7 +290,7 @@
     if (!src) {
       return `<section class="study-widget media-card"><h4>图片</h4><p>请填写图片地址，例如 [[image:src=/img/demo.png;caption=说明]]。</p></section>`;
     }
-    return `<figure class="study-widget media-card"><img src="${escapeHtml(src)}" alt="${escapeHtml(caption)}"><figcaption>${escapeHtml(caption)}</figcaption></figure>`;
+    return `<figure class="study-widget media-card" data-widget="image" data-src="${escapeHtml(src)}" data-caption="${escapeHtml(caption)}"><img src="${escapeHtml(src)}" alt="${escapeHtml(caption)}"><figcaption>${escapeHtml(caption)}</figcaption></figure>`;
   }
 
   function widgetHtml(widget) {
@@ -521,19 +531,6 @@
     grid.innerHTML = notes.map(renderNoteCard).join("");
   }
 
-  function insertAtCursor(textarea, value) {
-    const start = textarea.selectionStart || 0;
-    const end = textarea.selectionEnd || 0;
-    const before = textarea.value.slice(0, start);
-    const after = textarea.value.slice(end);
-    const insertion = `${before.endsWith("\n") ? "" : "\n"}${value}${after.startsWith("\n") ? "" : "\n"}`;
-    textarea.value = `${before}${insertion}${after}`;
-    textarea.focus();
-    const position = before.length + insertion.length;
-    textarea.setSelectionRange(position, position);
-    textarea.dispatchEvent(new Event("input", { bubbles: true }));
-  }
-
   function currentShortcode() {
     const expression = $("#surface-expression")?.value || "sin(x)*cos(y)";
     const range = $("#surface-range")?.value || "-6,6";
@@ -586,7 +583,7 @@ $$
     return JSON.stringify(data, null, 2).replace(/<\/script/gi, "<\\/script");
   }
 
-  function fillEditor(metadata, markdown) {
+  function fillEditor(metadata, markdown, html) {
     const titleInput = $("#note-title");
     const slugInput = $("#note-slug");
     if (titleInput) titleInput.value = metadata.title || "未命名笔记";
@@ -599,7 +596,7 @@ $$
     if ($("#note-summary")) $("#note-summary").value = metadata.summary || "";
     if ($("#cover-seed")) $("#cover-seed").value = metadata.coverSeed || metadata.slug || slugify(metadata.title || "");
     if ($("#note-markdown")) $("#note-markdown").value = markdown || "";
-    renderEditorPreview();
+    loadVisualContent(markdown || "", html || "");
   }
 
   function newBlankNote() {
@@ -639,22 +636,24 @@ $$
   async function loadPublishedNote(note) {
     const response = await fetch(note.url, { cache: "no-store" });
     if (!response.ok) throw new Error(`无法读取 ${note.url}`);
-    const html = await response.text();
-    const doc = new DOMParser().parseFromString(html, "text/html");
+    const pageHtml = await response.text();
+    const doc = new DOMParser().parseFromString(pageHtml, "text/html");
     const sourceNode = doc.querySelector("#study-note-source");
     let metadata = note;
     let markdown = "";
+    let articleHtml = "";
 
     if (sourceNode?.textContent?.trim()) {
       const payload = JSON.parse(sourceNode.textContent);
       metadata = { ...note, ...(payload.metadata || {}) };
       markdown = payload.markdown || "";
+      articleHtml = payload.html || "";
     } else {
       markdown = fallbackMarkdownFromArticle(doc.querySelector(".article"));
     }
 
-    fillEditor(metadata, markdown);
-    setStatus(`已载入《${metadata.title || note.title}》。修改后导出 HTML 覆盖原页面即可更新。`);
+    fillEditor(metadata, markdown, articleHtml);
+    setStatus(`已载入《${metadata.title || note.title}》。修改后点右侧发布即可更新。`);
   }
 
   async function populateExistingNotes() {
@@ -669,30 +668,43 @@ $$
   }
 
   function applyFormat(kind) {
-    const textarea = $("#note-markdown");
-    if (!textarea) return;
-    const start = textarea.selectionStart || 0;
-    const end = textarea.selectionEnd || 0;
-    const selected = textarea.value.slice(start, end);
+    const context = selectionInsideVisual();
+    const selected = selectedVisualText();
     const content = selected || "这里写内容";
+    if (kind === "h2" || kind === "h3") {
+      if (context && selected) {
+        context.visual.focus();
+        document.execCommand("formatBlock", false, `<${kind}>`);
+        syncMarkdownFromVisual();
+      } else {
+        insertHtmlIntoVisual(`<${kind}>${kind === "h2" ? "小节标题" : "三级标题"}</${kind}>`);
+      }
+      setStatus(selected ? "已把选区设为标题。" : "已插入标题。");
+      return;
+    }
+
+    if (kind === "bold") {
+      if (context && selected) {
+        context.visual.focus();
+        document.execCommand("bold", false);
+        syncMarkdownFromVisual();
+      } else {
+        insertHtmlIntoVisual("<p><strong>重点文字</strong></p>");
+      }
+      setStatus(selected ? "已加粗选中文字。" : "已插入加粗文字。");
+      return;
+    }
+
     const templates = {
-      h2: `## ${selected || "小节标题"}`,
-      h3: `### ${selected || "三级标题"}`,
-      bold: `**${selected || "重点文字"}**`,
       latex: `$$\n${selected || "f(x)=x^2"}\n$$`,
       callout: `[[callout:type=idea;title=提示]]\n${content}\n[[/callout]]`,
       theorem: `[[theorem:title=定理]]\n${content}\n[[/theorem]]`,
       proof: `[[proof:title=证明]]\n${content}\n[[/proof]]`,
       twocol: `[[twocol:title=双栏比较]]\n${selected || "左侧内容"}\n[[column]]\n右侧内容\n[[/twocol]]`
     };
-    const value = templates[kind] || content;
-    const before = textarea.value.slice(0, start);
-    const after = textarea.value.slice(end);
-    textarea.value = `${before}${value}${after}`;
-    textarea.focus();
-    textarea.setSelectionRange(before.length, before.length + value.length);
-    textarea.dispatchEvent(new Event("input", { bubbles: true }));
-    setStatus(selected ? "已把选区转换成新样式。" : "已插入样式模板。");
+    if (!context && !$("#visual-editor")) return;
+    insertVisualSnippet(templates[kind] || content);
+    setStatus(selected ? "已把纸张选区转换成新样式。" : "已在纸张中插入样式模板。");
   }
 
   function makeSnippetDraggable(element, getSnippet) {
@@ -701,30 +713,184 @@ $$
     });
   }
 
-  function renderEditorPreview() {
-    const title = $("#note-title")?.value || "未命名笔记";
-    const subjectKey = $("#note-subject")?.value || "math";
-    const summary = $("#note-summary")?.value || "这里会显示笔记摘要。";
-    const date = $("#note-date")?.value || new Date().toISOString().slice(0, 10);
-    const markdown = $("#note-markdown")?.value || "";
-    const subject = SUBJECTS[subjectKey] || SUBJECTS.math;
-    const preview = $("#editor-preview");
-    if (!preview) return "";
+  function textFromNode(node) {
+    return (node?.textContent || "").replace(/\u00a0/g, " ").trim();
+  }
 
-    const articleHtml = renderMarkdownToHtml(markdown);
-    preview.innerHTML = `
-      <article class="reader-card">
-        <span class="reader-kicker">${escapeHtml(subject.label)}</span>
-        <h1>${escapeHtml(title)}</h1>
-        <p class="reader-lead">${escapeHtml(summary)}</p>
-        <p class="reader-date">${formatDate(date)}</p>
-        <div class="article">${articleHtml}</div>
-      </article>`;
+  function markdownFromChildren(root, options = {}) {
+    return Array.from(root?.childNodes || [])
+      .map((node) => markdownFromNode(node, options))
+      .filter(Boolean)
+      .join("\n\n");
+  }
 
-    renderMath(preview);
-    renderSurfaces(preview);
+  function markdownFromWidget(node) {
+    const widget = node.dataset.widget;
+    if (widget === "surface") {
+      return `[[surface:function=${node.dataset.expression || "sin(x)*cos(y)"};range=${node.dataset.range || "-6,6"};title=${node.dataset.title || "交互式 3D 曲面"}]]`;
+    }
+    if (widget === "callout") {
+      return `[[callout:type=${node.dataset.type || "idea"};title=${textFromNode($("h4", node)) || node.dataset.title || "提示"}]]\n${markdownFromChildrenWithoutHeading(node)}\n[[/callout]]`;
+    }
+    if (widget === "theorem") {
+      return `[[theorem:title=${textFromNode($("h4", node)) || node.dataset.title || "定理"}]]\n${markdownFromChildrenWithoutHeading(node)}\n[[/theorem]]`;
+    }
+    if (widget === "proof") {
+      return `[[proof:title=${textFromNode($("h4", node)) || node.dataset.title || "证明"}]]\n${markdownFromChildrenWithoutHeading(node)}\n[[/proof]]`;
+    }
+    if (widget === "twocol") {
+      const panes = $$(".two-col-widget__pane", node);
+      const left = markdownFromChildren(panes[0]);
+      const right = markdownFromChildren(panes[1]);
+      return `[[twocol:title=${textFromNode($("h4", node)) || node.dataset.title || "双栏比较"}]]\n${left || "左侧内容"}\n[[column]]\n${right || "右侧内容"}\n[[/twocol]]`;
+    }
+    if (widget === "flashcard") {
+      const faces = $$(".flashcard__face", node).map((face) => textFromNode(face).replace(/^[QA]\s*/, ""));
+      return `[[flashcard:front=${faces[0] || "问题"};back=${faces[1] || "答案"}]]`;
+    }
+    if (widget === "image") {
+      const src = node.dataset.src || $("img", node)?.getAttribute("src") || "";
+      const caption = textFromNode($("figcaption", node)) || node.dataset.caption || "图片说明";
+      return `[[image:src=${src};caption=${caption}]]`;
+    }
+    return "";
+  }
+
+  function markdownFromChildrenWithoutHeading(node) {
+    const clone = node.cloneNode(true);
+    const heading = $("h4", clone);
+    if (heading) heading.remove();
+    return markdownFromChildren(clone) || textFromNode(clone);
+  }
+
+  function markdownFromNode(node) {
+    if (!node) return "";
+    if (node.nodeType === 3) return textFromNode(node);
+    if (node.dataset?.widget) return markdownFromWidget(node);
+    if (node.classList?.contains("surface-widget")) return markdownFromWidget(node);
+
+    const tag = node.tagName?.toLowerCase();
+    if (tag === "br") return "";
+    const text = textFromNode(node);
+    if (!text && tag !== "img") return "";
+    if (tag === "h1") return `# ${text}`;
+    if (tag === "h2") return `## ${text}`;
+    if (tag === "h3") return `### ${text}`;
+    if (tag === "h4") return "";
+    if (tag === "ul") return Array.from(node.querySelectorAll(":scope > li")).map((li) => `- ${textFromNode(li)}`).join("\n");
+    if (tag === "ol") return Array.from(node.querySelectorAll(":scope > li")).map((li, index) => `${index + 1}. ${textFromNode(li)}`).join("\n");
+    if (tag === "pre") return `\`\`\`\n${text}\n\`\`\``;
+    if (tag === "blockquote") return text.split("\n").map((line) => `> ${line}`).join("\n");
+    if (tag === "img") return `[[image:src=${node.getAttribute("src") || ""};caption=${node.getAttribute("alt") || "图片说明"}]]`;
+    return text;
+  }
+
+  function stripEditorArtifacts(root) {
+    if (!root) return;
+    $$("[contenteditable]", root).forEach((node) => {
+      node.removeAttribute("contenteditable");
+    });
+    $$("[data-rendered]", root).forEach((node) => {
+      node.removeAttribute("data-rendered");
+    });
+    $$(".surface-widget", root).forEach((node) => {
+      node.innerHTML = "";
+    });
+  }
+
+  function articleHtmlFromVisual() {
+    const visual = $("#visual-editor");
+    if (!visual) return "";
+    const clone = visual.cloneNode(true);
+    stripEditorArtifacts(clone);
+    return sanitizeHtml(clone.innerHTML.trim());
+  }
+
+  function prepareVisualForEditing(root) {
+    $$(".surface-widget", root).forEach((node) => {
+      node.setAttribute("contenteditable", "false");
+    });
+  }
+
+  function loadVisualContent(markdown, html) {
+    const visual = $("#visual-editor");
+    if (!visual) return;
+    isSyncingVisualEditor = true;
+    visual.innerHTML = sanitizeHtml(html || renderMarkdownToHtml(markdown || ""));
+    prepareVisualForEditing(visual);
+    renderSurfaces(visual);
+    isSyncingVisualEditor = false;
+    syncMarkdownFromVisual();
     updateMetadataOutput();
-    return articleHtml;
+  }
+
+  function syncMarkdownFromVisual() {
+    const visual = $("#visual-editor");
+    const source = $("#note-markdown");
+    if (!visual || !source || isSyncingVisualEditor) return;
+    source.value = markdownFromChildren(visual);
+    updateMetadataOutput();
+  }
+
+  function syncVisualFromMarkdown() {
+    const visual = $("#visual-editor");
+    const markdown = $("#note-markdown")?.value || "";
+    if (!visual) return;
+    isSyncingVisualEditor = true;
+    visual.innerHTML = renderMarkdownToHtml(markdown);
+    renderSurfaces(visual);
+    isSyncingVisualEditor = false;
+    updateMetadataOutput();
+  }
+
+  function selectionInsideVisual() {
+    const visual = $("#visual-editor");
+    const selection = window.getSelection();
+    if (!visual || !selection || selection.rangeCount === 0) return null;
+    const range = selection.getRangeAt(0);
+    if (!visual.contains(range.commonAncestorContainer)) return null;
+    return { visual, selection, range };
+  }
+
+  function insertHtmlIntoVisual(html) {
+    const context = selectionInsideVisual();
+    const visual = $("#visual-editor");
+    if (!visual) return;
+    visual.focus();
+    const range = context?.range || document.createRange();
+    if (!context) {
+      range.selectNodeContents(visual);
+      range.collapse(false);
+    }
+    range.deleteContents();
+    const fragment = range.createContextualFragment(html);
+    const lastNode = fragment.lastChild;
+    range.insertNode(fragment);
+    if (lastNode) {
+      range.setStartAfter(lastNode);
+      range.collapse(true);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+    prepareVisualForEditing(visual);
+    renderSurfaces(visual);
+    syncMarkdownFromVisual();
+  }
+
+  function insertVisualSnippet(snippet) {
+    insertHtmlIntoVisual(renderMarkdownToHtml(snippet));
+  }
+
+  function selectedVisualText() {
+    const context = selectionInsideVisual();
+    return context ? context.selection.toString().trim() : "";
+  }
+
+  function renderEditorPreview() {
+    const markdown = $("#note-markdown")?.value || "";
+    loadVisualContent(markdown, "");
+    return articleHtmlFromVisual();
   }
 
   function updateMetadataOutput() {
@@ -745,13 +911,10 @@ $$
     return metadata;
   }
 
-  function exportHtml() {
-    const metadata = updateMetadataOutput();
+  function buildNoteHtml(metadata, articleHtml, markdown) {
     const subject = SUBJECTS[metadata.subject] || SUBJECTS.math;
-    const markdown = $("#note-markdown")?.value || "";
-    const articleHtml = renderMarkdownToHtml(markdown);
-    const sourcePayload = jsonForScript({ metadata, markdown });
-    const html = `<!DOCTYPE html>
+    const sourcePayload = jsonForScript({ metadata, markdown, html: articleHtml });
+    return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -786,7 +949,7 @@ $$
         </div>
         <div class="reader-card">
           <strong>说明</strong>
-          <p>这个页面由 /study/editor/ 导出，支持 LaTeX 公式和 Plotly 3D 曲面。</p>
+          <p>这个页面由 /study/editor/ 发布，支持 LaTeX 公式和 Plotly 3D 曲面。</p>
         </div>
       </aside>
     </section>
@@ -798,18 +961,57 @@ $$
   <script src="/study/assets/study.js"></script>
 </body>
 </html>`;
+  }
 
-    const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+  function buildPublishPayload() {
+    syncMarkdownFromVisual();
+    const metadata = updateMetadataOutput();
+    const markdown = $("#note-markdown")?.value || "";
+    const articleHtml = articleHtmlFromVisual() || renderMarkdownToHtml(markdown);
+    const html = buildNoteHtml(metadata, articleHtml, markdown);
+    return { metadata, markdown, articleHtml, html };
+  }
+
+  function downloadHtmlPayload(payload) {
+    const blob = new Blob([payload.html], { type: "text/html;charset=utf-8" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = `${metadata.slug}-index.html`;
+    link.download = `${payload.metadata.slug}-index.html`;
     document.body.appendChild(link);
     link.click();
     link.remove();
     setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+  }
 
-    const status = $("#editor-status");
-    if (status) status.textContent = `已导出 ${metadata.slug}-index.html；放到 ${metadata.url} 对应目录即可发布。`;
+  function downloadHtml() {
+    const payload = buildPublishPayload();
+    downloadHtmlPayload(payload);
+    setStatus(`已下载 ${payload.metadata.slug}-index.html。`);
+  }
+
+  async function publishNote() {
+    const payload = buildPublishPayload();
+    try {
+      const response = await fetch("/__study_publish", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) {
+        const detail = await response.text();
+        throw new Error(detail || `发布服务返回 ${response.status}`);
+      }
+      const result = await response.json().catch(() => ({}));
+      setStatus(result.message || `已发布到 ${payload.metadata.url}`);
+      await populateExistingNotes();
+    } catch (error) {
+      downloadHtmlPayload(payload);
+      setStatus(`没有连接本地发布服务，已改为下载 HTML：${payload.metadata.slug}-index.html。`);
+    }
+  }
+
+  function exportHtml() {
+    downloadHtml();
   }
 
   function initEditor() {
@@ -818,6 +1020,7 @@ $$
     const slugInput = $("#note-slug");
     const dateInput = $("#note-date");
     const markdown = $("#note-markdown");
+    const visual = $("#visual-editor");
     const chip = $("#model-chip");
 
     if (dateInput && !dateInput.value) dateInput.value = today;
@@ -830,11 +1033,14 @@ $$
     if (markdown && !markdown.value.trim()) {
       markdown.value = defaultMarkdown();
     }
+    if (visual) {
+      document.execCommand("defaultParagraphSeparator", false, "p");
+    }
 
     if (titleInput && slugInput) {
       titleInput.addEventListener("input", () => {
         if (!slugInput.dataset.touched) slugInput.value = slugify(titleInput.value);
-        renderEditorPreview();
+        updateMetadataOutput();
       });
       slugInput.addEventListener("input", () => {
         slugInput.dataset.touched = "true";
@@ -842,9 +1048,18 @@ $$
       });
     }
 
-    $$("#note-subject, #note-summary, #note-date, #cover-seed, #note-markdown").forEach((element) => {
-      element.addEventListener("input", renderEditorPreview);
-      element.addEventListener("change", renderEditorPreview);
+    $$("#note-subject, #note-summary, #note-date, #cover-seed").forEach((element) => {
+      element.addEventListener("input", updateMetadataOutput);
+      element.addEventListener("change", updateMetadataOutput);
+    });
+    markdown?.addEventListener("input", syncVisualFromMarkdown);
+    markdown?.addEventListener("change", syncVisualFromMarkdown);
+    visual?.addEventListener("input", syncMarkdownFromVisual);
+    visual?.addEventListener("blur", syncMarkdownFromVisual);
+    visual?.addEventListener("dragover", (event) => event.preventDefault());
+    visual?.addEventListener("drop", (event) => {
+      event.preventDefault();
+      insertVisualSnippet(event.dataTransfer.getData("text/plain") || "");
     });
 
     $$("#surface-expression, #surface-range, #surface-title").forEach((element) => {
@@ -878,8 +1093,9 @@ $$
     });
     $("#new-note")?.addEventListener("click", newBlankNote);
 
-    $("#insert-model")?.addEventListener("click", () => insertAtCursor(markdown, currentShortcode()));
-    $("#refresh-preview")?.addEventListener("click", renderEditorPreview);
+    $("#insert-model")?.addEventListener("click", () => insertVisualSnippet(currentShortcode()));
+    $("#publish-note")?.addEventListener("click", publishNote);
+    $("#download-html")?.addEventListener("click", downloadHtml);
     $("#export-html")?.addEventListener("click", exportHtml);
     $("#copy-metadata")?.addEventListener("click", async () => {
       const text = $("#metadata-output")?.value || "";
@@ -888,19 +1104,14 @@ $$
       if (status) status.textContent = "笔记元数据 JSON 已复制。";
     });
 
-    if (chip && markdown) {
+    if (chip) {
       chip.querySelector("code").textContent = currentShortcode();
       makeSnippetDraggable(chip, currentShortcode);
-      markdown.addEventListener("dragover", (event) => event.preventDefault());
-      markdown.addEventListener("drop", (event) => {
-        event.preventDefault();
-        insertAtCursor(markdown, event.dataTransfer.getData("text/plain") || currentShortcode());
-      });
     }
 
     $$(".tool-chip").forEach((tool) => {
       makeSnippetDraggable(tool, () => tool.dataset.snippet || "");
-      tool.addEventListener("click", () => insertAtCursor(markdown, tool.dataset.snippet || ""));
+      tool.addEventListener("click", () => insertVisualSnippet(tool.dataset.snippet || ""));
     });
     $$(".format-toolbar [data-format]").forEach((button) => {
       button.addEventListener("click", () => applyFormat(button.dataset.format));

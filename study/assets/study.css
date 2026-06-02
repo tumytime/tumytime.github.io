@@ -75,6 +75,10 @@ textarea {
   padding: 32px 0 64px;
 }
 
+.study-editor .study-shell {
+  width: min(1880px, calc(100% - 32px));
+}
+
 .study-nav {
   display: flex;
   align-items: center;
@@ -800,6 +804,11 @@ textarea {
   align-items: start;
 }
 
+.editor-layout--workbench {
+  grid-template-columns: minmax(260px, 330px) minmax(680px, 1fr) minmax(280px, 360px);
+  gap: 24px;
+}
+
 .editor-card {
   padding: 24px;
   border-radius: var(--radius-lg);
@@ -811,26 +820,115 @@ textarea {
   letter-spacing: -0.04em;
 }
 
-.quick-tools-card {
+.editor-subpanel {
   margin: 18px 0;
-  border-color: rgba(57, 125, 113, 0.28);
-  background:
-    linear-gradient(135deg, rgba(88, 230, 207, 0.16), rgba(255, 255, 255, 0.74)),
-    rgba(255, 255, 255, 0.62);
-  box-shadow: 0 20px 54px rgba(57, 125, 113, 0.16);
+  padding: 18px;
+  border: 1px solid rgba(31, 41, 55, 0.09);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.46);
 }
 
-.quick-tools-card h2::after {
-  display: inline-flex;
-  margin-left: 10px;
+.editor-sidebar,
+.editor-tools-panel {
+  position: sticky;
+  top: 18px;
+  max-height: calc(100vh - 36px);
+  overflow: auto;
+}
+
+.editor-tools-panel {
+  padding: 20px;
+  border-color: rgba(57, 125, 113, 0.28);
+  background:
+    linear-gradient(180deg, rgba(88, 230, 207, 0.12), rgba(255, 255, 255, 0.78) 28%),
+    rgba(255, 252, 244, 0.86);
+}
+
+.editor-tools-panel h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.editor-tools-panel h2::after {
   padding: 5px 9px;
   border-radius: 999px;
   background: rgba(57, 125, 113, 0.12);
   color: #397d71;
-  content: "选中正文后点这里";
+  content: "右侧固定";
   font-size: 0.68rem;
   letter-spacing: 0.04em;
-  vertical-align: middle;
+}
+
+.editor-sidebar h1 {
+  font-size: clamp(2rem, 3vw, 2.55rem);
+}
+
+.editor-details {
+  margin-top: 18px;
+}
+
+.editor-details summary {
+  cursor: pointer;
+  color: #1f2937;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.visual-composer {
+  min-width: 0;
+}
+
+.composer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+  color: #536174;
+  font-size: 0.86rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.composer-header strong {
+  color: #397d71;
+  font-size: 0.78rem;
+}
+
+.visual-editor {
+  min-height: calc(100vh - 210px);
+  padding: clamp(34px, 5vw, 70px);
+  outline: none;
+}
+
+.visual-editor:focus {
+  box-shadow:
+    0 0 0 3px rgba(88, 230, 207, 0.18),
+    0 24px 70px rgba(37, 48, 64, 0.16);
+}
+
+.visual-editor:empty::before {
+  content: "直接在这里写正文。";
+  color: rgba(83, 97, 116, 0.72);
+}
+
+.visual-editor > :first-child {
+  margin-top: 0;
+}
+
+.visual-editor [contenteditable="false"] {
+  user-select: all;
+}
+
+.model-tool-card {
+  margin: 18px 0;
+}
+
+.model-tool-card .surface-preview {
+  min-height: 250px;
 }
 
 .field {
@@ -936,6 +1034,10 @@ textarea {
   gap: 10px;
 }
 
+.tool-grid--single {
+  grid-template-columns: 1fr;
+}
+
 .tool-chip {
   display: grid;
   gap: 6px;
@@ -970,14 +1072,6 @@ textarea {
   overflow-wrap: anywhere;
   font-family: "SFMono-Regular", Consolas, monospace;
   font-size: 0.82rem;
-}
-
-.preview-frame {
-  min-height: 680px;
-}
-
-.preview-frame .reader-card {
-  min-height: 680px;
 }
 
 .metadata-box {
@@ -1031,16 +1125,18 @@ textarea {
     position: static;
   }
 
+  .study-editor .study-shell {
+    width: min(100% - 28px, 760px);
+  }
+
+  .editor-sidebar,
+  .editor-tools-panel {
+    position: static;
+    max-height: none;
+  }
+
   .note-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 981px) {
-  .quick-tools-card {
-    position: sticky;
-    top: 14px;
-    z-index: 4;
   }
 }
 
