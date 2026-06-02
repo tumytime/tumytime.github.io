@@ -46,6 +46,10 @@
           <p>
             这句话背后的直觉是：无论 $(x,y)$ 从哪条路径靠近 $(a,b)$，曲面的高度都应该靠近同一个 $L$。
           </p>
+          <section class="study-widget study-widget--idea">
+            <h4>今天的直觉</h4>
+            <p>极限不是只沿一条路走到目的地，而是从所有方向靠近时都要看到同一个高度。</p>
+          </section>
 
           <h2>拖动曲面观察路径</h2>
           <p>
@@ -54,6 +58,11 @@
           </p>
 
           <div class="surface-widget" data-expression="sin(x)*cos(y)" data-range="-6,6" data-title="振荡曲面"></div>
+
+          <section class="study-widget theorem-box">
+            <h4>路径观察</h4>
+            <p>如果能找到两条路径靠近同一点，却得到不同的函数值趋势，那么该点极限不存在。</p>
+          </section>
 
           <h2>这类模型有什么用</h2>
           <ul>
@@ -83,6 +92,18 @@
     </section>
   </main>
 
+  <script type="application/json" id="study-note-source">{
+  "metadata": {
+    "title": "曲面、极限与直观图像",
+    "subject": "math",
+    "summary": "用可旋转的二元函数曲面，把多元函数极限和路径观察连接起来。",
+    "date": "2026-06-02",
+    "slug": "limit-surface",
+    "coverSeed": "limit-surface",
+    "url": "/study/math/limit-surface/"
+  },
+  "markdown": "## 从一维图像到二维曲面\n\n一元函数 $y=f(x)$ 的图像是一条曲线，二元函数 $z=f(x,y)$ 的图像则是一张曲面。当我在学习多元函数极限时，最大的困难不是公式本身，而是如何在脑子里看见“从不同方向靠近同一点”。\n\n对于二元函数，我们常写：\n\n$$\n\\\\lim_{(x,y)\\\\to(a,b)} f(x,y)=L\n$$\n\n这句话背后的直觉是：无论 $(x,y)$ 从哪条路径靠近 $(a,b)$，曲面的高度都应该靠近同一个 $L$。\n\n[[callout:type=idea;title=今天的直觉]]\n极限不是只沿一条路走到目的地，而是从所有方向靠近时都要看到同一个高度。\n[[/callout]]\n\n## 拖动曲面观察路径\n\n下面这张曲面来自 $z=\\\\sin(x)\\\\cos(y)$。你可以旋转、缩放它，观察曲面在不同方向上的起伏。以后写数学笔记时，类似模型可以直接从编辑器生成并嵌入正文。\n\n[[surface:function=sin(x)*cos(y);range=-6,6;title=振荡曲面]]\n\n[[theorem:title=路径观察]]\n如果能找到两条路径靠近同一点，却得到不同的函数值趋势，那么该点极限不存在。\n[[/theorem]]\n\n## 这类模型有什么用\n\n- 把抽象公式变成可以观察的几何对象。\n- 帮助判断某一点附近不同路径的变化趋势。\n- 让“极限不存在”的例子不只是代数计算，而是能被看见。\n\n## 后续想补的内容\n\n下一步可以补一些典型例子，比如 $f(x,y)=\\\\frac{x^2-y^2}{x^2+y^2}$，它沿不同路径靠近原点时会得到不同结果，是理解多元极限路径法的好素材。"
+}</script>
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" role="img" aria-label="单位负反馈系统方框图">
+  <defs>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffb75e"/>
+      <stop offset="100%" stop-color="#ff6f91"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#ffb75e"/>
+    </marker>
+  </defs>
+  <rect width="900" height="330" rx="28" fill="#111827"/>
+  <rect x="300" y="104" width="150" height="72" rx="18" fill="rgba(255,255,255,.08)" stroke="url(#line)" stroke-width="3"/>
+  <rect x="560" y="104" width="150" height="72" rx="18" fill="rgba(255,255,255,.08)" stroke="url(#line)" stroke-width="3"/>
+  <circle cx="205" cy="140" r="24" fill="rgba(255,255,255,.08)" stroke="#58e6cf" stroke-width="3"/>
+  <text x="64" y="146" fill="#f8fbff" font-size="25" font-family="Avenir Next, sans-serif">R(s)</text>
+  <text x="194" y="146" fill="#f8fbff" font-size="28" font-family="Avenir Next, sans-serif">Σ</text>
+  <text x="348" y="147" fill="#f8fbff" font-size="25" font-family="Avenir Next, sans-serif">C(s)</text>
+  <text x="606" y="147" fill="#f8fbff" font-size="25" font-family="Avenir Next, sans-serif">G(s)</text>
+  <text x="782" y="146" fill="#f8fbff" font-size="25" font-family="Avenir Next, sans-serif">Y(s)</text>
+  <path d="M106 140h75" stroke="#58e6cf" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M229 140h71" stroke="#ffb75e" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M450 140h110" stroke="#ffb75e" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M710 140h110" stroke="#ffb75e" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M760 140v120H205V166" fill="none" stroke="#58e6cf" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="185" y="104" fill="#58e6cf" font-size="28" font-family="Avenir Next, sans-serif">+</text>
+  <text x="176" y="195" fill="#58e6cf" font-size="34" font-family="Avenir Next, sans-serif">−</text>
+  <text x="420" y="282" fill="#a9b8d0" font-size="22" font-family="Avenir Next, sans-serif">feedback path H(s)</text>
+</svg>

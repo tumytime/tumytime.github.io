@@ -45,6 +45,10 @@
             \frac{Y(s)}{R(s)}=\frac{G(s)}{1+G(s)H(s)}
             $$
           </p>
+          <section class="study-widget study-widget--focus">
+            <h4>先抓住主线</h4>
+            <p>闭环系统的关键不是某一个方框，而是误差信号如何被反馈不断修正。</p>
+          </section>
 
           <h2>第一张方框图</h2>
           <svg viewBox="0 0 900 330" role="img" aria-label="单位负反馈系统方框图" style="width:100%;max-width:900px;border-radius:24px;background:#111827;margin:16px 0 22px;box-shadow:0 18px 44px rgba(17,24,39,.18)">
@@ -82,6 +86,18 @@
             <li>反馈会改变系统响应，也会带来稳定性分析问题。</li>
           </ul>
 
+          <section class="study-widget">
+            <h4>开环和闭环的直觉对比</h4>
+            <div class="two-col-widget">
+              <div class="two-col-widget__pane">
+                <p>开环更像按计划执行，不主动观察结果。</p>
+              </div>
+              <div class="two-col-widget__pane">
+                <p>闭环会把输出拿回来比较，用误差修正下一步。</p>
+              </div>
+            </div>
+          </section>
+
           <h2>接下来要继续追的问题</h2>
           <p>
             下一篇可以继续写“为什么分母里的 $1+G(s)H(s)$ 决定闭环极点”，
@@ -103,6 +119,18 @@
     </section>
   </main>
 
+  <script type="application/json" id="study-note-source">{
+  "metadata": {
+    "title": "反馈系统的第一张地图",
+    "subject": "control",
+    "summary": "从一个简单闭环方框图开始，梳理输入、输出、误差、控制器和被控对象之间的关系。",
+    "date": "2026-06-02",
+    "slug": "feedback-basics",
+    "coverSeed": "feedback-basics",
+    "url": "/study/control/feedback-basics/"
+  },
+  "markdown": "## 闭环系统的核心问题\n\n自动控制原理最迷人的地方在于：系统不是单向地“做完就算”，它会观察自己的输出，再把输出和目标进行比较，由误差驱动下一步动作。\n\n典型单位负反馈系统的闭环传递函数可以写成：\n\n$$\n\\\\frac{Y(s)}{R(s)}=\\\\frac{G(s)}{1+G(s)H(s)}\n$$\n\n[[callout:type=focus;title=先抓住主线]]\n闭环系统的关键不是某一个方框，而是误差信号如何被反馈不断修正。\n[[/callout]]\n\n## 第一张方框图\n\n[[image:src=/study/assets/control-loop.svg;caption=单位负反馈系统可以理解为“比较—控制—输出—反馈”的循环]]\n\n## 先记住三件事\n\n- $R(s)$ 是期望输入，$Y(s)$ 是系统输出。\n- 比较环节产生误差，控制器根据误差行动。\n- 反馈会改变系统响应，也会带来稳定性分析问题。\n\n[[twocol:title=开环和闭环的直觉对比]]\n开环更像按计划执行，不主动观察结果。\n[[column]]\n闭环会把输出拿回来比较，用误差修正下一步。\n[[/twocol]]\n\n## 接下来要继续追的问题\n\n下一篇可以继续写“为什么分母里的 $1+G(s)H(s)$ 决定闭环极点”，也就是稳定性为什么会和特征方程联系起来。"
+}</script>
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>

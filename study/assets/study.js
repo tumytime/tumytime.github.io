@@ -33,7 +33,7 @@
   function sanitizeHtml(html) {
     if (window.DOMPurify) {
       return window.DOMPurify.sanitize(html, {
-        ADD_ATTR: ["data-expression", "data-range", "data-title"]
+        ADD_ATTR: ["data-expression", "data-range", "data-title", "data-snippet"]
       });
     }
 
@@ -213,7 +213,7 @@
       .join("\n");
   }
 
-  function parseSurfaceConfig(raw) {
+  function parseWidgetConfig(raw) {
     const config = {};
     String(raw || "")
       .split(";")
@@ -229,6 +229,13 @@
     return config;
   }
 
+  const parseSurfaceConfig = parseWidgetConfig;
+
+  function renderMarkdownFragment(markdown) {
+    const parsed = window.marked ? window.marked.parse(markdown || "", { gfm: true, breaks: false }) : simpleMarkdown(markdown || "");
+    return sanitizeHtml(parsed);
+  }
+
   function surfaceWidgetHtml(config) {
     const expression = config.function || config.expression || "sin(x)*cos(y)";
     const range = config.range || "-6,6";
@@ -236,19 +243,76 @@
     return `<div class="surface-widget" data-expression="${escapeHtml(expression)}" data-range="${escapeHtml(range)}" data-title="${escapeHtml(title)}"></div>`;
   }
 
+  function calloutWidgetHtml(config, bodyHtml) {
+    const type = config.type || "idea";
+    const safeType = ["idea", "focus", "warn", "tip"].includes(type) ? type : "idea";
+    const title = config.title || (safeType === "warn" ? "注意" : "提示");
+    return `<section class="study-widget study-widget--${safeType}"><h4>${escapeHtml(title)}</h4>${bodyHtml}</section>`;
+  }
+
+  function theoremWidgetHtml(config, bodyHtml) {
+    const title = config.title || "定理";
+    return `<section class="study-widget theorem-box"><h4>${escapeHtml(title)}</h4>${bodyHtml}</section>`;
+  }
+
+  function proofWidgetHtml(config, bodyHtml) {
+    const title = config.title || "证明";
+    return `<section class="study-widget proof-box"><h4>${escapeHtml(title)}</h4>${bodyHtml}</section>`;
+  }
+
+  function twoColumnWidgetHtml(config, rawBody) {
+    const title = config.title || "双栏比较";
+    const parts = String(rawBody || "").split("[[column]]");
+    const left = renderMarkdownFragment(parts[0] || "左侧内容");
+    const right = renderMarkdownFragment(parts.slice(1).join("[[column]]") || "右侧内容");
+    return `<section class="study-widget"><h4>${escapeHtml(title)}</h4><div class="two-col-widget"><div class="two-col-widget__pane">${left}</div><div class="two-col-widget__pane">${right}</div></div></section>`;
+  }
+
+  function flashcardWidgetHtml(config) {
+    const front = config.front || "问题";
+    const back = config.back || "答案";
+    return `<section class="study-widget flashcard"><h4>复习问答卡</h4><div class="flashcard__face"><strong>Q</strong>${escapeHtml(front)}</div><div class="flashcard__face"><strong>A</strong>${escapeHtml(back)}</div></section>`;
+  }
+
+  function imageWidgetHtml(config) {
+    const src = config.src || "";
+    const caption = config.caption || "图片说明";
+    if (!src) {
+      return `<section class="study-widget media-card"><h4>图片</h4><p>请填写图片地址，例如 [[image:src=/img/demo.png;caption=说明]]。</p></section>`;
+    }
+    return `<figure class="study-widget media-card"><img src="${escapeHtml(src)}" alt="${escapeHtml(caption)}"><figcaption>${escapeHtml(caption)}</figcaption></figure>`;
+  }
+
+  function widgetHtml(widget) {
+    if (widget.kind === "surface") return surfaceWidgetHtml(widget.config);
+    if (widget.kind === "callout") return calloutWidgetHtml(widget.config, renderMarkdownFragment(widget.body));
+    if (widget.kind === "theorem") return theoremWidgetHtml(widget.config, renderMarkdownFragment(widget.body));
+    if (widget.kind === "proof") return proofWidgetHtml(widget.config, renderMarkdownFragment(widget.body));
+    if (widget.kind === "twocol") return twoColumnWidgetHtml(widget.config, widget.body);
+    if (widget.kind === "flashcard") return flashcardWidgetHtml(widget.config);
+    if (widget.kind === "image") return imageWidgetHtml(widget.config);
+    return "";
+  }
+
   function renderMarkdownToHtml(markdown) {
     const blocks = [];
-    const withoutSurfaces = String(markdown || "").replace(/\[\[surface:([^\]]+)\]\]/g, (_match, raw) => {
-      const token = `SURFACE_BLOCK_${blocks.length}`;
-      blocks.push({ token, config: parseSurfaceConfig(raw) });
+    let source = String(markdown || "");
+    source = source.replace(/\[\[(callout|theorem|proof|twocol):?([^\]]*)\]\]([\s\S]*?)\[\[\/\1\]\]/g, (_match, kind, raw, body) => {
+      const token = `WIDGET_BLOCK_${blocks.length}`;
+      blocks.push({ token, kind, config: parseWidgetConfig(raw), body });
+      return token;
+    });
+    source = source.replace(/\[\[(surface|flashcard|image):([^\]]+)\]\]/g, (_match, kind, raw) => {
+      const token = `WIDGET_BLOCK_${blocks.length}`;
+      blocks.push({ token, kind, config: parseWidgetConfig(raw), body: "" });
       return token;
     });
 
-    const parsed = window.marked ? window.marked.parse(withoutSurfaces, { gfm: true, breaks: false }) : simpleMarkdown(withoutSurfaces);
+    const parsed = window.marked ? window.marked.parse(source, { gfm: true, breaks: false }) : simpleMarkdown(source);
     let html = sanitizeHtml(parsed);
 
     blocks.forEach((block) => {
-      const widget = surfaceWidgetHtml(block.config);
+      const widget = widgetHtml(block);
       html = html.replace(`<p>${block.token}</p>`, widget);
       html = html.replace(block.token, widget);
     });
@@ -477,6 +541,166 @@
     return `[[surface:function=${expression};range=${range};title=${title}]]`;
   }
 
+  function defaultMarkdown() {
+    return `## 观察曲面的第一步
+
+二元函数可以写作 $z=f(x,y)$。当我们讨论极限时，其实是在问：
+
+$$
+\\lim_{(x,y)\\to(a,b)} f(x,y)=L
+$$
+
+[[callout:type=idea;title=今天的直觉]]
+如果从不同路径靠近同一点时，函数值都趋向同一个数，极限才有机会存在。
+[[/callout]]
+
+## 一个可以拖进笔记的模型
+
+把下面的 3D 曲面拖到正文里，或者点击“插入模型块”。
+
+[[surface:function=sin(x)*cos(y);range=-6,6;title=振荡曲面]]
+
+[[theorem:title=路径观察]]
+如果能找到两条路径靠近同一点，却得到不同的函数值趋势，那么该点极限不存在。
+[[/theorem]]
+
+[[proof:title=证明思路]]
+1. 选择两条容易计算的路径。
+2. 分别代入函数。
+3. 比较两个路径上的极限值。
+[[/proof]]
+
+## 小结
+
+- 曲面的高度对应函数值。
+- 旋转模型时，可以观察不同方向靠近同一点时的变化。
+- 如果路径不同导致高度趋势不同，极限通常不存在。`;
+  }
+
+  function setStatus(message) {
+    const status = $("#editor-status");
+    if (status) status.textContent = message || "";
+  }
+
+  function jsonForScript(data) {
+    return JSON.stringify(data, null, 2).replace(/<\/script/gi, "<\\/script");
+  }
+
+  function fillEditor(metadata, markdown) {
+    const titleInput = $("#note-title");
+    const slugInput = $("#note-slug");
+    if (titleInput) titleInput.value = metadata.title || "未命名笔记";
+    if ($("#note-subject")) $("#note-subject").value = metadata.subject || "math";
+    if (slugInput) {
+      slugInput.value = metadata.slug || slugify(metadata.title || "");
+      slugInput.dataset.touched = "true";
+    }
+    if ($("#note-date")) $("#note-date").value = metadata.date || new Date().toISOString().slice(0, 10);
+    if ($("#note-summary")) $("#note-summary").value = metadata.summary || "";
+    if ($("#cover-seed")) $("#cover-seed").value = metadata.coverSeed || metadata.slug || slugify(metadata.title || "");
+    if ($("#note-markdown")) $("#note-markdown").value = markdown || "";
+    renderEditorPreview();
+  }
+
+  function newBlankNote() {
+    fillEditor({
+      title: "新的学习笔记",
+      subject: "math",
+      summary: "这里写一句话摘要，列表页会显示它。",
+      date: new Date().toISOString().slice(0, 10),
+      slug: "new-study-note",
+      coverSeed: "new-study-note"
+    }, defaultMarkdown());
+    setStatus("已切换到新笔记模板。");
+  }
+
+  function fallbackMarkdownFromArticle(article) {
+    if (!article) return "";
+    const pieces = [];
+    Array.from(article.children).forEach((node) => {
+      const tag = node.tagName.toLowerCase();
+      const text = node.textContent.trim();
+      if (!text) return;
+      if (tag === "h2") pieces.push(`## ${text}`);
+      else if (tag === "h3") pieces.push(`### ${text}`);
+      else if (tag === "ul") {
+        pieces.push(Array.from(node.querySelectorAll("li")).map((li) => `- ${li.textContent.trim()}`).join("\n"));
+      } else if (tag === "pre") {
+        pieces.push(`\`\`\`\n${text}\n\`\`\``);
+      } else if (node.classList.contains("surface-widget")) {
+        pieces.push(`[[surface:function=${node.dataset.expression || "sin(x)*cos(y)"};range=${node.dataset.range || "-6,6"};title=${node.dataset.title || "交互式 3D 曲面"}]]`);
+      } else {
+        pieces.push(text);
+      }
+    });
+    return pieces.join("\n\n");
+  }
+
+  async function loadPublishedNote(note) {
+    const response = await fetch(note.url, { cache: "no-store" });
+    if (!response.ok) throw new Error(`无法读取 ${note.url}`);
+    const html = await response.text();
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const sourceNode = doc.querySelector("#study-note-source");
+    let metadata = note;
+    let markdown = "";
+
+    if (sourceNode?.textContent?.trim()) {
+      const payload = JSON.parse(sourceNode.textContent);
+      metadata = { ...note, ...(payload.metadata || {}) };
+      markdown = payload.markdown || "";
+    } else {
+      markdown = fallbackMarkdownFromArticle(doc.querySelector(".article"));
+    }
+
+    fillEditor(metadata, markdown);
+    setStatus(`已载入《${metadata.title || note.title}》。修改后导出 HTML 覆盖原页面即可更新。`);
+  }
+
+  async function populateExistingNotes() {
+    const select = $("#existing-note");
+    if (!select) return [];
+    const notes = await loadNotes();
+    select.innerHTML = notes.length
+      ? notes.map((note) => `<option value="${escapeHtml(note.url)}">${escapeHtml((SUBJECTS[note.subject] || SUBJECTS.math).label)} / ${escapeHtml(note.title)}</option>`).join("")
+      : `<option value="">还没有可载入的笔记</option>`;
+    window.__studyNotes = notes;
+    return notes;
+  }
+
+  function applyFormat(kind) {
+    const textarea = $("#note-markdown");
+    if (!textarea) return;
+    const start = textarea.selectionStart || 0;
+    const end = textarea.selectionEnd || 0;
+    const selected = textarea.value.slice(start, end);
+    const content = selected || "这里写内容";
+    const templates = {
+      h2: `## ${selected || "小节标题"}`,
+      h3: `### ${selected || "三级标题"}`,
+      bold: `**${selected || "重点文字"}**`,
+      latex: `$$\n${selected || "f(x)=x^2"}\n$$`,
+      callout: `[[callout:type=idea;title=提示]]\n${content}\n[[/callout]]`,
+      theorem: `[[theorem:title=定理]]\n${content}\n[[/theorem]]`,
+      proof: `[[proof:title=证明]]\n${content}\n[[/proof]]`,
+      twocol: `[[twocol:title=双栏比较]]\n${selected || "左侧内容"}\n[[column]]\n右侧内容\n[[/twocol]]`
+    };
+    const value = templates[kind] || content;
+    const before = textarea.value.slice(0, start);
+    const after = textarea.value.slice(end);
+    textarea.value = `${before}${value}${after}`;
+    textarea.focus();
+    textarea.setSelectionRange(before.length, before.length + value.length);
+    textarea.dispatchEvent(new Event("input", { bubbles: true }));
+    setStatus(selected ? "已把选区转换成新样式。" : "已插入样式模板。");
+  }
+
+  function makeSnippetDraggable(element, getSnippet) {
+    element.addEventListener("dragstart", (event) => {
+      event.dataTransfer.setData("text/plain", getSnippet());
+    });
+  }
+
   function renderEditorPreview() {
     const title = $("#note-title")?.value || "未命名笔记";
     const subjectKey = $("#note-subject")?.value || "math";
@@ -524,7 +748,9 @@
   function exportHtml() {
     const metadata = updateMetadataOutput();
     const subject = SUBJECTS[metadata.subject] || SUBJECTS.math;
-    const articleHtml = renderMarkdownToHtml($("#note-markdown")?.value || "");
+    const markdown = $("#note-markdown")?.value || "";
+    const articleHtml = renderMarkdownToHtml(markdown);
+    const sourcePayload = jsonForScript({ metadata, markdown });
     const html = `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -565,6 +791,7 @@
       </aside>
     </section>
   </main>
+  <script type="application/json" id="study-note-source">${sourcePayload}</script>
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
@@ -601,27 +828,7 @@
     }
     if ($("#cover-seed") && !$("#cover-seed").value) $("#cover-seed").value = "limit-surface";
     if (markdown && !markdown.value.trim()) {
-      markdown.value = `## 观察曲面的第一步
-
-二元函数可以写作 $z=f(x,y)$。当我们讨论极限时，其实是在问：
-
-$$
-\\lim_{(x,y)\\to(a,b)} f(x,y)=L
-$$
-
-这句话能不能在所有靠近路径上保持一致。
-
-## 一个可以拖进笔记的模型
-
-把下面的 3D 曲面拖到正文里，或者点击“插入模型块”。
-
-[[surface:function=sin(x)*cos(y);range=-6,6;title=振荡曲面]]
-
-## 小结
-
-- 曲面的高度对应函数值。
-- 旋转模型时，可以观察不同方向靠近同一点时的变化。
-- 如果路径不同导致高度趋势不同，极限通常不存在。`;
+      markdown.value = defaultMarkdown();
     }
 
     if (titleInput && slugInput) {
@@ -654,6 +861,23 @@ $$
       });
     });
 
+    populateExistingNotes();
+    $("#load-existing")?.addEventListener("click", async () => {
+      const selectedUrl = $("#existing-note")?.value || "";
+      const note = (window.__studyNotes || []).find((item) => item.url === selectedUrl);
+      if (!note) {
+        setStatus("请先选择一篇已发布笔记。");
+        return;
+      }
+      try {
+        setStatus("正在载入已发布笔记...");
+        await loadPublishedNote(note);
+      } catch (error) {
+        setStatus(`载入失败：${error.message}`);
+      }
+    });
+    $("#new-note")?.addEventListener("click", newBlankNote);
+
     $("#insert-model")?.addEventListener("click", () => insertAtCursor(markdown, currentShortcode()));
     $("#refresh-preview")?.addEventListener("click", renderEditorPreview);
     $("#export-html")?.addEventListener("click", exportHtml);
@@ -666,15 +890,21 @@ $$
 
     if (chip && markdown) {
       chip.querySelector("code").textContent = currentShortcode();
-      chip.addEventListener("dragstart", (event) => {
-        event.dataTransfer.setData("text/plain", currentShortcode());
-      });
+      makeSnippetDraggable(chip, currentShortcode);
       markdown.addEventListener("dragover", (event) => event.preventDefault());
       markdown.addEventListener("drop", (event) => {
         event.preventDefault();
         insertAtCursor(markdown, event.dataTransfer.getData("text/plain") || currentShortcode());
       });
     }
+
+    $$(".tool-chip").forEach((tool) => {
+      makeSnippetDraggable(tool, () => tool.dataset.snippet || "");
+      tool.addEventListener("click", () => insertAtCursor(markdown, tool.dataset.snippet || ""));
+    });
+    $$(".format-toolbar [data-format]").forEach((button) => {
+      button.addEventListener("click", () => applyFormat(button.dataset.format));
+    });
 
     const modelPreview = $("#model-preview");
     if (modelPreview) {
