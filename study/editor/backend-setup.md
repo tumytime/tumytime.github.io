@@ -30,13 +30,13 @@ npx wrangler deploy
 
 ## Route
 
-`wrangler.toml` routes the Worker to:
+When `tumytime.space` is managed by Cloudflare, route the Worker to:
 
 ```text
 tumytime.space/__study_publish*
 ```
 
-The editor at `https://tumytime.space/study/editor/` can then publish directly to GitHub. GitHub Pages may still take a short time to refresh after each successful publish.
+If the domain is not managed by Cloudflare yet, deploy without a route and use the generated `workers.dev` URL as the publish API. The editor at `https://tumytime.space/study/editor/` can then publish directly to GitHub after its API endpoint is pointed at that Worker URL. GitHub Pages may still take a short time to refresh after each successful publish.
 
 ## Local Fallback
 

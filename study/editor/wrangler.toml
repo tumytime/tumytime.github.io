@@ -2,10 +2,6 @@ name = "tumy-study-publisher"
 main = "cloudflare-worker.js"
 compatibility_date = "2026-06-02"
 
-routes = [
-  { pattern = "tumytime.space/__study_publish*", zone_name = "tumytime.space" }
-]
-
 [vars]
 GITHUB_OWNER = "tumytime"
 GITHUB_REPO = "tumytime.github.io"
