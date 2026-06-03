@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 参数估计 | 数学 | Tumy Study</title>
+  <meta name="description" content="整理矩估计、最大似然估计、估计量评价和正态总体区间估计。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="/study/assets/study.css">
+</head>
+<body class="study-reader" data-page="note">
+  <canvas class="study-canvas" aria-hidden="true"></canvas>
+  <main class="study-shell">
+    <nav class="study-nav" aria-label="页面导航">
+      <a class="study-brand" href="/study/"><span class="study-brand__mark">S</span><span>Tumy Study</span></a>
+      <div class="study-nav__links">
+        <a class="study-pill" href="/study/math/">返回数学</a>
+        <a class="study-pill" href="/study/">学习主页</a>
+      </div>
+    </nav>
+    <section class="reader-wrap">
+      <article class="reader-card">
+        <span class="reader-kicker">考研数学一 / 概率论与数理统计</span>
+        <h1>21 参数估计</h1>
+        <p class="reader-lead">整理矩估计、最大似然估计、估计量评价和正态总体区间估计。</p>
+        <p class="reader-date">2026/05/14</p>
+        <div class="article"><section class="study-widget study-widget--idea" data-widget="callout" data-type="idea" data-title="章节定位"><h4>章节定位</h4><p>整理矩估计、最大似然估计、估计量评价和正态总体区间估计。</p></section>
+<h2>详细知识点清单</h2>
+<ul>
+<li>参数估计问题：点估计与区间估计。</li>
+<li>矩估计法：样本矩等于总体矩。</li>
+<li>最大似然估计：似然函数、对数似然、边界情形。</li>
+<li>估计量评价：无偏性、有效性、一致性。</li>
+<li>均方误差和方差比较。</li>
+<li>正态总体均值、方差的置信区间。</li>
+<li>单侧置信区间与双侧置信区间。</li>
+<li>估计与抽样分布的结合。</li>
+</ul>
+<h2>核心公式与结论</h2>
+<ul>
+<li>矩估计：$\frac1n\sum X_i^k=E(X^k)$。</li>
+<li>最大似然：$L(\theta)=\prod_{i=1}^n f(x_i;\theta)$。</li>
+<li>无偏性：$E(\hat\theta)=\theta$。</li>
+</ul>
+<h2>详细题型</h2>
+<ul>
+<li>求矩估计量，常见于一参数或两参数分布。</li>
+<li>求最大似然估计，包含离散型和连续型。</li>
+<li>判断估计量是否无偏、比较有效性。</li>
+<li>求估计量的期望、方差和均方误差。</li>
+<li>正态总体均值或方差的置信区间。</li>
+<li>含边界参数的最大似然估计，如均匀分布端点。</li>
+</ul>
+
+<h2>解题路线</h2>
+<ul>
+<li>MLE 先写联合密度/概率，再取对数简化乘积。</li>
+<li>矩估计先写总体矩，再用样本矩替换。</li>
+<li>区间估计先找枢轴量，再套分位点。</li>
+</ul>
+<h2>易错点</h2>
+<ul>
+<li>最大似然估计不能只求导，必须检查参数范围和边界。</li>
+<li>无偏不代表方差小，有效性要在无偏估计量中比较。</li>
+<li>置信水平和显著性水平互补，双侧区间要用 $\alpha/2$。</li>
+</ul>
+<h2>复习顺序建议</h2>
+<ol>
+<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>
+<li>再做基础计算题，把公式变成稳定操作。</li>
+<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>
+</ol></div>
+      </article>
+      <aside class="reader-aside">
+        <div class="reader-card">
+          <strong>目录</strong>
+          <ul class="toc-list" data-toc></ul>
+        </div>
+        <div class="reader-card">
+          <strong>说明</strong>
+          <p>按考研数学一复习框架整理，覆盖知识点、常见题型、解题路线和易错点。</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script type="application/json" id="study-note-source">{
+  "metadata": {
+    "title": "21 参数估计",
+    "subject": "math",
+    "part": "概率论与数理统计",
+    "summary": "整理矩估计、最大似然估计、估计量评价和正态总体区间估计。",
+    "date": "2026-05-14",
+    "displayDate": "2026/05/14",
+    "slug": "math1-21-parameter-estimation",
+    "coverSeed": "math1-21-parameter-estimation",
+    "url": "/study/math/math1-21-parameter-estimation/"
+  },
+  "markdown": "[[callout:type=idea;title=章节定位]]\n整理矩估计、最大似然估计、估计量评价和正态总体区间估计。\n[[/callout]]\n\n## 详细知识点清单\n- 参数估计问题：点估计与区间估计。\n- 矩估计法：样本矩等于总体矩。\n- 最大似然估计：似然函数、对数似然、边界情形。\n- 估计量评价：无偏性、有效性、一致性。\n- 均方误差和方差比较。\n- 正态总体均值、方差的置信区间。\n- 单侧置信区间与双侧置信区间。\n- 估计与抽样分布的结合。\n\n## 核心公式与结论\n- 矩估计：$\\frac1n\\sum X_i^k=E(X^k)$。\n- 最大似然：$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta)$。\n- 无偏性：$E(\\hat\\theta)=\\theta$。\n\n## 详细题型\n- 求矩估计量，常见于一参数或两参数分布。\n- 求最大似然估计，包含离散型和连续型。\n- 判断估计量是否无偏、比较有效性。\n- 求估计量的期望、方差和均方误差。\n- 正态总体均值或方差的置信区间。\n- 含边界参数的最大似然估计，如均匀分布端点。\n\n## 解题路线\n- MLE 先写联合密度/概率，再取对数简化乘积。\n- 矩估计先写总体矩，再用样本矩替换。\n- 区间估计先找枢轴量，再套分位点。\n\n## 易错点\n- 最大似然估计不能只求导，必须检查参数范围和边界。\n- 无偏不代表方差小，有效性要在无偏估计量中比较。\n- 置信水平和显著性水平互补，双侧区间要用 $\\alpha/2$。\n\n## 复习顺序建议\n1. 先把本章定义和适用条件背熟，尤其是定理的前提。\n2. 再做基础计算题，把公式变成稳定操作。\n3. 最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。",
+  "html": "<section class=\"study-widget study-widget--idea\" data-widget=\"callout\" data-type=\"idea\" data-title=\"章节定位\"><h4>章节定位</h4><p>整理矩估计、最大似然估计、估计量评价和正态总体区间估计。</p></section>\n<h2>详细知识点清单</h2>\n<ul>\n<li>参数估计问题：点估计与区间估计。</li>\n<li>矩估计法：样本矩等于总体矩。</li>\n<li>最大似然估计：似然函数、对数似然、边界情形。</li>\n<li>估计量评价：无偏性、有效性、一致性。</li>\n<li>均方误差和方差比较。</li>\n<li>正态总体均值、方差的置信区间。</li>\n<li>单侧置信区间与双侧置信区间。</li>\n<li>估计与抽样分布的结合。</li>\n</ul>\n<h2>核心公式与结论</h2>\n<ul>\n<li>矩估计：$\\frac1n\\sum X_i^k=E(X^k)$。</li>\n<li>最大似然：$L(\\theta)=\\prod_{i=1}^n f(x_i;\\theta)$。</li>\n<li>无偏性：$E(\\hat\\theta)=\\theta$。</li>\n</ul>\n<h2>详细题型</h2>\n<ul>\n<li>求矩估计量，常见于一参数或两参数分布。</li>\n<li>求最大似然估计，包含离散型和连续型。</li>\n<li>判断估计量是否无偏、比较有效性。</li>\n<li>求估计量的期望、方差和均方误差。</li>\n<li>正态总体均值或方差的置信区间。</li>\n<li>含边界参数的最大似然估计，如均匀分布端点。</li>\n</ul>\n\n<h2>解题路线</h2>\n<ul>\n<li>MLE 先写联合密度/概率，再取对数简化乘积。</li>\n<li>矩估计先写总体矩，再用样本矩替换。</li>\n<li>区间估计先找枢轴量，再套分位点。</li>\n</ul>\n<h2>易错点</h2>\n<ul>\n<li>最大似然估计不能只求导，必须检查参数范围和边界。</li>\n<li>无偏不代表方差小，有效性要在无偏估计量中比较。</li>\n<li>置信水平和显著性水平互补，双侧区间要用 $\\alpha/2$。</li>\n</ul>\n<h2>复习顺序建议</h2>\n<ol>\n<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>\n<li>再做基础计算题，把公式变成稳定操作。</li>\n<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>\n</ol>"
+}</script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="/study/assets/study.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 多元函数积分学 | 数学 | Tumy Study</title>
+  <meta name="description" content="梳理二重、三重、曲线、曲面积分及三大公式，解决区域与场的计算。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="/study/assets/study.css">
+</head>
+<body class="study-reader" data-page="note">
+  <canvas class="study-canvas" aria-hidden="true"></canvas>
+  <main class="study-shell">
+    <nav class="study-nav" aria-label="页面导航">
+      <a class="study-brand" href="/study/"><span class="study-brand__mark">S</span><span>Tumy Study</span></a>
+      <div class="study-nav__links">
+        <a class="study-pill" href="/study/math/">返回数学</a>
+        <a class="study-pill" href="/study/">学习主页</a>
+      </div>
+    </nav>
+    <section class="reader-wrap">
+      <article class="reader-card">
+        <span class="reader-kicker">考研数学一 / 高等数学</span>
+        <h1>06 多元函数积分学</h1>
+        <p class="reader-lead">梳理二重、三重、曲线、曲面积分及三大公式，解决区域与场的计算。</p>
+        <p class="reader-date">2026/05/29</p>
+        <div class="article"><section class="study-widget study-widget--idea" data-widget="callout" data-type="idea" data-title="章节定位"><h4>章节定位</h4><p>梳理二重、三重、曲线、曲面积分及三大公式，解决区域与场的计算。</p></section>
+<h2>详细知识点清单</h2>
+<ul>
+<li>二重积分概念：几何意义、性质、直角坐标下的累次积分。</li>
+<li>二重积分换序：区域画图、投影法和分块。</li>
+<li>极坐标变换：雅可比 $r$、圆域、扇形域和旋转对称。</li>
+<li>三重积分：直角、柱面、球面坐标，质量与体积问题。</li>
+<li>第一类曲线/曲面积分：对弧长、对面积的积分。</li>
+<li>第二类曲线积分：对坐标的积分、方向性、保守场与路径无关。</li>
+<li>第二类曲面积分：通量、法向选择和有向曲面。</li>
+<li>格林公式、高斯公式、斯托克斯公式的条件、方向和边界关系。</li>
+<li>积分应用：面积、体积、质量、质心、转动惯量、功、环量、通量。</li>
+</ul>
+<h2>核心公式与结论</h2>
+<ul>
+<li>极坐标：$\iint_D f(x,y)\,dxdy=\iint_{D'} f(r\cos\theta,r\sin\theta)r\,drd\theta$</li>
+<li>格林公式：$\oint_L Pdx+Qdy=\iint_D(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})dxdy$</li>
+<li>高斯公式：$\iint_\Sigma P dydz+Q dzdx+R dxdy=\iiint_\Omega(P_x+Q_y+R_z)dV$。</li>
+</ul>
+<h2>详细题型</h2>
+<ul>
+<li>二重积分计算：画区域、定次序、换序、极坐标。</li>
+<li>三重积分计算：选择柱面或球面坐标，注意雅可比。</li>
+<li>由积分限还原积分区域，再改换积分次序或坐标。</li>
+<li>第一类曲线/曲面积分：参数化后带入弧长元或面积元。</li>
+<li>第二类曲线积分：直接参数化、格林公式、路径无关。</li>
+<li>第二类曲面积分：投影法、高斯公式、补面技巧。</li>
+<li>综合应用：质心、转动惯量、功、通量和环量。</li>
+</ul>
+<h2>可交互数学模型</h2>
+<p>这一章涉及局部形状或积分区域时，可以先旋转下面的曲面，观察图像如何对应公式中的变化。</p>
+<div class="surface-widget" data-widget="surface" data-expression="exp(-(x^2+y^2))" data-range="-3,3" data-title="高斯曲面与积分区域"></div>
+<h2>解题路线</h2>
+<ul>
+<li>先画区域再写限；区域越对称，越优先考虑极坐标、柱坐标或球坐标。</li>
+<li>曲线积分看到闭合曲线先想格林；曲面积分看到闭合曲面先想高斯。</li>
+<li>方向题先定正向：平面区域逆时针，曲面外法向，边界方向与法向匹配。</li>
+</ul>
+<h2>易错点</h2>
+<ul>
+<li>坐标变换不能漏雅可比。</li>
+<li>格林、高斯、斯托克斯都有光滑性和闭合/定向条件。</li>
+<li>补面后要减去补面的贡献，不能只算封闭体积分。</li>
+</ul>
+<h2>复习顺序建议</h2>
+<ol>
+<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>
+<li>再做基础计算题，把公式变成稳定操作。</li>
+<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>
+</ol></div>
+      </article>
+      <aside class="reader-aside">
+        <div class="reader-card">
+          <strong>目录</strong>
+          <ul class="toc-list" data-toc></ul>
+        </div>
+        <div class="reader-card">
+          <strong>说明</strong>
+          <p>按考研数学一复习框架整理，覆盖知识点、常见题型、解题路线和易错点。</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script type="application/json" id="study-note-source">{
+  "metadata": {
+    "title": "06 多元函数积分学",
+    "subject": "math",
+    "part": "高等数学",
+    "summary": "梳理二重、三重、曲线、曲面积分及三大公式，解决区域与场的计算。",
+    "date": "2026-05-29",
+    "displayDate": "2026/05/29",
+    "slug": "math1-06-multivariable-integral",
+    "coverSeed": "math1-06-multivariable-integral",
+    "url": "/study/math/math1-06-multivariable-integral/"
+  },
+  "markdown": "[[callout:type=idea;title=章节定位]]\n梳理二重、三重、曲线、曲面积分及三大公式，解决区域与场的计算。\n[[/callout]]\n\n## 详细知识点清单\n- 二重积分概念：几何意义、性质、直角坐标下的累次积分。\n- 二重积分换序：区域画图、投影法和分块。\n- 极坐标变换：雅可比 $r$、圆域、扇形域和旋转对称。\n- 三重积分：直角、柱面、球面坐标，质量与体积问题。\n- 第一类曲线/曲面积分：对弧长、对面积的积分。\n- 第二类曲线积分：对坐标的积分、方向性、保守场与路径无关。\n- 第二类曲面积分：通量、法向选择和有向曲面。\n- 格林公式、高斯公式、斯托克斯公式的条件、方向和边界关系。\n- 积分应用：面积、体积、质量、质心、转动惯量、功、环量、通量。\n\n## 核心公式与结论\n- 极坐标：$\\iint_D f(x,y)\\,dxdy=\\iint_{D'} f(r\\cos\\theta,r\\sin\\theta)r\\,drd\\theta$\n- 格林公式：$\\oint_L Pdx+Qdy=\\iint_D(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y})dxdy$\n- 高斯公式：$\\iint_\\Sigma P dydz+Q dzdx+R dxdy=\\iiint_\\Omega(P_x+Q_y+R_z)dV$。\n\n## 详细题型\n- 二重积分计算：画区域、定次序、换序、极坐标。\n- 三重积分计算：选择柱面或球面坐标，注意雅可比。\n- 由积分限还原积分区域，再改换积分次序或坐标。\n- 第一类曲线/曲面积分：参数化后带入弧长元或面积元。\n- 第二类曲线积分：直接参数化、格林公式、路径无关。\n- 第二类曲面积分：投影法、高斯公式、补面技巧。\n- 综合应用：质心、转动惯量、功、通量和环量。\n\n## 可交互数学模型\n这一章涉及局部形状或积分区域时，可以先旋转下面的曲面，观察图像如何对应公式中的变化。\n\n[[surface:function=exp(-(x^2+y^2));range=-3,3;title=高斯曲面与积分区域]]\n\n## 解题路线\n- 先画区域再写限；区域越对称，越优先考虑极坐标、柱坐标或球坐标。\n- 曲线积分看到闭合曲线先想格林；曲面积分看到闭合曲面先想高斯。\n- 方向题先定正向：平面区域逆时针，曲面外法向，边界方向与法向匹配。\n\n## 易错点\n- 坐标变换不能漏雅可比。\n- 格林、高斯、斯托克斯都有光滑性和闭合/定向条件。\n- 补面后要减去补面的贡献，不能只算封闭体积分。\n\n## 复习顺序建议\n1. 先把本章定义和适用条件背熟，尤其是定理的前提。\n2. 再做基础计算题，把公式变成稳定操作。\n3. 最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。",
+  "html": "<section class=\"study-widget study-widget--idea\" data-widget=\"callout\" data-type=\"idea\" data-title=\"章节定位\"><h4>章节定位</h4><p>梳理二重、三重、曲线、曲面积分及三大公式，解决区域与场的计算。</p></section>\n<h2>详细知识点清单</h2>\n<ul>\n<li>二重积分概念：几何意义、性质、直角坐标下的累次积分。</li>\n<li>二重积分换序：区域画图、投影法和分块。</li>\n<li>极坐标变换：雅可比 $r$、圆域、扇形域和旋转对称。</li>\n<li>三重积分：直角、柱面、球面坐标，质量与体积问题。</li>\n<li>第一类曲线/曲面积分：对弧长、对面积的积分。</li>\n<li>第二类曲线积分：对坐标的积分、方向性、保守场与路径无关。</li>\n<li>第二类曲面积分：通量、法向选择和有向曲面。</li>\n<li>格林公式、高斯公式、斯托克斯公式的条件、方向和边界关系。</li>\n<li>积分应用：面积、体积、质量、质心、转动惯量、功、环量、通量。</li>\n</ul>\n<h2>核心公式与结论</h2>\n<ul>\n<li>极坐标：$\\iint_D f(x,y)\\,dxdy=\\iint_{D'} f(r\\cos\\theta,r\\sin\\theta)r\\,drd\\theta$</li>\n<li>格林公式：$\\oint_L Pdx+Qdy=\\iint_D(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y})dxdy$</li>\n<li>高斯公式：$\\iint_\\Sigma P dydz+Q dzdx+R dxdy=\\iiint_\\Omega(P_x+Q_y+R_z)dV$。</li>\n</ul>\n<h2>详细题型</h2>\n<ul>\n<li>二重积分计算：画区域、定次序、换序、极坐标。</li>\n<li>三重积分计算：选择柱面或球面坐标，注意雅可比。</li>\n<li>由积分限还原积分区域，再改换积分次序或坐标。</li>\n<li>第一类曲线/曲面积分：参数化后带入弧长元或面积元。</li>\n<li>第二类曲线积分：直接参数化、格林公式、路径无关。</li>\n<li>第二类曲面积分：投影法、高斯公式、补面技巧。</li>\n<li>综合应用：质心、转动惯量、功、通量和环量。</li>\n</ul>\n<h2>可交互数学模型</h2>\n<p>这一章涉及局部形状或积分区域时，可以先旋转下面的曲面，观察图像如何对应公式中的变化。</p>\n<div class=\"surface-widget\" data-widget=\"surface\" data-expression=\"exp(-(x^2+y^2))\" data-range=\"-3,3\" data-title=\"高斯曲面与积分区域\"></div>\n<h2>解题路线</h2>\n<ul>\n<li>先画区域再写限；区域越对称，越优先考虑极坐标、柱坐标或球坐标。</li>\n<li>曲线积分看到闭合曲线先想格林；曲面积分看到闭合曲面先想高斯。</li>\n<li>方向题先定正向：平面区域逆时针，曲面外法向，边界方向与法向匹配。</li>\n</ul>\n<h2>易错点</h2>\n<ul>\n<li>坐标变换不能漏雅可比。</li>\n<li>格林、高斯、斯托克斯都有光滑性和闭合/定向条件。</li>\n<li>补面后要减去补面的贡献，不能只算封闭体积分。</li>\n</ul>\n<h2>复习顺序建议</h2>\n<ol>\n<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>\n<li>再做基础计算题，把公式变成稳定操作。</li>\n<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>\n</ol>"
+}</script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="/study/assets/study.js"></script>
+</body>
+</html>

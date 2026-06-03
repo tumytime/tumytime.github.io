@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18 随机变量的数字特征 | 数学 | Tumy Study</title>
+  <meta name="description" content="系统整理期望、方差、协方差、相关系数和矩的计算与性质。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="/study/assets/study.css">
+</head>
+<body class="study-reader" data-page="note">
+  <canvas class="study-canvas" aria-hidden="true"></canvas>
+  <main class="study-shell">
+    <nav class="study-nav" aria-label="页面导航">
+      <a class="study-brand" href="/study/"><span class="study-brand__mark">S</span><span>Tumy Study</span></a>
+      <div class="study-nav__links">
+        <a class="study-pill" href="/study/math/">返回数学</a>
+        <a class="study-pill" href="/study/">学习主页</a>
+      </div>
+    </nav>
+    <section class="reader-wrap">
+      <article class="reader-card">
+        <span class="reader-kicker">考研数学一 / 概率论与数理统计</span>
+        <h1>18 随机变量的数字特征</h1>
+        <p class="reader-lead">系统整理期望、方差、协方差、相关系数和矩的计算与性质。</p>
+        <p class="reader-date">2026/05/17</p>
+        <div class="article"><section class="study-widget study-widget--idea" data-widget="callout" data-type="idea" data-title="章节定位"><h4>章节定位</h4><p>系统整理期望、方差、协方差、相关系数和矩的计算与性质。</p></section>
+<h2>详细知识点清单</h2>
+<ul>
+<li>数学期望定义、存在条件和线性性质。</li>
+<li>随机变量函数的期望：离散求和、连续积分。</li>
+<li>方差、标准差和常用公式。</li>
+<li>常见分布的期望与方差。</li>
+<li>协方差、相关系数和矩。</li>
+<li>独立性与不相关的关系。</li>
+<li>切比雪夫不等式。</li>
+<li>二维变量函数的期望与方差。</li>
+</ul>
+<h2>核心公式与结论</h2>
+<ul>
+<li>$D(X)=E(X^2)-[E(X)]^2$</li>
+<li>$Cov(X,Y)=E(XY)-E(X)E(Y)$</li>
+<li>$\rho_{XY}=\frac{Cov(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}}$。</li>
+</ul>
+<h2>详细题型</h2>
+<ul>
+<li>由分布律、密度或分布函数求期望和方差。</li>
+<li>求 $E[g(X)]$、$E[g(X,Y)]$。</li>
+<li>常见分布数字特征直接识别。</li>
+<li>求协方差、相关系数并判断不相关。</li>
+<li>利用独立性计算和、差、线性组合的方差。</li>
+<li>切比雪夫不等式估计概率。</li>
+</ul>
+
+<h2>解题路线</h2>
+<ul>
+<li>方差优先用 $E(X^2)-[E(X)]^2$。</li>
+<li>独立时 $E(XY)=E(X)E(Y)$，但反过来不一定。</li>
+<li>线性组合方差注意协方差项。</li>
+</ul>
+<h2>易错点</h2>
+<ul>
+<li>期望存在需要绝对收敛或积分收敛条件。</li>
+<li>不相关不一定独立，正态场景下才常有特殊结论。</li>
+<li>方差不是线性的，不能把 $D(X+Y)$ 直接拆成 $D(X)+D(Y)$ 除非独立或协方差为零。</li>
+</ul>
+<h2>复习顺序建议</h2>
+<ol>
+<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>
+<li>再做基础计算题，把公式变成稳定操作。</li>
+<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>
+</ol></div>
+      </article>
+      <aside class="reader-aside">
+        <div class="reader-card">
+          <strong>目录</strong>
+          <ul class="toc-list" data-toc></ul>
+        </div>
+        <div class="reader-card">
+          <strong>说明</strong>
+          <p>按考研数学一复习框架整理，覆盖知识点、常见题型、解题路线和易错点。</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script type="application/json" id="study-note-source">{
+  "metadata": {
+    "title": "18 随机变量的数字特征",
+    "subject": "math",
+    "part": "概率论与数理统计",
+    "summary": "系统整理期望、方差、协方差、相关系数和矩的计算与性质。",
+    "date": "2026-05-17",
+    "displayDate": "2026/05/17",
+    "slug": "math1-18-numerical-characteristics",
+    "coverSeed": "math1-18-numerical-characteristics",
+    "url": "/study/math/math1-18-numerical-characteristics/"
+  },
+  "markdown": "[[callout:type=idea;title=章节定位]]\n系统整理期望、方差、协方差、相关系数和矩的计算与性质。\n[[/callout]]\n\n## 详细知识点清单\n- 数学期望定义、存在条件和线性性质。\n- 随机变量函数的期望：离散求和、连续积分。\n- 方差、标准差和常用公式。\n- 常见分布的期望与方差。\n- 协方差、相关系数和矩。\n- 独立性与不相关的关系。\n- 切比雪夫不等式。\n- 二维变量函数的期望与方差。\n\n## 核心公式与结论\n- $D(X)=E(X^2)-[E(X)]^2$\n- $Cov(X,Y)=E(XY)-E(X)E(Y)$\n- $\\rho_{XY}=\\frac{Cov(X,Y)}{\\sqrt{D(X)}\\sqrt{D(Y)}}$。\n\n## 详细题型\n- 由分布律、密度或分布函数求期望和方差。\n- 求 $E[g(X)]$、$E[g(X,Y)]$。\n- 常见分布数字特征直接识别。\n- 求协方差、相关系数并判断不相关。\n- 利用独立性计算和、差、线性组合的方差。\n- 切比雪夫不等式估计概率。\n\n## 解题路线\n- 方差优先用 $E(X^2)-[E(X)]^2$。\n- 独立时 $E(XY)=E(X)E(Y)$，但反过来不一定。\n- 线性组合方差注意协方差项。\n\n## 易错点\n- 期望存在需要绝对收敛或积分收敛条件。\n- 不相关不一定独立，正态场景下才常有特殊结论。\n- 方差不是线性的，不能把 $D(X+Y)$ 直接拆成 $D(X)+D(Y)$ 除非独立或协方差为零。\n\n## 复习顺序建议\n1. 先把本章定义和适用条件背熟，尤其是定理的前提。\n2. 再做基础计算题，把公式变成稳定操作。\n3. 最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。",
+  "html": "<section class=\"study-widget study-widget--idea\" data-widget=\"callout\" data-type=\"idea\" data-title=\"章节定位\"><h4>章节定位</h4><p>系统整理期望、方差、协方差、相关系数和矩的计算与性质。</p></section>\n<h2>详细知识点清单</h2>\n<ul>\n<li>数学期望定义、存在条件和线性性质。</li>\n<li>随机变量函数的期望：离散求和、连续积分。</li>\n<li>方差、标准差和常用公式。</li>\n<li>常见分布的期望与方差。</li>\n<li>协方差、相关系数和矩。</li>\n<li>独立性与不相关的关系。</li>\n<li>切比雪夫不等式。</li>\n<li>二维变量函数的期望与方差。</li>\n</ul>\n<h2>核心公式与结论</h2>\n<ul>\n<li>$D(X)=E(X^2)-[E(X)]^2$</li>\n<li>$Cov(X,Y)=E(XY)-E(X)E(Y)$</li>\n<li>$\\rho_{XY}=\\frac{Cov(X,Y)}{\\sqrt{D(X)}\\sqrt{D(Y)}}$。</li>\n</ul>\n<h2>详细题型</h2>\n<ul>\n<li>由分布律、密度或分布函数求期望和方差。</li>\n<li>求 $E[g(X)]$、$E[g(X,Y)]$。</li>\n<li>常见分布数字特征直接识别。</li>\n<li>求协方差、相关系数并判断不相关。</li>\n<li>利用独立性计算和、差、线性组合的方差。</li>\n<li>切比雪夫不等式估计概率。</li>\n</ul>\n\n<h2>解题路线</h2>\n<ul>\n<li>方差优先用 $E(X^2)-[E(X)]^2$。</li>\n<li>独立时 $E(XY)=E(X)E(Y)$，但反过来不一定。</li>\n<li>线性组合方差注意协方差项。</li>\n</ul>\n<h2>易错点</h2>\n<ul>\n<li>期望存在需要绝对收敛或积分收敛条件。</li>\n<li>不相关不一定独立，正态场景下才常有特殊结论。</li>\n<li>方差不是线性的，不能把 $D(X+Y)$ 直接拆成 $D(X)+D(Y)$ 除非独立或协方差为零。</li>\n</ul>\n<h2>复习顺序建议</h2>\n<ol>\n<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>\n<li>再做基础计算题，把公式变成稳定操作。</li>\n<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>\n</ol>"
+}</script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="/study/assets/study.js"></script>
+</body>
+</html>

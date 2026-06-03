@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 特征值与特征向量 | 数学 | Tumy Study</title>
+  <meta name="description" content="理解特征方程、相似、对角化和实对称矩阵，是线代综合题高频核心。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="/study/assets/study.css">
+</head>
+<body class="study-reader" data-page="note">
+  <canvas class="study-canvas" aria-hidden="true"></canvas>
+  <main class="study-shell">
+    <nav class="study-nav" aria-label="页面导航">
+      <a class="study-brand" href="/study/"><span class="study-brand__mark">S</span><span>Tumy Study</span></a>
+      <div class="study-nav__links">
+        <a class="study-pill" href="/study/math/">返回数学</a>
+        <a class="study-pill" href="/study/">学习主页</a>
+      </div>
+    </nav>
+    <section class="reader-wrap">
+      <article class="reader-card">
+        <span class="reader-kicker">考研数学一 / 线性代数</span>
+        <h1>13 特征值与特征向量</h1>
+        <p class="reader-lead">理解特征方程、相似、对角化和实对称矩阵，是线代综合题高频核心。</p>
+        <p class="reader-date">2026/05/22</p>
+        <div class="article"><section class="study-widget study-widget--idea" data-widget="callout" data-type="idea" data-title="章节定位"><h4>章节定位</h4><p>理解特征方程、相似、对角化和实对称矩阵，是线代综合题高频核心。</p></section>
+<h2>详细知识点清单</h2>
+<ul>
+<li>特征值、特征向量定义与几何意义。</li>
+<li>特征多项式、特征方程和特征子空间。</li>
+<li>特征值性质：和为迹、积为行列式。</li>
+<li>相似矩阵：定义、性质和不变量。</li>
+<li>矩阵可对角化条件：线性无关特征向量个数。</li>
+<li>实对称矩阵：特征值实、不同特征值特征向量正交、正交对角化。</li>
+<li>矩阵幂和矩阵函数的对角化计算。</li>
+<li>相似与秩、行列式、迹、特征多项式的综合。</li>
+</ul>
+<h2>核心公式与结论</h2>
+<ul>
+<li>$A\alpha=\lambda\alpha\ (\alpha\ne0)$</li>
+<li>$|\lambda E-A|=0$</li>
+<li>$A=PDP^{-1}\Rightarrow A^n=PD^nP^{-1}$。</li>
+</ul>
+<h2>详细题型</h2>
+<ul>
+<li>求特征值和特征向量。</li>
+<li>判断矩阵能否对角化，并求可逆矩阵 $P$。</li>
+<li>实对称矩阵正交对角化。</li>
+<li>利用特征值求行列式、迹、秩、矩阵幂。</li>
+<li>由给定特征值/特征向量反求矩阵参数。</li>
+<li>证明相似或不相似，寻找相似不变量。</li>
+</ul>
+
+<h2>解题路线</h2>
+<ul>
+<li>先求特征值，再逐个解 $(\lambda E-A)x=0$。</li>
+<li>对角化的关键不是特征值个数，而是线性无关特征向量总数。</li>
+<li>实对称矩阵优先用正交对角化，特征向量要单位化。</li>
+</ul>
+<h2>易错点</h2>
+<ul>
+<li>重特征值不一定提供同样多个无关特征向量。</li>
+<li>行等价不保持特征值，相似才保持特征值。</li>
+<li>特征向量不能是零向量。</li>
+</ul>
+<h2>复习顺序建议</h2>
+<ol>
+<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>
+<li>再做基础计算题，把公式变成稳定操作。</li>
+<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>
+</ol></div>
+      </article>
+      <aside class="reader-aside">
+        <div class="reader-card">
+          <strong>目录</strong>
+          <ul class="toc-list" data-toc></ul>
+        </div>
+        <div class="reader-card">
+          <strong>说明</strong>
+          <p>按考研数学一复习框架整理，覆盖知识点、常见题型、解题路线和易错点。</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script type="application/json" id="study-note-source">{
+  "metadata": {
+    "title": "13 特征值与特征向量",
+    "subject": "math",
+    "part": "线性代数",
+    "summary": "理解特征方程、相似、对角化和实对称矩阵，是线代综合题高频核心。",
+    "date": "2026-05-22",
+    "displayDate": "2026/05/22",
+    "slug": "math1-13-eigenvalues-eigenvectors",
+    "coverSeed": "math1-13-eigenvalues-eigenvectors",
+    "url": "/study/math/math1-13-eigenvalues-eigenvectors/"
+  },
+  "markdown": "[[callout:type=idea;title=章节定位]]\n理解特征方程、相似、对角化和实对称矩阵，是线代综合题高频核心。\n[[/callout]]\n\n## 详细知识点清单\n- 特征值、特征向量定义与几何意义。\n- 特征多项式、特征方程和特征子空间。\n- 特征值性质：和为迹、积为行列式。\n- 相似矩阵：定义、性质和不变量。\n- 矩阵可对角化条件：线性无关特征向量个数。\n- 实对称矩阵：特征值实、不同特征值特征向量正交、正交对角化。\n- 矩阵幂和矩阵函数的对角化计算。\n- 相似与秩、行列式、迹、特征多项式的综合。\n\n## 核心公式与结论\n- $A\\alpha=\\lambda\\alpha\\ (\\alpha\\ne0)$\n- $|\\lambda E-A|=0$\n- $A=PDP^{-1}\\Rightarrow A^n=PD^nP^{-1}$。\n\n## 详细题型\n- 求特征值和特征向量。\n- 判断矩阵能否对角化，并求可逆矩阵 $P$。\n- 实对称矩阵正交对角化。\n- 利用特征值求行列式、迹、秩、矩阵幂。\n- 由给定特征值/特征向量反求矩阵参数。\n- 证明相似或不相似，寻找相似不变量。\n\n## 解题路线\n- 先求特征值，再逐个解 $(\\lambda E-A)x=0$。\n- 对角化的关键不是特征值个数，而是线性无关特征向量总数。\n- 实对称矩阵优先用正交对角化，特征向量要单位化。\n\n## 易错点\n- 重特征值不一定提供同样多个无关特征向量。\n- 行等价不保持特征值，相似才保持特征值。\n- 特征向量不能是零向量。\n\n## 复习顺序建议\n1. 先把本章定义和适用条件背熟，尤其是定理的前提。\n2. 再做基础计算题，把公式变成稳定操作。\n3. 最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。",
+  "html": "<section class=\"study-widget study-widget--idea\" data-widget=\"callout\" data-type=\"idea\" data-title=\"章节定位\"><h4>章节定位</h4><p>理解特征方程、相似、对角化和实对称矩阵，是线代综合题高频核心。</p></section>\n<h2>详细知识点清单</h2>\n<ul>\n<li>特征值、特征向量定义与几何意义。</li>\n<li>特征多项式、特征方程和特征子空间。</li>\n<li>特征值性质：和为迹、积为行列式。</li>\n<li>相似矩阵：定义、性质和不变量。</li>\n<li>矩阵可对角化条件：线性无关特征向量个数。</li>\n<li>实对称矩阵：特征值实、不同特征值特征向量正交、正交对角化。</li>\n<li>矩阵幂和矩阵函数的对角化计算。</li>\n<li>相似与秩、行列式、迹、特征多项式的综合。</li>\n</ul>\n<h2>核心公式与结论</h2>\n<ul>\n<li>$A\\alpha=\\lambda\\alpha\\ (\\alpha\\ne0)$</li>\n<li>$|\\lambda E-A|=0$</li>\n<li>$A=PDP^{-1}\\Rightarrow A^n=PD^nP^{-1}$。</li>\n</ul>\n<h2>详细题型</h2>\n<ul>\n<li>求特征值和特征向量。</li>\n<li>判断矩阵能否对角化，并求可逆矩阵 $P$。</li>\n<li>实对称矩阵正交对角化。</li>\n<li>利用特征值求行列式、迹、秩、矩阵幂。</li>\n<li>由给定特征值/特征向量反求矩阵参数。</li>\n<li>证明相似或不相似，寻找相似不变量。</li>\n</ul>\n\n<h2>解题路线</h2>\n<ul>\n<li>先求特征值，再逐个解 $(\\lambda E-A)x=0$。</li>\n<li>对角化的关键不是特征值个数，而是线性无关特征向量总数。</li>\n<li>实对称矩阵优先用正交对角化，特征向量要单位化。</li>\n</ul>\n<h2>易错点</h2>\n<ul>\n<li>重特征值不一定提供同样多个无关特征向量。</li>\n<li>行等价不保持特征值，相似才保持特征值。</li>\n<li>特征向量不能是零向量。</li>\n</ul>\n<h2>复习顺序建议</h2>\n<ol>\n<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>\n<li>再做基础计算题，把公式变成稳定操作。</li>\n<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>\n</ol>"
+}</script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="/study/assets/study.js"></script>
+</body>
+</html>

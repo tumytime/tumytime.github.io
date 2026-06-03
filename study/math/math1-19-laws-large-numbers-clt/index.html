@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19 大数定律与中心极限定理 | 数学 | Tumy Study</title>
+  <meta name="description" content="理解样本平均稳定性和标准化和的正态近似，解决极限概率问题。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="/study/assets/study.css">
+</head>
+<body class="study-reader" data-page="note">
+  <canvas class="study-canvas" aria-hidden="true"></canvas>
+  <main class="study-shell">
+    <nav class="study-nav" aria-label="页面导航">
+      <a class="study-brand" href="/study/"><span class="study-brand__mark">S</span><span>Tumy Study</span></a>
+      <div class="study-nav__links">
+        <a class="study-pill" href="/study/math/">返回数学</a>
+        <a class="study-pill" href="/study/">学习主页</a>
+      </div>
+    </nav>
+    <section class="reader-wrap">
+      <article class="reader-card">
+        <span class="reader-kicker">考研数学一 / 概率论与数理统计</span>
+        <h1>19 大数定律与中心极限定理</h1>
+        <p class="reader-lead">理解样本平均稳定性和标准化和的正态近似，解决极限概率问题。</p>
+        <p class="reader-date">2026/05/16</p>
+        <div class="article"><section class="study-widget study-widget--idea" data-widget="callout" data-type="idea" data-title="章节定位"><h4>章节定位</h4><p>理解样本平均稳定性和标准化和的正态近似，解决极限概率问题。</p></section>
+<h2>详细知识点清单</h2>
+<ul>
+<li>依概率收敛的直观含义。</li>
+<li>切比雪夫大数定律、伯努利大数定律、辛钦大数定律。</li>
+<li>独立同分布条件下样本均值的稳定性。</li>
+<li>中心极限定理：独立同分布情形。</li>
+<li>棣莫弗-拉普拉斯定理：二项分布正态近似。</li>
+<li>标准化处理和正态近似区间。</li>
+<li>大样本概率估计和误差控制。</li>
+</ul>
+<h2>核心公式与结论</h2>
+<ul>
+<li>$\bar X_n\xrightarrow{P}\mu$</li>
+<li>$\frac{\sum_{i=1}^nX_i-n\mu}{\sqrt{n}\sigma}\Rightarrow N(0,1)$</li>
+<li>$\frac{X-np}{\sqrt{np(1-p)}}\approx N(0,1)$。</li>
+</ul>
+<h2>详细题型</h2>
+<ul>
+<li>用大数定律判断样本均值的概率极限。</li>
+<li>用中心极限定理近似计算和或平均值的概率。</li>
+<li>二项分布大样本正态近似。</li>
+<li>求样本量，使误差概率满足要求。</li>
+<li>切比雪夫不等式与大数定律结合。</li>
+<li>标准化后查正态分布函数。</li>
+</ul>
+
+<h2>解题路线</h2>
+<ul>
+<li>先确认独立同分布、期望和方差是否存在。</li>
+<li>和的题标准化用 $n\mu$ 和 $\sqrt n\sigma$，平均值用 $\mu$ 和 $\sigma/\sqrt n$。</li>
+<li>二项近似注意 $np$ 和 $n(1-p)$ 不能太小。</li>
+</ul>
+<h2>易错点</h2>
+<ul>
+<li>大数定律给的是收敛趋势，不是精确分布。</li>
+<li>中心极限定理需要标准化，不能直接说和服从标准正态。</li>
+<li>正态近似二项时连续性修正有时会影响精度。</li>
+</ul>
+<h2>复习顺序建议</h2>
+<ol>
+<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>
+<li>再做基础计算题，把公式变成稳定操作。</li>
+<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>
+</ol></div>
+      </article>
+      <aside class="reader-aside">
+        <div class="reader-card">
+          <strong>目录</strong>
+          <ul class="toc-list" data-toc></ul>
+        </div>
+        <div class="reader-card">
+          <strong>说明</strong>
+          <p>按考研数学一复习框架整理，覆盖知识点、常见题型、解题路线和易错点。</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script type="application/json" id="study-note-source">{
+  "metadata": {
+    "title": "19 大数定律与中心极限定理",
+    "subject": "math",
+    "part": "概率论与数理统计",
+    "summary": "理解样本平均稳定性和标准化和的正态近似，解决极限概率问题。",
+    "date": "2026-05-16",
+    "displayDate": "2026/05/16",
+    "slug": "math1-19-laws-large-numbers-clt",
+    "coverSeed": "math1-19-laws-large-numbers-clt",
+    "url": "/study/math/math1-19-laws-large-numbers-clt/"
+  },
+  "markdown": "[[callout:type=idea;title=章节定位]]\n理解样本平均稳定性和标准化和的正态近似，解决极限概率问题。\n[[/callout]]\n\n## 详细知识点清单\n- 依概率收敛的直观含义。\n- 切比雪夫大数定律、伯努利大数定律、辛钦大数定律。\n- 独立同分布条件下样本均值的稳定性。\n- 中心极限定理：独立同分布情形。\n- 棣莫弗-拉普拉斯定理：二项分布正态近似。\n- 标准化处理和正态近似区间。\n- 大样本概率估计和误差控制。\n\n## 核心公式与结论\n- $\\bar X_n\\xrightarrow{P}\\mu$\n- $\\frac{\\sum_{i=1}^nX_i-n\\mu}{\\sqrt{n}\\sigma}\\Rightarrow N(0,1)$\n- $\\frac{X-np}{\\sqrt{np(1-p)}}\\approx N(0,1)$。\n\n## 详细题型\n- 用大数定律判断样本均值的概率极限。\n- 用中心极限定理近似计算和或平均值的概率。\n- 二项分布大样本正态近似。\n- 求样本量，使误差概率满足要求。\n- 切比雪夫不等式与大数定律结合。\n- 标准化后查正态分布函数。\n\n## 解题路线\n- 先确认独立同分布、期望和方差是否存在。\n- 和的题标准化用 $n\\mu$ 和 $\\sqrt n\\sigma$，平均值用 $\\mu$ 和 $\\sigma/\\sqrt n$。\n- 二项近似注意 $np$ 和 $n(1-p)$ 不能太小。\n\n## 易错点\n- 大数定律给的是收敛趋势，不是精确分布。\n- 中心极限定理需要标准化，不能直接说和服从标准正态。\n- 正态近似二项时连续性修正有时会影响精度。\n\n## 复习顺序建议\n1. 先把本章定义和适用条件背熟，尤其是定理的前提。\n2. 再做基础计算题，把公式变成稳定操作。\n3. 最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。",
+  "html": "<section class=\"study-widget study-widget--idea\" data-widget=\"callout\" data-type=\"idea\" data-title=\"章节定位\"><h4>章节定位</h4><p>理解样本平均稳定性和标准化和的正态近似，解决极限概率问题。</p></section>\n<h2>详细知识点清单</h2>\n<ul>\n<li>依概率收敛的直观含义。</li>\n<li>切比雪夫大数定律、伯努利大数定律、辛钦大数定律。</li>\n<li>独立同分布条件下样本均值的稳定性。</li>\n<li>中心极限定理：独立同分布情形。</li>\n<li>棣莫弗-拉普拉斯定理：二项分布正态近似。</li>\n<li>标准化处理和正态近似区间。</li>\n<li>大样本概率估计和误差控制。</li>\n</ul>\n<h2>核心公式与结论</h2>\n<ul>\n<li>$\\bar X_n\\xrightarrow{P}\\mu$</li>\n<li>$\\frac{\\sum_{i=1}^nX_i-n\\mu}{\\sqrt{n}\\sigma}\\Rightarrow N(0,1)$</li>\n<li>$\\frac{X-np}{\\sqrt{np(1-p)}}\\approx N(0,1)$。</li>\n</ul>\n<h2>详细题型</h2>\n<ul>\n<li>用大数定律判断样本均值的概率极限。</li>\n<li>用中心极限定理近似计算和或平均值的概率。</li>\n<li>二项分布大样本正态近似。</li>\n<li>求样本量，使误差概率满足要求。</li>\n<li>切比雪夫不等式与大数定律结合。</li>\n<li>标准化后查正态分布函数。</li>\n</ul>\n\n<h2>解题路线</h2>\n<ul>\n<li>先确认独立同分布、期望和方差是否存在。</li>\n<li>和的题标准化用 $n\\mu$ 和 $\\sqrt n\\sigma$，平均值用 $\\mu$ 和 $\\sigma/\\sqrt n$。</li>\n<li>二项近似注意 $np$ 和 $n(1-p)$ 不能太小。</li>\n</ul>\n<h2>易错点</h2>\n<ul>\n<li>大数定律给的是收敛趋势，不是精确分布。</li>\n<li>中心极限定理需要标准化，不能直接说和服从标准正态。</li>\n<li>正态近似二项时连续性修正有时会影响精度。</li>\n</ul>\n<h2>复习顺序建议</h2>\n<ol>\n<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>\n<li>再做基础计算题，把公式变成稳定操作。</li>\n<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>\n</ol>"
+}</script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="/study/assets/study.js"></script>
+</body>
+</html>

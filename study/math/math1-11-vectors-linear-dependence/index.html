@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 向量 | 数学 | Tumy Study</title>
+  <meta name="description" content="以线性相关、秩、基和坐标为主线，连接方程组和特征理论。">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="/study/assets/study.css">
+</head>
+<body class="study-reader" data-page="note">
+  <canvas class="study-canvas" aria-hidden="true"></canvas>
+  <main class="study-shell">
+    <nav class="study-nav" aria-label="页面导航">
+      <a class="study-brand" href="/study/"><span class="study-brand__mark">S</span><span>Tumy Study</span></a>
+      <div class="study-nav__links">
+        <a class="study-pill" href="/study/math/">返回数学</a>
+        <a class="study-pill" href="/study/">学习主页</a>
+      </div>
+    </nav>
+    <section class="reader-wrap">
+      <article class="reader-card">
+        <span class="reader-kicker">考研数学一 / 线性代数</span>
+        <h1>11 向量</h1>
+        <p class="reader-lead">以线性相关、秩、基和坐标为主线，连接方程组和特征理论。</p>
+        <p class="reader-date">2026/05/24</p>
+        <div class="article"><section class="study-widget study-widget--idea" data-widget="callout" data-type="idea" data-title="章节定位"><h4>章节定位</h4><p>以线性相关、秩、基和坐标为主线，连接方程组和特征理论。</p></section>
+<h2>详细知识点清单</h2>
+<ul>
+<li>n 维向量及其线性运算。</li>
+<li>线性组合、线性表示和向量组等价。</li>
+<li>线性相关与线性无关的定义、判定和性质。</li>
+<li>极大线性无关组、向量组秩和矩阵秩。</li>
+<li>向量空间、子空间、基、维数和坐标。</li>
+<li>过渡矩阵与坐标变换。</li>
+<li>内积、长度、正交、施密特正交化。</li>
+<li>正交矩阵与正交基。</li>
+</ul>
+<h2>核心公式与结论</h2>
+<ul>
+<li>向量组 $\alpha_1,\dots,\alpha_s$ 线性相关 $\Leftrightarrow k_1\alpha_1+\cdots+k_s\alpha_s=0$ 有非零解。</li>
+<li>$r(\alpha_1,\dots,\alpha_s)$ 等于极大无关组所含向量个数。</li>
+<li>施密特：$\beta_k=\alpha_k-\sum_{i<k}\frac{(\alpha_k,\beta_i)}{(\beta_i,\beta_i)}\beta_i$。</li>
+</ul>
+<h2>详细题型</h2>
+<ul>
+<li>判断向量组线性相关/无关，并求参数条件。</li>
+<li>求一个向量能否由另一组向量线性表示。</li>
+<li>求极大线性无关组与向量组秩。</li>
+<li>证明向量组等价、秩不等式或表示唯一性。</li>
+<li>求基、维数、坐标和过渡矩阵。</li>
+<li>施密特正交化与正交矩阵构造。</li>
+</ul>
+
+<h2>解题路线</h2>
+<ul>
+<li>向量组问题转成矩阵列向量问题，用初等行变换处理。</li>
+<li>线性表示问题等价于方程组是否有解。</li>
+<li>求坐标时把基向量作列，解 $Bx=\alpha$。</li>
+</ul>
+<h2>易错点</h2>
+<ul>
+<li>向量个数大于维数一定相关，但小于等于维数不一定无关。</li>
+<li>行变换保持列向量组的线性关系判定，但变换后的列向量本身不是原向量。</li>
+<li>正交不等于标准正交，标准正交还要求长度为 1。</li>
+</ul>
+<h2>复习顺序建议</h2>
+<ol>
+<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>
+<li>再做基础计算题，把公式变成稳定操作。</li>
+<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>
+</ol></div>
+      </article>
+      <aside class="reader-aside">
+        <div class="reader-card">
+          <strong>目录</strong>
+          <ul class="toc-list" data-toc></ul>
+        </div>
+        <div class="reader-card">
+          <strong>说明</strong>
+          <p>按考研数学一复习框架整理，覆盖知识点、常见题型、解题路线和易错点。</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script type="application/json" id="study-note-source">{
+  "metadata": {
+    "title": "11 向量",
+    "subject": "math",
+    "part": "线性代数",
+    "summary": "以线性相关、秩、基和坐标为主线，连接方程组和特征理论。",
+    "date": "2026-05-24",
+    "displayDate": "2026/05/24",
+    "slug": "math1-11-vectors-linear-dependence",
+    "coverSeed": "math1-11-vectors-linear-dependence",
+    "url": "/study/math/math1-11-vectors-linear-dependence/"
+  },
+  "markdown": "[[callout:type=idea;title=章节定位]]\n以线性相关、秩、基和坐标为主线，连接方程组和特征理论。\n[[/callout]]\n\n## 详细知识点清单\n- n 维向量及其线性运算。\n- 线性组合、线性表示和向量组等价。\n- 线性相关与线性无关的定义、判定和性质。\n- 极大线性无关组、向量组秩和矩阵秩。\n- 向量空间、子空间、基、维数和坐标。\n- 过渡矩阵与坐标变换。\n- 内积、长度、正交、施密特正交化。\n- 正交矩阵与正交基。\n\n## 核心公式与结论\n- 向量组 $\\alpha_1,\\dots,\\alpha_s$ 线性相关 $\\Leftrightarrow k_1\\alpha_1+\\cdots+k_s\\alpha_s=0$ 有非零解。\n- $r(\\alpha_1,\\dots,\\alpha_s)$ 等于极大无关组所含向量个数。\n- 施密特：$\\beta_k=\\alpha_k-\\sum_{i<k}\\frac{(\\alpha_k,\\beta_i)}{(\\beta_i,\\beta_i)}\\beta_i$。\n\n## 详细题型\n- 判断向量组线性相关/无关，并求参数条件。\n- 求一个向量能否由另一组向量线性表示。\n- 求极大线性无关组与向量组秩。\n- 证明向量组等价、秩不等式或表示唯一性。\n- 求基、维数、坐标和过渡矩阵。\n- 施密特正交化与正交矩阵构造。\n\n## 解题路线\n- 向量组问题转成矩阵列向量问题，用初等行变换处理。\n- 线性表示问题等价于方程组是否有解。\n- 求坐标时把基向量作列，解 $Bx=\\alpha$。\n\n## 易错点\n- 向量个数大于维数一定相关，但小于等于维数不一定无关。\n- 行变换保持列向量组的线性关系判定，但变换后的列向量本身不是原向量。\n- 正交不等于标准正交，标准正交还要求长度为 1。\n\n## 复习顺序建议\n1. 先把本章定义和适用条件背熟，尤其是定理的前提。\n2. 再做基础计算题，把公式变成稳定操作。\n3. 最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。",
+  "html": "<section class=\"study-widget study-widget--idea\" data-widget=\"callout\" data-type=\"idea\" data-title=\"章节定位\"><h4>章节定位</h4><p>以线性相关、秩、基和坐标为主线，连接方程组和特征理论。</p></section>\n<h2>详细知识点清单</h2>\n<ul>\n<li>n 维向量及其线性运算。</li>\n<li>线性组合、线性表示和向量组等价。</li>\n<li>线性相关与线性无关的定义、判定和性质。</li>\n<li>极大线性无关组、向量组秩和矩阵秩。</li>\n<li>向量空间、子空间、基、维数和坐标。</li>\n<li>过渡矩阵与坐标变换。</li>\n<li>内积、长度、正交、施密特正交化。</li>\n<li>正交矩阵与正交基。</li>\n</ul>\n<h2>核心公式与结论</h2>\n<ul>\n<li>向量组 $\\alpha_1,\\dots,\\alpha_s$ 线性相关 $\\Leftrightarrow k_1\\alpha_1+\\cdots+k_s\\alpha_s=0$ 有非零解。</li>\n<li>$r(\\alpha_1,\\dots,\\alpha_s)$ 等于极大无关组所含向量个数。</li>\n<li>施密特：$\\beta_k=\\alpha_k-\\sum_{i<k}\\frac{(\\alpha_k,\\beta_i)}{(\\beta_i,\\beta_i)}\\beta_i$。</li>\n</ul>\n<h2>详细题型</h2>\n<ul>\n<li>判断向量组线性相关/无关，并求参数条件。</li>\n<li>求一个向量能否由另一组向量线性表示。</li>\n<li>求极大线性无关组与向量组秩。</li>\n<li>证明向量组等价、秩不等式或表示唯一性。</li>\n<li>求基、维数、坐标和过渡矩阵。</li>\n<li>施密特正交化与正交矩阵构造。</li>\n</ul>\n\n<h2>解题路线</h2>\n<ul>\n<li>向量组问题转成矩阵列向量问题，用初等行变换处理。</li>\n<li>线性表示问题等价于方程组是否有解。</li>\n<li>求坐标时把基向量作列，解 $Bx=\\alpha$。</li>\n</ul>\n<h2>易错点</h2>\n<ul>\n<li>向量个数大于维数一定相关，但小于等于维数不一定无关。</li>\n<li>行变换保持列向量组的线性关系判定，但变换后的列向量本身不是原向量。</li>\n<li>正交不等于标准正交，标准正交还要求长度为 1。</li>\n</ul>\n<h2>复习顺序建议</h2>\n<ol>\n<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>\n<li>再做基础计算题，把公式变成稳定操作。</li>\n<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>\n</ol>"
+}</script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="/study/assets/study.js"></script>
+</body>
+</html>

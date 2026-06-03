@@ -1,31 +1,214 @@
 {
   "notes": [
     {
-      "title": "新的学习笔记99",
+      "title": "01 函数、极限与连续",
       "subject": "math",
-      "summary": "这里写一句话摘要，列表页会显示它。",
-      "date": "2026-06-02",
-      "slug": "new-study-note",
-      "coverSeed": "new-study-note",
-      "url": "/study/math/new-study-note/"
+      "part": "高等数学",
+      "summary": "从函数性质、极限计算到连续性判定，建立数学一高数部分的入口。",
+      "date": "2026-06-03",
+      "slug": "math1-01-functions-limits-continuity",
+      "coverSeed": "math1-01-functions-limits-continuity",
+      "url": "/study/math/math1-01-functions-limits-continuity/"
     },
     {
-      "title": "曲面、极限与直观图像",
+      "title": "02 一元函数微分学",
       "subject": "math",
-      "summary": "用一个可旋转的曲面，把二元函数的局部形状和极限直观联系起来。",
+      "part": "高等数学",
+      "summary": "掌握导数、微分、中值定理和函数性态分析，是高数证明题与综合题的核心。",
       "date": "2026-06-02",
-      "slug": "limit-surface",
-      "coverSeed": "limit-surface",
-      "url": "/study/math/limit-surface/"
+      "slug": "math1-02-single-variable-differential",
+      "coverSeed": "math1-02-single-variable-differential",
+      "url": "/study/math/math1-02-single-variable-differential/"
     },
     {
-      "title": "反馈系统的第一张地图",
-      "subject": "control",
-      "summary": "从一个简单闭环方框图开始，梳理输入、输出、误差、控制器和被控对象之间的关系。",
-      "date": "2026-06-02",
-      "slug": "feedback-basics",
-      "coverSeed": "feedback-basics",
-      "url": "/study/control/feedback-basics/"
+      "title": "03 一元函数积分学",
+      "subject": "math",
+      "part": "高等数学",
+      "summary": "把不定积分、定积分、反常积分和几何应用连成一条计算线。",
+      "date": "2026-06-01",
+      "slug": "math1-03-single-variable-integral",
+      "coverSeed": "math1-03-single-variable-integral",
+      "url": "/study/math/math1-03-single-variable-integral/"
+    },
+    {
+      "title": "04 向量代数与空间解析几何",
+      "subject": "math",
+      "part": "高等数学",
+      "summary": "用向量运算表达直线、平面、曲面与空间关系，为多元微积分铺路。",
+      "date": "2026-05-31",
+      "slug": "math1-04-vector-geometry",
+      "coverSeed": "math1-04-vector-geometry",
+      "url": "/study/math/math1-04-vector-geometry/"
+    },
+    {
+      "title": "05 多元函数微分学",
+      "subject": "math",
+      "part": "高等数学",
+      "summary": "围绕偏导数、全微分、梯度和极值，处理二元与多元函数局部变化。",
+      "date": "2026-05-30",
+      "slug": "math1-05-multivariable-differential",
+      "coverSeed": "math1-05-multivariable-differential",
+      "url": "/study/math/math1-05-multivariable-differential/"
+    },
+    {
+      "title": "06 多元函数积分学",
+      "subject": "math",
+      "part": "高等数学",
+      "summary": "梳理二重、三重、曲线、曲面积分及三大公式，解决区域与场的计算。",
+      "date": "2026-05-29",
+      "slug": "math1-06-multivariable-integral",
+      "coverSeed": "math1-06-multivariable-integral",
+      "url": "/study/math/math1-06-multivariable-integral/"
+    },
+    {
+      "title": "07 无穷级数",
+      "subject": "math",
+      "part": "高等数学",
+      "summary": "从数项级数到幂级数与傅里叶级数，掌握收敛判别和展开计算。",
+      "date": "2026-05-28",
+      "slug": "math1-07-infinite-series",
+      "coverSeed": "math1-07-infinite-series",
+      "url": "/study/math/math1-07-infinite-series/"
+    },
+    {
+      "title": "08 常微分方程",
+      "subject": "math",
+      "part": "高等数学",
+      "summary": "整理一阶、可降阶和二阶线性微分方程的解法及应用模型。",
+      "date": "2026-05-27",
+      "slug": "math1-08-ordinary-differential-equations",
+      "coverSeed": "math1-08-ordinary-differential-equations",
+      "url": "/study/math/math1-08-ordinary-differential-equations/"
+    },
+    {
+      "title": "09 行列式",
+      "subject": "math",
+      "part": "线性代数",
+      "summary": "掌握行列式性质、展开、计算与矩阵可逆性的连接。",
+      "date": "2026-05-26",
+      "slug": "math1-09-determinants",
+      "coverSeed": "math1-09-determinants",
+      "url": "/study/math/math1-09-determinants/"
+    },
+    {
+      "title": "10 矩阵",
+      "subject": "math",
+      "part": "线性代数",
+      "summary": "围绕矩阵运算、逆矩阵、初等变换、秩和分块矩阵建立计算基础。",
+      "date": "2026-05-25",
+      "slug": "math1-10-matrices",
+      "coverSeed": "math1-10-matrices",
+      "url": "/study/math/math1-10-matrices/"
+    },
+    {
+      "title": "11 向量",
+      "subject": "math",
+      "part": "线性代数",
+      "summary": "以线性相关、秩、基和坐标为主线，连接方程组和特征理论。",
+      "date": "2026-05-24",
+      "slug": "math1-11-vectors-linear-dependence",
+      "coverSeed": "math1-11-vectors-linear-dependence",
+      "url": "/study/math/math1-11-vectors-linear-dependence/"
+    },
+    {
+      "title": "12 线性方程组",
+      "subject": "math",
+      "part": "线性代数",
+      "summary": "用秩、基础解系和通解结构统一齐次与非齐次线性方程组。",
+      "date": "2026-05-23",
+      "slug": "math1-12-linear-systems",
+      "coverSeed": "math1-12-linear-systems",
+      "url": "/study/math/math1-12-linear-systems/"
+    },
+    {
+      "title": "13 特征值与特征向量",
+      "subject": "math",
+      "part": "线性代数",
+      "summary": "理解特征方程、相似、对角化和实对称矩阵，是线代综合题高频核心。",
+      "date": "2026-05-22",
+      "slug": "math1-13-eigenvalues-eigenvectors",
+      "coverSeed": "math1-13-eigenvalues-eigenvectors",
+      "url": "/study/math/math1-13-eigenvalues-eigenvectors/"
+    },
+    {
+      "title": "14 二次型",
+      "subject": "math",
+      "part": "线性代数",
+      "summary": "把二次型矩阵化，通过合同变换、正交变换和惯性指数判断正定性。",
+      "date": "2026-05-21",
+      "slug": "math1-14-quadratic-forms",
+      "coverSeed": "math1-14-quadratic-forms",
+      "url": "/study/math/math1-14-quadratic-forms/"
+    },
+    {
+      "title": "15 随机事件与概率",
+      "subject": "math",
+      "part": "概率论与数理统计",
+      "summary": "从事件运算、古典概型、条件概率到独立性，建立概率论语言。",
+      "date": "2026-05-20",
+      "slug": "math1-15-events-probability",
+      "coverSeed": "math1-15-events-probability",
+      "url": "/study/math/math1-15-events-probability/"
+    },
+    {
+      "title": "16 一维随机变量及其分布",
+      "subject": "math",
+      "part": "概率论与数理统计",
+      "summary": "整理离散型、连续型随机变量、分布函数、密度和常见分布。",
+      "date": "2026-05-19",
+      "slug": "math1-16-one-dimensional-random-variable",
+      "coverSeed": "math1-16-one-dimensional-random-variable",
+      "url": "/study/math/math1-16-one-dimensional-random-variable/"
+    },
+    {
+      "title": "17 多维随机变量及其分布",
+      "subject": "math",
+      "part": "概率论与数理统计",
+      "summary": "处理联合分布、边缘分布、条件分布、独立性和二维变量函数分布。",
+      "date": "2026-05-18",
+      "slug": "math1-17-multidimensional-random-variables",
+      "coverSeed": "math1-17-multidimensional-random-variables",
+      "url": "/study/math/math1-17-multidimensional-random-variables/"
+    },
+    {
+      "title": "18 随机变量的数字特征",
+      "subject": "math",
+      "part": "概率论与数理统计",
+      "summary": "系统整理期望、方差、协方差、相关系数和矩的计算与性质。",
+      "date": "2026-05-17",
+      "slug": "math1-18-numerical-characteristics",
+      "coverSeed": "math1-18-numerical-characteristics",
+      "url": "/study/math/math1-18-numerical-characteristics/"
+    },
+    {
+      "title": "19 大数定律与中心极限定理",
+      "subject": "math",
+      "part": "概率论与数理统计",
+      "summary": "理解样本平均稳定性和标准化和的正态近似，解决极限概率问题。",
+      "date": "2026-05-16",
+      "slug": "math1-19-laws-large-numbers-clt",
+      "coverSeed": "math1-19-laws-large-numbers-clt",
+      "url": "/study/math/math1-19-laws-large-numbers-clt/"
+    },
+    {
+      "title": "20 数理统计的基本概念",
+      "subject": "math",
+      "part": "概率论与数理统计",
+      "summary": "掌握总体、样本、统计量、抽样分布和三大常用分布。",
+      "date": "2026-05-15",
+      "slug": "math1-20-statistics-basics",
+      "coverSeed": "math1-20-statistics-basics",
+      "url": "/study/math/math1-20-statistics-basics/"
+    },
+    {
+      "title": "21 参数估计",
+      "subject": "math",
+      "part": "概率论与数理统计",
+      "summary": "整理矩估计、最大似然估计、估计量评价和正态总体区间估计。",
+      "date": "2026-05-14",
+      "slug": "math1-21-parameter-estimation",
+      "coverSeed": "math1-21-parameter-estimation",
+      "url": "/study/math/math1-21-parameter-estimation/"
     }
   ]
 }
