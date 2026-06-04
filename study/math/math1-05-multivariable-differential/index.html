@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>05 多元函数微分学 | 数学 | Tumy Study</title>
-  <meta name="description" content="围绕偏导数、全微分、梯度和极值，处理二元与多元函数局部变化。">
+  <meta name="description" content="从多元函数、标量场和向量场开始，用图像、定义域、值域、迹线、等值曲线与等值面建立直观。">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <link rel="stylesheet" href="/study/assets/study.css">
 </head>
@@ -22,58 +22,74 @@
       <article class="reader-card">
         <span class="reader-kicker">考研数学一 / 高等数学</span>
         <h1>05 多元函数微分学</h1>
-        <p class="reader-lead">围绕偏导数、全微分、梯度和极值，处理二元与多元函数局部变化。</p>
-        <p class="reader-date">2026/05/30</p>
-        <div class="article"><section class="study-widget study-widget--idea" data-widget="callout" data-type="idea" data-title="章节定位"><h4>章节定位</h4><p>围绕偏导数、全微分、梯度和极值，处理二元与多元函数局部变化。</p></section>
-<h2>详细知识点清单</h2>
+        <p class="reader-lead">从多元函数、标量场和向量场开始，用图像、定义域、值域、迹线、等值曲线与等值面建立直观。</p>
+        <p class="reader-date">2026/06/04</p>
+        <div class="article"><section class="study-widget study-widget--idea" data-widget="callout" data-type="idea" data-title="开篇"><h4>开篇</h4><p>这一章先不急着求偏导。先把对象看清楚：多元函数到底把什么输入映到什么输出，它的图像、截痕和等值结构分别在看什么。</p></section>
+<h2>1. 多元函数</h2>
+<p>最常见的是</p>
+<p>$$
+f:\mathbb R^2\to \mathbb R,\qquad z=f(x,y).
+$$</p>
+<p>它的图像是三维空间中的曲面：</p>
+<p>$$
+\{(x,y,z):z=f(x,y)\}.
+$$</p>
+<p>更一般地，</p>
+<p>$$
+f:\mathbb R^n\to \mathbb R
+$$</p>
+<p>称为<strong>标量场</strong>；</p>
+<p>$$
+F:\mathbb R^n\to \mathbb R^m
+$$</p>
+<p>称为<strong>向量值函数</strong>或<strong>向量场</strong>。</p>
+<section class="study-widget study-widget--focus" data-widget="callout" data-type="focus" data-title="OpenStax 视角"><h4>OpenStax 视角</h4><p>OpenStax 在多元函数章节中，把第一步放在定义域、值域、图像、迹线、等值曲线和等值面上。也就是说，先学会“看见”一个多元函数，再进入极限、连续、偏导和可微。</p></section>
+<h2>定义域：输入点能放在哪里</h2>
+<p>定义域是所有允许输入的点。比如</p>
+<p>$$
+z=\sqrt{9-x^2-y^2}
+$$</p>
+<p>要求 $9-x^2-y^2\ge 0$，所以定义域是圆盘 $x^2+y^2\le 9$。下面的半球面只在这个圆盘上有图像。</p>
+<div class="surface-widget" data-widget="surface" data-expression="sqrt(9-x^2-y^2)" data-range="-3,3" data-title="定义域模型：圆盘上的半球"></div>
+<h2>值域：输出高度能到哪里</h2>
+<p>同一个函数 $z=\sqrt{9-x^2-y^2}$ 的高度从边界圆上的 $0$ 到原点处的 $3$，所以值域是 $[0,3]$。旋转模型时，可以把“高度范围”理解成整个曲面在 $z$ 轴上的投影。</p>
+<div class="surface-widget" data-widget="surface" data-expression="sqrt(9-x^2-y^2)" data-range="-3,3" data-title="值域模型：高度从 0 到 3"></div>
+<h2>图像：二元函数对应一张曲面</h2>
+<p>二元函数的图像不是平面曲线，而是三维空间中的曲面。例如</p>
+<p>$$
+z=x^2-y^2
+$$</p>
+<p>是一张鞍面。它沿 $x$ 方向上升，沿 $y$ 方向下降，正好提醒我们：多元函数的局部变化具有方向性。</p>
+<div class="surface-widget" data-widget="surface" data-expression="x^2-y^2" data-range="-3,3" data-title="图像模型：鞍面 z = x^2 - y^2"></div>
+<h2>迹线：用平面切曲面</h2>
+<p>迹线是把 $x$ 或 $y$ 固定成常数后得到的截面曲线。对</p>
+<p>$$
+z=\sin x+\cos y
+$$</p>
+<p>固定 $y=c$ 会得到沿 $x$ 方向起伏的正弦曲线；固定 $x=c$ 会得到沿 $y$ 方向起伏的余弦曲线。它把曲面拆成一条条更熟悉的平面曲线。</p>
+<div class="surface-widget" data-widget="surface" data-expression="sin(x)+cos(y)" data-range="-6,6" data-title="迹线模型：固定 x 或 y 的截面"></div>
+<h2>等值曲线：在平面上看同一高度</h2>
+<p>等值曲线是满足</p>
+<p>$$
+f(x,y)=c
+$$</p>
+<p>的点集。对 $z=x^2+y^2$，不同的 $c$ 给出一圈圈同心圆。它很像地形图：线越密，变化越陡。</p>
+<div class="surface-widget" data-widget="surface" data-expression="x^2+y^2" data-range="-3,3" data-title="等值曲线模型：抛物面与同心圆"></div>
+<h2>等值面：三元函数里的同一数值</h2>
+<p>如果函数有三个输入，比如</p>
+<p>$$
+g(x,y,z)=x^2+y^2+z^2,
+$$</p>
+<p>那么 $g(x,y,z)=c$ 给出的不再是曲线，而是空间中的曲面。比如 $g(x,y,z)=4$ 是半径为 $2$ 的球面。下面先用球面的上半部分可视化这一层。</p>
+<div class="surface-widget" data-widget="surface" data-expression="sqrt(4-x^2-y^2)" data-range="-2,2" data-title="等值面模型：x^2+y^2+z^2=4 的上半球"></div>
+<h2>这一节先记住</h2>
 <ul>
-<li>多元函数概念：定义域、邻域、区域、边界、二元函数图形。</li>
-<li>二重极限与连续：路径法、极坐标法、夹逼法和不存在判定。</li>
-<li>偏导数与高阶偏导数：定义、计算、混合偏导相等条件。</li>
-<li>全微分与可微：可微、偏导存在、连续偏导之间的关系。</li>
-<li>复合函数求导：链式法则、全导数和变量关系图。</li>
-<li>隐函数求导：一个方程、方程组和雅可比行列式条件。</li>
-<li>方向导数与梯度：最大增长方向、等值线法向量。</li>
-<li>多元泰勒公式：二阶主部与局部形状判断。</li>
-<li>无约束极值和条件极值：驻点、Hessian 判别、拉格朗日乘数法。</li>
-</ul>
-<h2>核心公式与结论</h2>
-<ul>
-<li>$dz=f_x(x,y)dx+f_y(x,y)dy$</li>
-<li>$D_{\mathbf u}f=\nabla f\cdot\mathbf u$</li>
-<li>二元极值判别：$D=f_{xx}f_{yy}-f_{xy}^2$。</li>
-</ul>
-<h2>详细题型</h2>
-<ul>
-<li>判断二重极限存在：沿不同路径比较，或转极坐标估阶。</li>
-<li>求偏导、全微分、高阶偏导，常与复合函数链式法则结合。</li>
-<li>隐函数一阶/二阶偏导，尤其注意把其他变量视为常量。</li>
-<li>求方向导数、梯度、切平面和法线方程。</li>
-<li>无约束极值：求驻点，用 Hessian 判别。</li>
-<li>条件极值：构造拉格朗日函数，联立约束方程求解。</li>
-<li>几何应用：曲面切平面、等值面法向量和最速增长方向。</li>
-</ul>
-<h2>可交互数学模型</h2>
-<p>这一章涉及局部形状或积分区域时，可以先旋转下面的曲面，观察图像如何对应公式中的变化。</p>
-<div class="surface-widget" data-widget="surface" data-expression="x^2-y^2" data-range="-3,3" data-title="鞍面与方向变化"></div>
-<h2>解题路线</h2>
-<ul>
-<li>多元极限不存在常用 $y=kx$、$y=x^2$、极坐标三类路径试探。</li>
-<li>复合求导先画依赖关系图，避免漏项。</li>
-<li>极值题先区分内部点、边界点和约束点。</li>
-</ul>
-<h2>易错点</h2>
-<ul>
-<li>偏导存在不一定连续，也不一定可微。</li>
-<li>方向导数定义中的方向向量必须单位化。</li>
-<li>拉格朗日乘数法只处理约束曲线/曲面上的候选点，端点或边界仍要单独看。</li>
-</ul>
-<h2>复习顺序建议</h2>
-<ol>
-<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>
-<li>再做基础计算题，把公式变成稳定操作。</li>
-<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>
-</ol></div>
+<li>$f:\mathbb R^2\to\mathbb R$ 的图像通常是一张曲面。</li>
+<li>$f:\mathbb R^n\to\mathbb R$ 是标量场，输出是一个数。</li>
+<li>$F:\mathbb R^n\to\mathbb R^m$ 是向量值函数或向量场，输出是一个向量。</li>
+<li>定义域和值域回答“能输入什么、能输出什么”。</li>
+<li>图像、迹线、等值曲线、等值面是理解多元函数的四种视角。</li>
+</ul></div>
       </article>
       <aside class="reader-aside">
         <div class="reader-card">
@@ -82,7 +98,7 @@
         </div>
         <div class="reader-card">
           <strong>说明</strong>
-          <p>按考研数学一复习框架整理，覆盖知识点、常见题型、解题路线和易错点。</p>
+          <p>本节参考 OpenStax Calculus Volume 3 的多元函数引入顺序，并按本站笔记节奏重新整理。</p>
         </div>
       </aside>
     </section>
@@ -92,15 +108,15 @@
     "title": "05 多元函数微分学",
     "subject": "math",
     "part": "高等数学",
-    "summary": "围绕偏导数、全微分、梯度和极值，处理二元与多元函数局部变化。",
-    "date": "2026-05-30",
-    "displayDate": "2026/05/30",
+    "summary": "从多元函数、标量场和向量场开始，用图像、定义域、值域、迹线、等值曲线与等值面建立直观。",
+    "date": "2026-06-04",
+    "displayDate": "2026/06/04",
     "slug": "math1-05-multivariable-differential",
     "coverSeed": "math1-05-multivariable-differential",
     "url": "/study/math/math1-05-multivariable-differential/"
   },
-  "markdown": "[[callout:type=idea;title=章节定位]]\n围绕偏导数、全微分、梯度和极值，处理二元与多元函数局部变化。\n[[/callout]]\n\n## 详细知识点清单\n- 多元函数概念：定义域、邻域、区域、边界、二元函数图形。\n- 二重极限与连续：路径法、极坐标法、夹逼法和不存在判定。\n- 偏导数与高阶偏导数：定义、计算、混合偏导相等条件。\n- 全微分与可微：可微、偏导存在、连续偏导之间的关系。\n- 复合函数求导：链式法则、全导数和变量关系图。\n- 隐函数求导：一个方程、方程组和雅可比行列式条件。\n- 方向导数与梯度：最大增长方向、等值线法向量。\n- 多元泰勒公式：二阶主部与局部形状判断。\n- 无约束极值和条件极值：驻点、Hessian 判别、拉格朗日乘数法。\n\n## 核心公式与结论\n- $dz=f_x(x,y)dx+f_y(x,y)dy$\n- $D_{\\mathbf u}f=\\nabla f\\cdot\\mathbf u$\n- 二元极值判别：$D=f_{xx}f_{yy}-f_{xy}^2$。\n\n## 详细题型\n- 判断二重极限存在：沿不同路径比较，或转极坐标估阶。\n- 求偏导、全微分、高阶偏导，常与复合函数链式法则结合。\n- 隐函数一阶/二阶偏导，尤其注意把其他变量视为常量。\n- 求方向导数、梯度、切平面和法线方程。\n- 无约束极值：求驻点，用 Hessian 判别。\n- 条件极值：构造拉格朗日函数，联立约束方程求解。\n- 几何应用：曲面切平面、等值面法向量和最速增长方向。\n\n## 可交互数学模型\n这一章涉及局部形状或积分区域时，可以先旋转下面的曲面，观察图像如何对应公式中的变化。\n\n[[surface:function=x^2-y^2;range=-3,3;title=鞍面与方向变化]]\n\n## 解题路线\n- 多元极限不存在常用 $y=kx$、$y=x^2$、极坐标三类路径试探。\n- 复合求导先画依赖关系图，避免漏项。\n- 极值题先区分内部点、边界点和约束点。\n\n## 易错点\n- 偏导存在不一定连续，也不一定可微。\n- 方向导数定义中的方向向量必须单位化。\n- 拉格朗日乘数法只处理约束曲线/曲面上的候选点，端点或边界仍要单独看。\n\n## 复习顺序建议\n1. 先把本章定义和适用条件背熟，尤其是定理的前提。\n2. 再做基础计算题，把公式变成稳定操作。\n3. 最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。",
-  "html": "<section class=\"study-widget study-widget--idea\" data-widget=\"callout\" data-type=\"idea\" data-title=\"章节定位\"><h4>章节定位</h4><p>围绕偏导数、全微分、梯度和极值，处理二元与多元函数局部变化。</p></section>\n<h2>详细知识点清单</h2>\n<ul>\n<li>多元函数概念：定义域、邻域、区域、边界、二元函数图形。</li>\n<li>二重极限与连续：路径法、极坐标法、夹逼法和不存在判定。</li>\n<li>偏导数与高阶偏导数：定义、计算、混合偏导相等条件。</li>\n<li>全微分与可微：可微、偏导存在、连续偏导之间的关系。</li>\n<li>复合函数求导：链式法则、全导数和变量关系图。</li>\n<li>隐函数求导：一个方程、方程组和雅可比行列式条件。</li>\n<li>方向导数与梯度：最大增长方向、等值线法向量。</li>\n<li>多元泰勒公式：二阶主部与局部形状判断。</li>\n<li>无约束极值和条件极值：驻点、Hessian 判别、拉格朗日乘数法。</li>\n</ul>\n<h2>核心公式与结论</h2>\n<ul>\n<li>$dz=f_x(x,y)dx+f_y(x,y)dy$</li>\n<li>$D_{\\mathbf u}f=\\nabla f\\cdot\\mathbf u$</li>\n<li>二元极值判别：$D=f_{xx}f_{yy}-f_{xy}^2$。</li>\n</ul>\n<h2>详细题型</h2>\n<ul>\n<li>判断二重极限存在：沿不同路径比较，或转极坐标估阶。</li>\n<li>求偏导、全微分、高阶偏导，常与复合函数链式法则结合。</li>\n<li>隐函数一阶/二阶偏导，尤其注意把其他变量视为常量。</li>\n<li>求方向导数、梯度、切平面和法线方程。</li>\n<li>无约束极值：求驻点，用 Hessian 判别。</li>\n<li>条件极值：构造拉格朗日函数，联立约束方程求解。</li>\n<li>几何应用：曲面切平面、等值面法向量和最速增长方向。</li>\n</ul>\n<h2>可交互数学模型</h2>\n<p>这一章涉及局部形状或积分区域时，可以先旋转下面的曲面，观察图像如何对应公式中的变化。</p>\n<div class=\"surface-widget\" data-widget=\"surface\" data-expression=\"x^2-y^2\" data-range=\"-3,3\" data-title=\"鞍面与方向变化\"></div>\n<h2>解题路线</h2>\n<ul>\n<li>多元极限不存在常用 $y=kx$、$y=x^2$、极坐标三类路径试探。</li>\n<li>复合求导先画依赖关系图，避免漏项。</li>\n<li>极值题先区分内部点、边界点和约束点。</li>\n</ul>\n<h2>易错点</h2>\n<ul>\n<li>偏导存在不一定连续，也不一定可微。</li>\n<li>方向导数定义中的方向向量必须单位化。</li>\n<li>拉格朗日乘数法只处理约束曲线/曲面上的候选点，端点或边界仍要单独看。</li>\n</ul>\n<h2>复习顺序建议</h2>\n<ol>\n<li>先把本章定义和适用条件背熟，尤其是定理的前提。</li>\n<li>再做基础计算题，把公式变成稳定操作。</li>\n<li>最后做综合题，训练“识别题型 - 选择工具 - 检查条件”的闭环。</li>\n</ol>"
+  "markdown": "[[callout:type=idea;title=开篇]]\n这一章先不急着求偏导。先把对象看清楚：多元函数到底把什么输入映到什么输出，它的图像、截痕和等值结构分别在看什么。\n[[/callout]]\n\n## 1. 多元函数\n\n最常见的是\n\n$$\nf:\\mathbb R^2\\to \\mathbb R,\\qquad z=f(x,y).\n$$\n\n它的图像是三维空间中的曲面：\n\n$$\n\\{(x,y,z):z=f(x,y)\\}.\n$$\n\n更一般地，\n\n$$\nf:\\mathbb R^n\\to \\mathbb R\n$$\n\n称为**标量场**；\n\n$$\nF:\\mathbb R^n\\to \\mathbb R^m\n$$\n\n称为**向量值函数**或**向量场**。\n\n[[callout:type=focus;title=OpenStax 视角]]\nOpenStax 在多元函数章节中，把第一步放在定义域、值域、图像、迹线、等值曲线和等值面上。也就是说，先学会“看见”一个多元函数，再进入极限、连续、偏导和可微。\n[[/callout]]\n\n## 定义域：输入点能放在哪里\n\n定义域是所有允许输入的点。比如\n\n$$\nz=\\sqrt{9-x^2-y^2}\n$$\n\n要求 $9-x^2-y^2\\ge 0$，所以定义域是圆盘 $x^2+y^2\\le 9$。下面的半球面只在这个圆盘上有图像。\n\n[[surface:function=sqrt(9-x^2-y^2);range=-3,3;title=定义域模型：圆盘上的半球]]\n\n## 值域：输出高度能到哪里\n\n同一个函数 $z=\\sqrt{9-x^2-y^2}$ 的高度从边界圆上的 $0$ 到原点处的 $3$，所以值域是 $[0,3]$。旋转模型时，可以把“高度范围”理解成整个曲面在 $z$ 轴上的投影。\n\n[[surface:function=sqrt(9-x^2-y^2);range=-3,3;title=值域模型：高度从 0 到 3]]\n\n## 图像：二元函数对应一张曲面\n\n二元函数的图像不是平面曲线，而是三维空间中的曲面。例如\n\n$$\nz=x^2-y^2\n$$\n\n是一张鞍面。它沿 $x$ 方向上升，沿 $y$ 方向下降，正好提醒我们：多元函数的局部变化具有方向性。\n\n[[surface:function=x^2-y^2;range=-3,3;title=图像模型：鞍面 z = x^2 - y^2]]\n\n## 迹线：用平面切曲面\n\n迹线是把 $x$ 或 $y$ 固定成常数后得到的截面曲线。对\n\n$$\nz=\\sin x+\\cos y\n$$\n\n固定 $y=c$ 会得到沿 $x$ 方向起伏的正弦曲线；固定 $x=c$ 会得到沿 $y$ 方向起伏的余弦曲线。它把曲面拆成一条条更熟悉的平面曲线。\n\n[[surface:function=sin(x)+cos(y);range=-6,6;title=迹线模型：固定 x 或 y 的截面]]\n\n## 等值曲线：在平面上看同一高度\n\n等值曲线是满足\n\n$$\nf(x,y)=c\n$$\n\n的点集。对 $z=x^2+y^2$，不同的 $c$ 给出一圈圈同心圆。它很像地形图：线越密，变化越陡。\n\n[[surface:function=x^2+y^2;range=-3,3;title=等值曲线模型：抛物面与同心圆]]\n\n## 等值面：三元函数里的同一数值\n\n如果函数有三个输入，比如\n\n$$\ng(x,y,z)=x^2+y^2+z^2,\n$$\n\n那么 $g(x,y,z)=c$ 给出的不再是曲线，而是空间中的曲面。比如 $g(x,y,z)=4$ 是半径为 $2$ 的球面。下面先用球面的上半部分可视化这一层。\n\n[[surface:function=sqrt(4-x^2-y^2);range=-2,2;title=等值面模型：x^2+y^2+z^2=4 的上半球]]\n\n## 这一节先记住\n\n- $f:\\mathbb R^2\\to\\mathbb R$ 的图像通常是一张曲面。\n- $f:\\mathbb R^n\\to\\mathbb R$ 是标量场，输出是一个数。\n- $F:\\mathbb R^n\\to\\mathbb R^m$ 是向量值函数或向量场，输出是一个向量。\n- 定义域和值域回答“能输入什么、能输出什么”。\n- 图像、迹线、等值曲线、等值面是理解多元函数的四种视角。",
+  "html": "<section class=\"study-widget study-widget--idea\" data-widget=\"callout\" data-type=\"idea\" data-title=\"开篇\"><h4>开篇</h4><p>这一章先不急着求偏导。先把对象看清楚：多元函数到底把什么输入映到什么输出，它的图像、截痕和等值结构分别在看什么。</p></section>\n<h2>1. 多元函数</h2>\n<p>最常见的是</p>\n<p>$$\nf:\\mathbb R^2\\to \\mathbb R,\\qquad z=f(x,y).\n$$</p>\n<p>它的图像是三维空间中的曲面：</p>\n<p>$$\n\\{(x,y,z):z=f(x,y)\\}.\n$$</p>\n<p>更一般地，</p>\n<p>$$\nf:\\mathbb R^n\\to \\mathbb R\n$$</p>\n<p>称为<strong>标量场</strong>；</p>\n<p>$$\nF:\\mathbb R^n\\to \\mathbb R^m\n$$</p>\n<p>称为<strong>向量值函数</strong>或<strong>向量场</strong>。</p>\n<section class=\"study-widget study-widget--focus\" data-widget=\"callout\" data-type=\"focus\" data-title=\"OpenStax 视角\"><h4>OpenStax 视角</h4><p>OpenStax 在多元函数章节中，把第一步放在定义域、值域、图像、迹线、等值曲线和等值面上。也就是说，先学会“看见”一个多元函数，再进入极限、连续、偏导和可微。</p></section>\n<h2>定义域：输入点能放在哪里</h2>\n<p>定义域是所有允许输入的点。比如</p>\n<p>$$\nz=\\sqrt{9-x^2-y^2}\n$$</p>\n<p>要求 $9-x^2-y^2\\ge 0$，所以定义域是圆盘 $x^2+y^2\\le 9$。下面的半球面只在这个圆盘上有图像。</p>\n<div class=\"surface-widget\" data-widget=\"surface\" data-expression=\"sqrt(9-x^2-y^2)\" data-range=\"-3,3\" data-title=\"定义域模型：圆盘上的半球\"></div>\n<h2>值域：输出高度能到哪里</h2>\n<p>同一个函数 $z=\\sqrt{9-x^2-y^2}$ 的高度从边界圆上的 $0$ 到原点处的 $3$，所以值域是 $[0,3]$。旋转模型时，可以把“高度范围”理解成整个曲面在 $z$ 轴上的投影。</p>\n<div class=\"surface-widget\" data-widget=\"surface\" data-expression=\"sqrt(9-x^2-y^2)\" data-range=\"-3,3\" data-title=\"值域模型：高度从 0 到 3\"></div>\n<h2>图像：二元函数对应一张曲面</h2>\n<p>二元函数的图像不是平面曲线，而是三维空间中的曲面。例如</p>\n<p>$$\nz=x^2-y^2\n$$</p>\n<p>是一张鞍面。它沿 $x$ 方向上升，沿 $y$ 方向下降，正好提醒我们：多元函数的局部变化具有方向性。</p>\n<div class=\"surface-widget\" data-widget=\"surface\" data-expression=\"x^2-y^2\" data-range=\"-3,3\" data-title=\"图像模型：鞍面 z = x^2 - y^2\"></div>\n<h2>迹线：用平面切曲面</h2>\n<p>迹线是把 $x$ 或 $y$ 固定成常数后得到的截面曲线。对</p>\n<p>$$\nz=\\sin x+\\cos y\n$$</p>\n<p>固定 $y=c$ 会得到沿 $x$ 方向起伏的正弦曲线；固定 $x=c$ 会得到沿 $y$ 方向起伏的余弦曲线。它把曲面拆成一条条更熟悉的平面曲线。</p>\n<div class=\"surface-widget\" data-widget=\"surface\" data-expression=\"sin(x)+cos(y)\" data-range=\"-6,6\" data-title=\"迹线模型：固定 x 或 y 的截面\"></div>\n<h2>等值曲线：在平面上看同一高度</h2>\n<p>等值曲线是满足</p>\n<p>$$\nf(x,y)=c\n$$</p>\n<p>的点集。对 $z=x^2+y^2$，不同的 $c$ 给出一圈圈同心圆。它很像地形图：线越密，变化越陡。</p>\n<div class=\"surface-widget\" data-widget=\"surface\" data-expression=\"x^2+y^2\" data-range=\"-3,3\" data-title=\"等值曲线模型：抛物面与同心圆\"></div>\n<h2>等值面：三元函数里的同一数值</h2>\n<p>如果函数有三个输入，比如</p>\n<p>$$\ng(x,y,z)=x^2+y^2+z^2,\n$$</p>\n<p>那么 $g(x,y,z)=c$ 给出的不再是曲线，而是空间中的曲面。比如 $g(x,y,z)=4$ 是半径为 $2$ 的球面。下面先用球面的上半部分可视化这一层。</p>\n<div class=\"surface-widget\" data-widget=\"surface\" data-expression=\"sqrt(4-x^2-y^2)\" data-range=\"-2,2\" data-title=\"等值面模型：x^2+y^2+z^2=4 的上半球\"></div>\n<h2>这一节先记住</h2>\n<ul>\n<li>$f:\\mathbb R^2\\to\\mathbb R$ 的图像通常是一张曲面。</li>\n<li>$f:\\mathbb R^n\\to\\mathbb R$ 是标量场，输出是一个数。</li>\n<li>$F:\\mathbb R^n\\to\\mathbb R^m$ 是向量值函数或向量场，输出是一个向量。</li>\n<li>定义域和值域回答“能输入什么、能输出什么”。</li>\n<li>图像、迹线、等值曲线、等值面是理解多元函数的四种视角。</li>\n</ul>"
 }</script>
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>

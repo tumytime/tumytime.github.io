@@ -44,8 +44,8 @@
       "title": "05 多元函数微分学",
       "subject": "math",
       "part": "高等数学",
-      "summary": "围绕偏导数、全微分、梯度和极值，处理二元与多元函数局部变化。",
-      "date": "2026-05-30",
+      "summary": "从多元函数、标量场和向量场开始，用图像、定义域、值域、迹线、等值曲线与等值面建立直观。",
+      "date": "2026-06-04",
       "slug": "math1-05-multivariable-differential",
       "coverSeed": "math1-05-multivariable-differential",
       "url": "/study/math/math1-05-multivariable-differential/"
