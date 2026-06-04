@@ -415,12 +415,45 @@
       const row = [];
       for (let xi = 0; xi < steps; xi += 1) {
         const value = evaluator(xs[xi], ys[yi]);
-        row.push(Number.isFinite(value) ? value : null);
+        row.push(Number.isFinite(value) ? value : NaN);
       }
       z.push(row);
     }
 
     return { x: xs, y: ys, z };
+  }
+
+  function parseUpperRadicalSurface(expression) {
+    const compact = String(expression || "").replace(/\s+/g, "").replace(/\^/g, "**");
+    const match = compact.match(/^sqrt\((\d+(?:\.\d+)?)-x\*\*2-y\*\*2\)$/i);
+    return match ? Number(match[1]) : null;
+  }
+
+  function buildUpperRadicalSurfaceData(radiusSquared, rangeText) {
+    const radius = Math.sqrt(radiusSquared);
+    const radialSteps = 38;
+    const angularSteps = 88;
+    const x = [];
+    const y = [];
+    const z = [];
+
+    for (let ri = 0; ri < radialSteps; ri += 1) {
+      const r = radius * (ri / (radialSteps - 1));
+      const xRow = [];
+      const yRow = [];
+      const zRow = [];
+      for (let ti = 0; ti < angularSteps; ti += 1) {
+        const theta = (Math.PI * 2 * ti) / (angularSteps - 1);
+        xRow.push(Number((r * Math.cos(theta)).toFixed(4)));
+        yRow.push(Number((r * Math.sin(theta)).toFixed(4)));
+        zRow.push(Number(Math.sqrt(Math.max(0, radiusSquared - r * r)).toFixed(4)));
+      }
+      x.push(xRow);
+      y.push(yRow);
+      z.push(zRow);
+    }
+
+    return { x, y, z };
   }
 
   function renderSurfaceElement(element) {
@@ -435,12 +468,16 @@
     }
 
     try {
-      const data = buildSurfaceData(expression, range);
+      const upperRadicalRadius = parseUpperRadicalSurface(expression);
+      const data = upperRadicalRadius
+        ? buildUpperRadicalSurfaceData(upperRadicalRadius, range)
+        : buildSurfaceData(expression, range);
       window.Plotly.newPlot(
         element,
         [{
           ...data,
           type: "surface",
+          connectgaps: false,
           colorscale: [
             [0, "#151c2d"],
             [0.28, "#3a6ea5"],
