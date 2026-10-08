@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10202d"><meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="71天考研作战表：10天基础学习、20年真题，每天的任务、课程和完成进度都在这里。">
-<link rel="canonical" href="https://tumytime.space/kaoyan/"><link rel="icon" type="image/png" href="./siat-icon.png"><link rel="apple-touch-icon" href="./siat-icon.png"><link rel="stylesheet" href="./planner.css?v=20261009d">
+<link rel="canonical" href="https://tumytime.space/kaoyan/"><link rel="icon" type="image/png" href="./siat-icon.png"><link rel="apple-touch-icon" href="./siat-icon.png"><link rel="stylesheet" href="./planner.css?v=20261009e">
 <title>一天一格 · 考研作战表</title>
 </head><body>
 <main>
-<header class="masthead"><a href="./?v=20261009d" class="brand" aria-label="一天一格，返回全局"><img src="./siat-icon.png" alt="深圳先进院院徽" width="36" height="36">一天一格 <small>/ 2027 研考作战表</small></a><time id="today-date"></time></header>
+<header class="masthead"><a href="./?v=20261009e" class="brand" aria-label="一天一格，返回全局"><img src="./siat-icon.png" alt="深圳先进院院徽" width="36" height="36">一天一格 <small>/ 2027 研考作战表</small></a><time id="today-date"></time></header>
 <div id="app"></div>
 <footer class="footer"><p>按北京时间更新。时间进度统计已完整过去的备考日；阶段进度按任务计算，包含新增任务。打卡与任务先存本机，已连接的浏览器自动同步到仓库。预报名安排以当地考试机构公告为准。</p><nav><a href="/">主站</a><a href="/study/">学习小站</a><a href="https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html" target="_blank" rel="noopener noreferrer">初试公告</a><a href="https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html" target="_blank" rel="noopener noreferrer">报名公告</a></nav></footer>
 <noscript>请启用 JavaScript。基础阶段为10月9日至18日；真题阶段为10月19日至11月7日，每天完成2007—2026对应年份的政治、英语、数学、自控真题各一套。</noscript>
@@ -16,5 +16,5 @@
 <dialog id="delete-dialog" aria-labelledby="delete-title"><div class="dialog-head"><h2 id="delete-title">删除这项自建任务？</h2><button class="close" data-close="delete-dialog" aria-label="关闭删除确认">×</button></div><p id="delete-description" class="dialog-note"></p><p class="dialog-note">会从当前计划中移除，并同步到其他设备；已提交的旧版本仍保留在仓库历史中。</p><div class="dialog-actions"><button class="btn quiet" data-close="delete-dialog">取消</button><button id="confirm-delete" class="btn">删除任务</button></div></dialog>
 <dialog id="sync-dialog" aria-labelledby="sync-title"><div class="dialog-head"><h2 id="sync-title">配置此浏览器的自动保存</h2><button class="close" data-close="sync-dialog" aria-label="关闭连接设置">×</button></div><p class="dialog-note">此设置只用于首次连接或迁移浏览器，日常打开作战表无需填写。</p><ol class="setup-list"><li>已有连接：在原浏览器的本设置页复制连接，在新浏览器粘贴。</li><li>新建连接：前往 <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">GitHub 专用令牌设置</a>，仅选择 tumytime.github.io，添加 Contents 读写权限。</li></ol><form id="sync-form"><label class="field">GitHub Fine-grained personal access token<input id="github-token" type="password" autocomplete="off" spellcheck="false" required placeholder="github_pat_…"></label><label class="remember"><input id="remember-token" type="checkbox">在这台私人设备上记住连接</label><p class="dialog-note">令牌只保存在你选择的浏览器，不会写入仓库。新计划和自建任务保存在 kaoyan/logs/planner-v3.json；旧日志继续保留。</p><p id="setup-status" class="form-error" role="status"></p><div class="actions"><button type="submit" id="connect-sync" class="btn primary">连接并启用自动保存</button><button type="button" id="copy-sync" class="btn" hidden>复制连接到另一浏览器</button><button type="button" id="disconnect-sync" class="btn quiet" hidden>断开并忘记连接</button></div></form></dialog>
 <div id="toast" class="toast" role="status" hidden></div>
-<script type="module" src="./planner.mjs?v=20261009d"></script>
+<script type="module" src="./planner.mjs?v=20261009e"></script>
 </body></html>
