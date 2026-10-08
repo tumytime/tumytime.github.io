@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "savedAt": "2026-10-08T20:43:52.744Z",
+  "savedAt": "2026-10-08T20:44:04.677Z",
   "checked": [],
   "customTasks": [
     {
@@ -10,6 +10,14 @@
       "notes": "",
       "subject": "其他",
       "createdAt": "2026-10-08T20:43:51.256Z"
+    },
+    {
+      "id": "custom:b8ece763-46cd-44fc-9a24-02d927b14c35",
+      "date": "2026-10-09",
+      "title": "考研预报名",
+      "notes": "",
+      "subject": "其他",
+      "createdAt": "2026-10-08T20:44:03.097Z"
     }
   ],
   "deletedTasks": [],
