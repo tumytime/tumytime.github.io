@@ -1,8 +1,17 @@
 {
   "version": 3,
-  "savedAt": "2026-10-08T20:42:33.200Z",
+  "savedAt": "2026-10-08T20:43:52.744Z",
   "checked": [],
-  "customTasks": [],
+  "customTasks": [
+    {
+      "id": "custom:59daa347-1923-477b-9d51-c00549465e3a",
+      "date": "2026-10-09",
+      "title": "论文投稿",
+      "notes": "",
+      "subject": "其他",
+      "createdAt": "2026-10-08T20:43:51.256Z"
+    }
+  ],
   "deletedTasks": [],
   "legacyChecked": []
 }
