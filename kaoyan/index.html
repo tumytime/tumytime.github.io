@@ -22,6 +22,8 @@ dialog{color:var(--ink);background:var(--surface);border:1px solid #465a73;borde
 @media(max-width:800px){main{max-width:660px;padding:23px 20px}.edition{display:none}.overview{padding:25px 0;gap:15px}.days-left strong{font-size:3.7rem}.days-left{gap:7px}.days-left span{font-size:.75rem}.count-caption{font-size:.75rem}.intro-note{font-size:.8125rem}.control-bar{grid-template-columns:1fr 1fr}.plan-progress,.completion{padding:16px}.plan-key{gap:7px;flex-wrap:wrap}.plan-heading{align-items:flex-start;flex-direction:column;gap:2px}.completion-top{align-items:flex-start;flex-direction:column;gap:1px}.completion-top strong{font-size:1.125rem}.completion-foot{flex-wrap:wrap;gap:2px}.today-strip{align-items:flex-start}.today-tasks{justify-content:flex-start;flex-direction:column;align-items:flex-start;gap:3px}.days{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.day{min-height:90px}.board-heading{margin-bottom:17px}.stage-key{gap:10px 16px}.stage{flex-wrap:wrap;gap:5px}.stage small{font-size:.75rem}.registration-key{gap:9px 18px}.finish-date{font-size:.9375rem}.finish-label{gap:9px}footer{flex-direction:column;gap:12px}.sources{gap:18px}}
 @media(max-width:420px){main{padding:19px 14px}.masthead{padding-bottom:17px}.masthead time{font-size:.75rem}.overview{gap:8px;align-items:center}h1{font-size:1.55rem}.days-left strong{font-size:3.15rem}.days-left{gap:5px}.count-caption{max-width:90px}.intro-note{font-size:.75rem;max-width:210px}.board{padding:14px;border-radius:14px}.days{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.day{min-height:91px}.day time{font-size:.8125rem}.day .caption,.day .event-label{font-size:.75rem}.board-heading span{max-width:110px;text-align:right}.stage{width:100%}.stage small{margin-left:auto}.today-strip{display:block}.today-title{min-width:0}.today-tasks{margin-top:10px}.plan-progress,.completion{padding:13px}.plan-heading,.completion-top{font-size:.8125rem}.finish{align-items:flex-start}.finish-date{font-size:.875rem;max-width:115px;text-align:right}.flag{display:none}.day .event-label{overflow-wrap:anywhere}.registration-key span:last-child{flex-basis:100%}.day.today:before{top:4px;left:4px;width:4px;height:4px}.dialog-top h2{font-size:1.4rem}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.day,.completion-track div{transition:none}.day:hover{transform:none}}
+
+.logbook{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 23px;padding-top:14px;border-top:1px solid var(--line)}.log-status{font-size:.8125rem;color:var(--muted);max-width:620px}.log-actions{display:flex;gap:8px;flex-wrap:wrap}.log-button{display:inline-flex;align-items:center;justify-content:center;min-height:36px;background:#233347;border:1px solid #455a72;border-radius:8px;padding:7px 12px;color:var(--ink);font:500 .8125rem/1.3 var(--font);text-decoration:none;cursor:pointer}.log-button.primary{background:var(--lime);border-color:var(--lime);color:#263313}.log-button:disabled{opacity:.45;cursor:default}.restore-preview{font-size:.875rem;color:var(--muted);margin:16px 0}.log-dialog-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.log-error{color:#ffbfa0}.import-label{display:block;font-size:.8125rem;color:var(--muted);margin-top:18px}.import-label input{display:block;max-width:100%;margin-top:8px;font-size:.8125rem}
 </style>
 </head>
 <body>
@@ -30,12 +32,14 @@ dialog{color:var(--ink);background:var(--surface);border:1px solid #465a73;borde
 <section class="overview" aria-labelledby="page-title"><div><p class="eyebrow">2027 考研 · 初试备考</p><h1 id="page-title">把每一天，落实到位。</h1><p class="intro-note">10 天打基础，20 天做真题。完成一项，划掉一项。</p></div><div><div class="days-left"><strong id="count" class="mono">71</strong><span>天</span></div><p id="count-caption" class="count-caption">距初试 · 含今天</p></div></section>
 <section class="control-bar" aria-label="计划与完成进度"><div class="plan-progress"><div class="plan-heading"><strong>30 天已安排</strong><span>41 天待安排</span></div><div class="plan-track" role="img" aria-label="71天中，10天基础知识、20天真题、41天待安排"><i></i><i></i><i></i></div><div class="plan-key"><span><strong>10</strong> 天基础</span><span><strong>20</strong> 天真题</span><span><strong>41</strong> 天留白</span></div></div><div class="completion"><div class="completion-top"><span>计划日完成</span><strong><span id="finished-days">0</span> <small>/ 30 天</small></strong></div><div id="completion-progress" class="completion-track" role="progressbar" aria-label="已安排计划日的完成进度" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0"><div id="completion-fill" style="width:0%"></div></div><div class="completion-foot"><span id="task-summary">已完成 0 / 70 项任务</span><span id="completion-percent">0%</span></div></div></section>
 <section class="today-strip" aria-labelledby="today-heading"><div class="today-title"><strong id="today-heading">今天先完成这件事</strong><p id="today-phase">基础知识 · 第 1 天</p></div><div class="today-tasks" id="today-tasks"></div></section>
+<section class="logbook" aria-label="仓库日志"><div id="log-status" class="log-status" role="status">打卡先保存在本机；提交 GitHub 后才会进入仓库日志。</div><div class="log-actions"><a id="save-log" class="log-button primary" href="https://github.com/tumytime/tumytime.github.io/new/main" target="_blank" rel="noopener noreferrer">保存日志到仓库</a><button id="verify-log" class="log-button" type="button" disabled>检查保存结果</button><button id="restore-log" class="log-button" type="button">恢复仓库日志</button></div></section>
 <section class="board" aria-labelledby="board-title"><div class="board-heading"><h2 id="board-title">备考全局</h2><span>点击日期，查看与勾选任务</span></div><div class="stage-key"><span class="stage base"><i aria-hidden="true"></i>基础知识 · 10 天 <small>10.09—10.18</small></span><span class="stage papers"><i aria-hidden="true"></i>真题日 · 20 天 <small>10.19—11.07</small></span><span class="stage open"><i aria-hidden="true"></i>待安排 · 41 天 <small>11.08—12.18</small></span></div><div class="registration-key"><span><i class="outline-key pre" aria-hidden="true"></i>预报名 10.09—10.12</span><span><i class="outline-key formal" aria-hidden="true"></i>正式报名 10.15—10.24</span><span><i class="today-key" aria-hidden="true"></i>今天</span><span>报名每日 9:00—22:00</span></div><ol id="days" class="days" aria-label="从10月9日至12月18日的71个连续日期"></ol><div class="board-foot"><span>真题日每天：<strong>数学、英语、自动控制原理各 1 张卷</strong></span><span>10.09 — 12.18 · 共 71 格</span></div></section>
 <section class="finish" aria-label="初试日期"><div class="finish-label"><span class="flag" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 21V4m0 1c4-4 8 4 12 0v10c-4 4-8-4-12 0"/></svg></span><div><strong>初试开始</strong><p>12 月 19 日，带着准备走进考场。</p></div></div><div class="finish-date">2026.12.19 — 12.20</div></section>
-<footer><p>格子包含 10 月 9 日，不含考试日；日期按北京时间更新。预报名具体安排以省级教育招生考试机构公告为准。<span id="storage-note" class="storage-note">打卡记录仅保存在当前浏览器，不会同步到其他设备。</span></p><div class="sources"><a href="/">主站</a><a href="/study/">学习小站</a><a href="https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html" target="_blank" rel="noopener noreferrer">初试公告</a><a href="https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html" target="_blank" rel="noopener noreferrer">报名公告</a></div></footer>
+<footer><p>格子包含 10 月 9 日，不含考试日；日期按北京时间更新。预报名具体安排以省级教育招生考试机构公告为准。<span id="storage-note" class="storage-note">打卡先保存到本机；点“保存日志到仓库”并在 GitHub 确认提交后可长期保留。换设备可恢复仓库日志。</span></p><div class="sources"><a href="/">主站</a><a href="/study/">学习小站</a><a href="https://yz.chsi.com.cn/kyzx/jybzc/202609/20260924/2293971512.html" target="_blank" rel="noopener noreferrer">初试公告</a><a href="https://yz.chsi.com.cn/kyzx/other/202609/20260927/2293973606.html" target="_blank" rel="noopener noreferrer">报名公告</a></div></footer>
 <noscript><p>请启用 JavaScript 查看71个日期格子及任务。基础知识：10月9—18日；真题日：10月19日—11月7日，每天三科各1张卷。</p></noscript>
 </main>
 <dialog id="day-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-phase"><div class="dialog-top"><h2 id="dialog-title"></h2><button class="close" type="button" aria-label="关闭当天任务">×</button></div><p id="dialog-phase" class="dialog-phase"></p><div id="dialog-events" class="dialog-events"></div><div id="dialog-tasks" class="dialog-tasks"></div><p class="dialog-foot">勾选后自动保存到当前浏览器，可随时取消。</p></dialog>
+<dialog id="restore-dialog" aria-labelledby="restore-title"><div class="dialog-top"><h2 id="restore-title">恢复仓库日志</h2><button id="close-restore" class="close" type="button" aria-label="关闭日志恢复">×</button></div><p class="dialog-hint">读取最近一次提交的记录。确认恢复会替换本机打卡状态；替换前会在本机保留一份副本。</p><p id="restore-preview" class="restore-preview" role="status">正在读取仓库…</p><div class="log-dialog-actions"><button id="confirm-restore" class="log-button primary" type="button" disabled>用这份日志恢复</button><a href="https://github.com/tumytime/tumytime.github.io/tree/main/kaoyan/logs" target="_blank" rel="noopener noreferrer" class="log-button">查看仓库日志</a></div><label class="import-label">也可以导入从仓库下载的 JSON 日志<input id="import-log" type="file" accept=".json,application/json"></label></dialog>
 <div id="live-status" class="sr-only" role="status" aria-live="polite"></div>
 <script>
 (()=>{
@@ -66,8 +70,77 @@ function renderToday(){const d=new Date(today);document.getElementById('today-da
 function update(){const count=Math.max(0,Math.round((EXAM-Math.max(today,START))/DAY));document.getElementById('count').textContent=count;document.getElementById('count-caption').textContent=today>=EXAM?'已到初试日期':today<START?'10.09 起 · 备考日':'距初试 · 含今天';const done=records.filter(completed).length,totalTasks=Object.values(checked).filter(Boolean).length,pct=Math.round(done/30*100);document.getElementById('finished-days').textContent=done;document.getElementById('task-summary').textContent=`已完成 ${totalTasks} / 70 项任务`;document.getElementById('completion-percent').textContent=pct+'%';document.getElementById('completion-fill').style.width=done/30*100+'%';document.getElementById('completion-progress').setAttribute('aria-valuenow',String(done));for(const [i,b]of [...grid.querySelectorAll('.day')].entries()){const r=records[i],done=completed(r);b.classList.toggle('done',done);b.classList.toggle('today',r.stamp===today);b.classList.toggle('past',r.stamp<today);if(r.stamp===today)b.setAttribute('aria-current','date');else b.removeAttribute('aria-current');const taskCount=r.tasks.filter(t=>isChecked(r,t)).length;b.querySelector('.caption').textContent=done?'已完成':r.tasks.length?`第${r.n}天`:'待安排';for(const dot of b.querySelectorAll('[data-task]'))dot.classList.toggle('checked',checked[r.iso+':'+dot.dataset.task]===true);const label=`${r.short} 星期${r.weekday}，${phaseLabel(r)}${r.stamp===today?'，今天':''}${r.tasks.length?`，已完成${taskCount}/${r.tasks.length}项`:''}${r.event?`，${r.event.name}${r.event.action} ${r.event.time}`:''}`;b.setAttribute('aria-label',label);b.title=label}for(const input of document.querySelectorAll('input[data-key]'))input.checked=checked[input.dataset.key]===true}
 function openDay(r){document.getElementById('dialog-title').textContent=r.short+' · 星期'+r.weekday;document.getElementById('dialog-phase').textContent=phaseLabel(r);document.getElementById('dialog-events').textContent=r.event?`${r.event.name}${r.event.action} · ${r.short} ${r.event.time}（北京时间）`:'';const host=document.getElementById('dialog-tasks');host.replaceChildren();if(r.tasks.length){for(const t of r.tasks)host.append(checkbox(r,t))}else{const hint=document.createElement('p');hint.className='dialog-hint';hint.textContent='这一天还没有安排具体任务。11.08—12.18 共 41 天，等待你继续规划。';host.append(hint)}dialog.querySelector('.dialog-foot').hidden=!r.tasks.length;dialog.showModal()}
 grid.addEventListener('click',e=>{const b=e.target.closest('button[data-date]');if(b)openDay(records.find(r=>r.iso===b.dataset.date))});dialog.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
-document.addEventListener('change',e=>{const input=e.target;if(!input.matches('input[data-key]'))return;const key=input.dataset.key;if(!allowed.has(key))return;if(input.checked)checked[key]=true;else delete checked[key];try{localStorage.setItem(KEY,JSON.stringify(checked))}catch{document.getElementById('storage-note').textContent='当前浏览器无法保存记录，本次打卡仅在页面打开期间保留。'}update();document.getElementById('live-status').textContent=input.checked?'已标记完成，进度已更新。':'已取消完成标记，进度已更新。'});
-window.addEventListener('storage',e=>{if(e.key===KEY){try{const saved=JSON.parse(e.newValue||'{}');checked={};for(const k of Object.keys(saved||{}))if(allowed.has(k)&&saved[k]===true)checked[k]=true;update()}catch{}}});
+document.addEventListener('change',e=>{const input=e.target;if(!input.matches('input[data-key]'))return;const key=input.dataset.key;if(!allowed.has(key))return;if(input.checked)checked[key]=true;else delete checked[key];try{localStorage.setItem(KEY,JSON.stringify(checked))}catch{document.getElementById('storage-note').textContent='当前浏览器无法保存记录，本次打卡仅在页面打开期间保留。'}update();refreshLogStatus();document.getElementById('live-status').textContent=input.checked?'已标记完成，进度已更新。':'已取消完成标记，进度已更新。'});
+window.addEventListener('storage',e=>{if(e.key===KEY){try{const saved=JSON.parse(e.newValue||'{}');checked={};for(const k of Object.keys(saved||{}))if(allowed.has(k)&&saved[k]===true)checked[k]=true;update();refreshLogStatus()}catch{}}});
+
+const PENDING_KEY='exam-days-log-pending-v1',SAVED_KEY='exam-days-log-saved-v1';
+const logStatus=document.getElementById('log-status'),verifyButton=document.getElementById('verify-log');
+let pendingLog=null,lastSaved=null,verifying=false,restoreCandidate=null;
+function validSnapshot(raw){
+ if(!raw||raw.version!==1||!Array.isArray(raw.checked)||raw.checked.length>70||typeof raw.savedAt!=='string'||!Number.isFinite(Date.parse(raw.savedAt)))throw new Error('日志格式不正确。');
+ if(raw.checked.some(k=>typeof k!=='string'||!allowed.has(k))||new Set(raw.checked).size!==raw.checked.length)throw new Error('日志包含不属于当前计划的任务。');
+ return {version:1,savedAt:raw.savedAt,checked:[...raw.checked].sort()};
+}
+function readLocal(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
+function storeLocal(key,value){try{localStorage.setItem(key,JSON.stringify(value))}catch{}}
+function safeFilename(name){return typeof name==='string'&&/^kaoyan\/logs\/checkins-[0-9TZ-]+-[a-f0-9]{8}\.json$/.test(name)}
+try{const raw=readLocal(PENDING_KEY);if(raw&&safeFilename(raw.path))pendingLog={path:raw.path,snapshot:validSnapshot(raw.snapshot)}}catch{}
+try{const raw=readLocal(SAVED_KEY);if(raw&&safeFilename(raw.path))lastSaved={path:raw.path,snapshot:validSnapshot(raw.snapshot)}}catch{}
+function currentChecks(){return Object.keys(checked).filter(k=>checked[k]===true).sort()}
+function sameChecks(a,b){return JSON.stringify(a)===JSON.stringify(b)}
+function refreshLogStatus(){
+ verifyButton.disabled=!pendingLog||verifying;
+ if(pendingLog){logStatus.textContent='日志待确认：请在 GitHub 点击 Commit changes，提交后检查保存结果。';return}
+ if(lastSaved){const time=new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(lastSaved.snapshot.savedAt));logStatus.textContent=sameChecks(currentChecks(),lastSaved.snapshot.checked)?`仓库已保存 · ${time} · ${lastSaved.snapshot.checked.length} 项完成`:`本机有新的打卡更改 · 上次仓库保存 ${time}`;return}
+ logStatus.textContent='打卡先保存在本机；提交 GitHub 后才会进入仓库日志。';
+}
+function rawURL(path){return 'https://raw.githubusercontent.com/tumytime/tumytime.github.io/main/'+path+'?t='+Date.now()}
+document.getElementById('save-log').addEventListener('click',e=>{
+ const snapshot={version:1,savedAt:new Date().toISOString(),checked:currentChecks()};
+ const stamp=snapshot.savedAt.replace(/[:.]/g,'-'),id=crypto.randomUUID().slice(0,8);
+ const path='kaoyan/logs/checkins-'+stamp+'-'+id+'.json';
+ const url=new URL('https://github.com/tumytime/tumytime.github.io/new/main');
+ url.searchParams.set('filename',path);url.searchParams.set('value',JSON.stringify(snapshot,null,2)+'\n');
+ pendingLog={path,snapshot};storeLocal(PENDING_KEY,pendingLog);refreshLogStatus();e.currentTarget.href=url.href;
+});
+async function verifyLog(quiet=false){
+ if(!pendingLog||verifying)return;
+ const target=pendingLog;verifying=true;refreshLogStatus();
+ try{
+  const response=await fetch(rawURL(target.path),{cache:'no-store'});
+  if(!response.ok)throw new Error(response.status===404?'GitHub 尚未找到这份日志。请确认已提交，稍后再检查。':'暂时无法读取仓库，请稍后重试。');
+  const snapshot=validSnapshot(await response.json());
+  if(snapshot.savedAt!==target.snapshot.savedAt||!sameChecks(snapshot.checked,target.snapshot.checked))throw new Error('仓库文件与本次日志不一致，未标记保存成功。');
+  if(pendingLog!==target)return;
+  lastSaved={path:target.path,snapshot};storeLocal(SAVED_KEY,lastSaved);pendingLog=null;try{localStorage.removeItem(PENDING_KEY)}catch{}
+ }catch(error){if(!quiet)logStatus.textContent=error.message;return}finally{verifying=false;verifyButton.disabled=!pendingLog}
+ refreshLogStatus();
+}
+verifyButton.addEventListener('click',()=>verifyLog());
+window.addEventListener('focus',()=>{if(pendingLog)verifyLog(true)});
+const restoreDialog=document.getElementById('restore-dialog'),restorePreview=document.getElementById('restore-preview'),restoreConfirm=document.getElementById('confirm-restore');
+function showCandidate(snapshot,path){restoreCandidate={snapshot:validSnapshot(snapshot),path};restorePreview.textContent=`${new Date(restoreCandidate.snapshot.savedAt).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false})}（北京时间），已完成 ${restoreCandidate.snapshot.checked.length} 项。`;restoreConfirm.disabled=false}
+document.getElementById('restore-log').addEventListener('click',async()=>{
+ restoreCandidate=null;restoreConfirm.disabled=true;restorePreview.textContent='正在读取最近一次仓库日志…';restoreDialog.showModal();
+ try{
+  const response=await fetch('https://api.github.com/repos/tumytime/tumytime.github.io/contents/kaoyan/logs?ref=main&t='+Date.now(),{cache:'no-store',headers:{Accept:'application/vnd.github+json'}});
+  if(!response.ok)throw new Error(response.status===404?'仓库还没有日志。请先保存并提交一次。':'暂时无法列出仓库日志；可以从仓库下载 JSON 后在下方导入。');
+  const entries=await response.json();if(!Array.isArray(entries))throw new Error('仓库日志列表格式不正确。');
+  const files=entries.filter(x=>x.type==='file'&&safeFilename(x.path)).sort((a,b)=>b.name.localeCompare(a.name));
+  if(!files.length)throw new Error('仓库还没有可恢复的日志。');
+  const fileResponse=await fetch(rawURL(files[0].path),{cache:'no-store'});if(!fileResponse.ok)throw new Error('读取日志失败，请稍后重试。');
+  showCandidate(await fileResponse.json(),files[0].path);
+ }catch(error){restorePreview.textContent=error.message}
+});
+document.getElementById('import-log').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;restoreCandidate=null;restoreConfirm.disabled=true;try{if(file.size>65536)throw new Error('日志文件过大，请选择本站保存的 JSON 日志。');showCandidate(JSON.parse(await file.text()),null)}catch(error){restorePreview.textContent=error.message}e.target.value=''});
+restoreConfirm.addEventListener('click',()=>{
+ if(!restoreCandidate)return;storeLocal('exam-days-before-restore-v1',{version:1,savedAt:new Date().toISOString(),checked:currentChecks()});
+ checked=Object.fromEntries(restoreCandidate.snapshot.checked.map(k=>[k,true]));storeLocal(KEY,checked);
+ if(restoreCandidate.path){lastSaved=restoreCandidate;storeLocal(SAVED_KEY,lastSaved)}else{lastSaved=null;try{localStorage.removeItem(SAVED_KEY)}catch{}}
+ pendingLog=null;try{localStorage.removeItem(PENDING_KEY)}catch{}update();refreshLogStatus();restoreDialog.close();document.getElementById('live-status').textContent='日志已恢复。';
+});
+document.getElementById('close-restore').addEventListener('click',()=>restoreDialog.close());
+refreshLogStatus();
 makeGrid();renderToday();update();function refreshDate(){const next=todayStamp();if(next!==today){today=next;renderToday();update()}}setInterval(refreshDate,60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshDate()});
 })();
 </script>
