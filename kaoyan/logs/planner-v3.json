@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "savedAt": "2026-10-08T20:44:04.677Z",
+  "savedAt": "2026-10-08T20:44:12.872Z",
   "checked": [],
   "customTasks": [
     {
@@ -10,6 +10,14 @@
       "notes": "",
       "subject": "其他",
       "createdAt": "2026-10-08T20:43:51.256Z"
+    },
+    {
+      "id": "custom:61aedf6c-e5b1-4a0f-8146-27a6fd5ada91",
+      "date": "2026-10-09",
+      "title": "生产实习报告",
+      "notes": "",
+      "subject": "其他",
+      "createdAt": "2026-10-08T20:44:11.352Z"
     },
     {
       "id": "custom:b8ece763-46cd-44fc-9a24-02d927b14c35",
