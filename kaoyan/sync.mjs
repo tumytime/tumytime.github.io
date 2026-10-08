@@ -50,13 +50,14 @@ export class RepositorySync {
   }
   async request(method, body) {
     let response;
+    const controller = new AbortController(), timeout = setTimeout(() => controller.abort(), 20000);
     try {
       response = await this.fetcher(API + (method === 'GET' ? '?ref=main' : ''), {
-        method, cache: 'no-store', signal: AbortSignal.timeout(20000),
+        method, cache: 'no-store', signal: controller.signal,
         headers: {Accept: 'application/vnd.github+json', Authorization: 'Bearer ' + this.token, 'X-GitHub-Api-Version': '2022-11-28', ...(body ? {'Content-Type': 'application/json'} : {})},
         ...(body ? {body: JSON.stringify(body)} : {})
       });
-    } catch { throw new Error('网络暂时不可用；打卡已留在本机，联网后会重试。'); }
+    } catch (error) { console.warn('Check-in sync request failed:', error.name, error.message); throw new Error('网络暂时不可用；打卡已留在本机，联网后会重试。'); } finally { clearTimeout(timeout); }
     if (response.status === 404 && method === 'GET') return null;
     if (!response.ok) {
       const error = new Error(response.status === 401 ? '授权已失效，请重新连接 GitHub。' : response.status === 403 ? 'GitHub 拒绝写入或请求受限，请检查仓库的 Contents 读写权限，稍后重试。' : response.status === 404 ? '找不到仓库或没有写入权限，请检查令牌选定的仓库。' : response.status === 409 || response.status === 422 ? '另一台设备刚更新了记录，正在重新合并。' : 'GitHub 暂时无法保存，打卡仍在本机。');
