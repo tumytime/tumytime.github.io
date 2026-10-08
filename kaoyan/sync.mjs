@@ -5,7 +5,7 @@ export function validateState(data, allowed) {
   return {version: data.version, savedAt: data.savedAt, checked: [...data.checked].sort()};
 }
 export class RepositorySync {
-  constructor({allowed, storage, fetcher = fetch, onState = () => {}, onChecks = () => {}, initial = []}) {
+  constructor({allowed, storage, fetcher = (...args) => fetch(...args), onState = () => {}, onChecks = () => {}, initial = []}) {
     this.allowed = allowed; this.storage = storage; this.fetcher = fetcher; this.onState = onState; this.onChecks = onChecks;
     this.token = ''; this.running = false; this.timer = null; this.generation = 0; this.revision = 0; this.retryDelay = 5000;
     this.pending = {}; this.lastSaved = null; this.error = ''; this.halted = false;
