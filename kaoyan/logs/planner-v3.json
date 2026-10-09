@@ -1,7 +1,9 @@
 {
   "version": 3,
-  "savedAt": "2026-10-08T20:53:25.401Z",
-  "checked": [],
+  "savedAt": "2026-10-09T04:50:46.756Z",
+  "checked": [
+    "2026-10-09:words"
+  ],
   "customTasks": [
     {
       "id": "custom:59daa347-1923-477b-9d51-c00549465e3a",
